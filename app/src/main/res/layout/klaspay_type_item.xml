@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="item"
+            type="id.onklas.app.pages.klaspay.topup.TypeTopupItem" />
+    </data>
+
+    <RelativeLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:animateLayoutChanges="true"
+        android:paddingVertical="@dimen/_8sdp">
+
+        <ImageView
+            android:id="@+id/image"
+            imageUrl="@{item.img}"
+            android:layout_width="@dimen/_32sdp"
+            android:layout_height="@dimen/_32sdp"
+            android:layout_marginStart="@dimen/_16sdp"
+            android:layout_marginEnd="@dimen/_8sdp"
+            tools:src="@android:drawable/ic_menu_report_image" />
+
+        <FrameLayout
+            android:id="@+id/balance_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="@dimen/_16sdp">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_topup"
+                style="@style/Widget.MaterialComponents.Button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minWidth="0dp"
+                android:minHeight="0dp"
+                android:paddingHorizontal="@dimen/_8sdp"
+                android:paddingVertical="@dimen/_4sdp"
+                android:src="@drawable/ic_carret_down"
+                android:text="Top Up Saldo"
+                android:textAllCaps="false"
+                android:textSize="@dimen/_10ssp"
+                android:textStyle="bold"
+                android:visibility="@{item.needTopup ? View.VISIBLE : View.GONE}"
+                app:backgroundTint="@color/colorPrimary"
+                app:cornerRadius="@dimen/_16sdp"
+                tools:ignore="HardcodedText"
+                tools:visibility="gone" />
+
+            <TextView
+                android:id="@+id/label_balance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:text="@{item.balance}"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/_12ssp"
+                android:visibility="@{item.needTopup ? View.GONE : View.VISIBLE}"
+                tools:text="Rp 9.000.000" />
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@{item.needTopup ? @dimen/_1sdp : @dimen/_8sdp}"
+            android:layout_toStartOf="@id/balance_info"
+            android:layout_toEndOf="@id/image"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:text="@{item.name}"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/_13ssp"
+            android:textStyle="bold"
+            tools:layout_marginTop="@dimen/_1sdp"
+            tools:text="Jenis Pembayaran Topup" />
+
+        <TextView
+            android:id="@+id/tv_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_name"
+            android:layout_marginTop="@dimen/_4sdp"
+            android:layout_toStartOf="@id/balance_info"
+            android:layout_toEndOf="@id/image"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:text='@{item.needTopup ? "Saldo tidak cukup" : ""}'
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/_11ssp"
+            android:visibility="@{item.needTopup ? View.VISIBLE : View.GONE}"
+            tools:text="@string/lipsum"
+            tools:visibility="gone" />
+
+        <View
+            android:id="@+id/divider"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_1sdp"
+            android:layout_below="@id/image"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:background="@color/ltgray" />
+    </RelativeLayout>
+</layout>

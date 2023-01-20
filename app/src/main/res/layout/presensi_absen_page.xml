@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <import type="id.onklas.app.pages.presensi.PresensiBindConverter" />
+
+        <variable
+            name="viewmodel"
+            type="id.onklas.app.pages.presensi.PresensiViewModel" />
+
+        <variable
+            name="isStudent"
+            type="Boolean" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:animateLayoutChanges="true">
+
+        <TextView
+            android:id="@+id/date_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:paddingTop="@dimen/_8sdp"
+            android:paddingBottom="@dimen/_8sdp"
+            android:text="@{PresensiBindConverter.calendarToMonthFormat(viewmodel.calAbsensi)}"
+            android:textColor="@color/textBlack"
+            android:textSize="@dimen/_12ssp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Month Label" />
+
+        <ImageView
+            android:id="@+id/prev"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginStart="@dimen/_12sdp"
+            android:adjustViewBounds="true"
+            android:onClick="@{() -> viewmodel.substractCalendarAbsensi()}"
+            android:src="@drawable/ic_lower_than"
+            app:layout_constraintBottom_toBottomOf="@id/date_label"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/date_label" />
+
+        <ImageView
+            android:id="@+id/next"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginEnd="@dimen/_12sdp"
+            android:adjustViewBounds="true"
+            android:onClick="@{() -> viewmodel.addCalendarAbsensi()}"
+            android:rotation="180"
+            android:src="@drawable/ic_lower_than"
+            app:layout_constraintBottom_toBottomOf="@id/date_label"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/date_label" />
+
+        <TextView
+            android:id="@+id/head_date"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="#A7E4FF"
+            android:gravity="center"
+            android:padding="@dimen/_8sdp"
+            android:text="Tanggal"
+            android:textColor="@color/textBlack"
+            android:textSize="@dimen/_12ssp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@id/head_attend"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/date_label"
+            app:layout_constraintWidth_percent="0.333"
+            tools:ignore="HardcodedText" />
+
+        <TextView
+            android:id="@+id/head_attend"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="#A3FFD3"
+            android:gravity="center"
+            android:padding="@dimen/_8sdp"
+            android:text="Jam masuk"
+            android:textColor="@color/textBlack"
+            android:textSize="@dimen/_12ssp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@id/head_leave"
+            app:layout_constraintStart_toEndOf="@id/head_date"
+            app:layout_constraintTop_toBottomOf="@id/date_label"
+            tools:ignore="HardcodedText" />
+
+        <TextView
+            android:id="@+id/head_leave"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="#FFF3BD"
+            android:gravity="center"
+            android:padding="@dimen/_8sdp"
+            android:text="Jam keluar"
+            android:textColor="@color/textBlack"
+            android:textSize="@dimen/_12ssp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/head_attend"
+            app:layout_constraintTop_toBottomOf="@id/date_label"
+            app:layout_constraintWidth_percent="0.333"
+            tools:ignore="HardcodedText" />
+
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/swipe_refresh"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@color/ltgray"
+            app:layout_constraintBottom_toTopOf="@id/sp_button"
+            app:layout_constraintTop_toBottomOf="@id/head_date">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_kelas"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:listitem="@layout/presensi_absen_item" />
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+        <Space
+            android:id="@+id/sp_button"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_16sdp"
+            android:visibility="@{isStudent ? View.GONE : View.VISIBLE}"
+            app:layout_constraintBottom_toTopOf="@id/btn_absen" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_absen"
+            style="@style/Widget.MaterialComponents.Button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/_16sdp"
+            android:minHeight="0dp"
+            android:paddingVertical="@dimen/_10sdp"
+            android:text="Lakukan Presensi"
+            android:textColor="@android:color/white"
+            app:backgroundTint="@color/colorPrimary"
+            app:cornerRadius="@dimen/_24sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintWidth_percent="0.7"
+            tools:ignore="HardcodedText" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

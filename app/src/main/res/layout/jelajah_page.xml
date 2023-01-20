@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/swipe_refresh"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.google.android.material.appbar.AppBarLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:animateLayoutChanges="true"
+                    android:paddingBottom="@dimen/_8sdp">
+
+                    <EditText
+                        android:id="@+id/in_cari"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_16sdp"
+                        android:layout_marginEnd="@dimen/_16sdp"
+                        android:drawableEnd="@android:drawable/ic_menu_search"
+                        android:drawableTint="@color/colorPrimary"
+                        android:hint="Cari"
+                        android:imeOptions="actionDone"
+                        android:paddingTop="@dimen/_8sdp"
+                        android:paddingBottom="@dimen/_4sdp"
+                        android:singleLine="true"
+                        android:textSize="@dimen/_13ssp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:ignore="HardcodedText" />
+
+                    <View
+                        android:id="@+id/divider"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_1sdp"
+                        android:background="@color/gray"
+                        app:layout_constraintTop_toBottomOf="@id/in_cari" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btn_populer"
+                        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_16sdp"
+                        android:layout_marginTop="@dimen/_8sdp"
+                        android:gravity="center"
+                        android:letterSpacing="0.01"
+                        android:text="Terpopuler"
+                        android:textAllCaps="false"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="@dimen/_10ssp"
+                        app:backgroundTint="@android:color/white"
+                        app:cornerRadius="@dimen/_8sdp"
+                        app:layout_constraintEnd_toStartOf="@id/btn_user"
+                        app:layout_constraintHorizontal_chainStyle="spread_inside"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/divider"
+                        app:layout_constraintWidth_percent="0.27"
+                        app:strokeColor="@color/colorPrimary"
+                        tools:ignore="HardcodedText" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btn_user"
+                        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:letterSpacing="0.01"
+                        android:text="Orang"
+                        android:textAllCaps="false"
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/_10ssp"
+                        app:backgroundTint="@android:color/white"
+                        app:cornerRadius="@dimen/_8sdp"
+                        app:layout_constraintEnd_toStartOf="@id/btn_hashtag"
+                        app:layout_constraintStart_toEndOf="@id/btn_populer"
+                        app:layout_constraintTop_toTopOf="@id/btn_populer"
+                        app:layout_constraintWidth_percent="0.27"
+                        app:strokeColor="@color/gray"
+                        tools:ignore="HardcodedText" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btn_hashtag"
+                        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/_16sdp"
+                        android:gravity="center"
+                        android:letterSpacing="0.01"
+                        android:text="Tagar"
+                        android:textAllCaps="false"
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/_10ssp"
+                        app:backgroundTint="@android:color/white"
+                        app:cornerRadius="@dimen/_8sdp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/btn_user"
+                        app:layout_constraintTop_toTopOf="@id/btn_populer"
+                        app:layout_constraintWidth_percent="0.27"
+                        app:strokeColor="@color/gray"
+                        tools:ignore="HardcodedText" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </com.google.android.material.appbar.AppBarLayout>
+
+            <fragment
+                android:id="@+id/page_container"
+                android:name="androidx.navigation.fragment.NavHostFragment"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fillViewport="true"
+                app:defaultNavHost="true"
+                app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
+                app:navGraph="@navigation/jelajah_nav" />
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+</layout>

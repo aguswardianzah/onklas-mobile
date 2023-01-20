@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="courier"
+            type="String" />
+
+        <variable
+            name="address"
+            type="String" />
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/textView38"
+            style="@style/latoBlackBold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_23sdp"
+            android:text="Resi Pengiriman"
+            android:textSize="@dimen/_16sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:id="@+id/v_form"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginHorizontal="@dimen/_24sdp"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:background="@drawable/border_add_resi"
+            app:layout_constraintBottom_toBottomOf="@id/sp_alamat"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView38" />
+
+        <TextView
+            android:id="@+id/lbl_metode_pengiriman"
+            style="@style/latoDefault"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_16sdp"
+            android:layout_marginTop="@dimen/_16sdp"
+            android:text="Metode Pengiriman :"
+            android:textAllCaps="true"
+            android:textColor="@color/Black2"
+            android:textSize="@dimen/_10ssp"
+            app:layout_constraintStart_toStartOf="@id/v_form"
+            app:layout_constraintTop_toTopOf="@id/v_form" />
+
+        <TextView
+            android:id="@+id/pengiriman_name"
+            style="@style/latoBlackBold"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@{courier}"
+            android:layout_marginHorizontal="@dimen/_16sdp"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:textSize="@dimen/_12ssp"
+            app:layout_constraintEnd_toEndOf="@id/v_form"
+            app:layout_constraintStart_toStartOf="@id/v_form"
+            app:layout_constraintTop_toBottomOf="@id/lbl_metode_pengiriman"
+            tools:text="JNE OKE" />
+
+        <View
+            android:id="@+id/sp_form"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_8sdp"
+            android:layout_marginHorizontal="@dimen/_16sdp"
+            android:layout_marginTop="@dimen/_16sdp"
+            android:background="@drawable/border_dotted"
+            app:layout_constraintEnd_toEndOf="@id/v_form"
+            app:layout_constraintStart_toStartOf="@id/v_form"
+            app:layout_constraintTop_toBottomOf="@id/pengiriman_name" />
+
+
+        <TextView
+            android:id="@+id/lbl_alamat_pengiriman"
+            style="@style/latoDefault"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_16sdp"
+            android:layout_marginTop="@dimen/_16sdp"
+            android:text="Metode Pengiriman :"
+            android:textAllCaps="true"
+            android:textColor="@color/Black2"
+            android:textSize="@dimen/_10ssp"
+            app:layout_constraintStart_toStartOf="@id/v_form"
+            app:layout_constraintTop_toBottomOf="@id/sp_form" />
+
+        <TextView
+            android:id="@+id/txt_alamat"
+            style="@style/latoBlackBold"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_16sdp"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:text="@{address}"
+            tools:text="Dukuh Menanggal 5 No 10 RT 02 RW 06 Kelurahan Dukuh Menanggal Kecamatan Gayunga, Kota Surabaya 60234"
+            android:textSize="@dimen/_12ssp"
+            app:layout_constraintEnd_toEndOf="@id/v_form"
+            app:layout_constraintStart_toStartOf="@id/v_form"
+            app:layout_constraintTop_toBottomOf="@id/lbl_alamat_pengiriman" />
+
+        <Space
+            android:id="@+id/sp_alamat"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_8sdp"
+            android:layout_marginTop="@dimen/_8sdp"
+            app:layout_constraintEnd_toEndOf="@id/v_form"
+            app:layout_constraintStart_toStartOf="@id/v_form"
+            app:layout_constraintTop_toBottomOf="@id/txt_alamat" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/in_resi_layout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_24sdp"
+            app:boxBackgroundColor="@android:color/transparent"
+            app:boxStrokeColor="@android:color/transparent"
+            app:counterMaxLength="200"
+            app:layout_constraintTop_toBottomOf="@id/v_form"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="@dimen/_8sdp"
+            app:hintEnabled="false">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/in_resi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Resi Pengiriman"
+                android:gravity="center"
+                android:paddingBottom="@dimen/_15sdp"
+                android:textColor="@color/textBlack"
+                android:textSize="@dimen/_12ssp"
+                tools:ignore="HardcodedText" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/action_konfirmasi"
+            style="@style/latoDefault"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_24sdp"
+            android:background="@drawable/rounded_radius40"
+            android:backgroundTint="@color/colorPrimary"
+            android:gravity="center"
+            android:paddingVertical="@dimen/_12sdp"
+            android:text="Konfirmasi"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_12sdp"
+            app:iconSize="@dimen/_30sdp"
+            android:layout_marginTop="@dimen/_16sdp"
+            app:layout_constraintTop_toBottomOf="@id/in_resi_layout"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/action_batal"
+            style="@style/latoDefault"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_24sdp"
+            android:background="@drawable/border_gray_radius_40"
+            android:gravity="center"
+            android:paddingVertical="@dimen/_12sdp"
+            android:text="Batal"
+            android:textAllCaps="false"
+            android:textColor="@color/gray"
+            android:textSize="@dimen/_12sdp"
+            app:iconSize="@dimen/_30sdp"
+            android:layout_marginTop="@dimen/_16sdp"
+            app:layout_constraintTop_toBottomOf="@id/action_konfirmasi"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="@dimen/_24sdp"
+            />
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

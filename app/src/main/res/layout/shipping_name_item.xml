@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="item"
+            type="id.onklas.app.pages.sekolah.store.ListShipData" />
+
+        <variable
+            name="selected"
+            type="Boolean" />
+    </data>
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_16sdp"
+        android:animateLayoutChanges="true"
+        android:paddingTop="@dimen/_12sdp">
+
+        <ImageView
+            android:id="@+id/ic_switch"
+            android:layout_width="@dimen/_16sdp"
+            android:layout_height="@dimen/_16sdp"
+            android:layout_alignParentEnd="true"
+            android:rotation="@{selected ? 180 : 0}"
+            android:src="@drawable/ic_chevron_down" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_2sdp"
+            android:layout_toStartOf="@id/ic_switch"
+            android:text="@{item.courier_name}"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/_12ssp"
+            android:textStyle="bold"
+            tools:text="Nama Ekspedisi" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_1sdp"
+            android:layout_below="@id/ic_switch"
+            android:layout_marginTop="@dimen/_6sdp"
+            android:background="@color/ltgray"
+            android:visibility="@{selected ? View.GONE : View.VISIBLE}" />
+    </RelativeLayout>
+</layout>

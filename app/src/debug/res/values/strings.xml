@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">OnKlas Dev</string>
+
+    <string name="lipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</string>
+
+    <string name="no_files_found">File tidak ditemukan</string>
+
+    <string name="content_promo_klaspay">Dapatkan cashback 1.500 rupiah untuk setiap transaksi pembayaran tagihan<br />
+*berlaku untuk tagihan PLN, PDAM, TELKOM INDIHOME serta BPJS<br /><br />
+Siswa pintar belajar berwirausaha dengan Onklas, Yuk..... bayar tagihan temenmu, keluargamu serta tetangga sekitar rumahmu melalui onklas agar lebih untung<br /><br />
+        <b>Syarat dan ketentuan:</b><br /><br />
+        <ol>
+            <li>Promo hanya berlaku untuk produk transaksi tagihan PLN, PDAM, TELKOM, INDIHOME serta BPJS di aplikasi Onklas</li><br />
+            <li>Promo hanya berlaku untuk user yang terdaftar di aplikasi Onklas</li><br />
+            <li>Cashback flat Rp. 1,500 per transaksi</li><br />
+            <li>Cashback akan diterima maksimal 1x24jam</li><br />
+            <li>Hanya berlaku untuk transaksi menggunakan pembayaran Klaspay</li><br />
+            <li>Promo berlaku untuk 1 user/transaksi</li><br />
+            <li>Transaksi yang sudah dibayarkan tidak dapat dikembalikan</li><br />
+        </ol>
+</string>
+</resources>

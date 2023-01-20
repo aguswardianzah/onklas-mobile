@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="item"
+            type="id.onklas.app.pages.theory.MateriMapelTeacher" />
+
+        <variable
+            name="isMine"
+            type="Boolean" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_16sdp"
+        android:background="@drawable/rounded_white"
+        android:padding="@dimen/_8sdp">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/option"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:layout_width="@dimen/_32sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:layout_alignParentEnd="true"
+            android:visibility="@{isMine ? View.VISIBLE : View.GONE}"
+            app:icon="@drawable/ic_more"
+            app:iconGravity="end"
+            app:iconTint="@color/textBlack"
+            tools:visibility="visible" />
+
+        <ImageView
+            android:id="@+id/image"
+            android:layout_width="@dimen/_36sdp"
+            android:layout_height="@dimen/_36sdp"
+            android:layout_marginEnd="@dimen/_8sdp"
+            app:imageCircleUrl="@{item.userTable.user_avatar_image}" />
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toStartOf="@id/tag"
+            android:layout_toEndOf="@id/image"
+            android:text="@{item.materi.name}"
+            android:textColor="@color/textBlack"
+            android:textSize="@dimen/_13ssp"
+            android:textStyle="bold"
+            tools:text="Judul Materi" />
+
+        <TextView
+            android:id="@+id/time"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/title"
+            android:layout_marginTop="@dimen/_6sdp"
+            android:layout_toStartOf="@id/tag"
+            android:layout_toEndOf="@id/image"
+            android:text="@{item.materi.created_at_label}"
+            android:textColor="@color/gray"
+            android:textSize="@dimen/_11ssp"
+            tools:text="00:00" />
+
+        <View
+            android:id="@+id/divider"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_1sdp"
+            android:layout_below="@id/time"
+            android:layout_marginTop="@dimen/_12sdp"
+            android:layout_marginBottom="@dimen/_8sdp"
+            android:background="@color/ltgray" />
+
+        <TextView
+            android:id="@+id/mapel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/divider"
+            android:layout_marginEnd="@dimen/_8sdp"
+            android:background="@drawable/tag_mapel_primary"
+            android:paddingStart="@dimen/_8sdp"
+            android:paddingTop="@dimen/_2sdp"
+            android:paddingEnd="@dimen/_8sdp"
+            android:paddingBottom="@dimen/_2sdp"
+            android:text="@{item.mapel.name}"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/_10ssp"
+            android:textStyle="bold"
+            tools:text="Mapel" />
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/divider"
+            android:layout_toStartOf="@id/option"
+            android:layout_toEndOf="@id/mapel"
+            android:paddingTop="@dimen/_2sdp"
+            android:text="@{item.teacher.name}"
+            android:textColor="@color/textBlack"
+            android:textSize="@dimen/_11ssp"
+            tools:text="Nama Guru" />
+
+        <TextView
+            android:id="@+id/tag"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/divider"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:background="@drawable/tag_red"
+            android:paddingStart="@dimen/_8sdp"
+            android:paddingTop="@dimen/_2sdp"
+            android:paddingEnd="@dimen/_8sdp"
+            android:paddingBottom="@dimen/_2sdp"
+            android:text="@{item.materi.message_label}"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/_10ssp"
+            android:textStyle="bold"
+            android:visibility="@{item.materi.message_label.empty ? View.GONE : View.VISIBLE}"
+            tools:text="Baru" />
+    </RelativeLayout>
+</layout>

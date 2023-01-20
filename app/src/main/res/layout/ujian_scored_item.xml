@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="item"
+            type="id.onklas.app.pages.ujian.ExamTable" />
+
+        <variable
+            name="loading"
+            type="android.graphics.drawable.Drawable" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:animateLayoutChanges="true"
+        android:background="@drawable/rounded_white"
+        android:padding="@dimen/_12sdp">
+
+        <ImageView
+            android:id="@+id/image"
+            imageUrl="@{item.mapelIcon}"
+            android:layout_width="@dimen/_36sdp"
+            android:layout_height="@dimen/_36sdp"
+            android:layout_marginEnd="@dimen/_8sdp" />
+
+        <TextView
+            android:id="@+id/mapel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/image"
+            android:text="@{item.mapelName}"
+            android:textColor="@color/textBlack"
+            android:textSize="@dimen/_12ssp"
+            android:textStyle="bold"
+            tools:text="Mapel Name" />
+
+        <TextView
+            android:id="@+id/teacher"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/mapel"
+            android:layout_marginTop="@dimen/_4sdp"
+            android:layout_toEndOf="@id/image"
+            android:ellipsize="end"
+            android:lines="1"
+            android:text="@{item.teacherName}"
+            android:textColor="@color/textBlack"
+            android:textSize="@dimen/_12ssp"
+            tools:text="teacher Name" />
+
+        <View
+            android:id="@+id/divider"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_1sdp"
+            android:layout_below="@id/image"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:layout_marginBottom="@dimen/_8sdp"
+            android:background="@color/ltgray" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/divider"
+            android:layout_toStartOf="@id/time_plot"
+            android:ellipsize="end"
+            android:lines="1"
+            android:text="Tanggal"
+            android:textColor="@color/textBlack"
+            android:textSize="@dimen/_12ssp"
+            tools:ignore="HardcodedText" />
+
+        <TextView
+            android:id="@+id/time_plot"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/divider"
+            android:layout_alignParentEnd="true"
+            android:ellipsize="end"
+            android:lines="1"
+            android:text="@{item.dateLabel}"
+            android:textColor="@color/textBlack"
+            android:textSize="@dimen/_12ssp"
+            android:textStyle="bold"
+            tools:text="15 September 2020" />
+
+        <View
+            android:id="@+id/divider_attend"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_1sdp"
+            android:layout_below="@id/time_plot"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:layout_marginBottom="@dimen/_8sdp"
+            android:background="@color/ltgray" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/divider_attend"
+            android:layout_toStartOf="@id/attend"
+            android:ellipsize="end"
+            android:lines="1"
+            android:text="Pukul"
+            android:textColor="@color/textBlack"
+            android:textSize="@dimen/_12ssp"
+            tools:ignore="HardcodedText" />
+
+        <TextView
+            android:id="@+id/attend"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/divider_attend"
+            android:layout_alignParentEnd="true"
+            android:ellipsize="end"
+            android:lines="1"
+            android:text="@{item.time}"
+            android:textColor="@color/textBlack"
+            android:textSize="@dimen/_12ssp"
+            android:textStyle="bold"
+            tools:text="07:00 - 08:00" />
+
+        <View
+            android:id="@+id/divider1"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_1sdp"
+            android:layout_below="@id/attend"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:layout_marginBottom="@dimen/_8sdp"
+            android:background="@color/ltgray" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_send"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/divider1"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:enabled="@{item.status == 3}"
+            android:gravity="center_vertical"
+            android:paddingStart="@dimen/_16sdp"
+            android:paddingTop="@dimen/_8sdp"
+            android:paddingEnd="@dimen/_16sdp"
+            android:paddingBottom="@dimen/_8sdp"
+            android:text='@{item.status == 3 ? "Dapatkan nilai" : "Memproses nilai"}'
+            android:textAllCaps="false"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/_12ssp"
+            android:visibility='@{item.status == 3 || item.status == 4 ? View.GONE : View.VISIBLE}'
+            app:backgroundTint="@color/form_button_color"
+            app:cornerRadius="@dimen/_16sdp"
+            app:icon="@{loading}"
+            app:iconPadding="@dimen/_8sdp"
+            app:iconSize="@dimen/_12sdp"
+            tools:ignore="HardcodedText"
+            tools:text="Dapatkan Nilai"
+            tools:visibility="visible" />
+
+        <TextView
+            android:id="@+id/label_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/divider1"
+            android:layout_alignParentEnd="true"
+            android:gravity="center_vertical"
+            android:paddingStart="@dimen/_4sdp"
+            android:paddingTop="@dimen/_8sdp"
+            android:paddingEnd="@dimen/_8sdp"
+            android:paddingBottom="@dimen/_8sdp"
+            android:text='@{item.message}'
+            android:textAllCaps="false"
+            android:textColor="@color/gray"
+            android:textSize="@dimen/_12ssp"
+            android:textStyle="bold"
+            android:visibility='@{item.message.empty ? View.GONE : View.VISIBLE}'
+            tools:ignore="HardcodedText"
+            tools:text="Menunggu dinilai"
+            tools:visibility="visible" />
+
+        <id.onklas.app.utils.SquareRelativeLayout
+            android:id="@+id/score"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/label_info"
+            android:layout_alignParentEnd="true"
+            android:background="@drawable/ring_primary"
+            android:visibility="@{item.message.empty ? View.VISIBLE : View.GONE}">
+
+            <TextView
+                android:id="@+id/score_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginStart="@dimen/_8sdp"
+                android:paddingStart="@dimen/_8sdp"
+                android:paddingTop="@dimen/_8sdp"
+                android:paddingEnd="@dimen/_8sdp"
+                android:paddingBottom="@dimen/_8sdp"
+                android:text='@{"" + item.score}'
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/_11ssp"
+                android:textStyle="bold"
+                tools:text="100" />
+        </id.onklas.app.utils.SquareRelativeLayout>
+    </RelativeLayout>
+</layout>

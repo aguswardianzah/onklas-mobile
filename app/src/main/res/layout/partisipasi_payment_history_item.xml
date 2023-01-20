@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="position"
+            type="Integer" />
+
+        <variable
+            name="dateFormat"
+            type="java.text.SimpleDateFormat" />
+
+        <variable
+            name="stringUtil"
+            type="id.onklas.app.utils.StringUtil" />
+
+        <variable
+            name="item"
+            type="id.onklas.app.pages.partisipasi.PartisipasiPayment" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rounded_white"
+        android:padding="@dimen/_12sdp"
+        android:paddingVertical="@dimen/_8sdp">
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_2sdp"
+            android:layout_toStartOf="@id/btn_detail"
+            android:text='@{"Partisipasi ke " + position}'
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/_13ssp"
+            android:textStyle="bold"
+            tools:text="Partisipasi ke 1" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_detail"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:minWidth="0dp"
+            android:minHeight="0dp"
+            android:paddingVertical="0dp"
+            android:paddingStart="@dimen/_4sdp"
+            android:paddingEnd="0dp"
+            android:text="Detail"
+            android:textAllCaps="false"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/_11ssp"
+            android:textStyle="bold"
+            tools:ignore="HardcodedText" />
+
+        <View
+            android:id="@+id/divider_name"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_1sdp"
+            android:layout_below="@id/btn_detail"
+            android:layout_marginVertical="@dimen/_8sdp" />
+
+        <TextView
+            android:id="@+id/total_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/divider_name"
+            android:text="Total:"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/_11ssp"
+            tools:ignore="HardcodedText" />
+
+        <TextView
+            android:id="@+id/total"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/divider_name"
+            android:layout_toEndOf="@id/total_label"
+            android:gravity="end"
+            android:text='@{"Rp " + stringUtil.formatCurrency2(item.amount)}'
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/_11ssp"
+            android:textStyle="bold"
+            tools:text="Rp 9.999.999" />
+
+        <View
+            android:id="@+id/divider_total"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_1sdp"
+            android:layout_below="@id/total"
+            android:layout_marginVertical="@dimen/_8sdp" />
+
+        <TextView
+            android:id="@+id/metode_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/divider_total"
+            android:text="Metode pembayaran:"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/_11ssp"
+            tools:ignore="HardcodedText" />
+
+        <TextView
+            android:id="@+id/metode"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/divider_total"
+            android:layout_toEndOf="@id/metode_label"
+            android:gravity="end"
+            android:text="@{item.channel_name}"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/_11ssp"
+            android:textStyle="bold"
+            tools:text="Klaspay" />
+
+        <View
+            android:id="@+id/divider_metode"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_1sdp"
+            android:layout_below="@id/metode"
+            android:layout_marginVertical="@dimen/_8sdp" />
+
+        <TextView
+            android:id="@+id/id_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/divider_metode"
+            android:text="ID Transaksi:"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/_11ssp"
+            tools:ignore="HardcodedText" />
+
+        <TextView
+            android:id="@+id/id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/divider_metode"
+            android:layout_toEndOf="@id/id_label"
+            android:gravity="end"
+            android:text='@{"" + item.id}'
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/_11ssp"
+            android:textStyle="bold"
+            tools:text="1234567" />
+
+        <View
+            android:id="@+id/divider_id"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_1sdp"
+            android:layout_below="@id/id"
+            android:layout_marginVertical="@dimen/_8sdp" />
+
+        <TextView
+            android:id="@+id/date_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/divider_id"
+            android:text="Waktu:"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/_11ssp"
+            tools:ignore="HardcodedText" />
+
+        <TextView
+            android:id="@+id/date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/divider_id"
+            android:layout_toEndOf="@id/date_label"
+            android:gravity="end"
+            android:text="@{dateFormat.format(item.date)}"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/_11ssp"
+            android:textStyle="bold"
+            tools:text="24 Feb 2021" />
+    </RelativeLayout>
+</layout>

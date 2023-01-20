@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="item"
+            type="id.onklas.app.pages.login.SessionData" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/_8sdp">
+
+        <TextView
+            android:id="@+id/info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="3"
+            android:text="@{item.name}"
+            android:textColor="@color/textBlack"
+            android:textSize="@dimen/_13ssp"
+            tools:text="Device Info" />
+
+        <TextView
+            android:id="@+id/last_use"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/info"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:layout_marginEnd="@dimen/_8sdp"
+            android:layout_toStartOf="@id/btn_logout"
+            android:text="@{item.last_used_at}"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="@dimen/_12ssp"
+            android:textStyle="italic"
+            tools:text="12 Desember 2020" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_logout"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/info"
+            android:layout_alignParentEnd="true"
+            android:ellipsize="end"
+            android:minHeight="0dp"
+            android:singleLine="true"
+            android:text="Logout Device"
+            android:textAllCaps="false"
+            android:textColor="@color/colorPrimary"
+            tools:ignore="HardcodedText" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_1sdp"
+            android:layout_below="@id/btn_logout"
+            android:background="@color/gray" />
+    </RelativeLayout>
+</layout>

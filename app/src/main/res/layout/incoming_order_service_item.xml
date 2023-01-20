@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <TextView
+        android:id="@+id/txt_total_pengiriman"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Rp 200.000"
+        android:textSize="@dimen/_14sdp"
+        android:textColor="@color/textBlack"
+        style="@style/latoBlackBold"
+        app:layout_constraintBottom_toBottomOf="@+id/txt_pengiriman"
+        app:layout_constraintEnd_toEndOf="@+id/txt_subtotal"
+        app:layout_constraintTop_toTopOf="@+id/txt_pengiriman" />
+
+
+    <ImageView
+        android:id="@+id/img_product"
+        android:layout_width="@dimen/_60sdp"
+        android:layout_height="@dimen/_60sdp"
+        android:layout_marginStart="@dimen/_16sdp"
+        android:adjustViewBounds="true"
+        android:background="@drawable/rounded_radius2"
+        android:scaleType="centerCrop"
+        android:layout_marginTop="@dimen/_14sdp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_buyer"
+        tools:srcCompat="@tools:sample/backgrounds/scenic" />
+
+    <TextView
+        android:id="@+id/txt_name"
+        style="@style/latoBlackBold"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_12sdp"
+        android:text="Paket Bersih Bebas Tungau (Rp 280.000)"
+        android:textColor="@color/textBlack"
+        android:textSize="@dimen/_14sdp"
+        android:layout_marginEnd="@dimen/_16sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/img_product"
+        app:layout_constraintTop_toTopOf="@+id/img_product" />
+
+    <TextView
+        android:id="@+id/txt_total"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Rp 280.000"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:textSize="@dimen/_12sdp"
+        android:textColor="@color/gray"
+        app:layout_constraintStart_toStartOf="@+id/txt_name"
+        app:layout_constraintTop_toBottomOf="@+id/txt_name" />
+
+
+    <TextView
+        android:id="@+id/txt_buyer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ninda Rahma"
+        android:layout_marginTop="@dimen/_16sdp"
+        android:layout_marginStart="@dimen/_16sdp"
+        android:textSize="@dimen/_14sdp"
+        style="@style/latoBlackBold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/action_detail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Lihat Detail "
+        android:layout_marginTop="@dimen/_18sdp"
+        android:layout_marginEnd="@dimen/_16sdp"
+        style="@style/latoDefault"
+        android:textSize="@dimen/_14sdp"
+        android:textColor="@color/colorPrimary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView113"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Subtotal Jasa "
+        android:textSize="@dimen/_14sdp"
+        android:textColor="@color/textBlack"
+        style="@style/latoDefault"
+        android:layout_marginTop="@dimen/_12sdp"
+        app:layout_constraintStart_toStartOf="@+id/img_product"
+        app:layout_constraintTop_toBottomOf="@+id/img_product" />
+
+    <TextView
+        android:id="@+id/txt_pengiriman"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Total Pembayaran"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:textSize="@dimen/_14sdp"
+        android:textColor="@color/textBlack"
+        style="@style/latoDefault"
+        app:layout_constraintStart_toStartOf="@+id/textView113"
+        app:layout_constraintTop_toBottomOf="@+id/textView113" />
+
+    <TextView
+        android:id="@+id/txt_subtotal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Rp 200.000"
+        android:layout_marginEnd="@dimen/_16sdp"
+        android:textSize="@dimen/_14sdp"
+        android:textColor="@color/textBlack"
+        style="@style/latoDefault"
+        app:layout_constraintBottom_toBottomOf="@+id/textView113"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textView113" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_pengiriman">
+
+        <include
+            android:visibility="gone"
+            android:id="@+id/decline_service"
+            layout="@layout/button_include_tolak_proses" />
+
+        <include
+            android:visibility="gone"
+            android:id="@+id/processed_service"
+            layout="@layout/button_include_konfirmasi_selesai" />
+
+
+        <include
+            android:visibility="gone"
+            android:id="@+id/penjualan_ditolak"
+            layout="@layout/button_include_penjualan_ditolak" />
+
+        <include
+            android:visibility="gone"
+            android:id="@+id/penjualan_selesai"
+            layout="@layout/button_include_penjualan_selesai" />
+
+        <include
+            android:id="@+id/review_product"
+            layout="@layout/button_include_review_product"
+            android:visibility="gone" />
+
+        <include
+            android:id="@+id/konfirmasi_selesai"
+            layout="@layout/button_include_konfirmasi_selesai"
+            android:visibility="gone" />
+
+        <include
+            android:id="@+id/pembelian_selesai"
+            layout="@layout/button_include_pembelian_selesai"
+            android:visibility="gone" />
+
+        <include
+            android:id="@+id/pembelian_ditolak"
+            layout="@layout/button_include_pembelian_ditolak"
+            android:visibility="gone" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginHorizontal="@dimen/_16sdp"
+            android:background="@color/bg_gray"/>
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

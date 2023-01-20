@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@id/prokesform"
+    android:id="@+id/prokes_nav">
+    <fragment
+        android:id="@+id/prokesinfo"
+        android:name="id.onklas.app.pages.prokes.pusatinformasi.ProkesPusatInfo"
+        tools:layout="@layout/prokes_pusat_info"
+        />
+
+    <action
+        android:id="@+id/action_global_prokes_info"
+        app:destination="@id/prokesinfo" />
+    <fragment
+        android:id="@+id/prokesform"
+        android:name="id.onklas.app.pages.prokes.ProkesForm"
+        tools:layout="@layout/prokes_form"
+        />
+
+    <action
+        android:id="@+id/action_global_prokes_form"
+        app:destination="@id/prokesform" />
+</navigation>

@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="id.onklas.app.pages.login.LoginViewModel" />
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewmodel"
+            type="LoginViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <View
+            android:id="@+id/form_bg"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginBottom="@dimen/_16sdp"
+            android:background="@drawable/border_login_form"
+            app:layout_constraintBottom_toTopOf="@id/info_bg"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/ic_back"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginStart="@dimen/_16sdp"
+            android:adjustViewBounds="true"
+            android:src="@drawable/ic_back_primary"
+            app:layout_constraintBottom_toBottomOf="@id/login_title"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/login_title" />
+
+        <TextView
+            android:id="@+id/login_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_16sdp"
+            android:text="masuk sebagai"
+            android:textAllCaps="true"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/_16ssp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="HardcodedText" />
+
+        <ImageView
+            android:id="@+id/img_profile"
+            android:layout_width="@dimen/_32sdp"
+            android:layout_height="@dimen/_32sdp"
+            android:layout_marginStart="@dimen/_16sdp"
+            android:layout_marginTop="@dimen/_16sdp"
+            app:imageCircleUrl="@{viewmodel.user.user_avatar_image}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/login_title" />
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:layout_marginTop="@dimen/_2sdp"
+            android:text="@{viewmodel.user.name}"
+            android:textColor="@color/textBlack"
+            android:textSize="@dimen/_11ssp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/img_profile"
+            app:layout_constraintTop_toTopOf="@id/img_profile" />
+
+        <TextView
+            android:id="@+id/tag"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/_4sdp"
+            android:background="@drawable/tag_primary"
+            android:paddingStart="@dimen/_8sdp"
+            android:paddingTop="@dimen/_2sdp"
+            android:paddingEnd="@dimen/_8sdp"
+            android:paddingBottom="@dimen/_2sdp"
+            android:text="@{viewmodel.role_label}"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/_10ssp"
+            app:layout_constraintStart_toStartOf="@id/name"
+            app:layout_constraintTop_toBottomOf="@id/name"
+            tools:text="User Role" />
+
+        <TextView
+            android:id="@+id/kelas"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_4sdp"
+            android:gravity="start|center_vertical"
+            android:text="@{viewmodel.user.student.student_class.class_room.name}"
+            android:textColor="@color/textBlack"
+            android:textSize="@dimen/_11ssp"
+            app:layout_constraintBottom_toBottomOf="@id/tag"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/tag"
+            app:layout_constraintTop_toTopOf="@id/tag"
+            tools:text="Kelas" />
+
+        <View
+            android:id="@+id/divider1"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_1sdp"
+            android:layout_marginStart="@dimen/_16sdp"
+            android:layout_marginTop="@dimen/_12sdp"
+            android:layout_marginEnd="@dimen/_16sdp"
+            android:background="#f2f2f2"
+            app:layout_constraintTop_toBottomOf="@id/kelas" />
+
+        <TextView
+            android:id="@+id/nisn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_16sdp"
+            android:layout_marginTop="@dimen/_6sdp"
+            android:layout_marginEnd="@dimen/_16sdp"
+            android:text="@{viewmodel.user.nis_nik}"
+            android:textColor="@color/textBlack"
+            android:textSize="@dimen/_11ssp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/divider1" />
+
+        <View
+            android:id="@+id/divider2"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_1sdp"
+            android:layout_marginStart="@dimen/_16sdp"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:layout_marginEnd="@dimen/_16sdp"
+            android:background="#f2f2f2"
+            app:layout_constraintTop_toBottomOf="@id/nisn" />
+
+        <View
+            android:id="@+id/background_item"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginStart="@dimen/_16sdp"
+            android:layout_marginTop="@dimen/_12sdp"
+            android:layout_marginEnd="@dimen/_16sdp"
+            android:background="@drawable/border_input"
+            app:layout_constraintBottom_toBottomOf="@id/sp_password"
+            app:layout_constraintTop_toBottomOf="@id/divider2" />
+
+        <ImageView
+            android:id="@+id/image_icon"
+            android:layout_width="@dimen/_24sdp"
+            android:layout_height="@dimen/_24sdp"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:src="@drawable/ic_lock"
+            app:layout_constraintStart_toStartOf="@id/background_item"
+            app:layout_constraintTop_toTopOf="@id/background_item" />
+
+        <Space
+            android:id="@+id/sp_password"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_8sdp"
+            app:layout_constraintTop_toBottomOf="@id/image_icon" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/in_password_layout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:layout_marginEnd="@dimen/_8sdp"
+            android:padding="0dp"
+            app:boxStrokeColor="@android:color/white"
+            app:hintEnabled="false"
+            app:hintTextColor="@color/gray"
+            app:layout_constraintBottom_toBottomOf="@id/image_icon"
+            app:layout_constraintEnd_toEndOf="@id/background_item"
+            app:layout_constraintStart_toEndOf="@id/image_icon"
+            app:layout_constraintTop_toTopOf="@id/image_icon"
+            app:passwordToggleEnabled="true">
+
+            <EditText
+                android:id="@+id/text_soal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/transparent"
+                android:hint="Masukkan Password"
+                android:inputType="textPassword"
+                android:paddingStart="@dimen/_4sdp"
+                android:paddingTop="@dimen/_2sdp"
+                android:paddingEnd="@dimen/_4sdp"
+                android:paddingBottom="@dimen/_2sdp"
+                android:text="@={viewmodel.password}"
+                android:textColor="@color/textBlack"
+                android:textCursorDrawable="@null"
+                android:textSize="@dimen/_13ssp"
+                tools:ignore="HardcodedText" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/err_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_32sdp"
+            android:layout_marginTop="@dimen/_4sdp"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:text="Password tidak sesuai"
+            android:textColor="@color/red"
+            android:textSize="@dimen/_10ssp"
+            android:visibility="gone"
+            app:layout_constraintTop_toBottomOf="@id/background_item"
+            tools:ignore="HardcodedText" />
+
+        <TextView
+            android:id="@+id/reset_password"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_16sdp"
+            android:textColor="@color/textBlack"
+            android:textSize="@dimen/_12ssp"
+            app:layout_constraintEnd_toEndOf="@id/background_item"
+            app:layout_constraintStart_toStartOf="@id/background_item"
+            app:layout_constraintTop_toBottomOf="@id/background_item"
+            tools:text="Lupa password? Reset" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_login"
+            style="@style/Widget.MaterialComponents.Button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_16sdp"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:layout_marginEnd="@dimen/_16sdp"
+            android:paddingTop="@dimen/_8sdp"
+            android:paddingBottom="@dimen/_8sdp"
+            android:text="login"
+            android:textColor="@android:color/white"
+            app:backgroundTint="@color/form_button_color"
+            app:cornerRadius="@dimen/_24sdp"
+            app:layout_constraintTop_toBottomOf="@id/reset_password"
+            tools:ignore="HardcodedText" />
+
+        <View
+            android:id="@+id/info_bg"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/_24sdp"
+            android:background="@drawable/label_primary"
+            app:layout_constraintBottom_toBottomOf="@id/forgot_space"
+            app:layout_constraintTop_toBottomOf="@id/btn_login" />
+
+        <TextView
+            android:id="@+id/forgot_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:layout_marginEnd="@dimen/_3sdp"
+            android:gravity="center"
+            android:textColor="@color/textBlack"
+            android:textColorLink="@color/colorPrimary"
+            android:textSize="@dimen/_11ssp"
+            app:layout_constraintEnd_toEndOf="@id/btn_login"
+            app:layout_constraintStart_toStartOf="@id/btn_login"
+            app:layout_constraintTop_toTopOf="@id/info_bg"
+            tools:ignore="HardcodedText"
+            tools:text="NISN/NIK terdaftar bukan milik Anda? Hubungi Kami" />
+
+        <View
+            android:id="@+id/forgot_space"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_8sdp"
+            app:layout_constraintTop_toBottomOf="@id/forgot_label" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

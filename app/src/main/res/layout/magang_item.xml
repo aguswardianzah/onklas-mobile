@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="item"
+            type="id.onklas.app.pages.magang.MagangScheduleCompany" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:animateLayoutChanges="true"
+        android:background="@drawable/rounded_white"
+        android:padding="@dimen/_12sdp">
+
+        <TextView
+            android:id="@+id/mapel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{item.company.name}"
+            android:textColor="@color/textBlack"
+            android:textSize="@dimen/_12ssp"
+            android:textStyle="bold"
+            tools:text="Mapel Name" />
+
+        <TextView
+            android:id="@+id/teacher"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/mapel"
+            android:layout_marginTop="@dimen/_4sdp"
+            android:ellipsize="end"
+            android:lines="1"
+            android:text="@{item.schedule.date_formatted}"
+            android:textColor="@color/textBlack"
+            android:textSize="@dimen/_12ssp"
+            tools:text="teacher Name" />
+
+        <View
+            android:id="@+id/divider"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_1sdp"
+            android:layout_below="@id/teacher"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:layout_marginBottom="@dimen/_8sdp"
+            android:background="@color/ltgray" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/divider"
+            android:layout_toStartOf="@id/time_plot"
+            android:ellipsize="end"
+            android:lines="1"
+            android:text="Pukul"
+            android:textColor="@color/textBlack"
+            android:textSize="@dimen/_12ssp"
+            tools:ignore="HardcodedText" />
+
+        <TextView
+            android:id="@+id/time_plot"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/divider"
+            android:layout_alignParentEnd="true"
+            android:ellipsize="end"
+            android:lines="1"
+            android:text='@{item.schedule.start_time + " : " + item.schedule.end_time}'
+            android:textColor="@color/textBlack"
+            android:textSize="@dimen/_12ssp"
+            android:textStyle="bold"
+            tools:text="07:00 - 08:00" />
+
+        <View
+            android:id="@+id/divider1"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_1sdp"
+            android:layout_below="@id/time_plot"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:layout_marginBottom="@dimen/_8sdp"
+            android:background="@color/ltgray" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="@color/textBlack"
+            android:textSize="@dimen/_12ssp"
+            android:textStyle="italic"
+            android:layout_below="@id/divider1"
+            android:text="@{item.schedule.att_status}"
+            android:visibility="@{!item.schedule.can_attend &amp;&amp; !item.schedule.can_leave ? View.VISIBLE : View.GONE}" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_report"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/divider1"
+            android:layout_alignParentEnd="true"
+            android:gravity="center_vertical"
+            android:paddingStart="@dimen/_4sdp"
+            android:paddingTop="@dimen/_8sdp"
+            android:paddingEnd="@dimen/_8sdp"
+            android:paddingBottom="@dimen/_8sdp"
+            android:text="Laporan Harian"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/_12ssp"
+            android:visibility="@{item.schedule.can_leave ? View.VISIBLE : View.GONE}"
+            app:backgroundTint="@color/colorPrimary"
+            app:cornerRadius="@dimen/_16sdp"
+            app:icon="@drawable/ic_comment"
+            app:iconPadding="@dimen/_4sdp"
+            app:iconSize="@dimen/_16sdp"
+            tools:ignore="HardcodedText" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_attend"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/divider1"
+            android:layout_alignParentEnd="true"
+            android:gravity="center_vertical"
+            android:paddingStart="@dimen/_4sdp"
+            android:paddingTop="@dimen/_8sdp"
+            android:paddingEnd="@dimen/_8sdp"
+            android:paddingBottom="@dimen/_8sdp"
+            android:text="Masuk"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/_12ssp"
+            android:visibility="@{item.schedule.can_attend ? View.VISIBLE : View.GONE}"
+            app:backgroundTint="@color/colorPrimary"
+            app:cornerRadius="@dimen/_16sdp"
+            app:icon="@drawable/ic_enter_class"
+            app:iconPadding="@dimen/_4sdp"
+            app:iconSize="@dimen/_16sdp"
+            tools:ignore="HardcodedText" />
+    </RelativeLayout>
+</layout>

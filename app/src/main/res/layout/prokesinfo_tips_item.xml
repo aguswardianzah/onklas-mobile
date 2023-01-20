@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="item"
+            type="id.onklas.app.pages.prokes.TipsMain" />
+        <variable
+            name="showChild"
+            type="Boolean" />
+        <import type="android.view.View"/>
+        <import type="android.text.Html" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="@dimen/_12sdp"
+        android:layout_marginBottom="@dimen/_12sdp"
+        android:background="@drawable/rounded_radius20"
+        android:backgroundTint="@color/white">
+
+        <ImageView
+            android:id="@+id/img_banner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            imageUrl="@{item.imgId}"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/img_prokesinfo_tips1"
+            tools:layout_editor_absoluteX="0dp" />
+
+
+        <TextView
+            android:id="@+id/txt_desc"
+            style="@style/latoDefault"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_10sdp"
+            android:layout_marginVertical="@dimen/_10sdp"
+            tools:text="Gunakan MASKER dengan TEPAT!"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/_12ssp"
+            android:paddingVertical="@dimen/_5sdp"
+            app:layout_constraintEnd_toStartOf="@+id/btn_show"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/img_banner" />
+
+        <ImageView
+            android:id="@+id/btn_show"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_12sdp"
+            android:background="@drawable/ic_carret_right"
+            android:orientation="horizontal"
+            tools:rotation="90"
+            android:rotation="@{showChild? 90:270}"
+            android:scaleX="1.2"
+            android:scaleY="1.2"
+            android:padding="@dimen/_10sdp"
+            app:layout_constraintBottom_toBottomOf="@id/txt_desc"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/txt_desc" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_tips"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_4sdp"
+            android:visibility="@{showChild?View.VISIBLE:View.GONE}"
+            app:layout_constraintTop_toBottomOf="@+id/txt_desc"
+            tools:itemCount="2"
+            android:paddingTop="@dimen/_8sdp"
+            tools:listitem="@layout/prokesinfo_tips_item2" />
+
+        <TextView
+            android:id="@+id/label_note"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/label_blue"
+            android:paddingStart="@dimen/_12sdp"
+            android:visibility="@{showChild?View.VISIBLE:View.GONE}"
+            android:layout_marginHorizontal="@dimen/_16sdp"
+            android:paddingTop="@dimen/_8sdp"
+            android:paddingEnd="@dimen/_12sdp"
+            android:paddingBottom="@dimen/_8sdp"
+            tools:text="Note: Gunakan bahan masker 3 lapis, ganti masker secara rutin untuk efektif melindungi dari penyakit"
+            android:gravity="center"
+            android:textColor="@android:color/black"
+            app:layout_constraintTop_toBottomOf="@id/rv_tips"
+            tools:ignore="HardcodedText" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

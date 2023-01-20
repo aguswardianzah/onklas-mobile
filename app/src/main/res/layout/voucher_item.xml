@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="stringUtil"
+            type="id.onklas.app.utils.StringUtil" />
+
+        <variable
+            name="item"
+            type="id.onklas.app.pages.ppob.pulsa.PulsaItem" />
+    </data>
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="@dimen/_16sdp"
+        android:paddingBottom="@dimen/_4sdp">
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="@dimen/_8sdp"
+            android:layout_toStartOf="@id/price"
+            android:text="@{item.name}"
+            android:textColor="@color/textBlack"
+            android:textSize="@dimen/_11ssp"
+            tools:text="Voucher Name Goes Here" />
+
+        <TextView
+            android:id="@+id/price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/fill_rounded_ltblue"
+            android:paddingHorizontal="@dimen/_12sdp"
+            android:paddingVertical="@dimen/_8sdp"
+            android:text='@{"Rp " + stringUtil.formatCurrency2(item.price_end)}'
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/_11ssp"
+            android:textStyle="bold"
+            tools:text="Rp 9.999" />
+    </RelativeLayout>
+</layout>

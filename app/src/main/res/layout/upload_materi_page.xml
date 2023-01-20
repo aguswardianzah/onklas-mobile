@@ -1,0 +1,402 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="id.onklas.app.pages.theoryteacher.UploadMateriBindConverter" />
+
+        <variable
+            name="viewmodel"
+            type="id.onklas.app.pages.theoryteacher.UploadMateriViewmodel" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                style="@style/AppToolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?android:actionBarSize"
+                android:transitionName="tugas"
+                app:contentInsetEnd="0dp"
+                app:contentInsetStart="0dp"
+                app:contentInsetStartWithNavigation="0dp"
+                app:navigationIcon="@drawable/ic_close"
+                app:title="Upload Materi" />
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true"
+            app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/_16sdp">
+
+                <TextView
+                    android:id="@+id/title_label"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Judul Materi"
+                    android:textColor="@color/textBlack"
+                    android:textSize="@dimen/_12ssp"
+                    android:textStyle="bold"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="HardcodedText" />
+
+                <EditText
+                    android:id="@+id/input_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:background="@android:color/transparent"
+                    android:gravity="bottom"
+                    android:hint="Ketik Judul disini"
+                    android:inputType="text|textMultiLine"
+                    android:maxLength="500"
+                    android:text="@={viewmodel.materiTitle}"
+                    android:textColor="@color/textBlack"
+                    android:textColorHint="@color/gray"
+                    app:layout_constraintTop_toBottomOf="@id/title_label"
+                    tools:ignore="HardcodedText" />
+
+                <View
+                    android:id="@+id/input_divider"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:background="@color/gray"
+                    app:layout_constraintTop_toBottomOf="@id/input_content" />
+
+                <TextView
+                    android:id="@+id/title_counter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_4sdp"
+                    android:text="0/500"
+                    android:textColor="@color/gray"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/input_divider"
+                    tools:ignore="HardcodedText" />
+
+                <TextView
+                    android:id="@+id/desc_label"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Deskripsi"
+                    android:textColor="@color/textBlack"
+                    android:textSize="@dimen/_12ssp"
+                    android:textStyle="bold"
+                    app:layout_constraintTop_toBottomOf="@id/title_counter"
+                    tools:ignore="HardcodedText" />
+
+                <EditText
+                    android:id="@+id/input_desc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:background="@android:color/transparent"
+                    android:gravity="bottom"
+                    android:hint="Ketik deskripsi"
+                    android:inputType="text|textMultiLine"
+                    android:maxLength="5000"
+                    android:text="@={viewmodel.materiDesc}"
+                    android:textColor="@color/textBlack"
+                    android:textColorHint="@color/gray"
+                    app:layout_constraintTop_toBottomOf="@id/desc_label"
+                    tools:ignore="HardcodedText" />
+
+                <View
+                    android:id="@+id/desc_divider"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:background="@color/gray"
+                    app:layout_constraintTop_toBottomOf="@id/input_desc" />
+
+                <TextView
+                    android:id="@+id/desc_counter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_4sdp"
+                    android:text="0/5000"
+                    android:textColor="@color/gray"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/desc_divider"
+                    tools:ignore="HardcodedText" />
+
+                <TextView
+                    android:id="@+id/mapel_label"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:text="Mata Pelajaran"
+                    android:textColor="@color/textBlack"
+                    android:textSize="@dimen/_12ssp"
+                    android:textStyle="bold"
+                    app:layout_constraintTop_toBottomOf="@id/desc_counter"
+                    tools:ignore="HardcodedText" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/input_mapel_layout"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    app:boxStrokeColor="@color/colorPrimary"
+                    app:hintEnabled="false"
+                    app:layout_constraintTop_toBottomOf="@id/mapel_label">
+
+                    <AutoCompleteTextView
+                        android:id="@+id/input_mapel"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:editable="false"
+                        android:inputType="none"
+                        android:text="@={UploadMateriBindConverter.subjectId_to_name(viewmodel.subjectId)}" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView
+                    android:id="@+id/show_label"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_12sdp"
+                    android:text="Ditampilkan ke"
+                    android:textColor="@color/textBlack"
+                    android:textSize="@dimen/_12ssp"
+                    android:textStyle="bold"
+                    app:layout_constraintTop_toBottomOf="@id/input_mapel_layout"
+                    tools:ignore="HardcodedText" />
+
+                <RadioButton
+                    android:id="@+id/grade_label"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_12sdp"
+                    android:checked="true"
+                    android:text="Jenjang"
+                    android:textColor="@color/textBlack"
+                    android:textSize="@dimen/_12ssp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/show_label"
+                    app:layout_constraintWidth_percent="0.3"
+                    tools:ignore="HardcodedText" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/input_grade_layout"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    app:boxStrokeColor="@color/colorPrimary"
+                    app:hintEnabled="false"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/grade_label"
+                    app:layout_constraintTop_toBottomOf="@id/show_label">
+
+                    <AutoCompleteTextView
+                        android:id="@+id/input_grade"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:editable="false"
+                        android:inputType="none"
+                        android:text="@={UploadMateriBindConverter.gradeId_to_name(viewmodel.grade)}" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <RadioButton
+                    android:id="@+id/jurusan_label"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_12sdp"
+                    android:text="Jurusan"
+                    android:textColor="@color/textBlack"
+                    android:textSize="@dimen/_12ssp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/input_grade_layout"
+                    app:layout_constraintWidth_percent="0.3"
+                    tools:ignore="HardcodedText" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/input_jurusan_layout"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:background="@color/ltgray"
+                    app:boxStrokeColor="@color/colorPrimary"
+                    app:hintEnabled="false"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/jurusan_label"
+                    app:layout_constraintTop_toBottomOf="@id/input_grade_layout">
+
+                    <AutoCompleteTextView
+                        android:id="@+id/input_jurusan"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:editable="false"
+                        android:enabled="false"
+                        android:inputType="none"
+                        android:text="@={UploadMateriBindConverter.majorId_to_name(viewmodel.majorId)}" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <RadioButton
+                    android:id="@+id/kelas_label"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_12sdp"
+                    android:text="Kelas"
+                    android:textColor="@color/textBlack"
+                    android:textSize="@dimen/_12ssp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/input_jurusan_layout"
+                    app:layout_constraintWidth_percent="0.3"
+                    tools:ignore="HardcodedText" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/input_kelas_layout"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:background="@color/ltgray"
+                    app:boxStrokeColor="@color/colorPrimary"
+                    app:hintEnabled="false"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/kelas_label"
+                    app:layout_constraintTop_toBottomOf="@id/input_jurusan_layout">
+
+                    <AutoCompleteTextView
+                        android:id="@+id/input_kelas"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:editable="false"
+                        android:enabled="false"
+                        android:inputType="none"
+                        android:text="@={UploadMateriBindConverter.classId_to_name(viewmodel.classId)}" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView
+                    android:id="@+id/materi_file_label"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_12sdp"
+                    android:text="File Materi"
+                    android:textColor="@color/textBlack"
+                    android:textSize="@dimen/_12ssp"
+                    android:textStyle="bold"
+                    app:layout_constraintTop_toBottomOf="@id/input_kelas_layout"
+                    tools:ignore="HardcodedText" />
+
+                <TextView
+                    android:id="@+id/file_label"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_12sdp"
+                    android:text="Upload file"
+                    android:textColor="@color/textBlack"
+                    android:textSize="@dimen/_12ssp"
+                    android:textStyle="bold"
+                    app:layout_constraintTop_toBottomOf="@id/materi_file_label"
+                    tools:ignore="HardcodedText" />
+
+                <TextView
+                    android:id="@+id/file_info"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_6sdp"
+                    android:text="File dalam format pdf"
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/_11ssp"
+                    app:layout_constraintTop_toBottomOf="@id/file_label"
+                    tools:ignore="HardcodedText" />
+
+                <include
+                    android:id="@+id/materi_upload_layout"
+                    layout="@layout/materi_upload_item"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    app:layout_constraintTop_toBottomOf="@id/file_info" />
+
+                <TextView
+                    android:id="@+id/link_label"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_12sdp"
+                    android:text="Url Link"
+                    android:textColor="@color/textBlack"
+                    android:textSize="@dimen/_12ssp"
+                    android:textStyle="bold"
+                    app:layout_constraintTop_toBottomOf="@id/materi_upload_layout"
+                    tools:ignore="HardcodedText" />
+
+                <EditText
+                    android:id="@+id/input_link"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:background="@android:color/transparent"
+                    android:gravity="bottom"
+                    android:hint="Ketik url"
+                    android:inputType="text"
+                    android:maxLength="5000"
+                    android:text="@={viewmodel.materiLink}"
+                    android:textColor="@color/textBlack"
+                    android:textColorHint="@color/gray"
+                    app:layout_constraintTop_toBottomOf="@id/link_label"
+                    tools:ignore="HardcodedText" />
+
+                <View
+                    android:id="@+id/link_divider"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:background="@color/gray"
+                    app:layout_constraintTop_toBottomOf="@id/input_link" />
+
+                <id.onklas.app.utils.LinkPreview
+                    android:id="@+id/link_preview"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_12sdp"
+                    app:layout_constraintTop_toBottomOf="@id/link_divider" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_post"
+                    style="@style/Widget.MaterialComponents.Button.TextButton"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_24sdp"
+                    android:minHeight="0dp"
+                    android:paddingVertical="@dimen/_12sdp"
+                    android:text="Posting materi"
+                    android:textColor="@android:color/white"
+                    android:textStyle="bold"
+                    app:backgroundTint="@color/form_button_color"
+                    app:cornerRadius="@dimen/_20sdp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/link_preview"
+                    app:layout_constraintWidth_percent="0.7"
+                    tools:ignore="HardcodedText" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.core.widget.NestedScrollView>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

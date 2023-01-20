@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/klaspay_aktivasi_nav"
+    app:startDestination="@id/KlaspayAktivasiPin">
+
+    <fragment
+        android:id="@+id/KlaspayAktivasiAkun"
+        android:name="id.onklas.app.pages.klaspay.aktivasi.KlaspayAktivasiAkun"
+        android:label="klaspay_aktivasi_akun"
+        tools:layout="@layout/klaspay_aktivasi_akun">
+        <action
+            android:id="@+id/action_KlaspayAktivasiAkun_to_KlaspayAktivasiPin"
+            app:destination="@id/KlaspayAktivasiPin" />
+    </fragment>
+    <fragment
+        android:id="@+id/KlaspayAktivasiPin"
+        android:name="id.onklas.app.pages.klaspay.aktivasi.KlaspayAktivasiPin"
+        android:label="klaspay_aktivasi_pin"
+        tools:layout="@layout/klaspay_aktivasi_pin">
+        <action
+            android:id="@+id/action_KlaspayAktivasiPin_to_klaspayAktivasiPinConfirm"
+            app:destination="@id/klaspayAktivasiPinConfirm" />
+    </fragment>
+    <fragment
+        android:id="@+id/klaspayAktivasiPinConfirm"
+        android:name="id.onklas.app.pages.klaspay.aktivasi.KlaspayAktivasiPinConfirm"
+        android:label="KlaspayAktivasiPinConfirm"
+        tools:layout="@layout/klaspay_aktivasi_pin" />
+</navigation>

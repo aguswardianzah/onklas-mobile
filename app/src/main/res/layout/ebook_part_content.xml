@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="item"
+            type="id.onklas.app.pages.sekolah.sosmed.FeedTimeline" />
+    </data>
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/content_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/post_item_bg"
+        android:paddingStart="@dimen/_12sdp"
+        android:paddingTop="@dimen/_8sdp"
+        android:paddingEnd="@dimen/_12sdp"
+        android:paddingBottom="@dimen/_8sdp">
+
+        <ImageView
+            android:id="@+id/cover"
+            android:layout_width="@dimen/_36sdp"
+            android:layout_height="@dimen/_72sdp"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="@dimen/_12sdp"
+            tools:src="@android:drawable/ic_menu_report_image" />
+
+        <TextView
+            android:id="@+id/content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/cover"
+            android:text="@{item.feed.feed_body}"
+            android:textColor="@color/textBlack"
+            android:textSize="@dimen/_13ssp"
+            android:textStyle="bold"
+            tools:text="Judul Ebook" />
+
+        <TextView
+            android:id="@+id/info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/content"
+            android:layout_marginTop="@dimen/_6sdp"
+            android:layout_toEndOf="@id/cover"
+            android:ellipsize="end"
+            android:maxLines="3"
+            android:text="@{item.feed.feed_author}"
+            android:textColor="@color/gray"
+            android:textSize="@dimen/_12ssp"
+            tools:text="@string/lipsum" />
+
+        <TextView
+            android:id="@+id/size"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/info"
+            android:layout_toEndOf="@id/cover"
+            android:ellipsize="end"
+            android:maxLines="4"
+            android:text="@{item.files[0].size}"
+            android:textColor="@color/gray"
+            android:textSize="@dimen/_11ssp"
+            android:visibility="@{item.files.empty ? View.GONE : View.VISIBLE}"
+            tools:text="Ukuran 2.5Mb" />
+
+        <TextView
+            android:id="@+id/lihat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/size"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="@dimen/_12sdp"
+            android:ellipsize="end"
+            android:gravity="end"
+            android:maxLines="4"
+            android:text="Lihat Ebook"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/_12ssp"
+            android:textStyle="bold"
+            tools:ignore="HardcodedText" />
+    </RelativeLayout>
+</layout>

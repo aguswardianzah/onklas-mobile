@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="id.onklas.app.pages.sekolah.store.CartViewModel" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".pages.sekolah.store.CartPage">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appBarLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                style="@style/AppToolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?android:actionBarSize"
+                app:contentInsetEnd="0dp"
+                app:contentInsetStart="0dp"
+                app:contentInsetStartWithNavigation="0dp"
+                app:title='@{"Keranjang Belanja" + (viewModel.countCart > 0 ? " (" + viewModel.countCart + ")" : "")}'
+                tools:title="Keranjang Belanja" />
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/swipe_refresh"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true"
+            app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cart_lay"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:animateLayoutChanges="true">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_cart"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginBottom="@dimen/_16sdp"
+                    android:background="@color/bg_gray"
+                    android:nestedScrollingEnabled="false"
+                    android:visibility="@{viewModel.isEmptyCart ? View.GONE : View.VISIBLE}"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintBottom_toTopOf="@+id/textView135"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:listitem="@layout/cart_item" />
+
+                <TextView
+                    android:id="@+id/textView135"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_16sdp"
+                    android:layout_marginTop="@dimen/_12sdp"
+                    android:text="Harga Produk"
+                    android:textColor="@color/textBlack"
+                    android:textSize="@dimen/_11sdp"
+                    android:visibility="@{viewModel.isEmptyCart ? View.GONE : View.VISIBLE}"
+                    app:layout_constraintBottom_toTopOf="@id/textView136"
+                    app:layout_constraintStart_toStartOf="parent"
+                    tools:ignore="HardcodedText" />
+
+                <TextView
+                    android:id="@+id/textView136"
+                    style="@style/latoBlackBold"
+                    android:layout_width="0dp"
+                    android:layout_marginEnd="@dimen/_6sdp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="@dimen/_12sdp"
+                    android:text='@{viewModel.countSelected > 0 ? "Rp " + viewModel.stringUtil.formatCurrency2(viewModel.totalPrice) : "-"}'
+                    android:textSize="@dimen/_16sdp"
+                    android:visibility="@{viewModel.isEmptyCart ? View.GONE : View.VISIBLE}"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/action_checkout"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="@+id/textView135"
+                    tools:text="-" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/action_checkout"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:enabled="@{viewModel.countSelected > 0}"
+                    android:gravity="center"
+                    android:minWidth="0dp"
+                    android:minHeight="0dp"
+                    android:text='@{"Checkout" + (viewModel.countSelected > 0 ? " (" + viewModel.countSelected + ")" : "")}'
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_12sdp"
+                    android:textStyle="bold"
+                    android:layout_marginStart="@dimen/_36sdp"
+                    android:visibility="@{viewModel.isEmptyCart ? View.GONE : View.VISIBLE}"
+                    app:backgroundTint="@color/form_button_color"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/textView135"
+                    app:layout_constraintTop_toBottomOf="@id/rv_cart"
+                    tools:enabled="false"
+                    tools:ignore="HardcodedText"
+                    tools:text="checkout" />
+
+                <include
+                    android:id="@+id/incl_emp_cart"
+                    layout="@layout/cart_emp_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:visibility="@{viewModel.isEmptyCart ? View.VISIBLE : View.GONE}"
+                    tools:visibility="gone" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

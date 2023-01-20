@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="item"
+            type="id.onklas.app.pages.sekolah.store.HomeProductItem" />
+
+        <variable
+            name="viewholder"
+            type="id.onklas.app.pages.sekolah.store.StoreVm" />
+        <variable
+            name="stringUtil"
+            type="id.onklas.app.utils.StringUtil" />
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/main_layout"
+        android:layout_width="@dimen/_90sdp"
+        android:layout_height="@dimen/_130sdp">
+
+        <ImageView
+            android:id="@+id/icon"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_80sdp"
+            android:adjustViewBounds="true"
+            android:background="@drawable/rounded_radius2"
+            imageUrl="@{item.image}"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toTopOf="@+id/label"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:srcCompat="@tools:sample/avatars" />
+
+        <TextView
+            android:id="@+id/label"
+            style="@style/latoBlackBold"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_4sdp"
+            android:layout_marginBottom="@dimen/_5sdp"
+            android:gravity="top|left"
+            android:maxLines="2"
+            android:minLines="2"
+            android:text="@{item.name}"
+            android:textColor="@color/textBlack"
+            android:textSize="@dimen/_12ssp"
+            app:layout_constraintBottom_toTopOf="@+id/txt_harga"
+            app:layout_constraintEnd_toEndOf="@+id/icon"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@+id/icon"
+            app:layout_constraintTop_toBottomOf="@+id/icon"
+            tools:text="asdasd" />
+
+        <TextView
+            android:id="@+id/txt_harga"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:gravity="top|left"
+            android:maxLines="2"
+            android:text='@{"Rp "+stringUtil.formatCurrency2(item.price)}'
+            android:textAppearance="@style/latoBlackBold"
+            android:textColor="@color/textBlack"
+            android:textSize="@dimen/_10ssp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/label"
+            app:layout_constraintStart_toStartOf="@+id/label"
+            app:layout_constraintTop_toBottomOf="@+id/label"
+            tools:text="Dana Partisipasi" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
+

@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <import type="android.view.View" />
+        <variable
+            name="merchantIsEmpty"
+            type="Boolean" />
+
+
+        <variable
+            name="productIsEmpty"
+            type="Boolean" />
+
+        <variable
+            name="allEmpty"
+            type="Boolean" />
+
+
+
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".pages.sekolah.store.StoreSearchPage">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appBarLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                style="@style/AppToolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?android:actionBarSize"
+                app:contentInsetEnd="0dp"
+                app:contentInsetStart="0dp"
+                app:contentInsetStartWithNavigation="0dp" >
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/search_lay"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <View
+                        android:id="@+id/v_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_marginVertical="@dimen/_8sdp"
+                        android:layout_marginEnd="@dimen/_8sdp"
+                        android:background="@drawable/border_gray_radius_40"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        />
+
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/in_name_layout"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/_8sdp"
+                        android:padding="0dp"
+                        app:boxStrokeColor="@android:color/white"
+                        app:hintEnabled="false"
+                        app:hintTextColor="@color/gray"
+                        app:layout_constraintBottom_toBottomOf="@+id/v_name"
+                        app:layout_constraintEnd_toEndOf="@id/v_name"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@id/v_name">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/in_name"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@android:color/transparent"
+                            android:hint="Cari Produk......."
+                            android:inputType="text"
+                            android:paddingStart="@dimen/_16sdp"
+                            android:paddingTop="@dimen/_2sdp"
+                            android:paddingEnd="@dimen/_4sdp"
+                            android:paddingBottom="@dimen/_2sdp"
+                            android:textColor="@color/textBlack"
+                            android:textSize="@dimen/_13ssp"
+                            tools:ignore="HardcodedText" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <ImageView
+                        android:id="@+id/act_clear"
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:layout_marginVertical="@dimen/_4sdp"
+                        android:layout_marginEnd="@dimen/_1sdp"
+                        android:layout_weight="1"
+                        android:adjustViewBounds="true"
+                        android:src="@drawable/ic_x_circle"
+                        android:visibility="visible"
+                        app:layout_constraintBottom_toBottomOf="@+id/v_name"
+                        app:layout_constraintEnd_toEndOf="@+id/in_name_layout"
+                        app:layout_constraintTop_toTopOf="@+id/v_name" />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+            </androidx.appcompat.widget.Toolbar>
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="#EBEDF0"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/appBarLayout">
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/appBarLayout">
+
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_product_suggest"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:background="@color/white"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:itemCount="5"
+                    tools:layout_editor_absoluteX="127dp"
+                    tools:listitem="@layout/store_search_suggest_product_item"
+                   />
+                <TextView
+                    android:id="@+id/txt_emp_product"
+                    android:text="Produk tidak ditemukan"
+                    android:textSize="@dimen/_13sdp"
+                    android:textColor="@color/textBlack1"
+                    style="@style/latoDefault"
+                    android:visibility="@{productIsEmpty? View.VISIBLE:View.INVISIBLE}"
+                    app:layout_constraintTop_toBottomOf="@id/rv_product_suggest"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"/>
+
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/merchant_lay"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_18sdp"
+                    android:background="@color/white"
+                    android:visibility='@{merchantIsEmpty?View.GONE :View.VISIBLE}'
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_emp_product">
+
+
+                    <TextView
+                        android:id="@+id/textView94"
+                        style="@style/latoBlackBold"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_16sdp"
+                        android:layout_marginTop="@dimen/_16sdp"
+                        android:text="Penjual "
+                        android:textColor="@color/textBlack"
+                        android:textSize="@dimen/_16sdp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/action_seeAllSeller"
+                        style="@style/latoBlackBold"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingHorizontal="@dimen/_16sdp"
+                        android:paddingVertical="@dimen/_16sdp"
+                        android:text="Lihat Semua"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="@dimen/_12sdp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rv_seller_suggest"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        tools:itemCount="5"
+                        tools:listitem="@layout/store_search_suggest_seller_item"
+                        app:layout_constraintTop_toBottomOf="@+id/action_seeAllSeller"
+                        tools:layout_editor_absoluteX="155dp" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.core.widget.NestedScrollView>
+
+        <include
+            android:id="@+id/emp_lay"
+            android:visibility='@{allEmpty?View.VISIBLE:View.GONE}'
+            layout="@layout/product_emp_layout"
+            />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/akm_nav"
+    app:startDestination="@id/akmListPage">
+
+    <fragment
+        android:id="@+id/akmListPage"
+        android:name="id.onklas.app.pages.akm.AkmListPage"
+        android:label="AkmListPage"
+        tools:layout="@layout/akm_list_page" />
+    <fragment
+        android:id="@+id/akmScorePage"
+        android:name="id.onklas.app.pages.akm.AkmScorePage"
+        android:label="AkmScorePage" />
+    <action
+        android:id="@+id/action_global_akmListPage"
+        app:destination="@id/akmListPage" />
+    <action
+        android:id="@+id/action_global_akmScorePage"
+        app:destination="@id/akmScorePage" />
+</navigation>

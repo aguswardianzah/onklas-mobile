@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="item"
+            type="id.onklas.app.pages.homework.Assignment" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                style="@style/AppToolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?android:actionBarSize"
+                android:transitionName="tugas"
+                app:contentInsetEnd="0dp"
+                app:contentInsetStart="0dp"
+                app:contentInsetStartWithNavigation="0dp"
+                app:navigationIcon="@drawable/ic_close"
+                app:title="Nilai Tugas" />
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true"
+            android:padding="@dimen/_16sdp"
+            app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/mapel_img"
+                    android:layout_width="@dimen/_48sdp"
+                    android:layout_height="@dimen/_48sdp"
+                    app:imageCircleUrl="@{item.subject_assignment.subject.icon_image}"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/mapel_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_12sdp"
+                    android:text="@{item.subject_assignment.subject.name}"
+                    android:textColor="@color/textBlack"
+                    android:textSize="@dimen/_13ssp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toTopOf="@id/teacher_name"
+                    app:layout_constraintStart_toEndOf="@id/mapel_img"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/teacher_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{item.subject_assignment.teacher.name}"
+                    android:textColor="@color/textBlack"
+                    android:textSize="@dimen/_12ssp"
+                    app:layout_constraintBottom_toBottomOf="@id/mapel_img"
+                    app:layout_constraintStart_toStartOf="@id/mapel_name"
+                    app:layout_constraintTop_toBottomOf="@id/mapel_name" />
+
+                <EditText
+                    android:id="@+id/score"
+                    android:layout_width="@dimen/_100sdp"
+                    android:layout_height="@dimen/_100sdp"
+                    android:layout_marginTop="@dimen/_24sdp"
+                    android:background="@{item.scored > 0 ? @drawable/ring_primary : @drawable/ring_green}"
+                    android:gravity="center"
+                    android:hint='@{item.scored > 0 ? "" : "--"}'
+                    android:inputType="number"
+                    android:maxLength="3"
+                    android:text='@{item.scored > 0 ? "" + item.score : ""}'
+                    android:textColor="@{item.scored > 0 ? @color/colorPrimary : @color/green}"
+                    android:textColorHint="@{item.scored > 0 ? @color/colorPrimary : @color/green}"
+                    android:textSize="@dimen/_32ssp"
+                    android:textStyle="bold"
+                    app:layout_constraintDimensionRatio="W,1:1"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/mapel_img"
+                    tools:text="999" />
+
+                <TextView
+                    android:id="@+id/scored_at"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_16sdp"
+                    android:text='@{"Dikumpulkan pada " + item.upload_at}'
+                    android:textColor="@color/textBlack"
+                    android:textSize="@dimen/_12ssp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/score" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_info"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_16sdp"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintTop_toBottomOf="@id/scored_at"
+                    tools:itemCount="4"
+                    tools:listitem="@layout/checkout_item" />
+
+                <TextView
+                    android:id="@+id/label_answer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_16sdp"
+                    android:text="Jawaban terkumpul"
+                    android:textColor="@color/textBlack"
+                    android:textSize="@dimen/_13ssp"
+                    android:textStyle="bold"
+                    android:visibility="@{item.file_path.empty &amp;&amp; item.uri_student.link.empty ? View.GONE : View.VISIBLE}"
+                    app:layout_constraintTop_toBottomOf="@id/rv_info"
+                    tools:ignore="HardcodedText"
+                    tools:visibility="visible" />
+
+                <include
+                    android:id="@+id/answer_layout"
+                    layout="@layout/materi_detail_item"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:visibility="@{item.file_path.empty ? View.GONE : View.VISIBLE}"
+                    app:layout_constraintTop_toBottomOf="@id/label_answer"
+                    tools:visibility="visible" />
+
+                <id.onklas.app.utils.LinkPreview
+                    android:id="@+id/upload_link_preview"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_12sdp"
+                    android:visibility="@{item.uri_student.link.empty ? View.GONE : View.VISIBLE}"
+                    app:layout_constraintTop_toBottomOf="@id/answer_layout" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_save"
+                    style="@style/Widget.MaterialComponents.Button.TextButton"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_16sdp"
+                    android:enabled="false"
+                    android:minHeight="0dp"
+                    android:paddingVertical="@dimen/_12sdp"
+                    android:text="simpan"
+                    android:textColor="@android:color/white"
+                    android:textStyle="bold"
+                    app:backgroundTint="@color/form_button_color"
+                    app:cornerRadius="@dimen/_20sdp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/upload_link_preview"
+                    app:layout_constraintWidth_percent="0.7"
+                    tools:ignore="HardcodedText" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.core.widget.NestedScrollView>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

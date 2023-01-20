@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="item"
+            type="id.onklas.app.pages.presensi.ScheduleTable" />
+
+        <variable
+            name="timeLeft"
+            type="String" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:animateLayoutChanges="true"
+        android:background="@drawable/rounded_white"
+        android:padding="@dimen/_12sdp">
+
+        <ImageView
+            android:id="@+id/image"
+            imageUrl="@{item.subject_image}"
+            android:layout_width="@dimen/_36sdp"
+            android:layout_height="@dimen/_36sdp"
+            android:layout_marginEnd="@dimen/_8sdp" />
+
+        <TextView
+            android:id="@+id/mapel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/image"
+            android:text="@{item.subject_name}"
+            android:textColor="@color/textBlack"
+            android:textSize="@dimen/_12ssp"
+            android:textStyle="bold"
+            tools:text="Mapel Name" />
+
+        <TextView
+            android:id="@+id/teacher"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/mapel"
+            android:layout_marginTop="@dimen/_4sdp"
+            android:layout_toEndOf="@id/image"
+            android:ellipsize="end"
+            android:lines="1"
+            android:text="@{item.teacher_name}"
+            android:textColor="@color/textBlack"
+            android:textSize="@dimen/_12ssp"
+            tools:text="teacher Name" />
+
+        <View
+            android:id="@+id/divider"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_1sdp"
+            android:layout_below="@id/image"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:layout_marginBottom="@dimen/_8sdp"
+            android:background="@color/ltgray" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/divider"
+            android:layout_toStartOf="@id/time_plot"
+            android:ellipsize="end"
+            android:lines="1"
+            android:text="Pukul"
+            android:textColor="@color/textBlack"
+            android:textSize="@dimen/_12ssp"
+            tools:ignore="HardcodedText" />
+
+        <TextView
+            android:id="@+id/time_plot"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/divider"
+            android:layout_alignParentEnd="true"
+            android:ellipsize="end"
+            android:lines="1"
+            android:text='@{item.time_plot_start_at + " - " + item.time_plot_end_at}'
+            android:textColor="@color/textBlack"
+            android:textSize="@dimen/_12ssp"
+            android:textStyle="bold"
+            tools:text="07:00 - 08:00" />
+
+        <View
+            android:id="@+id/divider_attend"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_1sdp"
+            android:layout_below="@id/time_plot"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:layout_marginBottom="@dimen/_8sdp"
+            android:background="@color/ltgray"
+            android:visibility='@{item.status.equals("passed") ? View.VISIBLE : View.GONE}' />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/divider_attend"
+            android:layout_toStartOf="@id/attend"
+            android:ellipsize="end"
+            android:lines="1"
+            android:text="Masuk kelas"
+            android:textColor="@color/textBlack"
+            android:textSize="@dimen/_12ssp"
+            android:visibility='@{item.status.equals("passed") ? View.VISIBLE : View.GONE}'
+            tools:ignore="HardcodedText" />
+
+        <TextView
+            android:id="@+id/attend"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/divider_attend"
+            android:layout_alignParentEnd="true"
+            android:ellipsize="end"
+            android:lines="1"
+            android:text="@{item.attend_at}"
+            android:textColor="@color/textBlack"
+            android:textSize="@dimen/_12ssp"
+            android:textStyle="bold"
+            android:visibility='@{item.status.equals("passed") ? View.VISIBLE : View.GONE}'
+            tools:text="07:05" />
+
+        <View
+            android:id="@+id/divider_leave"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_1sdp"
+            android:layout_below="@id/attend"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:layout_marginBottom="@dimen/_8sdp"
+            android:background="@color/ltgray"
+            android:visibility='@{item.status.equals("passed") ? View.VISIBLE : View.GONE}' />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/divider_leave"
+            android:layout_toStartOf="@id/leave"
+            android:ellipsize="end"
+            android:lines="1"
+            android:text="Keluar kelas"
+            android:textColor="@color/textBlack"
+            android:textSize="@dimen/_12ssp"
+            android:visibility='@{item.status.equals("passed") ? View.VISIBLE : View.GONE}'
+            tools:ignore="HardcodedText" />
+
+        <TextView
+            android:id="@+id/leave"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/divider_leave"
+            android:layout_alignParentEnd="true"
+            android:ellipsize="end"
+            android:lines="1"
+            android:text="@{item.leave_at}"
+            android:textColor="@color/textBlack"
+            android:textSize="@dimen/_12ssp"
+            android:textStyle="bold"
+            android:visibility='@{item.status.equals("passed") ? View.VISIBLE : View.GONE}'
+            tools:text="08:05" />
+
+        <View
+            android:id="@+id/divider1"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_1sdp"
+            android:layout_below="@id/leave"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:layout_marginBottom="@dimen/_8sdp"
+            android:background="@color/ltgray" />
+
+        <TextView
+            android:id="@+id/status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/divider1"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="@dimen/_8sdp"
+            android:text='@{item.status.equals("passed") ? "Kelas berakhir" : (item.status.equals("late") ? "Kelas sudah dimulai" : "Kelas belum dimulai")}'
+            android:textColor='@{item.status.equals("toward") ? @color/textBlack : @color/gray}'
+            android:textSize="@dimen/_12ssp"
+            android:visibility='@{item.status.equals("ongoing") ? View.GONE : View.VISIBLE}'
+            tools:text="Status Kelas" />
+
+        <TextView
+            android:id="@+id/label_time_left"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/status"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:layout_toStartOf="@id/btn_leave"
+            android:text='@{"Waktu tersisa " + timeLeft}'
+            android:textColor="@color/red"
+            android:textSize="@dimen/_12ssp"
+            android:visibility='@{item.status.equals("ongoing") &amp;&amp; !timeLeft.equals("") ? View.VISIBLE : View.GONE}'
+            tools:text="Waktu tersisa 5:00" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_attend"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/status"
+            android:layout_alignParentEnd="true"
+            android:gravity="center_vertical"
+            android:paddingStart="@dimen/_4sdp"
+            android:paddingTop="@dimen/_8sdp"
+            android:paddingEnd="@dimen/_8sdp"
+            android:paddingBottom="@dimen/_8sdp"
+            android:text="Hadiri kelas"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/_12ssp"
+            android:visibility='@{(item.status.equals("ongoing") || item.status.equals("late")) &amp;&amp; item.attend_at.equals("") ? View.VISIBLE : View.GONE}'
+            app:backgroundTint="@color/colorPrimary"
+            app:cornerRadius="@dimen/_16sdp"
+            app:icon="@drawable/ic_enter_class"
+            app:iconPadding="@dimen/_4sdp"
+            app:iconSize="@dimen/_16sdp"
+            tools:ignore="HardcodedText" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_leave"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/status"
+            android:layout_alignParentEnd="true"
+            android:gravity="center_vertical"
+            android:paddingStart="@dimen/_4sdp"
+            android:paddingTop="@dimen/_8sdp"
+            android:paddingEnd="@dimen/_8sdp"
+            android:paddingBottom="@dimen/_8sdp"
+            android:text="Keluar kelas"
+            android:textAllCaps="false"
+            android:textColor="@color/red"
+            android:textSize="@dimen/_12ssp"
+            android:visibility='@{(item.status.equals("ongoing") || item.status.equals("late")) &amp;&amp; item.leave_at.equals("") &amp;&amp; !item.attend_at.equals("") ? View.VISIBLE : View.GONE}'
+            app:backgroundTint="#FFDFE4"
+            app:cornerRadius="@dimen/_16sdp"
+            app:icon="@drawable/ic_exit_class"
+            app:iconPadding="@dimen/_4sdp"
+            app:iconSize="@dimen/_16sdp"
+            tools:ignore="HardcodedText"
+            tools:visibility="visible" />
+    </RelativeLayout>
+</layout>

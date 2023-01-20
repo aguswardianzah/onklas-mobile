@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:animateLayoutChanges="true"
+    android:background="@drawable/post_item_bg"
+    android:paddingTop="@dimen/_8sdp"
+    android:paddingBottom="@dimen/_8sdp">
+
+    <ImageView
+        android:id="@+id/img_profile"
+        android:layout_width="@dimen/_32sdp"
+        android:layout_height="@dimen/_32sdp"
+        android:layout_marginStart="@dimen/_8sdp"
+        android:layout_marginEnd="@dimen/_8sdp"
+        tools:src="@drawable/border_form_login_gray" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/option"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/_20sdp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="@dimen/_8sdp"
+        app:backgroundTint="@android:color/white"
+        app:icon="@drawable/ic_more"
+        app:iconGravity="end"
+        app:iconTint="@color/textBlack" />
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_3sdp"
+        android:layout_toStartOf="@id/option"
+        android:layout_toEndOf="@id/img_profile"
+        android:drawablePadding="@dimen/_4sdp"
+        android:ellipsize="end"
+        android:lines="1"
+        android:textColor="@color/textBlack"
+        android:textSize="@dimen/_13ssp"
+        android:textStyle="bold"
+        tools:text="User Name" />
+
+    <TextView
+        android:id="@+id/post_time"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/name"
+        android:layout_toStartOf="@id/option"
+        android:layout_toEndOf="@id/img_profile"
+        android:textColor="@color/textBlack"
+        android:textSize="@dimen/_10ssp"
+        tools:text="Tanggal waktu post" />
+
+    <View
+        android:id="@+id/ebook_bg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/info"
+        android:layout_below="@id/img_profile"
+        android:layout_marginStart="@dimen/_8sdp"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:layout_marginEnd="@dimen/_8sdp"
+        android:background="@drawable/post_item_bg" />
+
+    <ImageView
+        android:id="@+id/cover"
+        android:layout_width="@dimen/_36sdp"
+        android:layout_height="@dimen/_72sdp"
+        android:layout_below="@id/img_profile"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="@dimen/_16sdp"
+        android:layout_marginTop="@dimen/_16sdp"
+        android:layout_marginEnd="@dimen/_12sdp"
+        tools:src="@android:drawable/ic_menu_report_image" />
+
+    <TextView
+        android:id="@+id/content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/img_profile"
+        android:layout_marginTop="@dimen/_16sdp"
+        android:layout_marginEnd="@dimen/_16sdp"
+        android:layout_toEndOf="@id/cover"
+        android:textColor="@color/textBlack"
+        android:textSize="@dimen/_13ssp"
+        android:textStyle="bold"
+        tools:text="Judul Ebook" />
+
+    <TextView
+        android:id="@+id/ebook_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/content"
+        android:layout_marginTop="@dimen/_6sdp"
+        android:layout_marginEnd="@dimen/_16sdp"
+        android:layout_toEndOf="@id/cover"
+        android:ellipsize="end"
+        android:maxLines="3"
+        android:textColor="@color/gray"
+        android:textSize="@dimen/_12ssp"
+        tools:text="@string/lipsum" />
+
+    <TextView
+        android:id="@+id/size"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ebook_info"
+        android:layout_marginEnd="@dimen/_16sdp"
+        android:layout_toEndOf="@id/cover"
+        android:ellipsize="end"
+        android:maxLines="4"
+        android:textColor="@color/gray"
+        android:textSize="@dimen/_11ssp"
+        tools:text="Ukuran 2.5Mb" />
+
+    <TextView
+        android:id="@+id/lihat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/size"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="@dimen/_12sdp"
+        android:layout_marginEnd="@dimen/_16sdp"
+        android:layout_marginBottom="@dimen/_16sdp"
+        android:ellipsize="end"
+        android:gravity="end"
+        android:maxLines="4"
+        android:text="Lihat Ebook"
+        android:textColor="@color/colorPrimary"
+        android:textSize="@dimen/_12ssp"
+        android:textStyle="bold"
+        tools:ignore="HardcodedText" />
+
+    <FrameLayout
+        android:id="@+id/img_like"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/_24sdp"
+        android:layout_below="@id/lihat"
+        android:layout_marginStart="@dimen/_8sdp"
+        android:layout_marginTop="@dimen/_8sdp"
+        tools:layout_width="@dimen/_100sdp" />
+
+    <TextView
+        android:id="@+id/info"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_24sdp"
+        android:layout_below="@id/lihat"
+        android:layout_marginStart="@dimen/_8sdp"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:layout_marginEnd="@dimen/_8sdp"
+        android:layout_toEndOf="@id/img_like"
+        android:gravity="start|center_vertical"
+        android:textColor="@color/gray"
+        tools:text="99 Suka - 99+ Komentar" />
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="@dimen/_8sdp"
+        android:layout_height="@dimen/_1sdp"
+        android:layout_below="@id/info"
+        android:layout_centerHorizontal="true" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_like"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/info"
+        android:layout_marginStart="@dimen/_8sdp"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:layout_toStartOf="@id/divider"
+        android:gravity="center_vertical"
+        android:paddingStart="@dimen/_8sdp"
+        android:paddingTop="@dimen/_4sdp"
+        android:paddingEnd="@dimen/_8sdp"
+        android:paddingBottom="@dimen/_4sdp"
+        android:text="Sukai ini"
+        android:textAllCaps="false"
+        android:textColor="@color/textBlack"
+        android:textSize="@dimen/_12ssp"
+        app:backgroundTint="#F4F5F6"
+        app:cornerRadius="@dimen/_32sdp"
+        app:icon="@drawable/post_like_selector"
+        app:iconPadding="@dimen/_12sdp"
+        app:iconSize="@dimen/_24sdp"
+        tools:ignore="HardcodedText" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_comment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/info"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:layout_marginEnd="@dimen/_8sdp"
+        android:layout_toEndOf="@id/divider"
+        android:gravity="center_vertical"
+        android:paddingStart="@dimen/_8sdp"
+        android:paddingTop="@dimen/_4sdp"
+        android:paddingEnd="@dimen/_8sdp"
+        android:paddingBottom="@dimen/_4sdp"
+        android:text="Komentari"
+        android:textAllCaps="false"
+        android:textColor="@color/textBlack"
+        android:textSize="@dimen/_12ssp"
+        app:backgroundTint="#F4F5F6"
+        app:cornerRadius="@dimen/_32sdp"
+        app:icon="@drawable/ic_comment"
+        app:iconPadding="@dimen/_12sdp"
+        app:iconSize="@dimen/_24sdp"
+        tools:ignore="HardcodedText" />
+</RelativeLayout>

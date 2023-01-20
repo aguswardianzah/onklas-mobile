@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/_8sdp">
+
+    <FrameLayout
+        android:id="@+id/img_like"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/_24sdp"
+        tools:layout_width="@dimen/_100sdp" />
+
+    <TextView
+        android:id="@+id/info"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_24sdp"
+        android:layout_marginStart="@dimen/_8sdp"
+        android:layout_marginEnd="@dimen/_8sdp"
+        android:layout_toStartOf="@id/share"
+        android:layout_toEndOf="@id/img_like"
+        android:gravity="start|center_vertical"
+        android:textColor="@color/gray"
+        tools:text="99 Suka - 99+ Komentar" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/share"
+        style="@style/Widget.MaterialComponents.Button.TextButton"
+        android:layout_width="@dimen/_24sdp"
+        android:layout_height="@dimen/_24sdp"
+        android:layout_alignParentEnd="true"
+        android:visibility="invisible"
+        app:icon="@drawable/ic_share"
+        app:iconGravity="start"
+        app:iconSize="@dimen/_16sdp"
+        app:iconTint="@color/colorPrimary" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/share"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:id="@+id/rl_like"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_4sdp"
+            android:layout_weight="1"
+            android:background="@drawable/post_comment_bg"
+            android:padding="@dimen/_4sdp">
+
+            <CheckBox
+                android:id="@+id/ic_like"
+                android:layout_width="@dimen/_24sdp"
+                android:layout_height="@dimen/_24sdp"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="@dimen/_8sdp"
+                android:background="@drawable/post_like_selector"
+                android:button="@null"
+                android:src="@drawable/ic_liked"
+                android:stateListAnimator="@animator/animator_post_love" />
+
+            <TextView
+                android:id="@+id/like_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toEndOf="@id/ic_like"
+                android:text="Sukai ini"
+                android:textColor="@color/textBlack" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_comment"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_4sdp"
+            android:layout_weight="1"
+            android:background="@drawable/post_comment_bg"
+            android:padding="@dimen/_4sdp">
+
+            <ImageView
+                android:id="@+id/ic_comment"
+                android:layout_width="@dimen/_24sdp"
+                android:layout_height="@dimen/_24sdp"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="@dimen/_8sdp"
+                android:background="@android:color/transparent"
+                android:src="@drawable/ic_comment" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toEndOf="@id/ic_comment"
+                android:text="Komentari"
+                android:textColor="@color/textBlack" />
+        </RelativeLayout>
+    </LinearLayout>
+</RelativeLayout>

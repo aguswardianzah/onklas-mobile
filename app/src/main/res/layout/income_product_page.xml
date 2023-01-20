@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+<data>
+    <import type="android.view.View" />
+
+    <variable
+        name="viewModel"
+        type="id.onklas.app.pages.entrepreneurs.OrderVM" />
+</data>
+<androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+    android:id="@+id/swipe_refresh"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".pages.entrepreneurs.myMerchant.IncomingOrder.incomingOrderPage.IncomingProductPage">
+        <TextView
+            android:id="@+id/txt_total_pendapatan"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="#EBFFEE"
+            android:gravity="center"
+            android:paddingVertical="@dimen/_10sdp"
+            android:textSize="@dimen/_12sdp"
+            android:textColor="@color/green"
+            style="@style/latoDefault"
+            tools:text=" Rp 120.000"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_product"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txt_total_pendapatan"
+            tools:listitem="@layout/income_product_item" />
+        <include
+            android:id="@+id/kosong_lay"
+            android:visibility="@{viewModel.isEmptyOrder ? View.VISIBLE : View.GONE}"
+             layout="@layout/product_emp_layout" />
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+</layout>

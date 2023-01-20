@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="id.onklas.app.pages.login.LoginViewModel" />
+
+        <variable
+            name="viewmodel"
+            type="LoginViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/border_login_form"
+        android:padding="@dimen/_16sdp">
+
+        <TextView
+            android:id="@+id/login_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="login akun"
+            android:textAllCaps="true"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/_16ssp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="HardcodedText" />
+
+        <View
+            android:id="@+id/background_item"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/_16sdp"
+            android:background="@drawable/border_input"
+            app:layout_constraintBottom_toBottomOf="@id/sp_password"
+            app:layout_constraintTop_toBottomOf="@id/login_title" />
+
+        <ImageView
+            android:id="@+id/image_icon"
+            android:layout_width="@dimen/_24sdp"
+            android:layout_height="@dimen/_24sdp"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:src="@drawable/ic_nis"
+            app:layout_constraintStart_toStartOf="@id/background_item"
+            app:layout_constraintTop_toTopOf="@id/background_item" />
+
+        <Space
+            android:id="@+id/sp_password"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_8sdp"
+            app:layout_constraintTop_toBottomOf="@id/image_icon" />
+
+        <EditText
+            android:id="@+id/text_soal"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:layout_marginEnd="@dimen/_8sdp"
+            android:background="@android:color/transparent"
+            android:hint="Ketikkan NISN/NIS/NIK"
+            android:inputType="number"
+            android:text="@={viewmodel.nisn}"
+            android:textColor="@color/textBlack"
+            android:textColorHint="@color/gray"
+            android:textCursorDrawable="@null"
+            android:textSize="@dimen/_13ssp"
+            app:layout_constraintBottom_toBottomOf="@id/image_icon"
+            app:layout_constraintEnd_toEndOf="@id/background_item"
+            app:layout_constraintStart_toEndOf="@id/image_icon"
+            app:layout_constraintTop_toTopOf="@id/image_icon"
+            tools:ignore="HardcodedText" />
+
+        <TextView
+            android:id="@+id/err_nis"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_32sdp"
+            android:layout_marginTop="@dimen/_4sdp"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:text="NIS/NIK Anda tidak terdaftar"
+            android:textColor="@color/red"
+            android:textSize="@dimen/_10ssp"
+            android:visibility="gone"
+            app:layout_constraintTop_toBottomOf="@id/background_item"
+            tools:ignore="HardcodedText" />
+
+        <View
+            android:id="@+id/v_sekolah"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:background="@drawable/border_input"
+            app:layout_constraintBottom_toBottomOf="@id/sp_sekolah"
+            app:layout_constraintTop_toBottomOf="@id/err_nis" />
+
+        <ImageView
+            android:id="@+id/ic_sekolah"
+            android:layout_width="@dimen/_24sdp"
+            android:layout_height="@dimen/_24sdp"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:src="@drawable/ic_school_login"
+            app:layout_constraintStart_toStartOf="@id/v_sekolah"
+            app:layout_constraintTop_toTopOf="@id/v_sekolah" />
+
+        <View
+            android:id="@+id/sp_sekolah"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_8sdp"
+            app:layout_constraintTop_toBottomOf="@id/ic_sekolah" />
+
+        <TextView
+            android:id="@+id/in_sekolah"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:layout_marginEnd="@dimen/_4sdp"
+            android:background="@android:color/transparent"
+            android:ellipsize="marquee"
+            android:gravity="center|start"
+            android:hint="Pilih Sekolah"
+            android:singleLine="true"
+            android:text="@{viewmodel.school.name}"
+            android:textColor="@color/textBlack"
+            android:textColorHint="@color/gray"
+            android:textSize="@dimen/_13ssp"
+            app:layout_constraintBottom_toBottomOf="@id/ic_sekolah"
+            app:layout_constraintEnd_toStartOf="@id/sel_sekolah"
+            app:layout_constraintStart_toEndOf="@id/image_icon"
+            app:layout_constraintTop_toTopOf="@id/ic_sekolah"
+            tools:ignore="HardcodedText" />
+
+        <ImageView
+            android:id="@+id/sel_sekolah"
+            android:layout_width="@dimen/_16sdp"
+            android:layout_height="@dimen/_16sdp"
+            android:layout_marginEnd="@dimen/_8sdp"
+            android:src="@drawable/ic_carret_right"
+            app:layout_constraintBottom_toBottomOf="@id/ic_sekolah"
+            app:layout_constraintEnd_toEndOf="@id/v_sekolah"
+            app:layout_constraintTop_toTopOf="@id/ic_sekolah" />
+
+        <TextView
+            android:id="@+id/err_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_32sdp"
+            android:layout_marginTop="@dimen/_4sdp"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:text="Sekolah tujuan tidak sesuai"
+            android:textColor="@color/red"
+            android:textSize="@dimen/_10ssp"
+            android:visibility="gone"
+            app:layout_constraintTop_toBottomOf="@id/v_sekolah"
+            tools:ignore="HardcodedText" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_login"
+            style="@style/Widget.MaterialComponents.Button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:paddingTop="@dimen/_8sdp"
+            android:paddingBottom="@dimen/_8sdp"
+            android:text="masuk"
+            android:textColor="@android:color/white"
+            app:backgroundTint="@color/form_button_color"
+            app:cornerRadius="@dimen/_24sdp"
+            app:layout_constraintTop_toBottomOf="@id/err_password"
+            tools:ignore="HardcodedText" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

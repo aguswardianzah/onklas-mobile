@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="timeFormat"
+            type="java.text.SimpleDateFormat" />
+
+        <variable
+            name="isFirst"
+            type="Boolean" />
+
+        <variable
+            name="item"
+            type="id.onklas.app.pages.chat.ChatItem" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@{isFirst ? @dimen/_8sdp : @dimen/_1sdp}"
+        tools:background="@color/ltgray">
+
+        <View
+            android:id="@+id/bg_chat"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@{isFirst ? @drawable/incoming_chat_first : @drawable/incoming_chat}"
+            app:layout_constraintBottom_toBottomOf="@id/sp_message"
+            app:layout_constraintEnd_toEndOf="@id/main_content"
+            app:layout_constraintStart_toStartOf="@id/main_content"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:background="@drawable/incoming_chat_first" />
+
+        <id.onklas.app.utils.ViewMainSlave
+            android:id="@+id/main_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_6sdp"
+            android:gravity="end|bottom"
+            android:paddingStart="@dimen/_12sdp"
+            android:paddingEnd="@dimen/_10sdp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/bg_chat"
+            app:viewPartMain="@id/tv_message"
+            app:viewPartSlave="@id/time">
+
+            <TextView
+                android:id="@+id/tv_message"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_6sdp"
+                android:layout_marginEnd="@dimen/_12sdp"
+                android:gravity="start|top"
+                android:maxWidth="@dimen/_220sdp"
+                android:text="@{item.message}"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/_12ssp"
+                tools:text="@string/lipsum" />
+
+            <TextView
+                android:id="@+id/time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{timeFormat.format(item.date)}"
+                android:textColor="@color/textBlack"
+                android:textSize="@dimen/_10ssp"
+                tools:text="00:00" />
+        </id.onklas.app.utils.ViewMainSlave>
+
+        <Space
+            android:id="@+id/sp_message"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_6sdp"
+            app:layout_constraintTop_toBottomOf="@id/main_content" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

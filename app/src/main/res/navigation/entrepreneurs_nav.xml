@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/entrepreneurs_nav"
+    app:startDestination="@id/entrepreneursPenjualan">
+    <fragment
+        android:id="@+id/entrepreneursPenjualan"
+        android:name="id.onklas.app.pages.entrepreneurs.EntrepreneursPenjualan"
+        android:label="entrepreneursPenjualan" />
+    <fragment
+        android:id="@+id/entrepreneursPembelian"
+        android:name="id.onklas.app.pages.entrepreneurs.EntrepreneursPembelian"
+        android:label="entrepreneursPembelian" />
+
+    <action
+        android:id="@+id/action_global_entrepreneurs_penjualan"
+        app:destination="@id/entrepreneursPenjualan" />
+    <action
+        android:id="@+id/action_global_entrepreneurs_pembelian"
+        app:destination="@id/entrepreneursPembelian" />
+</navigation>

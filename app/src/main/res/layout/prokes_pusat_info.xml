@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_prokes"
+    tools:context=".pages.prokes.pusatinformasi.ProkesPusatInfo">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_16sdp"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:background="@drawable/label_orange"
+            android:gravity="center"
+            android:paddingStart="@dimen/_12sdp"
+            android:paddingTop="@dimen/_8sdp"
+            android:paddingEnd="@dimen/_12sdp"
+            android:paddingBottom="@dimen/_8sdp"
+            android:text="Informasi dan pertanyaan seputar virus corona"
+            android:textColor="@color/textBlack"
+            android:textSize="@dimen/_11ssp"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="HardcodedText" />
+
+        <TextView
+            android:id="@+id/title"
+            style="@style/latoDefault"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_16sdp"
+            android:layout_marginTop="@dimen/_24sdp"
+            android:gravity="center"
+            android:text="CARA PENCEGAHAN Virus COVID-19"
+            android:textColor="@color/textBlack1"
+            android:textSize="@dimen/_14sdp"
+            app:layout_constraintTop_toBottomOf="@id/label" />
+
+        <ImageView
+            android:id="@+id/banner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:adjustViewBounds="true"
+            android:src="@drawable/img_banner_infoprokes"
+            app:layout_constraintTop_toBottomOf="@id/title" />
+
+        <Space
+            android:id="@+id/sp_banner"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_28sdp"
+            app:layout_constraintBottom_toBottomOf="@id/banner" />
+
+
+        <View
+            android:id="@+id/form_dg"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginStart="@dimen/_16sdp"
+            android:layout_marginEnd="@dimen/_16sdp"
+            android:background="@drawable/border_login_form"
+            app:layout_constraintBottom_toBottomOf="@id/sp_danger"
+            app:layout_constraintTop_toTopOf="@id/sp_banner" />
+
+        <TextView
+            android:id="@+id/label_danger"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/_24sdp"
+            android:background="@drawable/square_border_filter_red"
+            android:paddingStart="@dimen/_12sdp"
+            android:paddingTop="@dimen/_8sdp"
+            android:paddingEnd="@dimen/_12sdp"
+            android:paddingBottom="@dimen/_8sdp"
+            android:text="Tingkatkan kewaspadaan dan disiplin Prokes"
+            android:textColor="@color/red3"
+            android:textSize="@dimen/_11ssp"
+            app:layout_constraintEnd_toEndOf="@+id/form_dg"
+            app:layout_constraintStart_toStartOf="@+id/form_dg"
+            app:layout_constraintTop_toTopOf="@id/form_dg" />
+
+        <View
+            android:id="@+id/v_pakai_masker"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:layout_marginTop="@dimen/_24sdp"
+            android:background="@drawable/border_login_form"
+            app:layout_constraintBottom_toBottomOf="@id/sp_pakai_masker"
+            app:layout_constraintEnd_toStartOf="@+id/v_cuci_tangan"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@id/form_dg"
+            app:layout_constraintTop_toBottomOf="@id/label_danger" />
+
+        <id.onklas.app.utils.SquareImageView
+            android:id="@+id/ic_pakai_masker"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_14sdp"
+            android:adjustViewBounds="true"
+            android:background="@drawable/ic_pakai_masker"
+            app:layout_constraintEnd_toEndOf="@id/v_pakai_masker"
+            app:layout_constraintStart_toStartOf="@id/v_pakai_masker"
+            app:layout_constraintTop_toTopOf="@id/v_pakai_masker" />
+
+        <View
+            android:id="@+id/sp_pakai_masker"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_12sdp"
+            app:layout_constraintEnd_toEndOf="@id/ic_pakai_masker"
+            app:layout_constraintStart_toStartOf="@id/ic_pakai_masker"
+            app:layout_constraintTop_toBottomOf="@id/ic_pakai_masker" />
+
+        <TextView
+            style="@style/latoDefault"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:gravity="center"
+            android:text="PAKAI MASKER"
+            android:textColor="@color/trueBlack"
+            android:textSize="@dimen/_10ssp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@id/v_pakai_masker"
+            app:layout_constraintStart_toStartOf="@id/v_pakai_masker"
+            app:layout_constraintTop_toBottomOf="@id/v_pakai_masker"
+            tools:ignore="HardcodedText" />
+
+        <View
+            android:id="@+id/v_cuci_tangan"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginHorizontal="@dimen/_8sdp"
+            android:layout_marginTop="@dimen/_24sdp"
+            android:background="@drawable/border_login_form"
+            app:layout_constraintBottom_toBottomOf="@id/sp_cuci_tangan"
+            app:layout_constraintEnd_toStartOf="@+id/v_jaga_jarak"
+            app:layout_constraintStart_toEndOf="@+id/v_pakai_masker"
+            app:layout_constraintTop_toBottomOf="@id/label_danger" />
+
+        <id.onklas.app.utils.SquareImageView
+            android:id="@+id/ic_cuci_tangan"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_14sdp"
+            android:layout_marginHorizontal="@dimen/_8sdp"
+            android:adjustViewBounds="true"
+            android:background="@drawable/ic_cuci_tangan"
+            app:layout_constraintEnd_toEndOf="@id/v_cuci_tangan"
+            app:layout_constraintStart_toStartOf="@id/v_cuci_tangan"
+            app:layout_constraintTop_toTopOf="@id/v_cuci_tangan" />
+
+        <Space
+            android:id="@+id/sp_cuci_tangan"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_12sdp"
+            app:layout_constraintEnd_toEndOf="@id/ic_cuci_tangan"
+            app:layout_constraintStart_toStartOf="@id/ic_cuci_tangan"
+            app:layout_constraintTop_toBottomOf="@id/ic_cuci_tangan" />
+
+        <TextView
+            android:id="@+id/lbl_cucitangan"
+            style="@style/latoDefault"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:gravity="center"
+            android:text="CUCI TANGAN"
+            android:textColor="@color/trueBlack"
+            android:textSize="@dimen/_10ssp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@id/v_cuci_tangan"
+            app:layout_constraintStart_toStartOf="@id/v_cuci_tangan"
+            app:layout_constraintTop_toBottomOf="@id/v_cuci_tangan"
+            tools:ignore="HardcodedText" />
+
+        <View
+            android:id="@+id/v_jaga_jarak"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/_24sdp"
+            android:layout_marginEnd="@dimen/_8sdp"
+            android:background="@drawable/border_login_form"
+            app:layout_constraintBottom_toBottomOf="@id/sp_jaga_jarak"
+            app:layout_constraintEnd_toEndOf="@id/form_dg"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/v_cuci_tangan"
+            app:layout_constraintTop_toBottomOf="@id/label_danger" />
+
+        <id.onklas.app.utils.SquareImageView
+            android:id="@+id/ic_jaga_jarak"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_14sdp"
+            android:adjustViewBounds="true"
+            android:background="@drawable/ic_social_distancing"
+            app:layout_constraintEnd_toEndOf="@id/v_jaga_jarak"
+            app:layout_constraintStart_toStartOf="@id/v_jaga_jarak"
+            app:layout_constraintTop_toTopOf="@id/v_jaga_jarak" />
+
+        <Space
+            android:id="@+id/sp_jaga_jarak"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_12sdp"
+            app:layout_constraintEnd_toEndOf="@id/ic_jaga_jarak"
+            app:layout_constraintStart_toStartOf="@id/ic_jaga_jarak"
+            app:layout_constraintTop_toBottomOf="@id/ic_jaga_jarak" />
+
+        <TextView
+            style="@style/latoDefault"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:gravity="center"
+            android:text="JAGA JARAK"
+            android:textColor="@color/trueBlack"
+            android:textSize="@dimen/_10ssp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@id/v_jaga_jarak"
+            app:layout_constraintStart_toStartOf="@id/v_jaga_jarak"
+            app:layout_constraintTop_toBottomOf="@id/v_jaga_jarak"
+            tools:ignore="HardcodedText" />
+
+        <View
+            android:id="@+id/sp_danger"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_16sdp"
+            app:layout_constraintEnd_toEndOf="@id/form_dg"
+            app:layout_constraintStart_toStartOf="@id/form_dg"
+            app:layout_constraintTop_toBottomOf="@id/lbl_cucitangan" />
+
+        <View
+            android:id="@+id/v_infcovd"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginHorizontal="@dimen/_16sdp"
+            android:layout_marginTop="@dimen/_16sdp"
+            android:background="@drawable/border_login_form"
+            app:layout_constraintBottom_toBottomOf="@id/img_info"
+            app:layout_constraintTop_toBottomOf="@id/form_dg" />
+
+        <ImageView
+            android:id="@+id/img_info"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:adjustViewBounds="true"
+            android:src="@drawable/img_infocvd"
+            app:layout_constraintBottom_toBottomOf="@id/sp_info"
+            app:layout_constraintStart_toStartOf="@id/v_infcovd"
+            app:layout_constraintTop_toTopOf="@id/v_infcovd" />
+
+        <TextView
+            android:id="@+id/title_info"
+            style="@style/latoDefault"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:text="Info Covid-19"
+            android:textColor="@color/trueBlack"
+            android:textSize="@dimen/_14ssp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@id/v_infcovd"
+            app:layout_constraintStart_toEndOf="@id/img_info"
+            app:layout_constraintTop_toTopOf="@id/v_infcovd"
+            tools:ignore="HardcodedText" />
+
+        <TextView
+            android:id="@+id/desc_info"
+            style="@style/latoDefault"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_4sdp"
+            android:text="Ketahui tentang gejala dan penularan"
+            android:textColor="@color/textBlack2"
+            android:textSize="@dimen/_11ssp"
+            app:layout_constraintEnd_toEndOf="@id/v_infcovd"
+            app:layout_constraintStart_toEndOf="@id/img_info"
+            app:layout_constraintTop_toBottomOf="@id/title_info" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_info"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:text="Selengkapnya"
+            android:textAllCaps="false"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/_12sdp"
+            android:textStyle="bold"
+            app:cornerRadius="@dimen/_16sdp"
+            app:layout_constraintEnd_toEndOf="@+id/desc_info"
+            app:layout_constraintStart_toStartOf="@+id/desc_info"
+            app:layout_constraintTop_toBottomOf="@id/desc_info"
+            app:strokeColor="@color/colorPrimary" />
+
+        <Space
+            android:id="@+id/sp_info"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_10sdp"
+            app:layout_constraintTop_toBottomOf="@id/btn_info" />
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_tips"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_16sdp"
+            android:layout_marginTop="@dimen/_16sdp"
+            app:layout_constraintTop_toBottomOf="@id/v_infcovd"
+            tools:itemCount="2"
+            tools:listitem="@layout/prokesinfo_tips_item"
+
+            />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.core.widget.NestedScrollView>

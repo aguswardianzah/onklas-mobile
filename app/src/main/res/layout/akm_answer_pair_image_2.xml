@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.text.Html" />
+
+        <import type="android.view.View" />
+
+        <variable
+            name="choice"
+            type="id.onklas.app.pages.akm.AkmAnswerTable" />
+
+        <variable
+            name="choice_label"
+            type="String" />
+
+        <variable
+            name="answered"
+            type="Boolean" />
+
+        <variable
+            name="scored"
+            type="Boolean" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_56sdp"
+        android:layout_marginHorizontal="@dimen/_8sdp"
+        android:background="@drawable/border_pair_second"
+        android:padding="@dimen/_8sdp">
+
+        <ImageView
+            imageFitUrlRounded="@{choice.file_path}"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            tools:src="@drawable/ic_logo_label" />
+    </RelativeLayout>
+</layout>

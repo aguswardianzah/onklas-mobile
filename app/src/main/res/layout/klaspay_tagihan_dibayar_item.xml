@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="item"
+            type="id.onklas.app.pages.pembayaran.PaymentInvoice" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="@dimen/_16sdp"
+        app:contentPadding="@dimen/_12sdp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/icon"
+                android:layout_width="@dimen/_32sdp"
+                android:layout_height="@dimen/_32sdp"
+                android:layout_marginEnd="@dimen/_4sdp"
+                android:src='@{item.type == "SPP" ? @drawable/ic_spp_payment : @drawable/ic_invoice_topup}'
+                tools:src="@drawable/ic_invoice_topup" />
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_8sdp"
+                android:layout_toStartOf="@id/text_detail"
+                android:layout_toEndOf="@id/icon"
+                android:text='@{"ID: " + item.trx_id}'
+                android:textColor="@color/textBlack"
+                android:textSize="@dimen/_12ssp"
+                android:textStyle="bold"
+                tools:text="ID: SM1DPP-3114" />
+
+            <TextView
+                android:id="@+id/subtitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/title"
+                android:layout_marginStart="@dimen/_8sdp"
+                android:layout_marginTop="@dimen/_4sdp"
+                android:layout_toStartOf="@id/text_detail"
+                android:layout_toEndOf="@id/icon"
+                android:text="@{item.created_at_label}"
+                android:textColor="@color/gray"
+                android:textSize="@dimen/_11ssp"
+                tools:text="5 Februari 2021, 07:57" />
+
+            <TextView
+                android:id="@+id/text_detail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="@dimen/_8sdp"
+                android:text="Lihat Detail"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/_12ssp"
+                android:textStyle="bold"
+                tools:ignore="HardcodedText" />
+
+            <View
+                android:id="@+id/divider_icon"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_1sdp"
+                android:layout_below="@id/subtitle"
+                android:layout_marginTop="@dimen/_12sdp"
+                android:layout_marginBottom="@dimen/_12sdp"
+                android:background="@color/ltgray" />
+
+            <TextView
+                android:id="@+id/label_transaksi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/divider_icon"
+                android:text="Transaksi:"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/_11ssp"
+                tools:ignore="HardcodedText" />
+
+            <TextView
+                android:id="@+id/text_transaksi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/divider_icon"
+                android:layout_marginStart="@dimen/_8sdp"
+                android:layout_toEndOf="@id/label_transaksi"
+                android:gravity="end"
+                android:text="@{item.note}"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/_11ssp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/divider_icon"
+                tools:text="TOP UP 150.000" />
+
+            <TextView
+                android:id="@+id/label_bank"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/text_transaksi"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:text="Metode bank:"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/_11ssp"
+                tools:ignore="HardcodedText" />
+
+            <TextView
+                android:id="@+id/text_bank"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/text_transaksi"
+                android:layout_marginStart="@dimen/_24sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:layout_toEndOf="@id/label_bank"
+                android:gravity="end"
+                android:text="@{item.channel_label}"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/_11ssp"
+                tools:text="BCA VIRTUAL ACCOUNT" />
+        </RelativeLayout>
+    </com.google.android.material.card.MaterialCardView>
+</layout>

@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".pages.sekolah.store.StoreProductPage">
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipe_refresh"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@color/bg_gray">
+
+                <!--                <androidx.constraintlayout.widget.ConstraintLayout-->
+                <!--                    android:id="@+id/search_lay"-->
+                <!--                    android:layout_width="0dp"-->
+                <!--                    android:layout_height="wrap_content"-->
+                <!--                    android:layout_marginLeft="@dimen/_12sdp"-->
+                <!--                    android:layout_marginTop="16dp"-->
+                <!--                    android:layout_marginRight="@dimen/_12sdp"-->
+                <!--                    android:background="@drawable/rounded_radius40"-->
+                <!--                    android:backgroundTint="@color/white"-->
+                <!--                    app:layout_constraintEnd_toEndOf="parent"-->
+                <!--                    app:layout_constraintStart_toStartOf="parent"-->
+                <!--                    app:layout_constraintTop_toTopOf="parent">-->
+
+                <!--                    <TextView-->
+                <!--                        android:id="@+id/textView12"-->
+                <!--                        android:layout_width="0dp"-->
+                <!--                        android:layout_height="wrap_content"-->
+                <!--                        android:layout_marginStart="@dimen/_16sdp"-->
+                <!--                        android:layout_marginTop="@dimen/_16sdp"-->
+                <!--                        android:layout_marginBottom="@dimen/_16sdp"-->
+                <!--                        android:text="Cari produk atau nama penjual "-->
+                <!--                        android:textAppearance="@style/latoDefault"-->
+                <!--                        android:textColor="@color/gray"-->
+                <!--                        android:textSize="@dimen/_12sdp"-->
+                <!--                        app:layout_constraintBottom_toBottomOf="parent"-->
+                <!--                        app:layout_constraintEnd_toStartOf="@+id/textView13"-->
+                <!--                        app:layout_constraintHorizontal_bias="0.5"-->
+                <!--                        app:layout_constraintStart_toStartOf="parent"-->
+                <!--                        app:layout_constraintTop_toTopOf="parent" />-->
+
+                <!--                    <TextView-->
+                <!--                        android:id="@+id/textView13"-->
+                <!--                        android:layout_width="1dp"-->
+                <!--                        android:layout_height="0dp"-->
+                <!--                        android:layout_marginEnd="12dp"-->
+                <!--                        android:visibility="gone"-->
+                <!--                        android:background="@color/gray"-->
+                <!--                        app:layout_constraintBottom_toBottomOf="parent"-->
+                <!--                        app:layout_constraintEnd_toStartOf="@+id/select_search"-->
+                <!--                        app:layout_constraintTop_toTopOf="parent" />-->
+
+                <!--                    <TextView-->
+                <!--                        android:id="@+id/select_search"-->
+                <!--                        android:layout_width="wrap_content"-->
+                <!--                        android:layout_height="match_parent"-->
+                <!--                        android:drawablePadding="@dimen/_10sdp"-->
+                <!--                        android:gravity="center"-->
+                <!--                        android:padding="@dimen/_8sdp"-->
+                <!--                        android:visibility="gone"-->
+                <!--                        android:text="Produk"-->
+                <!--                        android:textAppearance="@style/latoBlackBold"-->
+                <!--                        android:textSize="@dimen/_12sdp"-->
+                <!--                        app:layout_constraintBottom_toBottomOf="parent"-->
+                <!--                        app:layout_constraintEnd_toStartOf="@+id/textView88"-->
+                <!--                        app:layout_constraintTop_toTopOf="parent" />-->
+
+                <!--                    <TextView-->
+                <!--                        android:id="@+id/textView88"-->
+                <!--                        android:layout_width="@dimen/_16sdp"-->
+                <!--                        android:layout_height="@dimen/_16sdp"-->
+                <!--                        android:layout_marginEnd="@dimen/_16sdp"-->
+                <!--                        android:background="@drawable/mdtp_ic_chevron_left_black_24dp"-->
+                <!--                        android:rotation="-90"-->
+                <!--                        android:visibility="gone"-->
+                <!--                        app:layout_constraintBottom_toBottomOf="parent"-->
+                <!--                        app:layout_constraintEnd_toEndOf="parent"-->
+                <!--                        app:layout_constraintTop_toTopOf="parent" />-->
+                <!--                </androidx.constraintlayout.widget.ConstraintLayout>-->
+
+
+                <androidx.viewpager.widget.ViewPager
+                    android:id="@+id/viewpager"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:visibility="gone"
+                    app:layout_constraintDimensionRatio="1:0.4"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <com.rd.PageIndicatorView
+                    android:id="@+id/indicator"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/_22sdp"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="@id/viewpager"
+                    app:layout_constraintEnd_toEndOf="@id/viewpager"
+                    app:layout_constraintStart_toStartOf="@id/viewpager"
+                    app:piv_animationType="worm"
+                    app:piv_radius="@dimen/_4sdp"
+                    app:piv_selectedColor="@color/colorPrimary"
+                    app:piv_unselectedColor="@color/ltgray"
+                    app:piv_viewPager="@id/viewpager" />
+
+                <View
+                    android:id="@+id/bg_action"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:background="@color/white"
+                    app:layout_constraintBottom_toBottomOf="@id/v_action"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <View
+                    android:id="@+id/v_action"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginHorizontal="@dimen/_12sdp"
+                    android:layout_marginTop="@dimen/_16sdp"
+                    android:background="@drawable/border_gray_radius6"
+                    app:layout_constraintBottom_toBottomOf="@id/sp_toko_saya"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:layout_editor_absoluteX="22dp" />
+
+
+                <ImageView
+                    android:id="@+id/ic_pembelian"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/_18sdp"
+                    android:layout_marginVertical="@dimen/_20sdp"
+                    android:layout_marginStart="@dimen/_16sdp"
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/ic_storehome_pembelian"
+                    app:layout_constraintBottom_toBottomOf="@id/v_action"
+                    app:layout_constraintStart_toStartOf="@id/v_action"
+                    app:layout_constraintTop_toTopOf="@id/v_action" />
+
+                <TextView
+                    android:id="@+id/action_pembelian"
+                    style="@style/latoDefault"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:gravity="center_vertical"
+                    android:text="Pembelian"
+                    android:textColor="@color/textBlack1"
+                    android:textSize="@dimen/_13ssp"
+                    app:layout_constraintBottom_toBottomOf="@id/v_action"
+                    app:layout_constraintEnd_toEndOf="@id/sp_pembelian"
+                    app:layout_constraintStart_toEndOf="@id/ic_pembelian"
+                    app:layout_constraintTop_toTopOf="@id/v_action" />
+
+
+                <View
+                    android:id="@+id/sp_pembelian"
+                    android:layout_width="@dimen/_1sdp"
+                    android:layout_height="0dp"
+                    android:layout_marginHorizontal="@dimen/_16sdp"
+                    android:layout_marginVertical="@dimen/_8sdp"
+                    android:background="@color/gray"
+                    app:layout_constraintBottom_toBottomOf="@id/v_action"
+                    app:layout_constraintEnd_toStartOf="@id/ic_pro"
+                    app:layout_constraintStart_toStartOf="@id/v_action"
+                    app:layout_constraintTop_toTopOf="@id/v_action" />
+
+                <ImageView
+                    android:id="@+id/ic_toko_saya"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/_18sdp"
+                    android:layout_marginVertical="@dimen/_20sdp"
+                    android:layout_marginStart="@dimen/_16sdp"
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/ic_storehome_tokosaya"
+                    app:layout_constraintBottom_toBottomOf="@id/v_action"
+                    app:layout_constraintStart_toEndOf="@id/sp_pembelian"
+                    app:layout_constraintTop_toTopOf="@id/v_action" />
+
+                <TextView
+                    android:id="@+id/action_toko"
+                    style="@style/latoDefault"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:gravity="center_vertical"
+                    android:text="Toko Saya"
+                    android:textColor="@color/textBlack1"
+                    android:textSize="@dimen/_13ssp"
+                    app:layout_constraintBottom_toBottomOf="@id/v_action"
+                    app:layout_constraintEnd_toStartOf="@id/ic_pro"
+                    app:layout_constraintStart_toEndOf="@id/ic_toko_saya"
+                    app:layout_constraintTop_toTopOf="@id/v_action" />
+
+                <ImageView
+                    android:id="@+id/ic_pro"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:src="@drawable/ic_bg_pro"
+                    app:layout_constraintBottom_toBottomOf="@id/v_action"
+                    app:layout_constraintEnd_toEndOf="@id/v_action"
+                    app:layout_constraintTop_toTopOf="@id/v_action"
+                    tools:visibility="gone" />
+
+                <Space
+                    android:id="@+id/sp_toko_saya"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/_22sdp"
+                    app:layout_constraintEnd_toEndOf="@id/v_action"
+                    app:layout_constraintStart_toStartOf="@id/v_action"
+                    app:layout_constraintTop_toBottomOf="@id/ic_pro" />
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintTop_toBottomOf="@+id/bg_action">
+
+                    <include
+                        android:id="@+id/incl_category"
+                        layout="@layout/store_category_main" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_10sdp"
+                        android:background="@color/bg_gray" />
+
+                    <include
+                        android:id="@+id/incl_popular_product"
+                        layout="@layout/store_popular_product_main"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_176sdp" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rv_product_terpopuler"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/white"
+                        android:nestedScrollingEnabled="false"
+                        android:overScrollMode="never"
+                        app:layout_constraintTop_toBottomOf="@+id/incl_popular_product"
+                        tools:itemCount="2"
+                        tools:listitem="@layout/store_product_item1" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_10sdp"
+                        android:background="@color/bg_gray" />
+
+                    <!--                        <include-->
+                    <!--                            android:id="@+id/incl_service_product"-->
+                    <!--                            layout="@layout/store_service_product_main" />-->
+
+                    <!--                        <View-->
+                    <!--                            android:layout_width="match_parent"-->
+                    <!--                            android:layout_height="@dimen/_12sdp"-->
+                    <!--                            android:background="#E5E5E5" />-->
+
+                    <include
+                        android:id="@+id/incl_newest_product"
+                        layout="@layout/store_newest_product_main" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_10sdp"
+                        android:background="@color/bg_gray" />
+
+                    <include
+                        android:id="@+id/incl_bestseller_product"
+                        layout="@layout/store_bestseller_product_main" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_10sdp"
+                        android:background="@color/bg_gray" />
+
+                    <include
+                        android:id="@+id/incl_bestPrice_produk"
+                        layout="@layout/store_bestprice_main" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_10sdp"
+                        android:background="@color/bg_gray" />
+
+                    <include
+                        android:id="@+id/incl_school_product"
+                        layout="@layout/store_scholl__produk_main"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rv_produk"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/white"
+                        android:paddingHorizontal="@dimen/_12sdp"
+                        android:paddingBottom="@dimen/_12sdp"
+                        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/incl_school_product"
+                        app:spanCount="2"
+                        tools:listitem="@layout/store_product_item2_full" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_10sdp"
+                        android:background="@color/bg_gray" />
+
+
+                    <include
+                        android:id="@+id/incle_rekomendasi"
+                        layout="@layout/store_rekomendasi_main" />
+
+
+                </LinearLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </androidx.core.widget.NestedScrollView>
+
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+</FrameLayout>

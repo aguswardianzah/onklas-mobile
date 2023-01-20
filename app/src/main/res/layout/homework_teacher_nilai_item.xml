@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="item"
+            type="id.onklas.app.pages.homework.HomeworkCollected" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rounded_white"
+        android:clickable="true"
+        android:foreground="?selectableItemBackground"
+        android:padding="@dimen/_12sdp">
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:text="@{item.title}"
+            android:textColor="@color/textBlack"
+            android:textSize="@dimen/_13ssp"
+            android:textStyle="bold"
+            tools:text="Judul Tugas" />
+
+        <TextView
+            android:id="@+id/time"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/title"
+            android:layout_marginTop="@dimen/_6sdp"
+            android:text='@{"Diupload " + item.upload_at_label}'
+            android:textColor="@color/textBlack"
+            android:textSize="@dimen/_11ssp"
+            tools:text="00:00" />
+
+        <View
+            android:id="@+id/divider"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_1sdp"
+            android:layout_below="@id/time"
+            android:layout_marginTop="@dimen/_12sdp"
+            android:layout_marginBottom="@dimen/_8sdp"
+            android:background="@color/ltgray" />
+
+
+        <TextView
+            android:id="@+id/summary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/divider"
+            android:layout_toStartOf="@id/lihat"
+            android:paddingTop="@dimen/_2sdp"
+            android:text="@{item.message_label}"
+            android:textColor="@{item.count_assignment_collected_all == item.count_assignment_collected_scored ? @color/green : @color/red}"
+            android:textSize="@dimen/_11ssp"
+            tools:ignore="HardcodedText"
+            tools:text="Summary siswa mengerjakan tugas" />
+
+        <TextView
+            android:id="@+id/lihat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/divider"
+            android:layout_alignParentEnd="true"
+            android:paddingTop="@dimen/_2sdp"
+            android:text="Lihat"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/_11ssp"
+            android:textStyle="bold"
+            tools:ignore="HardcodedText" />
+    </RelativeLayout>
+</layout>

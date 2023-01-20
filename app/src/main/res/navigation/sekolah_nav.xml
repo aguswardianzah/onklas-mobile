@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/sekolah_nav"
+    app:startDestination="@id/sosmedPage">
+
+    <fragment
+        android:id="@+id/sosmedPage"
+        android:name="id.onklas.app.pages.sekolah.sosmed.SosmedPage"
+        android:label="SosmedPage"
+        tools:layout="@layout/sosmed_page" />
+
+    <fragment
+        android:id="@+id/ebookPage"
+        android:name="id.onklas.app.pages.sekolah.ebook.EbookPage"
+        android:label="EbookPage"
+        tools:layout="@layout/ebook_page" />
+
+    <fragment
+        android:id="@+id/storePage"
+        android:name="id.onklas.app.pages.sekolah.store.StorePage"
+        android:label="StorePage"
+        tools:layout="@layout/store_page" />
+
+    <action
+        android:id="@+id/action_global_sosmedPage"
+        app:destination="@id/sosmedPage" />
+
+    <action
+        android:id="@+id/action_global_ebookPage"
+        app:destination="@id/ebookPage" />
+
+    <action
+        android:id="@+id/action_global_storePage"
+        app:destination="@id/storePage" />
+</navigation>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="id.onklas.app.pages.entrepreneurs.myMerchant.mystore.ProductViewModel" />
+
+        <variable
+            name="viewmodel"
+            type="id.onklas.app.pages.entrepreneurs.EntrepreneursVM" />
+    </data>
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipe_refresh"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_product"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginBottom="@dimen/_16sdp"
+                android:paddingHorizontal="@dimen/_16sdp"
+                android:visibility="@{viewModel.isEmptyProduct ? View.GONE : View.VISIBLE}"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintBottom_toTopOf="@+id/divider_btn"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:listitem="@layout/mystore_product_item" />
+
+            <View
+                android:id="@+id/divider_btn"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_1sdp"
+                android:layout_marginBottom="@dimen/_16sdp"
+                android:background="@color/ltgray"
+                app:layout_constraintBottom_toTopOf="@id/btn_add_product" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_add_product"
+                style="@style/Widget.MaterialComponents.Button"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/_16sdp"
+                android:backgroundTint="@color/colorPrimary"
+                android:minHeight="0dp"
+                android:paddingVertical="@dimen/_12sdp"
+                android:text="Tambah Produk Baru"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_12sdp"
+                app:backgroundTint="@color/colorPrimary"
+                app:cornerRadius="@dimen/_24sdp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintWidth_percent="0.7"
+                tools:ignore="HardcodedText" />
+
+            <include
+                android:id="@+id/layout_empty_product"
+                layout="@layout/product_emp_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="@{viewModel.isEmptyProduct ? View.VISIBLE : View.GONE}" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+</layout>

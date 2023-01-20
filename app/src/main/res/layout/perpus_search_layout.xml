@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:focusable="true"
+        android:focusableInTouchMode="true">
+
+        <View
+            android:id="@+id/search_bg"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@drawable/rounded_white"
+            app:layout_constraintBottom_toBottomOf="@id/sp_search"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/input_search"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:layout_marginEnd="@dimen/_8sdp"
+            android:hint="Cari buku, kategori, nama penulis"
+            android:textSize="@dimen/_11ssp"
+            app:layout_constraintEnd_toStartOf="@id/ic_search"
+            app:layout_constraintStart_toStartOf="@id/search_bg"
+            app:layout_constraintTop_toTopOf="@id/search_bg"
+            tools:ignore="HardcodedText" />
+
+        <ImageView
+            android:id="@+id/ic_search"
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_8sdp"
+            android:adjustViewBounds="true"
+            android:src="@android:drawable/ic_menu_search"
+            app:layout_constraintBottom_toBottomOf="@id/input_search"
+            app:layout_constraintEnd_toEndOf="@id/search_bg"
+            app:layout_constraintStart_toEndOf="@id/input_search"
+            app:layout_constraintTop_toTopOf="@id/input_search" />
+
+        <Space
+            android:id="@+id/sp_search"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_8sdp"
+            app:layout_constraintTop_toBottomOf="@id/input_search" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

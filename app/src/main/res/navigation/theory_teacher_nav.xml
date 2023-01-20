@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/theory_teacher_page"
+    app:startDestination="@id/materiTeacherpage">
+
+    <fragment
+        android:id="@+id/materiTeacherpage"
+        android:name="id.onklas.app.pages.theoryteacher.MateriTeacherpage"
+        android:label="MateriTeacherpage"
+        tools:layout="@layout/materi_teacher_page" />
+    <fragment
+        android:id="@+id/mapelTeacherPage"
+        android:name="id.onklas.app.pages.theoryteacher.MapelTeacherPage"
+        android:label="MapelTeacherPage"
+        tools:layout="@layout/mapel_teacher_page" />
+    <action
+        android:id="@+id/action_global_materiTeacherpage"
+        app:destination="@id/materiTeacherpage" />
+    <action
+        android:id="@+id/action_global_mapelTeacherPage"
+        app:destination="@id/mapelTeacherPage" />
+</navigation>

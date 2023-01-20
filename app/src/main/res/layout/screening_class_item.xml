@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <import type="android.graphics.Color"/>
+        <import type="android.graphics.drawable.Drawable"/>
+
+        <variable
+            name="item"
+            type="id.onklas.app.pages.prokes.ListClass" />
+
+        <variable
+            name="done"
+            type="Boolean" />
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:padding="@dimen/_16sdp"
+        android:background="@drawable/rounded_radius20"
+        android:backgroundTint="@color/white"
+        android:layout_marginVertical="@dimen/_8sdp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/ic_class_screening"
+            android:layout_width="@dimen/_55sdp"
+            android:layout_height="@dimen/_45sdp"
+            android:src="@drawable/ic_screening_class"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            />
+
+        <TextView
+            android:id="@+id/txt_class"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            tools:text="Kelas X A"
+            android:text="@{item.name}"
+            style="@style/latoBlackBold"
+            android:textSize="@dimen/_14ssp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@id/ic_class_screening"
+            app:layout_constraintTop_toTopOf="@id/ic_class_screening"
+            android:layout_marginStart="@dimen/_14sdp"
+            app:layout_constraintEnd_toStartOf="@id/tag"
+            />
+
+        <TextView
+            android:id="@+id/tag"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:backgroundTint='@{done? @color/green1: @color/tag_red}'
+            android:background="@drawable/tag_primary"
+            android:paddingHorizontal="@dimen/_14sdp"
+            android:paddingTop="@dimen/_3sdp"
+            android:paddingBottom="@dimen/_3sdp"
+            android:text='@{done? "Selesai": "Sisa "+item.total_student_remaining}'
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/_12ssp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/ic_class_screening"
+            tools:text="selesai" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            tools:text="Jurusan Umum"
+            style="@style/latoDefault"
+            android:textSize="@dimen/_11ssp"
+            android:text="@{item.majorName}"
+            app:layout_constraintTop_toBottomOf="@id/txt_class"
+            app:layout_constraintStart_toEndOf="@id/ic_class_screening"
+            android:layout_marginStart="@dimen/_14sdp"
+            android:layout_marginTop="@dimen/_5ssp"
+            app:layout_constraintEnd_toStartOf="@id/tag"
+            />
+
+        <View
+            android:id="@+id/br_icon"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_1sdp"
+            android:background="@color/border1"
+            app:layout_constraintTop_toBottomOf="@id/ic_class_screening"
+            android:layout_marginTop="@dimen/_8ssp"
+            />
+
+        <TextView
+            android:id="@+id/lbl_jumlah_pelajar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Jumlah pelajar:"
+            style="@style/latoDefault"
+            android:textSize="@dimen/_11sdp"
+            android:textColor="@android:color/black"
+            app:layout_constraintTop_toBottomOf="@id/br_icon"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="@dimen/_16sdp"
+            />
+
+        <TextView
+            android:id="@+id/txt_count_pelajar"
+            style="@style/latoDefault"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{item.total_student}"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/_11sdp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/lbl_jumlah_pelajar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/lbl_jumlah_pelajar"
+            tools:text="32" />
+
+        <View
+            android:id="@+id/br_jumlah_pelajar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_1sdp"
+            android:background="@color/border1"
+            app:layout_constraintTop_toBottomOf="@id/lbl_jumlah_pelajar"
+            android:layout_marginTop="@dimen/_16sdp"
+            />
+
+
+
+        <TextView
+            android:id="@+id/lbl_screeing"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Total screening:"
+            style="@style/latoDefault"
+            android:textSize="@dimen/_11sdp"
+            android:textColor="@android:color/black"
+            app:layout_constraintTop_toBottomOf="@id/br_jumlah_pelajar"
+            android:layout_marginTop="@dimen/_16sdp"
+            app:layout_constraintStart_toStartOf="parent"
+            />
+
+
+        <TextView
+            android:id="@+id/txt_total_screening"
+            style="@style/latoDefault"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/_11sdp"
+            android:textStyle="bold"
+            android:text="@{item.total_student_screening}"
+            app:layout_constraintBottom_toBottomOf="@id/lbl_screeing"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/lbl_screeing"
+            tools:text="32" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
+

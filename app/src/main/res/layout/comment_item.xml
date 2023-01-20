@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="item"
+            type="id.onklas.app.pages.sekolah.sosmed.FeedCommentWithUser" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/image"
+            imageCircleUrl="@{item.userTable.user_avatar_image}"
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_20sdp" />
+
+        <TextView
+            android:id="@+id/content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_4sdp"
+            android:layout_marginEnd="@dimen/_4sdp"
+            android:layout_toStartOf="@id/option"
+            android:layout_toEndOf="@id/image"
+            android:background="@android:color/transparent"
+            android:gravity="center_vertical"
+            android:minHeight="@dimen/_20sdp"
+            android:textColorHint="@color/textBlack"
+            android:textSize="@dimen/_11ssp" />
+
+        <ImageView
+            android:id="@+id/option"
+            android:layout_width="@dimen/_16sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:layout_alignParentEnd="true"
+            android:src="@drawable/ic_more" />
+
+        <TextView
+            android:id="@+id/time"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/content"
+            android:layout_marginTop="@dimen/_4sdp"
+            android:text="@{item.comment.created_at_label}"
+            android:textColor="@color/gray"
+            android:textSize="@dimen/_10ssp" />
+    </RelativeLayout>
+</layout>

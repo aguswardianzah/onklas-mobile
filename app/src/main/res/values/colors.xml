@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#1EB0F1</color>
+    <color name="colorPrimaryDark">#3700B3</color>
+    <color name="colorAccent">#DCF4FF</color>
+
+    <color name="border_commission">#09A8ED</color>
+
+    <color name="blueDark1">#0069B6</color>
+
+    <color name="gray">#C0C0C0</color>
+    <color name="lightGray">#EBEDF0</color>
+    <color name="ltgray">#E8E8E8</color>
+    <color name="textBlack">#424242</color>
+    <color name="textBlack1">#1B2C38</color>
+    <color name="textBlack2">#828282</color>
+    <color name="Black3">#C2C2C2</color>
+    <color name="Black2">#323F4B</color>
+
+    <color name="trueBlack">#000000</color>
+
+    <color name="f5f5">#f5f5f5</color>
+
+
+
+    <color name="blue2">#E9F4FF</color>
+    <color name="blue1">#2C51B0</color>
+    <color name="red2">#FFE8E8</color>
+    <color name="red3">#F85353</color>
+
+    <color name="yellow">#FFF0BB</color>
+
+
+    <color name="green">#00BE4C</color>
+    <color name="red">#E00000</color>
+    <color name="red1">#FF4B4B</color>
+    <color name="tag_red">#FC2222</color>
+    <color name="tag_green">#0AA407</color>
+    <color name="magenta">#E604EB</color>
+    <color name="gold">#FFC42B</color>
+    <color name="orange">#FF891C</color>
+    <color name="orange2">#FFD68C</color>
+    <color name="orangefill">#FBFFDF</color>
+
+    <color name="orange_button">#FBFFDF</color>
+
+    <color name="white">#FFFFFF</color>
+    <color name="bg_presensi_masuk_tanggal">#C9EFFF</color>
+    <color name="bg_presensi_masuk">#CEFFE8</color>
+
+
+    <color name="green1">#2ABC33</color>
+
+
+    <color name="red_fill">#FFEEEE</color>
+    <color name="red_border">#FFBDBD</color>
+
+    <color name="border1">#F2F2F2</color>
+    <color name="e4e4">#E4E4E4</color>
+</resources>

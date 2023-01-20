@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/home_nav"
+    app:startDestination="@id/sekolahPage">
+
+    <fragment
+        android:id="@+id/sekolahPage"
+        android:name="id.onklas.app.pages.sekolah.SekolahPage"
+        android:label="HomePage"
+        tools:layout="@layout/sekolah_page" />
+    <action
+        android:id="@+id/action_global_sekolahPage"
+        app:destination="@id/sekolahPage" />
+
+<!--    <fragment-->
+<!--        android:id="@+id/jelajahPage"-->
+<!--        android:name="id.onklas.app.pages.jelajah.JelajahPage"-->
+<!--        android:label="JelajahPage"-->
+<!--        tools:layout="@layout/jelajah_page" />-->
+<!--    <action-->
+<!--        android:id="@+id/action_global_jelajahPage"-->
+<!--        app:destination="@id/jelajahPage" />-->
+
+    <fragment
+        android:id="@+id/pembelajaranPage"
+        android:name="id.onklas.app.pages.pembelajaran.PembelajaranPage"
+        android:label="RiwayatPage"
+        tools:layout="@layout/pembelajaran_page" />
+    <action
+        android:id="@+id/action_global_pembelajaranPage"
+        app:destination="@id/pembelajaranPage" />
+
+    <fragment
+        android:id="@+id/pembayaranPage"
+        android:name="id.onklas.app.pages.pembayaran.PembayaranPage"
+        android:label="InboxPage"
+        tools:layout="@layout/pembayaran_page" />
+    <action
+        android:id="@+id/action_global_pembayaranPage"
+        app:destination="@id/pembayaranPage" />
+
+    <fragment
+        android:id="@+id/accountPage"
+        android:name="id.onklas.app.pages.akun.AkunPage2"
+        android:label="AccountPage"
+        tools:layout="@layout/akun_page_2" />
+    <action
+        android:id="@+id/action_global_accountPage"
+        app:destination="@id/accountPage" />
+
+
+    <fragment
+        android:id="@+id/storePage"
+        android:name="id.onklas.app.pages.sekolah.store.StorePage"
+        android:label="StorePage"
+        tools:layout="@layout/store_page" />
+
+    <action
+        android:id="@+id/action_global_storePage"
+        app:destination="@id/storePage" />
+
+</navigation>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/post_item_bg">
+
+    <include
+        android:id="@+id/post_header"
+        layout="@layout/post_part_header" />
+
+    <include
+        android:id="@+id/post_content"
+        layout="@layout/ebook_part_content"
+        android:layout_below="@id/post_header"
+        android:layout_marginStart="@dimen/_12sdp"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:layout_marginEnd="@dimen/_12sdp"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent" />
+
+    <include
+        android:id="@+id/post_footer"
+        layout="@layout/post_part_footer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/post_content"
+        android:layout_marginTop="@dimen/_8sdp" />
+</RelativeLayout>

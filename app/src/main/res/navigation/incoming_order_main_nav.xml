@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/incoming_order_main_nav"
+    app:startDestination="@id/incomingProduct">
+
+
+    <fragment
+        android:id="@+id/incomingProduct"
+        android:name="id.onklas.app.pages.entrepreneurs.myMerchant.IncomingOrder.incomingOrderPage.IncomingProductPage"
+        android:label="incomingProduct"
+        tools:layout="@layout/income_product_page"
+        />
+    <fragment
+        android:id="@+id/incomingService"
+        android:name="id.onklas.app.pages.entrepreneurs.myMerchant.IncomingOrder.incomingOrderPage.IncomingServicePage"
+        android:label="incomingOrder"
+        tools:layout="@layout/incoming_service_page"
+        />
+
+
+    <fragment
+        android:id="@+id/processedProduct"
+        android:name="id.onklas.app.pages.entrepreneurs.myMerchant.IncomingOrder.procesedOrderPage.ProcessedProductOrderPage"
+        android:label="ProcessedProduct"
+        tools:layout="@layout/processed_product_order_page"
+        />
+    <fragment
+        android:id="@+id/processedService"
+        android:name="id.onklas.app.pages.entrepreneurs.myMerchant.IncomingOrder.procesedOrderPage.ProcessedServiceOrderPage"
+        android:label="ProcessedService"
+        tools:layout="@layout/processed_service_order_page"
+        />
+
+
+    <action
+        android:id="@+id/action_global_incoming_product"
+        app:destination="@id/incomingProduct" />
+    <action
+        android:id="@+id/action_global_incoming_service"
+        app:destination="@id/incomingService" />
+
+    <action
+        android:id="@+id/action_global_processed_product"
+        app:destination="@id/processedProduct" />
+    <action
+        android:id="@+id/action_global_processed_service"
+        app:destination="@id/processedService" />
+</navigation>

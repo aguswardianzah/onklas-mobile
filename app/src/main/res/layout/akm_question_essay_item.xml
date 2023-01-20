@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.text.Html" />
+
+        <import type="android.view.View" />
+
+        <variable
+            name="item"
+            type="id.onklas.app.pages.akm.QuestionAnswers" />
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/image"
+                imageFitUrlRounded="@{item.question.file_path}"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="@dimen/_8sdp"
+                android:visibility="@{item.question.file_path.empty ? View.GONE : View.VISIBLE}"
+                tools:src="@drawable/onklas_edu1"
+                tools:visibility="gone" />
+
+            <io.github.kexanie.library.MathView
+                app:engine="MathJax"
+                android:id="@+id/question"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/image"
+                android:textColor="@color/textBlack"
+                android:textSize="@dimen/_13ssp"
+                android:visibility="@{item.question.question.empty ? View.GONE : View.VISIBLE}"
+                tools:text="Soal label" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layout_essay"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/question"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:layout_marginBottom="@dimen/_8sdp"
+                app:boxCornerRadiusBottomEnd="@dimen/_8sdp"
+                app:boxCornerRadiusBottomStart="@dimen/_8sdp"
+                app:boxCornerRadiusTopEnd="@dimen/_8sdp"
+                app:boxCornerRadiusTopStart="@dimen/_8sdp"
+                app:boxStrokeColor="@color/gray"
+                app:counterEnabled="true"
+                app:counterMaxLength="500"
+                app:hintEnabled="false">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/input_essay"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="top"
+                    android:hint="Ketikkan jawabanmu . . . "
+                    android:inputType="textMultiLine"
+                    android:maxLength="500"
+                    android:maxLines="10"
+                    android:minLines="4"
+                    android:text="@{item.question.answer_essay}"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/_12ssp"
+                    tools:ignore="HardcodedText"
+                    tools:text="@string/lipsum" />
+            </com.google.android.material.textfield.TextInputLayout>
+        </RelativeLayout>
+    </androidx.core.widget.NestedScrollView>
+</layout>

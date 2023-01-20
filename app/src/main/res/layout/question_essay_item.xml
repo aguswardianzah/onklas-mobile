@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.text.Html" />
+
+        <import type="android.view.View" />
+
+        <variable
+            name="item"
+            type="id.onklas.app.pages.ujian.QuestionTable" />
+
+        <variable
+            name="myAnswer"
+            type="id.onklas.app.pages.ujian.MyAnswerTable" />
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/image"
+                imageFitUrl="@{item.image}"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="@dimen/_8sdp"
+                android:visibility="@{item.image.empty ? View.GONE : View.VISIBLE}"
+                tools:src="@drawable/onklas_edu1" />
+
+            <TextView
+                android:id="@+id/question"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/image"
+                android:layout_marginBottom="@dimen/_8sdp"
+                android:text="@{Html.fromHtml(item.question)}"
+                android:textColor="@color/textBlack"
+                android:textSize="@dimen/_13ssp"
+                android:visibility="@{item.question.empty ? View.GONE : View.VISIBLE}"
+                tools:text="@string/lipsum" />
+
+            <EditText
+                android:id="@+id/input_answer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/question"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:hint="Tulis Jawaban"
+                android:padding="@dimen/_8sdp"
+                android:text="@{myAnswer.answerEssay}"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/_13ssp"
+                tools:ignore="HardcodedText" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_1sdp"
+                android:layout_below="@id/input_answer"
+                android:layout_marginStart="@dimen/_8sdp"
+                android:layout_marginEnd="@dimen/_8sdp"
+                android:background="@color/textBlack" />
+        </RelativeLayout>
+    </androidx.core.widget.NestedScrollView>
+</layout>

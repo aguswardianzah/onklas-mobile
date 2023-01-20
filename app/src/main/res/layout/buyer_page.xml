@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/ltgray">
+
+            <View
+                android:id="@+id/bg_rating"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="@dimen/_16sdp"
+                android:layout_marginTop="@dimen/_16sdp"
+                android:layout_marginEnd="@dimen/_12sdp"
+                android:background="@drawable/border_instruction"
+                android:backgroundTint="@android:color/white"
+                app:layout_constraintBottom_toBottomOf="@id/space_1"
+                app:layout_constraintEnd_toStartOf="@id/bg_klaspay"
+                app:layout_constraintHorizontal_chainStyle="spread"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <View
+                android:id="@+id/bg_klaspay"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginEnd="@dimen/_16sdp"
+                android:background="@drawable/border_instruction"
+                android:backgroundTint="@android:color/white"
+                app:layout_constraintBottom_toBottomOf="@id/space_1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_chainStyle="spread_inside"
+                app:layout_constraintStart_toEndOf="@id/bg_rating"
+                app:layout_constraintTop_toTopOf="@id/bg_rating" />
+
+            <TextView
+                android:id="@+id/label_rating"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:text="Rating Pembelian"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/_11ssp"
+                app:layout_constraintEnd_toEndOf="@id/bg_rating"
+                app:layout_constraintStart_toStartOf="@id/bg_rating"
+                app:layout_constraintTop_toTopOf="@id/bg_rating"
+                tools:ignore="HardcodedText" />
+
+            <ImageView
+                android:id="@+id/label_klaspay"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_8sdp"
+                android:src="@drawable/ic_logo_klaspay"
+                app:layout_constraintBottom_toBottomOf="@id/label_rating"
+                app:layout_constraintStart_toStartOf="@id/bg_klaspay"
+                app:layout_constraintTop_toTopOf="@id/label_rating"
+                app:tint="@color/colorPrimary" />
+
+            <ImageView
+                android:id="@+id/img_rating"
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_20sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:layout_marginEnd="@dimen/_4sdp"
+                android:src="@drawable/ic_star_solid"
+                app:layout_constraintEnd_toStartOf="@id/text_rating"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="@id/bg_rating"
+                app:layout_constraintTop_toBottomOf="@id/label_rating"
+                app:tint="@color/gold" />
+
+            <TextView
+                android:id="@+id/text_rating"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/_14ssp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@id/img_rating"
+                app:layout_constraintEnd_toEndOf="@id/bg_rating"
+                app:layout_constraintStart_toEndOf="@id/img_rating"
+                app:layout_constraintTop_toTopOf="@id/img_rating"
+                tools:text="4.5" />
+
+            <TextView
+                android:id="@+id/text_balance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/_14ssp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@id/img_rating"
+                app:layout_constraintEnd_toEndOf="@id/bg_klaspay"
+                app:layout_constraintStart_toStartOf="@id/bg_klaspay"
+                app:layout_constraintTop_toTopOf="@id/img_rating"
+                tools:text="Rp 9.999.999" />
+
+            <TextView
+                android:id="@+id/text_review"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:textColor="@color/textBlack"
+                android:textSize="@dimen/_12ssp"
+                app:layout_constraintEnd_toEndOf="@id/bg_rating"
+                app:layout_constraintStart_toStartOf="@id/bg_rating"
+                app:layout_constraintTop_toBottomOf="@id/img_rating"
+                tools:text="123 review" />
+
+            <TextView
+                android:id="@+id/text_topup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Topup Saldo"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/_12ssp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@id/bg_klaspay"
+                app:layout_constraintStart_toStartOf="@id/bg_klaspay"
+                app:layout_constraintTop_toTopOf="@id/text_review"
+                tools:ignore="HardcodedText" />
+
+            <View
+                android:id="@+id/space_1"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_8sdp"
+                app:layout_constraintTop_toBottomOf="@id/text_review" />
+
+            <View
+                android:id="@+id/bg_pembelian"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="@dimen/_16sdp"
+                android:background="@android:color/white"
+                app:layout_constraintBottom_toBottomOf="@id/space_pembelian"
+                app:layout_constraintTop_toBottomOf="@id/space_1" />
+
+            <ImageView
+                android:id="@+id/ic_pembelian"
+                android:layout_width="@dimen/_24sdp"
+                android:layout_height="@dimen/_24sdp"
+                android:layout_marginStart="@dimen/_16sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:src="@drawable/ic_purchase"
+                app:layout_constraintEnd_toStartOf="@id/label_pembelian"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/bg_pembelian" />
+
+            <TextView
+                android:id="@+id/label_pembelian"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_8sdp"
+                android:text="Pembelian"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/_12ssp"
+                app:layout_constraintBottom_toBottomOf="@id/ic_pembelian"
+                app:layout_constraintEnd_toStartOf="@id/cnt_pembelian"
+                app:layout_constraintStart_toEndOf="@id/ic_pembelian"
+                app:layout_constraintTop_toTopOf="@id/ic_pembelian"
+                tools:ignore="HardcodedText" />
+
+            <TextView
+                android:id="@+id/cnt_pembelian"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_8sdp"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/_12ssp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@id/ic_pembelian"
+                app:layout_constraintEnd_toStartOf="@id/action_pembelian"
+                app:layout_constraintStart_toEndOf="@id/label_pembelian"
+                app:layout_constraintTop_toTopOf="@id/ic_pembelian"
+                tools:text="99" />
+
+            <ImageView
+                android:id="@+id/action_pembelian"
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_20sdp"
+                android:layout_marginStart="@dimen/_4sdp"
+                android:layout_marginEnd="@dimen/_16sdp"
+                android:rotation="270"
+                android:src="@drawable/ic_chevron_down"
+                app:layout_constraintBottom_toBottomOf="@id/ic_pembelian"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/cnt_pembelian"
+                app:layout_constraintTop_toTopOf="@id/ic_pembelian"
+                app:tint="@color/colorPrimary" />
+
+            <View
+                android:id="@+id/space_pembelian"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_8sdp"
+                app:layout_constraintTop_toBottomOf="@id/ic_pembelian" />
+
+            <View
+                android:id="@+id/bg_review"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="@dimen/_1sdp"
+                android:background="@android:color/white"
+                app:layout_constraintBottom_toBottomOf="@id/space_review"
+                app:layout_constraintTop_toBottomOf="@id/space_pembelian" />
+
+            <ImageView
+                android:id="@+id/ic_review"
+                android:layout_width="@dimen/_24sdp"
+                android:layout_height="@dimen/_24sdp"
+                android:layout_marginStart="@dimen/_16sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:src="@drawable/ic_waiting_review"
+                app:layout_constraintEnd_toStartOf="@id/label_review"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/bg_review" />
+
+            <TextView
+                android:id="@+id/label_review"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_8sdp"
+                android:text="Menunggu Review"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/_12ssp"
+                app:layout_constraintBottom_toBottomOf="@id/ic_review"
+                app:layout_constraintEnd_toStartOf="@id/cnt_review"
+                app:layout_constraintStart_toEndOf="@id/ic_review"
+                app:layout_constraintTop_toTopOf="@id/ic_review"
+                tools:ignore="HardcodedText" />
+
+            <TextView
+                android:id="@+id/cnt_review"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_8sdp"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/_12ssp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@id/ic_review"
+                app:layout_constraintEnd_toStartOf="@id/action_review"
+                app:layout_constraintStart_toEndOf="@id/label_review"
+                app:layout_constraintTop_toTopOf="@id/ic_review"
+                tools:text="99" />
+
+            <ImageView
+                android:id="@+id/action_review"
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_20sdp"
+                android:layout_marginStart="@dimen/_4sdp"
+                android:layout_marginEnd="@dimen/_16sdp"
+                android:rotation="270"
+                android:src="@drawable/ic_chevron_down"
+                app:layout_constraintBottom_toBottomOf="@id/ic_review"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/cnt_review"
+                app:layout_constraintTop_toTopOf="@id/ic_review"
+                app:tint="@color/colorPrimary" />
+
+            <View
+                android:id="@+id/space_review"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_8sdp"
+                app:layout_constraintTop_toBottomOf="@id/ic_review" />
+
+            <View
+                android:id="@+id/bg_items"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="@dimen/_16sdp"
+                android:background="@android:color/white"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/space_review" />
+
+            <TextView
+                android:id="@+id/label_items"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_16sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:text="Pembelian Terakhir"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/_13ssp"
+                android:textStyle="bold"
+                app:layout_constraintTop_toTopOf="@id/bg_items"
+                tools:ignore="HardcodedText" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_items"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_12sdp"
+                android:nestedScrollingEnabled="false"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintTop_toBottomOf="@id/label_items" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+</layout>

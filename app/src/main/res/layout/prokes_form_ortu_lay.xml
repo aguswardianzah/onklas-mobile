@@ -1,0 +1,531 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_prokes"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/lbl_top"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Pelaporan form kesehatan, wajib diisi setiap minggunya"
+            android:background="@drawable/label_orange"
+            android:padding="@dimen/_8sdp"
+            android:gravity="center"
+            android:layout_marginHorizontal="@dimen/_16sdp"
+            android:layout_marginTop="@dimen/_8sdp"
+            app:layout_constraintTop_toTopOf="parent"
+            style="@style/latoDefault"
+            android:textSize="@dimen/_11ssp"
+            android:textColor="@android:color/black"
+            />
+
+        <TextView
+            android:id="@+id/form_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Lindungi KELUARGA, Lindungi SEKOLAH"
+            style="@style/latoDefault"
+            android:layout_marginHorizontal="@dimen/_16sdp"
+            android:textSize="@dimen/_16ssp"
+            android:textColor="@android:color/black"
+            app:layout_constraintTop_toBottomOf="@id/lbl_top"
+            android:layout_marginTop="@dimen/_24sdp"
+            android:gravity="center"
+            />
+
+        <ImageView
+            android:id="@+id/form_banner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8sp"
+            android:adjustViewBounds="true"
+            app:layout_constraintTop_toBottomOf="@id/form_title"
+            tools:layout_editor_absoluteX="0dp"
+            android:src="@drawable/banner_form2" />
+
+        <Space
+            android:id="@+id/sp_banner"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_28sdp"
+            app:layout_constraintBottom_toBottomOf="@id/form_banner"
+            />
+
+        <View
+            android:id="@+id/v_form"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginHorizontal="@dimen/_16sdp"
+            android:background="@drawable/rounded_radius20"
+            app:layout_constraintTop_toTopOf="@id/sp_banner"
+            android:backgroundTint="@color/white"
+            app:layout_constraintBottom_toBottomOf="@id/sp_form"
+            />
+        <ImageView
+            android:id="@+id/icon"
+            android:layout_width="@dimen/_55sdp"
+            android:layout_height="@dimen/_45sdp"
+            android:src = "@drawable/ic_form_pelajar"
+            android:layout_marginTop="@dimen/_14sdp"
+            app:layout_constraintTop_toTopOf="@id/sp_banner"
+            app:layout_constraintStart_toStartOf="@id/v_form"
+            android:layout_marginStart="@dimen/_16sdp"
+            />
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/black"
+            app:layout_constraintTop_toTopOf="@id/icon"
+            app:layout_constraintStart_toEndOf="@id/icon"
+            app:layout_constraintEnd_toEndOf="@id/v_form"
+            android:layout_marginTop="@dimen/_4ssp"
+            android:text = "Formulir Orang Tua/Wali"
+            style="@style/latoBlackBold"
+            android:textSize="@dimen/_14ssp"
+            android:layout_marginHorizontal="@dimen/_14ssp"
+            />
+
+
+        <TextView
+            android:id="@+id/subtitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Pengisian form protokol kesehatan"
+            app:layout_constraintTop_toBottomOf="@id/title"
+            app:layout_constraintStart_toStartOf="@id/title"
+            app:layout_constraintEnd_toEndOf="@id/title"
+            android:layout_marginTop="@dimen/_4ssp"
+            android:textSize="@dimen/_11sdp"
+            android:textColor="@color/Black2"
+            />
+
+        <TextView
+            android:id="@+id/txt_info"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/square_border_filter_red"
+            android:text = "*Lengkapi Sebelum tanggal 10/04/2021"
+            style="@style/latoDefault"
+            android:textColor="@android:color/black"
+            android:paddingVertical="8sp"
+            android:gravity="center"
+            android:layout_marginHorizontal="@dimen/_16sdp"
+            android:textSize="@dimen/_11ssp"
+            app:layout_constraintTop_toBottomOf="@id/icon"
+            android:layout_marginTop="@dimen/_8sdp"
+            app:layout_constraintStart_toStartOf="@id/v_form"
+            app:layout_constraintEnd_toEndOf="@id/v_form"
+            />
+
+        <TextView
+            android:id="@+id/lbl_taggal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/_11ssp"
+            android:textColor="@android:color/black"
+            android:text="Tanggal Pengisian:"
+            style="@style/latoDefault"
+            app:layout_constraintTop_toBottomOf="@id/txt_info"
+            android:layout_marginTop="@dimen/_14sdp"
+            app:layout_constraintStart_toStartOf="@id/txt_info"
+            />
+        <TextView
+            android:id="@+id/txt_tanggal"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/_11ssp"
+            android:textColor="@android:color/black"
+            style="@style/latoDefault"
+            android:text= "-"
+            android:gravity="end"
+            app:layout_constraintTop_toTopOf="@id/lbl_taggal"
+            app:layout_constraintBottom_toBottomOf="@id/lbl_taggal"
+            app:layout_constraintEnd_toEndOf="@id/txt_info"
+            app:layout_constraintStart_toEndOf="@id/lbl_taggal"
+            />
+
+        <View
+            android:id="@+id/br_tanggal"
+            android:layout_width="0dp"
+            app:layout_constraintStart_toStartOf="@id/v_form"
+            app:layout_constraintEnd_toEndOf="@id/v_form"
+            android:layout_height="@dimen/_1sdp"
+            android:background="@color/border1"
+            android:layout_marginHorizontal="@dimen/_16sdp"
+            app:layout_constraintTop_toBottomOf="@id/txt_tanggal"
+            android:layout_marginTop="@dimen/_14sdp"
+            />
+
+        <TextView
+            android:id="@+id/lbl_pukul"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/br_tanggal"
+            android:layout_marginTop="@dimen/_14ssp"
+            android:textSize="@dimen/_11ssp"
+            android:textColor="@android:color/black"
+            android:text="Pukul:"
+            style="@style/latoDefault"
+            app:layout_constraintStart_toStartOf="@id/txt_info"
+            />
+        <TextView
+            android:id="@+id/txt_pukul"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/_11ssp"
+            android:textColor="@android:color/black"
+            android:text="-"
+            style="@style/latoDefault"
+            android:gravity="end"
+            app:layout_constraintStart_toEndOf="@id/lbl_pukul"
+            app:layout_constraintEnd_toEndOf="@id/txt_info"
+            app:layout_constraintTop_toTopOf="@id/lbl_pukul"
+            />
+
+        <TextView
+            android:id="@+id/br_pukul"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_1sdp"
+            android:background="@color/border1"
+            android:layout_marginHorizontal="@dimen/_16sdp"
+            android:layout_marginTop="@dimen/_14sdp"
+            app:layout_constraintTop_toBottomOf="@id/txt_pukul"
+            app:layout_constraintStart_toStartOf="@id/v_form"
+            app:layout_constraintEnd_toEndOf="@id/v_form"
+            />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_form"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_16sdp"
+            android:layout_marginEnd="@dimen/_16sdp"
+            android:paddingTop="@dimen/_8sdp"
+            android:paddingBottom="@dimen/_8sdp"
+            android:text="Isi Formulir"
+            android:textSize="@dimen/_13sdp"
+            android:fontFamily="@font/lato"
+            android:textColor="@color/white"
+            android:padding="@dimen/_12sdp"
+            android:backgroundTint="@color/colorPrimary"
+            app:cornerRadius="@dimen/_24sdp"
+            app:layout_constraintTop_toBottomOf="@id/br_pukul"
+            android:layout_marginTop="@dimen/_14ssp"
+            android:layout_marginBottom="@dimen/_14ssp"
+            app:layout_constraintStart_toStartOf="@id/v_form"
+            app:layout_constraintEnd_toEndOf="@id/v_form"
+            android:layout_marginHorizontal="@dimen/_16sdp"
+            tools:ignore="HardcodedText" />
+
+        <Space
+            android:id="@+id/sp_form"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_16sdp"
+            app:layout_constraintTop_toBottomOf="@id/btn_form"
+            />
+
+
+          <View
+            android:id="@+id/v_persetujuan"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginHorizontal="@dimen/_16sdp"
+            android:background="@drawable/rounded_radius20"
+            app:layout_constraintTop_toBottomOf="@id/v_form"
+            android:backgroundTint="@color/white"
+            android:layout_marginTop="@dimen/_16sdp"
+            app:layout_constraintBottom_toBottomOf="@id/sp_persetujuan"
+            android:layout_marginBottom="@dimen/_18sdp"
+
+            />
+
+        <ImageView
+            android:id="@+id/icon_persetujuan"
+            android:layout_width="@dimen/_55sdp"
+            android:layout_height="@dimen/_45sdp"
+            android:src = "@drawable/ic_accept_ortu"
+            android:layout_marginStart="@dimen/_16sdp"
+            app:layout_constraintStart_toStartOf="@id/v_persetujuan"
+            android:layout_marginTop="@dimen/_16sdp"
+            app:layout_constraintTop_toTopOf="@id/v_persetujuan"
+            />
+
+        <TextView
+            android:id="@+id/title_persetujuan"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/black"
+            app:layout_constraintTop_toTopOf="@id/icon_persetujuan"
+            app:layout_constraintStart_toEndOf="@id/icon_persetujuan"
+            app:layout_constraintEnd_toEndOf="@id/v_persetujuan"
+            android:layout_marginTop="@dimen/_4ssp"
+            android:text = "Persetujuan Ortu/Wali "
+            style="@style/latoBlackBold"
+            android:textSize="@dimen/_14ssp"
+            android:layout_marginHorizontal="@dimen/_14ssp"
+            />
+
+
+        <TextView
+            android:id="@+id/subtitle_persetujuan"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Surat ijin orang tua / wali"
+            app:layout_constraintTop_toBottomOf="@id/title_persetujuan"
+            app:layout_constraintStart_toStartOf="@id/title_persetujuan"
+            app:layout_constraintEnd_toEndOf="@id/title_persetujuan"
+            android:layout_marginTop="@dimen/_4ssp"
+            android:textSize="@dimen/_11sdp"
+            android:textColor="@color/Black2"
+            />
+
+        <View
+            android:id="@+id/br_top_persetujuan"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginHorizontal="@dimen/_16sdp"
+            app:layout_constraintStart_toStartOf="@id/v_persetujuan"
+            app:layout_constraintEnd_toEndOf="@id/v_persetujuan"
+            android:background="@color/border1"
+            app:layout_constraintTop_toBottomOf="@id/icon_persetujuan"
+            android:layout_marginTop="@dimen/_10ssp"
+            />
+
+        <TextView
+            android:id="@+id/txt_info_persetujuan"
+            android:layout_width="0dp"
+            android:layout_marginHorizontal="@dimen/_16sdp"
+            app:layout_constraintStart_toStartOf="@id/v_persetujuan"
+            app:layout_constraintEnd_toEndOf="@id/v_persetujuan"
+            android:layout_height="wrap_content"
+            android:text = "Dengan ini kami orang tua / Wali bersedia mengijinkan putra/i kami untuk melakukan pembelajaran tatap muka di sekolah"
+            android:textSize="@dimen/_12ssp"
+            android:gravity="center"
+            android:textColor="@android:color/black"
+            style="@style/latoDefault"
+            app:layout_constraintTop_toBottomOf="@id/br_top_persetujuan"
+            android:layout_marginTop="@dimen/_10sdp"
+            />
+
+        <View
+            android:id="@+id/br_info_persetujuan"
+            android:layout_width="0dp"
+            android:layout_marginHorizontal="@dimen/_16sdp"
+            app:layout_constraintStart_toStartOf="@id/v_persetujuan"
+            app:layout_constraintEnd_toEndOf="@id/v_persetujuan"
+            android:layout_height="@dimen/_1sdp"
+            android:background="@color/border1"
+            app:layout_constraintTop_toBottomOf="@id/txt_info_persetujuan"
+            android:layout_marginTop="@dimen/_10sdp"
+            />
+
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tidak"
+            style="@style/latoBlackBold"
+            android:textSize="@dimen/_12ssp"
+            android:textColor="@android:color/black"
+            app:layout_constraintTop_toTopOf="@id/sw_button_persetujuan"
+            app:layout_constraintBottom_toBottomOf="@id/sw_button_persetujuan"
+            app:layout_constraintEnd_toStartOf="@id/sw_button_persetujuan"
+            android:layout_marginEnd="@dimen/_12ssp"
+            android:textAllCaps="true"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ya"
+            style="@style/latoBlackBold"
+            android:textSize="@dimen/_12ssp"
+            android:textColor="@android:color/black"
+            app:layout_constraintTop_toTopOf="@id/sw_button_persetujuan"
+            app:layout_constraintBottom_toBottomOf="@id/sw_button_persetujuan"
+            app:layout_constraintStart_toEndOf="@id/sw_button_persetujuan"
+            android:layout_marginStart="@dimen/_12ssp"
+            android:textAllCaps="true"
+            />
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/sw_button_persetujuan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/br_info_persetujuan"
+            app:layout_constraintStart_toStartOf="@id/v_persetujuan"
+            android:scaleY="1.5"
+            android:scaleX="1.5"
+            android:padding="@dimen/_10sdp"
+            app:layout_constraintEnd_toEndOf="@id/v_persetujuan"
+            android:theme="@style/SCBSwitch"
+            android:layout_marginTop="@dimen/_10sdp" />
+
+        <Space
+            app:layout_constraintTop_toBottomOf="@id/sw_button_persetujuan"
+            android:id="@+id/sp_persetujuan"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_34sdp"
+            />
+
+
+        <View
+            android:id="@+id/v_vaksin"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginHorizontal="@dimen/_16sdp"
+            android:background="@drawable/rounded_radius20"
+            app:layout_constraintTop_toBottomOf="@id/v_persetujuan"
+            android:backgroundTint="@color/white"
+            android:layout_marginTop="@dimen/_16sdp"
+            app:layout_constraintBottom_toBottomOf="@id/sp_vaksin"
+            android:layout_marginBottom="@dimen/_18sdp"
+
+            />
+
+        <ImageView
+            android:id="@+id/icon_vaksin"
+            android:layout_width="@dimen/_55sdp"
+            android:layout_height="@dimen/_45sdp"
+            android:src = "@drawable/ic_vaccine"
+            android:layout_marginStart="@dimen/_16sdp"
+            app:layout_constraintStart_toStartOf="@id/v_vaksin"
+            android:layout_marginTop="@dimen/_16sdp"
+            app:layout_constraintTop_toTopOf="@id/v_vaksin"
+            />
+
+        <TextView
+            android:id="@+id/title_vaksin"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/black"
+            app:layout_constraintTop_toTopOf="@id/icon_vaksin"
+            app:layout_constraintStart_toEndOf="@id/icon_vaksin"
+            app:layout_constraintEnd_toEndOf="@id/v_vaksin"
+            android:layout_marginTop="@dimen/_4ssp"
+            android:text = "Vaksin"
+            style="@style/latoBlackBold"
+            android:textSize="@dimen/_14ssp"
+            android:layout_marginHorizontal="@dimen/_14ssp"
+            />
+
+
+        <TextView
+            android:id="@+id/subtitle_vaksin"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Validasi vaksinasi pelajar"
+            app:layout_constraintTop_toBottomOf="@id/title_vaksin"
+            app:layout_constraintStart_toStartOf="@id/title_vaksin"
+            app:layout_constraintEnd_toEndOf="@id/title_vaksin"
+            android:layout_marginTop="@dimen/_4ssp"
+            android:textSize="@dimen/_11sdp"
+            android:textColor="@color/Black2"
+            />
+
+        <View
+            android:id="@+id/br_top_vaksin"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginHorizontal="@dimen/_16sdp"
+            app:layout_constraintStart_toStartOf="@id/v_vaksin"
+            app:layout_constraintEnd_toEndOf="@id/v_vaksin"
+            android:background="@color/border1"
+            app:layout_constraintTop_toBottomOf="@id/icon_vaksin"
+            android:layout_marginTop="@dimen/_10ssp"
+            />
+
+        <TextView
+            android:id="@+id/txt_info_vaksin"
+            android:layout_width="0dp"
+            android:layout_marginHorizontal="@dimen/_16sdp"
+            app:layout_constraintStart_toStartOf="@id/v_vaksin"
+            app:layout_constraintEnd_toEndOf="@id/v_vaksin"
+            android:layout_height="wrap_content"
+            android:text = "Apakah anda sudah melakukan vaksin sebelumnya?"
+            android:textSize="@dimen/_12ssp"
+            android:textColor="@android:color/black"
+            style="@style/latoDefault"
+            app:layout_constraintTop_toBottomOf="@id/br_top_vaksin"
+            android:layout_marginTop="@dimen/_10sdp"
+            />
+
+        <View
+            android:id="@+id/br_info_vaksin"
+            android:layout_width="0dp"
+            android:layout_marginHorizontal="@dimen/_16sdp"
+            app:layout_constraintStart_toStartOf="@id/v_vaksin"
+            app:layout_constraintEnd_toEndOf="@id/v_vaksin"
+            android:layout_height="@dimen/_1sdp"
+            android:background="@color/border1"
+            app:layout_constraintTop_toBottomOf="@id/txt_info_vaksin"
+            android:layout_marginTop="@dimen/_10sdp"
+            />
+
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tidak"
+            style="@style/latoBlackBold"
+            android:textSize="@dimen/_12ssp"
+            android:textColor="@android:color/black"
+            app:layout_constraintTop_toTopOf="@id/sw_button"
+            app:layout_constraintBottom_toBottomOf="@id/sw_button"
+            app:layout_constraintEnd_toStartOf="@id/sw_button"
+            android:layout_marginEnd="@dimen/_12ssp"
+            android:textAllCaps="true"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ya"
+            style="@style/latoBlackBold"
+            android:textSize="@dimen/_12ssp"
+            android:textColor="@android:color/black"
+            app:layout_constraintTop_toTopOf="@id/sw_button"
+            app:layout_constraintBottom_toBottomOf="@id/sw_button"
+            app:layout_constraintStart_toEndOf="@id/sw_button"
+            android:layout_marginStart="@dimen/_12ssp"
+            android:textAllCaps="true"
+            />
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/sw_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/br_info_vaksin"
+            app:layout_constraintStart_toStartOf="@id/v_vaksin"
+            android:scaleY="1.5"
+            android:scaleX="1.5"
+            android:padding="@dimen/_10sdp"
+            app:layout_constraintEnd_toEndOf="@id/v_vaksin"
+            android:theme="@style/SCBSwitch"
+            android:layout_marginTop="@dimen/_10sdp" />
+
+        <Space
+            app:layout_constraintTop_toBottomOf="@id/sw_button"
+            android:id="@+id/sp_vaksin"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_34sdp"
+            />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
+
+
+</androidx.core.widget.NestedScrollView>

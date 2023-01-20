@@ -1,0 +1,20 @@
+{
+  "version": 3,
+  "artifactType": {
+    "type": "APK",
+    "kind": "Directory"
+  },
+  "applicationId": "id.onklas.app",
+  "variantName": "release",
+  "elements": [
+    {
+      "type": "SINGLE",
+      "filters": [],
+      "attributes": [],
+      "versionCode": 106,
+      "versionName": "1.4.25",
+      "outputFile": "id.onklas.app-1.4.25.apk"
+    }
+  ],
+  "elementType": "File"
+}

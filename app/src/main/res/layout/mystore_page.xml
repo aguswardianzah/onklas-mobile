@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".pages.entrepreneurs.myMerchant.mystore.Mystore">
+
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            style="@style/AppToolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?android:actionBarSize"
+            app:contentInsetEnd="0dp"
+            app:title="Tokoku"
+            app:contentInsetStart="0dp"
+            app:contentInsetStartWithNavigation="0dp" />
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout3"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_51sdp"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@+id/appBarLayout">
+
+
+    <!--        <Button-->
+    <!--            android:id="@+id/btn_product"-->
+    <!--            style="@style/latoDefault"-->
+    <!--            android:layout_width="0dp"-->
+    <!--            android:layout_height="match_parent"-->
+    <!--            android:background="?attr/selectableItemBackground"-->
+    <!--            android:gravity="center"-->
+    <!--            android:text="Product"-->
+    <!--            android:textAllCaps="false"-->
+    <!--            android:textColor="@color/textBlack"-->
+    <!--            app:layout_constraintEnd_toStartOf="@+id/btn_services"-->
+    <!--            app:layout_constraintHorizontal_bias="0.5"-->
+    <!--            app:layout_constraintStart_toStartOf="parent" />-->
+
+    <!--        <TextView-->
+    <!--            android:id="@+id/product_line"-->
+    <!--            android:layout_width="0dp"-->
+    <!--            android:layout_height="@dimen/_2sdp"-->
+    <!--            android:background="@color/colorPrimary"-->
+    <!--            app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--            app:layout_constraintEnd_toEndOf="@+id/btn_product"-->
+    <!--            app:layout_constraintStart_toStartOf="@+id/btn_product" />-->
+
+    <!--        <Button-->
+    <!--            android:id="@+id/btn_services"-->
+    <!--            style="@style/latoDefault"-->
+    <!--            android:layout_width="0dp"-->
+    <!--            android:layout_height="match_parent"-->
+    <!--            android:background="?attr/selectableItemBackground"-->
+    <!--            android:gravity="center"-->
+    <!--            android:text="Jasa"-->
+    <!--            android:textAllCaps="false"-->
+    <!--            android:textColor="@color/textBlack"-->
+    <!--            app:layout_constraintEnd_toEndOf="parent"-->
+    <!--            app:layout_constraintHorizontal_bias="0.5"-->
+    <!--            app:layout_constraintStart_toEndOf="@+id/btn_product" />-->
+
+    <!--        <TextView-->
+    <!--            android:id="@+id/services_line"-->
+    <!--            android:layout_width="0dp"-->
+    <!--            android:layout_height="@dimen/_2sdp"-->
+    <!--            android:background="@color/gray"-->
+    <!--            app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--            app:layout_constraintEnd_toEndOf="@+id/btn_services"-->
+    <!--            app:layout_constraintStart_toStartOf="@+id/btn_services" />-->
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <fragment
+        android:id="@+id/page_container"
+        android:name="androidx.navigation.fragment.NavHostFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        app:defaultNavHost="true"
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
+        app:navGraph="@navigation/mystore_nav" />
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

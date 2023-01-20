@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="item"
+            type="id.onklas.app.pages.presensi.ScheduleDetailAttendance" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                style="@style/AppToolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?android:actionBarSize"
+                app:contentInsetEnd="0dp"
+                app:contentInsetStart="0dp"
+                app:contentInsetStartWithNavigation="0dp"
+                app:navigationIcon="?attr/homeAsUpIndicator"
+                app:title="Detail Kelas" />
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/swipe_refresh"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+
+            <androidx.core.widget.NestedScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/_16sdp">
+
+                    <ImageView
+                        android:id="@+id/mapel_img"
+                        android:layout_width="@dimen/_48sdp"
+                        android:layout_height="@dimen/_48sdp"
+                        app:imageCircleUrl="@{item.detail.subject_image}"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/mapel_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_12sdp"
+                        android:text="@{item.detail.subject_name}"
+                        android:textColor="@color/textBlack"
+                        android:textSize="@dimen/_13ssp"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toTopOf="@id/teacher_name"
+                        app:layout_constraintStart_toEndOf="@id/mapel_img"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/teacher_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{item.detail.teacher_name}"
+                        android:textColor="@color/textBlack"
+                        android:textSize="@dimen/_12ssp"
+                        app:layout_constraintBottom_toBottomOf="@id/mapel_img"
+                        app:layout_constraintStart_toStartOf="@id/mapel_name"
+                        app:layout_constraintTop_toBottomOf="@id/mapel_name" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rv_info"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_16sdp"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        app:layout_constraintTop_toBottomOf="@id/mapel_img"
+                        tools:itemCount="5"
+                        tools:listitem="@layout/checkout_item" />
+
+                    <TextView
+                        android:id="@+id/attendance_label"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_16sdp"
+                        android:text="Data Kehadiran"
+                        android:textColor="@android:color/black"
+                        android:textSize="@dimen/_12ssp"
+                        android:textStyle="bold"
+                        app:layout_constraintTop_toBottomOf="@id/rv_info"
+                        tools:ignore="HardcodedText" />
+
+                    <TextView
+                        android:id="@+id/attendance_present"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_8sdp"
+                        android:text="Hadir: 0"
+                        android:textColor="@android:color/black"
+                        android:textSize="@dimen/_11ssp"
+                        android:visibility="gone"
+                        app:layout_constraintEnd_toStartOf="@id/attendance_absent"
+                        app:layout_constraintHorizontal_chainStyle="spread_inside"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/attendance_label"
+                        app:layout_constraintWidth_percent="0.23"
+                        tools:ignore="HardcodedText" />
+
+                    <TextView
+                        android:id="@+id/attendance_absent"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_8sdp"
+                        android:text="Absen: 0"
+                        android:textColor="@android:color/black"
+                        android:textSize="@dimen/_11ssp"
+                        android:visibility="gone"
+                        app:layout_constraintEnd_toStartOf="@id/attendance_late"
+                        app:layout_constraintStart_toEndOf="@id/attendance_present"
+                        app:layout_constraintTop_toBottomOf="@id/attendance_label"
+                        app:layout_constraintWidth_percent="0.23"
+                        tools:ignore="HardcodedText" />
+
+                    <TextView
+                        android:id="@+id/attendance_late"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_8sdp"
+                        android:text="Terlambat: 0"
+                        android:textColor="@android:color/black"
+                        android:textSize="@dimen/_11ssp"
+                        android:visibility="gone"
+                        app:layout_constraintEnd_toStartOf="@id/attendance_total"
+                        app:layout_constraintStart_toEndOf="@id/attendance_absent"
+                        app:layout_constraintTop_toBottomOf="@id/attendance_label"
+                        app:layout_constraintWidth_percent="0.23"
+                        tools:ignore="HardcodedText" />
+
+                    <TextView
+                        android:id="@+id/attendance_total"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_8sdp"
+                        android:text="Total: 0"
+                        android:textColor="@android:color/black"
+                        android:textSize="@dimen/_11ssp"
+                        android:visibility="gone"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/attendance_late"
+                        app:layout_constraintTop_toBottomOf="@id/attendance_label"
+                        app:layout_constraintWidth_percent="0.23"
+                        tools:ignore="HardcodedText" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_1sdp"
+                        android:layout_marginTop="@dimen/_4sdp"
+                        android:background="@color/ltgray"
+                        app:layout_constraintTop_toBottomOf="@id/attendance_present" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rv_attendance"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_16sdp"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        app:layout_constraintTop_toBottomOf="@id/attendance_present"
+                        tools:itemCount="5"
+                        tools:listitem="@layout/checkout_item" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.core.widget.NestedScrollView>
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

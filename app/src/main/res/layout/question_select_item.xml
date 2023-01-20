@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="text"
+            type="String" />
+
+        <variable
+            name="item"
+            type="id.onklas.app.pages.ujian.QuestionTable" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="@dimen/_16sdp"
+        android:paddingTop="@dimen/_8sdp"
+        android:paddingEnd="@dimen/_16sdp"
+        android:paddingBottom="@dimen/_8sdp">
+
+        <TextView
+            android:id="@+id/textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="marquee"
+            android:singleLine="true"
+            android:text="@{text}"
+            android:textColor="@{item.answered ? @color/colorPrimary : @color/textBlack}"
+            android:textSize="@dimen/_13ssp"
+            android:textStyle="bold"
+            tools:text="test" />
+
+        <ImageView
+            android:id="@+id/image"
+            android:layout_width="@dimen/_14sdp"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/_4sdp"
+            android:layout_toEndOf="@id/textview"
+            android:adjustViewBounds="true"
+            android:src="@{item.answered ? @drawable/ic_check_primary : null}"
+            android:visibility="@{item.answered ? View.VISIBLE : View.GONE}"
+            tools:src="@drawable/ic_check_primary" />
+    </RelativeLayout>
+</layout>

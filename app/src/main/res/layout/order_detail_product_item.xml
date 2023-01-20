@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="item"
+            type="id.onklas.app.pages.entrepreneurs.TransaksiProductTable" />
+
+
+        <variable
+            name="stringUtil"
+            type="id.onklas.app.utils.StringUtil" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingVertical="@dimen/_4sdp">
+
+
+        <ImageView
+            android:id="@+id/img_product"
+            imageUrl="@{item.goody_image}"
+            android:layout_width="@dimen/_60sdp"
+            android:layout_height="@dimen/_60sdp"
+            android:layout_marginStart="@dimen/_16sdp"
+            android:layout_marginTop="@dimen/_4sdp"
+            android:layout_marginBottom="@dimen/_8sdp"
+            android:adjustViewBounds="true"
+            android:background="@drawable/rounded_radius2"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:srcCompat="@tools:sample/backgrounds/scenic" />
+
+        <TextView
+            android:id="@+id/txt_name"
+            style="@style/latoBlackBold"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_12sdp"
+            android:layout_marginEnd="@dimen/_16sdp"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:text="@{item.goody_name}"
+            android:textColor="@color/textBlack"
+            android:textSize="@dimen/_12sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/img_product"
+            app:layout_constraintTop_toTopOf="@+id/img_product"
+            tools:text="Paket Bersih Bebas Tungau (Rp 280.000)" />
+
+        <TextView
+            android:id="@+id/txt_total"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:text='@{"Rp " + stringUtil.formatCurrency2(item.goody_price)}'
+            android:textColor="@color/gray"
+            android:textSize="@dimen/_12sdp"
+            app:layout_constraintStart_toStartOf="@+id/txt_name"
+            app:layout_constraintTop_toBottomOf="@+id/txt_name"
+            tools:text="Rp 280.000" />
+
+        <TextView
+            android:id="@+id/textView104"
+            style="@style/latoBlackBold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_4sdp"
+            android:background="@drawable/border_white_radius6"
+            android:backgroundTint="#E9F4FF"
+            android:padding="@dimen/_4sdp"
+            android:text='@{item.goody_quantity+"x"}'
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/_13sdp"
+            app:layout_constraintBottom_toBottomOf="@+id/txt_total"
+            app:layout_constraintStart_toEndOf="@+id/txt_total"
+            app:layout_constraintTop_toTopOf="@+id/txt_total"
+            tools:text="2x" />
+
+        <View
+            android:id="@+id/img_divider"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_1sdp"
+            android:background="@color/ltgray"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/txt_name"
+            app:layout_constraintStart_toStartOf="@+id/img_product" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
+

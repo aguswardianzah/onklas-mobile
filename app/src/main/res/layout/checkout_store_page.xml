@@ -1,0 +1,346 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="id.onklas.app.pages.sekolah.store.CheckoutStoreViewModel" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                style="@style/AppToolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?android:actionBarSize"
+                app:contentInsetEnd="0dp"
+                app:contentInsetStart="0dp"
+                app:contentInsetStartWithNavigation="0dp"
+                app:title="Pilih Metode Pengiriman" />
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true"
+            app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/border_klaspay"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:background="@color/ltgray"
+                    android:padding="@dimen/_16sdp"
+                    android:src="@drawable/rounded_white"
+                    app:layout_constraintBottom_toBottomOf="@+id/space_klaspay"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/image_klaspay"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_32sdp"
+                    android:layout_marginTop="@dimen/_28sdp"
+                    android:src="@drawable/ic_logo_klaspay"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:tint="@color/colorPrimary" />
+
+                <Space
+                    android:id="@+id/space_klaspay"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/_28sdp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/image_klaspay" />
+
+                <TextView
+                    android:id="@+id/label_klaspay"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/_4sdp"
+                    android:text="Rp"
+                    android:textColor="@color/textBlack"
+                    android:textSize="@dimen/_10ssp"
+                    app:layout_constraintBottom_toBottomOf="@+id/image_klaspay"
+                    app:layout_constraintEnd_toStartOf="@+id/text_balance"
+                    app:layout_constraintTop_toTopOf="@+id/image_klaspay"
+                    tools:ignore="HardcodedText"
+                    tools:text="Rp" />
+
+                <TextView
+                    android:id="@+id/text_balance"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/_32sdp"
+                    android:text="@{viewModel.stringUtil.formatCurrency2(viewModel.klaspayBalance)}"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/_13ssp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="@+id/image_klaspay"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/image_klaspay"
+                    tools:ignore="HardcodedText"
+                    tools:text="473.500" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_items"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:nestedScrollingEnabled="false"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintTop_toBottomOf="@id/border_klaspay" />
+
+                <View
+                    android:id="@+id/divider_address"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:background="@color/ltgray"
+                    app:layout_constraintTop_toBottomOf="@id/rv_items" />
+
+                <TextView
+                    android:id="@+id/address_label"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_16sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:paddingTop="@dimen/_8sdp"
+                    android:text="Alamat Pengiriman"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/_12ssp"
+                    android:textStyle="bold"
+                    app:layout_constraintTop_toBottomOf="@id/divider_address"
+                    tools:ignore="HardcodedText" />
+
+                <TextView
+                    android:id="@+id/address"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_16sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:paddingStart="0dp"
+                    android:paddingEnd="@dimen/_8sdp"
+                    android:text='@{viewModel.address != null ? viewModel.address.address + "\n" + (viewModel.address.sub_district != null ? viewModel.address.sub_district.name + ", " : "") + viewModel.address.city.name + ", " + viewModel.address.province.name : "Isi alamat pengiriman"}'
+                    android:textColor="@color/textBlack"
+                    android:textSize="@dimen/_12ssp"
+                    app:layout_constraintEnd_toStartOf="@id/address_action"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/address_label"
+                    tools:text="@string/lipsum" />
+
+                <ImageView
+                    android:id="@+id/address_action"
+                    android:layout_width="@dimen/_16sdp"
+                    android:layout_height="@dimen/_16sdp"
+                    android:layout_marginEnd="@dimen/_16sdp"
+                    android:rotation="270"
+                    android:src="@drawable/ic_chevron_down"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/address" />
+
+                <View
+                    android:id="@+id/divider_shipping"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:background="@color/ltgray"
+                    app:layout_constraintTop_toBottomOf="@id/address" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:background="#FCF9FF"
+                    app:layout_constraintBottom_toBottomOf="@id/ship_desc"
+                    app:layout_constraintTop_toTopOf="@id/ship_label" />
+
+                <TextView
+                    android:id="@+id/ship_label"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_16sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:paddingTop="@dimen/_8sdp"
+                    android:text="Opsi Pengiriman"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/_12ssp"
+                    android:textStyle="bold"
+                    app:layout_constraintTop_toBottomOf="@id/divider_shipping"
+                    tools:ignore="HardcodedText" />
+
+                <View
+                    android:id="@+id/ship_divider"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:layout_marginHorizontal="@dimen/_16sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:background="@color/ltgray"
+                    app:layout_constraintTop_toBottomOf="@id/ship_label" />
+
+                <TextView
+                    android:id="@+id/ship_name"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_16sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:text="@{viewModel.selectedShip.courier_name}"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/_12ssp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toStartOf="@id/ship_price"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/ship_divider"
+                    tools:text="JNE" />
+
+                <TextView
+                    android:id="@+id/ship_desc"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_16sdp"
+                    android:layout_marginTop="@dimen/_4sdp"
+                    android:paddingBottom="@dimen/_8sdp"
+                    android:text='@{"Estimasi tiba " + viewModel.selectedShip.estimation_day.toLowerCase()}'
+                    android:textColor="@color/textBlack"
+                    android:textSize="@dimen/_12ssp"
+                    app:layout_constraintEnd_toStartOf="@id/ship_price"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/ship_name"
+                    tools:text="Estimasi tiba besok" />
+
+                <TextView
+                    android:id="@+id/ship_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/_4sdp"
+                    android:text='@{"Rp " + viewModel.stringUtil.formatCurrency2(viewModel.selectedShip.cost)}'
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="@dimen/_11ssp"
+                    app:layout_constraintBottom_toBottomOf="@id/ship_desc"
+                    app:layout_constraintEnd_toStartOf="@id/ship_action"
+                    app:layout_constraintTop_toTopOf="@id/ship_name"
+                    tools:text="Rp 9.999.999" />
+
+                <ImageView
+                    android:id="@+id/ship_action"
+                    android:layout_width="@dimen/_16sdp"
+                    android:layout_height="@dimen/_16sdp"
+                    android:layout_marginEnd="@dimen/_16sdp"
+                    android:rotation="270"
+                    android:src="@drawable/ic_chevron_down"
+                    app:layout_constraintBottom_toBottomOf="@id/ship_desc"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/ship_name" />
+
+                <TextView
+                    android:id="@+id/subtotal_label"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_16sdp"
+                    android:text='@{"Total Pesanan (" + viewModel.countItem + ")"}'
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/_12ssp"
+                    app:layout_constraintEnd_toStartOf="@id/subtotal_price"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/subtotal_price"
+                    tools:text="Total Pesanan (2)" />
+
+                <TextView
+                    android:id="@+id/subtotal_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_12sdp"
+                    android:layout_marginEnd="@dimen/_16sdp"
+                    android:text='@{"Rp " + viewModel.stringUtil.formatCurrency2(viewModel.subtotal)}'
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="@dimen/_12ssp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/ship_desc"
+                    tools:text="Rp 9.999.999" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginVertical="@dimen/_16sdp"
+                    android:background="@color/ltgray"
+                    android:minHeight="@dimen/_100sdp"
+                    app:layout_constraintBottom_toTopOf="@id/total_price"
+                    app:layout_constraintTop_toBottomOf="@id/subtotal_price" />
+
+                <TextView
+                    android:id="@+id/total_label"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_16sdp"
+                    android:text="Total Pembayaran"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/_13ssp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toStartOf="@id/total_price"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/total_price"
+                    tools:ignore="HardcodedText" />
+
+                <TextView
+                    android:id="@+id/total_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/_16sdp"
+                    android:layout_marginBottom="@dimen/_12sdp"
+                    android:text='@{"Rp " + viewModel.stringUtil.formatCurrency2(viewModel.total)}'
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/_13ssp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="@id/total_divider"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    tools:text="Rp 9.999.999" />
+
+                <View
+                    android:id="@+id/total_divider"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:layout_marginHorizontal="@dimen/_16sdp"
+                    android:layout_marginBottom="@dimen/_12sdp"
+                    android:background="@color/ltgray"
+                    app:layout_constraintBottom_toTopOf="@id/btn_pay" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_pay"
+                    style="@style/Widget.MaterialComponents.Button"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/_16sdp"
+                    android:minHeight="0dp"
+                    android:paddingVertical="@dimen/_12sdp"
+                    android:text="Lakukan Pembayaran"
+                    android:textAllCaps="false"
+                    android:textSize="@dimen/_12ssp"
+                    android:textStyle="bold"
+                    app:backgroundTint="@color/colorPrimary"
+                    app:cornerRadius="@dimen/_24sdp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintWidth_percent="0.7"
+                    tools:ignore="HardcodedText" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.core.widget.NestedScrollView>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

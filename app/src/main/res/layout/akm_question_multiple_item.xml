@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.text.Html" />
+
+        <import type="android.view.View" />
+
+        <variable
+            name="item"
+            type="id.onklas.app.pages.akm.QuestionAnswers" />
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/image"
+                imageFitUrlRounded="@{item.question.file_path}"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="@dimen/_8sdp"
+                android:visibility="@{item.question.file_path.empty ? View.GONE : View.VISIBLE}"
+                tools:src="@drawable/onklas_edu1" />
+
+            <io.github.kexanie.library.MathView
+                android:id="@+id/question"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/image"
+                android:layout_marginBottom="@dimen/_8sdp"
+                android:textColor="@color/textBlack"
+                android:textSize="@dimen/_13ssp"
+                android:visibility="@{item.question.question.empty ? View.GONE : View.VISIBLE}"
+                app:engine="MathJax"
+                tools:text="Soal label" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_answer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/question"
+                android:layout_marginTop="@dimen/_16sdp"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:itemCount="4"
+                tools:listitem="@layout/akm_answer_choice" />
+        </RelativeLayout>
+    </androidx.core.widget.NestedScrollView>
+</layout>

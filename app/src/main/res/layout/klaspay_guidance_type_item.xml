@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="showChild"
+            type="Boolean" />
+
+        <variable
+            name="item"
+            type="id.onklas.app.pages.ppob.bayar.TypeGuidanceItem" />
+    </data>
+
+    <RelativeLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:animateLayoutChanges="true"
+        android:paddingHorizontal="@dimen/_20sdp"
+        android:paddingVertical="@dimen/_6sdp">
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="@dimen/_8sdp"
+            android:layout_toStartOf="@id/caret"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:text="@{item.paymentMethod}"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/_12ssp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Jenis Pembayaran Topup" />
+
+        <ImageView
+            android:id="@+id/caret"
+            android:layout_width="@dimen/_16sdp"
+            android:layout_height="@dimen/_16sdp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:rotation="@{showChild ? 180 : 0}"
+            android:src="@drawable/ic_carret_up" />
+
+    </RelativeLayout>
+</layout>

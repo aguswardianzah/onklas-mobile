@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="item"
+            type="id.onklas.app.pages.homework.Assignment" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rounded_white"
+        android:clickable="true"
+        android:foreground="?selectableItemBackground"
+        android:padding="@dimen/_12sdp">
+
+        <id.onklas.app.utils.SquareRelativeLayout
+            android:id="@+id/score"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:background="@{item.scored > 0 ? @drawable/ring_primary : @drawable/ring_green}">
+
+            <TextView
+                android:id="@+id/tag"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginStart="@dimen/_8sdp"
+                android:paddingStart="@dimen/_8sdp"
+                android:paddingTop="@dimen/_8sdp"
+                android:paddingEnd="@dimen/_8sdp"
+                android:paddingBottom="@dimen/_8sdp"
+                android:text='@{item.scored > 0 ? item.score + "" : "--"}'
+                android:textColor="@{item.scored > 0 ? @color/colorPrimary : @color/green}"
+                android:textSize="@dimen/_11ssp"
+                android:textStyle="bold"
+                tools:text="99" />
+        </id.onklas.app.utils.SquareRelativeLayout>
+
+        <ImageView
+            android:id="@+id/image"
+            android:layout_width="@dimen/_36sdp"
+            android:layout_height="@dimen/_36sdp"
+            android:layout_marginEnd="@dimen/_8sdp"
+            app:imageCircleUrl="@{item.student.user.user_avatar_image}" />
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toStartOf="@id/score"
+            android:layout_toEndOf="@id/image"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:text="@{item.student.name}"
+            android:textColor="@color/textBlack"
+            android:textSize="@dimen/_13ssp"
+            android:textStyle="bold"
+            tools:text="Judul Tugas" />
+
+        <TextView
+            android:id="@+id/time"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/title"
+            android:layout_marginTop="@dimen/_6sdp"
+            android:layout_toStartOf="@id/score"
+            android:layout_toEndOf="@id/image"
+            android:text='@{"Dikumpulkan " + item.upload_at}'
+            android:textColor="@color/textBlack"
+            android:textSize="@dimen/_11ssp"
+            tools:text="00:00" />
+
+        <TextView
+            android:id="@+id/info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/time"
+            android:layout_marginTop="@dimen/_6sdp"
+            android:layout_toStartOf="@id/score"
+            android:layout_toEndOf="@id/image"
+            android:text='@{item.scored > 0 ? " " : "Belum dinilai"}'
+            android:textColor="@color/red"
+            android:textSize="@dimen/_11ssp"
+            tools:text="00:00" />
+
+        <View
+            android:id="@+id/divider"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_1sdp"
+            android:layout_below="@id/info"
+            android:layout_marginTop="@dimen/_12sdp"
+            android:layout_marginBottom="@dimen/_8sdp"
+            android:background="@color/ltgray" />
+
+        <TextView
+            android:id="@+id/lihat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/divider"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:text="Lihat Jawaban"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/_12ssp"
+            android:textStyle="bold"
+            android:visibility="gone"
+            tools:ignore="HardcodedText" />
+
+        <TextView
+            android:id="@+id/nilai"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/divider"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:text='@{item.scored > 0 ? "Ubah Nilai" : "Beri Nilai"}'
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/_12ssp"
+            android:textStyle="bold"
+            tools:ignore="HardcodedText" />
+    </RelativeLayout>
+</layout>

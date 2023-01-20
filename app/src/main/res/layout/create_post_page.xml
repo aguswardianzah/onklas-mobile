@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="id.onklas.app.pages.createpost.CreatePostViewmodel" />
+
+        <variable
+            name="viewmodel"
+            type="CreatePostViewmodel" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                style="@style/AppToolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?android:actionBarSize"
+                app:contentInsetEnd="0dp"
+                app:contentInsetStart="0dp"
+                app:contentInsetStartWithNavigation="0dp"
+                app:title="Buat Postingan" />
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true"
+            android:paddingBottom="@dimen/_8sdp"
+            app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/_16sdp">
+
+                <EditText
+                    android:id="@+id/input_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    android:gravity="bottom"
+                    android:hint="Tulis disini"
+                    android:inputType="text|textMultiLine"
+                    android:maxLength="1000"
+                    android:text="@={viewmodel.feedContent}"
+                    android:textColor="@color/textBlack"
+                    android:textColorHint="@color/gray"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="HardcodedText" />
+
+                <View
+                    android:id="@+id/input_divider"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:background="@color/gray"
+                    app:layout_constraintTop_toBottomOf="@id/input_content" />
+
+                <TextView
+                    android:id="@+id/counter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_4sdp"
+                    android:text='@{viewmodel.feedContent.length() + "/1000"}'
+                    android:textColor="@color/gray"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/input_divider"
+                    tools:ignore="HardcodedText" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_kamera"
+                    style="@style/Widget.MaterialComponents.Button"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_16sdp"
+                    android:gravity="start|center_vertical"
+                    android:padding="@dimen/_4sdp"
+                    android:text="kamera"
+                    android:textAllCaps="false"
+                    android:textColor="@color/textBlack"
+                    app:backgroundTint="@color/colorAccent"
+                    app:cornerRadius="@dimen/_16sdp"
+                    app:icon="@drawable/ic_post_camera"
+                    app:iconPadding="@dimen/_8sdp"
+                    app:iconSize="@dimen/_24sdp"
+                    app:iconTint="@null"
+                    app:layout_constraintEnd_toStartOf="@id/btn_galery"
+                    app:layout_constraintHorizontal_chainStyle="spread_inside"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/counter"
+                    app:layout_constraintWidth_percent="0.48"
+                    tools:ignore="HardcodedText" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_galery"
+                    style="@style/Widget.MaterialComponents.Button"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_16sdp"
+                    android:gravity="start|center_vertical"
+                    android:padding="@dimen/_4sdp"
+                    android:text="upload galeri"
+                    android:textAllCaps="false"
+                    android:textColor="@color/textBlack"
+                    app:backgroundTint="@color/colorAccent"
+                    app:cornerRadius="@dimen/_16sdp"
+                    app:icon="@drawable/ic_galery"
+                    app:iconPadding="@dimen/_8sdp"
+                    app:iconSize="@dimen/_24sdp"
+                    app:iconTint="@null"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/btn_kamera"
+                    app:layout_constraintTop_toBottomOf="@id/counter"
+                    app:layout_constraintWidth_percent="0.48"
+                    tools:ignore="HardcodedText" />
+
+                <include
+                    android:id="@+id/layout_media"
+                    layout="@layout/post_part_content_media"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_16sdp"
+                    android:layout_marginBottom="@dimen/_16sdp"
+                    android:maxHeight="@dimen/_200sdp"
+                    app:layout_constraintTop_toBottomOf="@id/btn_kamera" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_delete_image"
+                    style="@style/Widget.MaterialComponents.Button"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_16sdp"
+                    android:gravity="start|center_vertical"
+                    android:padding="@dimen/_4sdp"
+                    android:text="hapus gambar"
+                    android:textAllCaps="false"
+                    android:textColor="#FC2222"
+                    android:visibility="gone"
+                    app:backgroundTint="#FFDBD4"
+                    app:cornerRadius="@dimen/_16sdp"
+                    app:icon="@drawable/ic_delete_image"
+                    app:iconGravity="textStart"
+                    app:iconPadding="@dimen/_12sdp"
+                    app:iconSize="@dimen/_24sdp"
+                    app:iconTint="@null"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/layout_media"
+                    app:layout_constraintWidth_percent="0.48"
+                    tools:ignore="HardcodedText" />
+
+                <View
+                    android:id="@+id/space"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginVertical="@dimen/_16sdp"
+                    app:layout_constraintBottom_toTopOf="@id/btn_post"
+                    app:layout_constraintTop_toBottomOf="@id/btn_delete_image" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_post"
+                    style="@style/Widget.MaterialComponents.Button.TextButton"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_36sdp"
+                    android:layout_marginEnd="@dimen/_36sdp"
+                    android:enabled="false"
+                    android:minHeight="0dp"
+                    android:paddingVertical="@dimen/_8sdp"
+                    android:text="Posting sekarang"
+                    android:textColor="@android:color/white"
+                    android:textStyle="bold"
+                    app:backgroundTint="@color/form_button_color"
+                    app:cornerRadius="@dimen/_20sdp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintWidth_percent="0.7"
+                    tools:ignore="HardcodedText" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.core.widget.NestedScrollView>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

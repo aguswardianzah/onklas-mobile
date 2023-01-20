@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <import type="android.view.View"/>
+        <variable
+            name="item"
+            type="id.onklas.app.pages.prokes.ListChoice" />
+        <variable
+            name="chosen"
+            type="Boolean" />
+
+        <import type="android.graphics.Color"/>
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background='@{chosen ? @color/white : @color/f5f5}'
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+        <View
+            android:id="@+id/line_choice"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_1sdp"
+            android:background="@color/border1"
+            app:layout_constraintTop_toTopOf="parent"
+            />
+        <RadioButton
+            android:id="@+id/rd_choice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/line_choice"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:layout_marginBottom="@dimen/_8sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginStart="@dimen/_12sdp"
+            android:checked="@{chosen ? true:false}"
+            />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/black"
+            tools:text="Saya Berjalan kaki"
+            app:layout_constraintTop_toTopOf="@id/rd_choice"
+            app:layout_constraintBottom_toBottomOf="@id/rd_choice"
+            app:layout_constraintStart_toEndOf="@id/rd_choice"
+            app:layout_constraintEnd_toEndOf="parent"
+            style="@style/latoBlackBold"
+            android:text="@{item.choiceText}"
+            android:textSize="@dimen/_11sdp"
+            />
+
+<!--        <View-->
+<!--            android:id="@+id/line_choice2"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="@dimen/_1sdp"-->
+<!--            android:background="@color/border1"-->
+<!--            android:layout_marginTop="@dimen/_8sdp"-->
+<!--            app:layout_constraintTop_toBottomOf="@id/rd_choice"-->
+<!--            />-->
+<!--        <androidx.recyclerview.widget.RecyclerView-->
+<!--            android:id="@+id/rv_choice"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            app:layout_constraintTop_toBottomOf="@id/line_choice2"-->
+<!--            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"-->
+<!--            tools:listitem="@layout/prokes_choice2"-->
+<!--            app:spanCount="2"-->
+<!--            android:visibility="@{chosen?View.GONE:View.VISIBLE}"-->
+<!--            />-->
+
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

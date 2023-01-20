@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/homework_teacher_nav"
+    app:startDestination="@id/homeworkTeacherListPage">
+
+    <fragment
+        android:id="@+id/homeworkTeacherListPage"
+        android:name="id.onklas.app.pages.homework.teacher.HomeworkTeacherListPage"
+        android:label="HomeworkTeacherListPage"
+        tools:layout="@layout/homework_teacher_list_page" />
+    <fragment
+        android:id="@+id/homeworkTeacherNilaiPage"
+        android:name="id.onklas.app.pages.homework.teacher.HomeworkTeacherNilaiPage"
+        android:label="HomeworkTeacherNilaiPage"
+        tools:layout="@layout/homework_teacher_list_page" />
+    <action
+        android:id="@+id/action_global_homeworkTeacherListPage"
+        app:destination="@id/homeworkTeacherListPage" />
+    <action
+        android:id="@+id/action_global_homeworkTeacherNilaiPage"
+        app:destination="@id/homeworkTeacherNilaiPage" />
+</navigation>

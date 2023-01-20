@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout>
+    <data>
+        <import type="android.view.View" />
+
+        <variable
+            name="merchantId"
+            type="Integer" />
+
+        <variable
+            name="perfMerchantId"
+            type="Integer" />
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".pages.sekolah.store.RatingReviewProduct">
+
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appBarLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                style="@style/AppToolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?android:actionBarSize"
+                app:contentInsetEnd="0dp"
+                app:contentInsetStart="0dp"
+                app:contentInsetStartWithNavigation="0dp" />
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/swipe_refresh"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/appBarLayout">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/appBarLayout">
+
+
+                <TextView
+                    android:id="@+id/txt_averange_rating"
+                    style="@style/latoBlackBold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_16sdp"
+                    android:layout_marginTop="@dimen/_16sdp"
+                    tools:text="4.7"
+                    android:textSize="@dimen/_30sdp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <RatingBar
+                    android:id="@+id/ratingBar"
+                    style="@style/Widget.AppCompat.RatingBar.Indicator"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_20sdp"
+                    tools:rating="4.7"
+                    android:scaleX="0.8"
+                    android:scaleY="0.8"
+                    android:transformPivotX="0dp"
+                    android:transformPivotY="0dp"
+                    android:theme="@style/RatingBar"
+                    app:layout_constraintStart_toEndOf="@+id/txt_averange_rating"
+                    app:layout_constraintTop_toTopOf="@+id/txt_averange_rating" />
+
+                <TextView
+                    android:id="@+id/txt_jumlah_reviewer"
+                    style="@style/latoDefault"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_6sdp"
+                    tools:text="128 review"
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/_12sdp"
+                    app:layout_constraintStart_toStartOf="@+id/ratingBar"
+                    app:layout_constraintTop_toBottomOf="@+id/ratingBar" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_filter"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_16sdp"
+                    android:layout_marginTop="@dimen/_16sdp"
+                    android:orientation="horizontal"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_jumlah_reviewer"
+                    tools:listitem="@layout/rating_filter_item" />
+
+                <TextView
+                    android:id="@+id/textView122"
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:background="@color/bg_gray"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/rv_filter" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_review"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    app:layout_constraintBottom_toTopOf="@id/constraintLayout3"
+                    app:layout_constraintTop_toBottomOf="@+id/textView122"
+                    tools:layout_editor_absoluteX="0dp"
+                    tools:listitem="@layout/rating_review_item" />
+
+                <LinearLayout
+                    android:id="@+id/constraintLayout3"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_44sdp"
+                    android:background="@color/white"
+                    android:orientation="horizontal"
+                    android:visibility='@{(merchantId == perfMerchantId) ? View.GONE : View.VISIBLE}'
+                    app:layout_constraintBottom_toBottomOf="parent">
+
+                    <LinearLayout
+                        android:layout_weight="3"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                        <ImageView
+                            android:layout_weight="1"
+                            android:id="@+id/action_chat"
+                            android:layout_gravity="center"
+                            android:adjustViewBounds="true"
+                            android:layout_width="match_parent"
+                            android:padding="@dimen/_3sdp"
+                            android:visibility="gone"
+                            android:layout_height="@dimen/_24sdp"
+                            app:srcCompat="@drawable/ic_chat" />
+
+                        <TextView
+                            android:id="@+id/textView24"
+                            android:layout_width="2dp"
+                            android:visibility="gone"
+                            android:layout_marginVertical="@dimen/_12sdp"
+                            android:background="@color/gray"
+                            android:layout_height="match_parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent" />
+
+                        <ImageView
+                            android:id="@+id/action_add_cart"
+                            android:layout_weight="1"
+                            android:layout_gravity="center"
+                            android:adjustViewBounds="true"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_24sdp"
+                            android:padding="@dimen/_3sdp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/ic_cart" />
+                    </LinearLayout>
+
+
+                    <TextView
+                        android:id="@+id/action_buy_now"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="Beli Sekarang"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        style="@style/latoBlackBold"
+                        android:textSize="@dimen/_14sdp"
+                        android:textColor="@color/white"
+                        android:background="@color/colorPrimary"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </LinearLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+
+
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

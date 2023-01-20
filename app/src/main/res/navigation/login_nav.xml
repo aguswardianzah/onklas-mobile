@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/login_nav"
+    app:startDestination="@id/loginForm">
+
+    <fragment
+        android:id="@+id/loginForm"
+        android:name="id.onklas.app.pages.login.LoginForm"
+        android:label="LoginForm"
+        tools:layout="@layout/login_form">
+        <action
+            android:id="@+id/action_loginForm_to_loginProcess"
+            app:destination="@id/loginProcess" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginProcess"
+        android:name="id.onklas.app.pages.login.LoginProcess"
+        android:label="LoginProcess"
+        tools:layout="@layout/login_process">
+        <action
+            android:id="@+id/action_loginProcess_to_loginForm"
+            app:destination="@id/loginForm" />
+    </fragment>
+</navigation>

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/rounded_white"
+    android:padding="@dimen/_16sdp">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/_15ssp"
+        android:textStyle="bold"
+        tools:text="Proses Formulir" />
+
+    <TextView
+        android:id="@+id/content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/title"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/_12sdp"
+        android:gravity="center"
+        android:maxLines="5"
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/_11ssp"
+        tools:ignore="HardcodedText"
+        tools:text="@tools:sample/lorem/random" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_ok"
+        style="@style/Widget.MaterialComponents.Button"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/content"
+        android:layout_marginTop="@dimen/_12sdp"
+        android:enabled="true"
+        android:minHeight="0dp"
+        android:layout_alignParentEnd="true"
+        android:layout_toEndOf="@id/centerPoint"
+        android:paddingVertical="@dimen/_12sdp"
+        android:text="Ok Deh"
+        android:textAllCaps="false"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/_12sdp"
+        android:textStyle="bold"
+        app:backgroundTint="@color/form_button_color"
+        app:cornerRadius="@dimen/_20sdp"
+        tools:ignore="HardcodedText" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_abort"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:enabled="true"
+        android:minHeight="0dp"
+        android:paddingVertical="@dimen/_12sdp"
+        android:text="Batal"
+        android:textAllCaps="false"
+        android:layout_toStartOf="@id/centerPoint"
+        android:layout_alignParentStart="true"
+        android:textColor="@color/textBlack"
+        android:textSize="@dimen/_12sdp"
+        android:textStyle="bold"
+        android:layout_below="@id/content"
+        android:layout_marginTop="@dimen/_12sdp"
+        app:cornerRadius="@dimen/_20sdp"
+        app:strokeColor="@color/gray"
+        tools:ignore="HardcodedText" />
+    <TextView
+        android:id="@+id/centerPoint"
+        android:text=""
+        android:layout_below="@id/content"
+        android:layout_width="@dimen/_12sdp"
+        android:layout_marginTop="@dimen/_12sdp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true" />
+
+
+</RelativeLayout>

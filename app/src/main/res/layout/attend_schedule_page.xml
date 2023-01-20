@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            style="@style/AppToolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?android:actionBarSize"
+            app:contentInsetEnd="0dp"
+            app:contentInsetStart="0dp"
+            app:contentInsetStartWithNavigation="0dp"
+            app:navigationIcon="?attr/homeAsUpIndicator"
+            app:title="Masuk Kelas" />
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/ltgray"
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/_24sdp">
+
+            <View
+                android:id="@+id/form_bg"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:background="@drawable/border_login_form"
+                app:layout_constraintBottom_toBottomOf="@id/sp_password_new"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/label_old"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_12sdp"
+                android:layout_marginTop="@dimen/_16sdp"
+                android:layout_marginEnd="@dimen/_12sdp"
+                android:gravity="center"
+                android:text="Password Kelas"
+                android:textAllCaps="true"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/_13ssp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@id/form_bg"
+                app:layout_constraintStart_toStartOf="@id/form_bg"
+                app:layout_constraintTop_toTopOf="@id/form_bg"
+                tools:ignore="HardcodedText" />
+
+            <View
+                android:id="@+id/v_password"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="@dimen/_12sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:layout_marginEnd="@dimen/_12sdp"
+                android:background="@drawable/border_form_login_gray"
+                app:layout_constraintBottom_toBottomOf="@id/sp_password"
+                app:layout_constraintEnd_toEndOf="@id/form_bg"
+                app:layout_constraintStart_toStartOf="@id/form_bg"
+                app:layout_constraintTop_toBottomOf="@id/label_old" />
+
+            <ImageView
+                android:id="@+id/ic_password"
+                android:layout_width="@dimen/_24sdp"
+                android:layout_height="@dimen/_24sdp"
+                android:layout_marginStart="@dimen/_8sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:src="@drawable/ic_lock"
+                app:layout_constraintStart_toStartOf="@id/v_password"
+                app:layout_constraintTop_toTopOf="@id/v_password" />
+
+            <Space
+                android:id="@+id/sp_password"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_8sdp"
+                app:layout_constraintTop_toBottomOf="@id/ic_password" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/in_password_layout"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="@dimen/_8sdp"
+                android:layout_marginEnd="@dimen/_8sdp"
+                android:padding="0dp"
+                app:boxStrokeColor="@android:color/white"
+                app:hintEnabled="false"
+                app:hintTextColor="@color/gray"
+                app:layout_constraintBottom_toBottomOf="@id/ic_password"
+                app:layout_constraintEnd_toEndOf="@id/v_password"
+                app:layout_constraintStart_toEndOf="@id/ic_password"
+                app:layout_constraintTop_toTopOf="@id/ic_password"
+                app:passwordToggleEnabled="true">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/in_password"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/transparent"
+                    android:hint="Masukkan Password"
+                    android:inputType="textPassword"
+                    android:paddingStart="@dimen/_4sdp"
+                    android:paddingTop="@dimen/_2sdp"
+                    android:paddingEnd="@dimen/_4sdp"
+                    android:paddingBottom="@dimen/_2sdp"
+                    android:textColor="@color/textBlack"
+                    android:textSize="@dimen/_13ssp"
+                    tools:ignore="HardcodedText" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_attend"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_12sdp"
+                android:layout_marginTop="@dimen/_16sdp"
+                android:layout_marginEnd="@dimen/_12sdp"
+                android:enabled="false"
+                android:text="Masuk"
+                android:textColor="@android:color/white"
+                app:backgroundTint="@color/form_button_color"
+                app:cornerRadius="@dimen/_20sdp"
+                app:layout_constraintEnd_toEndOf="@id/form_bg"
+                app:layout_constraintStart_toStartOf="@id/form_bg"
+                app:layout_constraintTop_toBottomOf="@id/v_password"
+                tools:ignore="HardcodedText" />
+
+            <TextView
+                android:id="@+id/label_time"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_12sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:layout_marginEnd="@dimen/_12sdp"
+                android:gravity="center"
+                android:text="Waktu tersisa: "
+                android:textColor="@color/red"
+                android:textSize="@dimen/_12ssp"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="@id/form_bg"
+                app:layout_constraintStart_toStartOf="@id/form_bg"
+                app:layout_constraintTop_toBottomOf="@id/btn_attend"
+                tools:ignore="HardcodedText" />
+
+            <Space
+                android:id="@+id/sp_password_new"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_12sdp"
+                app:layout_constraintTop_toBottomOf="@id/label_time" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

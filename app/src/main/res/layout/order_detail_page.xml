@@ -1,0 +1,558 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="item"
+            type="id.onklas.app.pages.entrepreneurs.DetailTransaksi" />
+
+        <variable
+            name="stringUtil"
+            type="id.onklas.app.utils.StringUtil" />
+
+        <variable
+            name="dateUtil"
+            type="id.onklas.app.utils.DateUtil" />
+
+        <variable
+            name="onReview"
+            type="Boolean" />
+
+        <variable
+            name="perfMerchantId"
+            type="Integer" />
+
+        <variable
+            name="imgBuyerSeller"
+            type="String" />
+
+        <variable
+            name="nameBuyerSeller"
+            type="String" />
+
+        <variable
+            name="buyerSeller"
+            type="String" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/bg_gray"
+        tools:context=".pages.entrepreneurs.OrderDetailPage">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appBarLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                style="@style/AppToolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?android:actionBarSize"
+                app:contentInsetEnd="0dp"
+                app:contentInsetStart="0dp"
+                app:contentInsetStartWithNavigation="0dp" />
+        </com.google.android.material.appbar.AppBarLayout>
+
+
+        <!--    layout untuk top info-->
+        <LinearLayout
+            android:id="@+id/top_inf"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintTop_toBottomOf="@+id/appBarLayout">
+
+            <include
+                android:id="@+id/include_top"
+                layout="@layout/order_detail_include_top"
+                android:visibility="gone"
+                app:layout_constraintTop_toBottomOf="@+id/appBarLayout" />
+
+        </LinearLayout>
+
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/top_inf">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <!--            layout id transaksi-->
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/id_transaksi_lay"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white">
+
+
+                    <TextView
+                        android:id="@+id/textView97"
+                        style="@style/latoDefault"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_16sdp"
+                        android:layout_marginTop="@dimen/_12sdp"
+                        android:text="ID Transaksi"
+                        android:textColor="@color/textBlack"
+                        android:textSize="@dimen/_12sdp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/textView98"
+                        style="@style/latoDefault"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_12sdp"
+                        android:layout_marginBottom="@dimen/_16sdp"
+                        android:text="Tanggal Transaksi"
+                        android:textColor="@color/textBlack"
+                        android:textSize="@dimen/_12sdp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="@+id/textView97"
+                        app:layout_constraintTop_toBottomOf="@+id/textView97" />
+
+                    <TextView
+                        android:id="@+id/txt_id_transaksi"
+                        style="@style/latoBlackBold"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_12sdp"
+                        android:layout_marginEnd="@dimen/_16sdp"
+                        android:text='@{""+item.id}'
+                        android:textColor="@color/textBlack"
+                        android:textSize="@dimen/_12sdp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:text="GL-0000121DD" />
+
+                    <TextView
+                        android:id="@+id/txt_tanggal_transaksi"
+                        style="@style/latoBlackBold"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_12sdp"
+                        android:text='@{dateUtil.getDateTime2(dateUtil.formatDate(item.date))}'
+                        android:textColor="@color/textBlack"
+                        android:textSize="@dimen/_12sdp"
+                        app:layout_constraintEnd_toEndOf="@+id/txt_id_transaksi"
+                        app:layout_constraintTop_toBottomOf="@+id/txt_id_transaksi"
+                        tools:text="12 Januari 2021, 12:08" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <!--            layout akun pembeli -->
+
+
+                <!--            layout produk -->
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/seller_lay"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_12sdp"
+                    android:background="@color/white">
+
+                    <TextView
+                        android:id="@+id/txt_jenis"
+                        style="@style/latoBlackBold"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_16sdp"
+                        android:layout_marginTop="@dimen/_16sdp"
+                        android:text='@{buyerSeller}'
+                        android:textSize="@dimen/_12sdp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:text="Pembeli" />
+
+                    <ImageView
+                        android:id="@+id/img"
+                        imageCircleUrl="@{imgBuyerSeller}"
+                        android:layout_width="@dimen/_36sdp"
+                        android:layout_height="@dimen/_36sdp"
+                        android:layout_marginTop="@dimen/_12sdp"
+                        android:visibility="@{imgBuyerSeller.empty? View.GONE:View.VISIBLE}"
+                        app:layout_constraintStart_toStartOf="@+id/txt_jenis"
+                        app:layout_constraintTop_toBottomOf="@+id/txt_jenis" />
+
+
+                    <TextView
+                        android:id="@+id/txt_nama_jenis"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:layout_marginTop="@dimen/_12sdp"
+                        android:ellipsize="end"
+                        android:lines="1"
+                        android:text='@{nameBuyerSeller}'
+                        android:textColor="@color/textBlack1"
+                        android:textSize="@dimen/_12ssp"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toStartOf="@+id/img_chat"
+                        app:layout_constraintStart_toEndOf="@+id/img"
+                        app:layout_constraintTop_toBottomOf="@+id/txt_jenis"
+                        tools:text="Username goes here" />
+
+                    <View
+                        android:id="@+id/img_divider"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_1sdp"
+                        android:layout_marginTop="@dimen/_26sdp"
+                        android:background="@color/ltgray"
+                        app:layout_constraintTop_toBottomOf="@+id/txt_nama_jenis" />
+
+                    <ImageView
+                        android:id="@+id/img_chat"
+                        android:layout_width="@dimen/_40sdp"
+                        android:layout_height="@dimen/_40sdp"
+                        android:layout_marginEnd="@dimen/_16sdp"
+                        android:src="@drawable/ic_chat_transaksi"
+                        android:visibility="gone"
+                        app:layout_constraintBottom_toBottomOf="@id/img"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@id/img" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_12sdp"
+                    android:background="@color/white">
+
+                    <TextView
+                        android:id="@+id/info_review"
+                        style="@style/latoBlackBold"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/yellow"
+                        android:gravity="center"
+                        android:paddingVertical="@dimen/_8sdp"
+                        android:text="Berikan review setelah semua produk di review pembeli"
+                        android:textColor="@color/textBlack"
+                        android:textSize="@dimen/_9ssp"
+                        android:visibility='@{onReview? View.VISIBLE:View.GONE}'
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/textView105"
+                        style="@style/latoBlackBold"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_16sdp"
+                        android:layout_marginTop="@dimen/_16sdp"
+                        android:text='@{onReview? "Review Produk":"Produk"}'
+                        android:textSize="@dimen/_12sdp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/info_review" />
+
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rv_produk"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_8sdp"
+                        android:nestedScrollingEnabled="true"
+                        app:layout_constraintTop_toBottomOf="@+id/textView105"
+                        tools:itemCount="2"
+                        tools:layout_editor_absoluteX="0dp"
+                        tools:listitem="@layout/order_detail_product_item" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <!--                segera kirimkan-->
+
+                <!--            pengiriman -->
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/segera_kirim_lay"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_12sdp"
+                    android:background="@color/white"
+                    android:visibility="gone">
+
+
+                    <TextView
+                        android:id="@+id/txt_segera_kirim_title"
+                        style="@style/latoBlackBold"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_16sdp"
+                        android:layout_marginTop="@dimen/_16sdp"
+                        android:text="Metode Pengirman"
+                        android:textColor="@color/textBlack1"
+                        android:textSize="@dimen/_12sdp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/txt_courier_name"
+                        style="@style/latoDefault"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_9sdp"
+                        android:layout_marginEnd="@dimen/_16sdp"
+                        android:layout_marginBottom="@dimen/_16sdp"
+                        android:text="@{item.courrier_name}"
+                        android:textColor="@color/textBlack2"
+                        android:textSize="@dimen/_12sdp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="@+id/txt_segera_kirim_title"
+                        app:layout_constraintTop_toBottomOf="@+id/txt_segera_kirim_title"
+                        tools:text="JNE Oke" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/layout_lacak"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_12sdp"
+                    android:background="@color/white"
+                    android:backgroundTint="@color/white">
+
+
+                    <TextView
+                        android:id="@+id/txt_courier"
+                        style="@style/latoBlackBold"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_16sdp"
+                        android:layout_marginTop="@dimen/_16sdp"
+                        android:text="@{item.courrier_name}"
+                        android:textSize="@dimen/_12sdp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:text="Pengiriman - Koperasi Sekolah" />
+
+                    <TextView
+                        android:id="@+id/txt_last_status"
+                        style="@style/latoDefault"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_12sdp"
+                        android:layout_marginEnd="@dimen/_16sdp"
+                        android:layout_marginBottom="@dimen/_16sdp"
+                        android:ellipsize="end"
+                        android:lineSpacingExtra="@dimen/_5sdp"
+                        android:maxLines="2"
+                        android:textColor="@color/textBlack"
+                        android:textSize="@dimen/_12sdp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/btn_detail_lacak"
+                        app:layout_constraintStart_toStartOf="@+id/txt_courier"
+                        app:layout_constraintTop_toBottomOf="@+id/txt_courier" />
+
+                    <TextView
+                        android:id="@+id/btn_detail_lacak"
+                        style="@style/latoDefault"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/_16sdp"
+                        android:background="?attr/actionBarItemBackground"
+                        android:paddingVertical="@dimen/_8sdp"
+                        android:text="Lihat Detail"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="@dimen/_12sdp"
+                        app:layout_constraintBottom_toBottomOf="@+id/txt_last_status"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/txt_courier" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <!--                alamat pengiriman-->
+
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_12sdp"
+                    android:background="@color/white">
+
+                    <TextView
+                        android:id="@+id/txt_alamt_pengiirman_title"
+                        style="@style/latoBlackBold"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_16sdp"
+                        android:layout_marginTop="@dimen/_16sdp"
+                        android:text="Alamat Pengiriman"
+                        android:textColor="@color/textBlack1"
+                        android:textSize="@dimen/_12sdp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/txt_alamt"
+                        style="@style/latoDefault"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_9sdp"
+                        android:layout_marginEnd="@dimen/_16sdp"
+                        android:layout_marginBottom="@dimen/_16sdp"
+                        android:text="@{item.destination_address}"
+                        android:textColor="@color/textBlack2"
+                        android:textSize="@dimen/_12ssp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="@+id/txt_alamt_pengiirman_title"
+                        app:layout_constraintTop_toBottomOf="@+id/txt_alamt_pengiirman_title"
+                        tools:text="JNE Oke" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+                <!--            sub total layout  -->
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_12sdp"
+                    android:background="@color/white">
+
+
+                    <TextView
+                        android:id="@+id/textView109"
+                        style="@style/latoDefault"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_16sdp"
+                        android:layout_marginTop="@dimen/_16sdp"
+                        android:text="Subtotal Produk"
+                        android:textColor="@color/textBlack"
+                        android:textSize="@dimen/_12ssp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/textView110"
+                        style="@style/latoDefault"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_8sdp"
+                        android:text="Ongkir"
+                        android:textColor="@color/textBlack"
+                        android:textSize="@dimen/_12ssp"
+                        app:layout_constraintStart_toStartOf="@+id/textView109"
+                        app:layout_constraintTop_toBottomOf="@+id/textView109" />
+
+                    <TextView
+                        android:id="@+id/textView111"
+                        style="@style/latoDefault"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_8sdp"
+                        android:layout_marginBottom="@dimen/_16sdp"
+                        android:text="Total Pembayaran"
+                        android:textColor="@color/textBlack"
+                        android:textSize="@dimen/_12ssp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="@+id/textView110"
+                        app:layout_constraintTop_toBottomOf="@+id/textView110" />
+
+                    <TextView
+                        android:id="@+id/txt_subtotal"
+                        style="@style/latoDefault"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/_16sdp"
+                        android:text='@{ "Rp " + stringUtil.formatCurrency2(item.subtotal)}'
+                        android:textColor="@color/textBlack"
+                        android:textSize="@dimen/_12ssp"
+                        app:layout_constraintBottom_toBottomOf="@+id/textView109"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/textView109"
+                        tools:text="Rp 200.000" />
+
+                    <TextView
+                        android:id="@+id/txt_ongkir"
+                        style="@style/latoDefault"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_8sdp"
+                        android:text='@{"Rp " + stringUtil.formatCurrency2(item.courier_fee)}'
+                        android:textColor="@color/textBlack"
+                        android:textSize="@dimen/_12ssp"
+                        app:layout_constraintEnd_toEndOf="@+id/txt_subtotal"
+                        app:layout_constraintTop_toBottomOf="@+id/txt_subtotal"
+                        tools:text="Rp 5.000" />
+
+                    <TextView
+                        android:id="@+id/txt_total_pembayaran"
+                        style="@style/latoBlackBold"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_8sdp"
+                        android:text='@{"Rp " + stringUtil.formatCurrency2(item.total)}'
+                        android:textColor="@color/textBlack"
+                        android:textSize="@dimen/_12ssp"
+                        app:layout_constraintEnd_toEndOf="@+id/txt_ongkir"
+                        app:layout_constraintTop_toBottomOf="@+id/txt_ongkir"
+                        tools:text="Rp 100.000" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                <!--            layout untuk berbagai kondisi-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_12sdp"
+                    android:orientation="vertical">
+
+                    <include
+                        android:id="@+id/include_tolak_proses"
+                        layout="@layout/button_include_tolak_proses"
+                        android:visibility="gone" />
+
+                    <include
+                        android:id="@+id/include_kirim_sekarang"
+                        layout="@layout/button_include_kirim_sekarang"
+                        android:visibility="gone" />
+
+                    <include
+                        android:id="@+id/include_konfirmasi_selesai"
+                        layout="@layout/button_include_konfirmasi_selesai"
+                        android:visibility="gone" />
+
+                    <include
+                        android:id="@+id/include_lihat_review"
+                        layout="@layout/button_include_lihat_review"
+                        android:visibility="gone" />
+
+                    <include
+                        android:id="@+id/include_batalkan_pembelian"
+                        layout="@layout/button_include_batalkan_pembelian"
+                        android:visibility="gone" />
+
+                    <include
+                        android:id="@+id/include_terima_produk"
+                        layout="@layout/button_include_terima_produk"
+                        android:visibility="gone" />
+
+                    <include
+                        android:id="@+id/include_lacak"
+                        layout="@layout/button_include_lacak_review"
+                        android:visibility="gone" />
+
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

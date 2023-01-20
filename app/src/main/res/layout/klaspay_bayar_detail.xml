@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+        <variable
+            name="topup"
+            type="String" />
+        <variable
+            name="totalAmount"
+            type="String" />
+        <variable
+            name="feeAdmin"
+            type="String" />
+        <variable
+            name="feeService"
+            type="String" />
+        <variable
+            name="data"
+            type="id.onklas.app.pages.ppob.bayar.KlaspayBayarData" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        tools:context=".pages.ppob.bayar.KlaspayBayarDetail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+        <TextView
+            android:id="@+id/label_topup"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Top Up"
+            android:textColor="@color/textBlack"
+            android:textSize="@dimen/_11ssp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginStart="@dimen/_16sdp"
+            android:layout_marginTop="@dimen/_8sdp"
+            tools:ignore="HardcodedText" />
+        <TextView
+            android:id="@+id/text_topup"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@{topup}"
+            tools:text="Klaspay"
+            android:textColor="@color/textBlack"
+            android:textStyle="bold"
+            android:textSize="@dimen/_11ssp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginEnd="@dimen/_16sdp"
+            android:layout_marginTop="@dimen/_8sdp"
+            />
+        <View
+            android:id="@+id/divider_topup"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_1sdp"
+            android:background="@color/ltgray"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_topup"
+            android:layout_marginTop="@dimen/_8sdp"
+            />
+
+        <TextView
+            android:id="@+id/label_admin"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Biaya Admin:"
+            android:textColor="@color/textBlack"
+            android:textSize="@dimen/_11ssp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/divider_topup"
+            android:layout_marginStart="@dimen/_16sdp"
+            android:layout_marginTop="@dimen/_8sdp"
+            tools:ignore="HardcodedText" />
+        <TextView
+            android:id="@+id/text_admin"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@{feeAdmin}"
+            tools:text="Rp 300.00"
+            android:textColor="@color/textBlack"
+            android:textStyle="bold"
+            android:textSize="@dimen/_11ssp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/divider_topup"
+            android:layout_marginEnd="@dimen/_16sdp"
+            android:layout_marginTop="@dimen/_8sdp"
+            />
+        <View
+            android:id="@+id/divider_admin"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_1sdp"
+            android:background="@color/ltgray"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_admin"
+            android:layout_marginTop="@dimen/_8sdp"
+            />
+
+        <TextView
+            android:id="@+id/label_layanan"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Biaya Layanan:"
+            android:textColor="@color/textBlack"
+            android:textSize="@dimen/_11ssp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/divider_admin"
+            android:layout_marginStart="@dimen/_16sdp"
+            android:layout_marginTop="@dimen/_8sdp"
+            tools:ignore="HardcodedText" />
+        <TextView
+            android:id="@+id/text_layanan"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@{feeService}"
+            tools:text="0%"
+            android:textColor="@color/textBlack"
+            android:textStyle="bold"
+            android:textSize="@dimen/_11ssp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/divider_admin"
+            android:layout_marginEnd="@dimen/_16sdp"
+            android:layout_marginTop="@dimen/_8sdp"
+            />
+        <View
+            android:id="@+id/divider_layanan"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_1sdp"
+            android:background="@color/ltgray"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_layanan"
+            android:layout_marginTop="@dimen/_8sdp"
+            />
+
+        <View
+            android:id="@+id/border_total"
+            android:background="@drawable/border_total_primary"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_75sdp"
+            android:text="Total Bayar"
+            android:textColor="@color/textBlack"
+            android:textSize="@dimen/_11ssp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/divider_layanan"
+            android:layout_marginStart="@dimen/_16sdp"
+            android:layout_marginEnd="@dimen/_16sdp"
+            android:layout_marginTop="@dimen/_16sdp"
+            tools:ignore="HardcodedText"
+            />
+        <TextView
+            android:id="@+id/label_total"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Total Bayar"
+            android:textColor="@color/textBlack"
+            android:textSize="@dimen/_11ssp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/text_total"
+            android:layout_marginStart="@dimen/_4sdp"
+            android:layout_marginTop="@dimen/_8sdp"
+            tools:ignore="HardcodedText" />
+        <TextView
+            android:id="@+id/text_total"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{totalAmount}"
+            tools:text="Rp 305.000"
+            android:textColor="@color/textBlack"
+            android:textStyle="bold"
+            android:textSize="@dimen/_24ssp"
+            app:layout_constraintStart_toStartOf="@+id/border_total"
+            app:layout_constraintEnd_toEndOf="@+id/border_total"
+            app:layout_constraintTop_toTopOf="@+id/border_total"
+            app:layout_constraintBottom_toBottomOf="@+id/border_total"
+            android:layout_marginStart="@dimen/_4sdp"
+            android:layout_marginTop="@dimen/_8sdp"
+            />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

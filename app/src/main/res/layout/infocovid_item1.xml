@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="item"
+            type="id.onklas.app.pages.prokes.ListInfoCovid" />
+        <variable
+            name="showChild"
+            type="Boolean" />
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+        <TextView
+            android:id="@+id/txt_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            tools:text="Apa itu covid-19"
+            android:text="@{item.text}"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:ignore="HardcodedText"
+            style="@style/latoDefault"
+            android:textSize="@dimen/_12ssp"
+            android:textColor="@android:color/black"
+            app:layout_constraintEnd_toStartOf="@id/action_expand"
+            android:paddingVertical="@dimen/_16sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            />
+
+        <ImageView
+            android:id="@+id/action_expand"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:rotation="@{showChild ? 90 : 270}"
+            android:scaleX="2.2"
+            android:scaleY="2.2"
+            android:padding="@dimen/_10sdp"
+            android:src="@drawable/ic_carret_right"
+            app:layout_constraintBottom_toBottomOf="@id/txt_title"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/txt_title"
+            tools:ignore="ContentDescription"
+            tools:rotation="90" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,587 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="id.onklas.app">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="28" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
+    <queries>
+        <intent>
+            <action android:name="android.media.action.IMAGE_CAPTURE" />
+        </intent>
+    </queries>
+
+    <application
+        android:name=".App"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_circle"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+        <activity
+            android:name=".pages.tryout.TryOutPage"
+            android:exported="false" />
+
+        <activity
+            android:name=".pages.prokes.prokesteacher.CekScreeningPage"
+            android:exported="false" />
+        <activity
+            android:name=".pages.prokes.prokesteacher.ScreeningFormPage"
+            android:exported="false" />
+        <activity
+            android:name=".pages.prokes.prokesteacher.ScreeningStudent"
+            android:exported="false" />
+        <activity
+            android:name=".pages.prokes.prokesteacher.ScreeningClass"
+            android:exported="false" />
+        <activity
+            android:name=".pages.prokes.prokesstudent.formulir.CekPengisianPage"
+            android:exported="false" />
+
+        <!-- klasbisnis pages start -->
+        <activity
+            android:name=".pages.entrepreneurs.myMerchant.Review.AddReviewPage"
+            android:exported="false" />
+        <activity
+            android:name=".pages.entrepreneurs.DetailReviewPage"
+            android:exported="false" />
+        <activity
+            android:name=".pages.entrepreneurs.pembelian.review.WaitingReviewBuyer"
+            android:exported="false" />
+        <activity
+            android:name=".pages.entrepreneurs.myMerchant.Review.WaitingReviewPage"
+            android:exported="false" />
+        <activity
+            android:name=".pages.sekolah.store.CategoryProductPage"
+            android:exported="false" />
+        <activity
+            android:name=".pages.sekolah.store.StoreSearchResultPage"
+            android:exported="false" />
+        <activity
+            android:name=".pages.entrepreneurs.pembelian.PembelianMainPage"
+            android:exported="false" />
+        <activity
+            android:name=".pages.entrepreneurs.myMerchant.MyMerchantPage"
+            android:exported="false" />
+        <activity
+            android:name=".pages.studentcard.StudentCardPage"
+            android:exported="false" />
+        <activity
+            android:name=".pages.entrepreneurs.pembelian.purchase.PembelianPage"
+            android:exported="false" />
+        <activity
+            android:name=".pages.sekolah.store.SellerProfilePage"
+            android:exported="false" />
+        <activity
+            android:name=".pages.sekolah.store.ChooseDeliveryPage"
+            android:exported="false" />
+        <activity
+            android:name=".pages.sekolah.store.CartPage"
+            android:exported="false" />
+        <activity
+            android:name=".pages.sekolah.store.RatingReviewProduct"
+            android:exported="false" />
+        <activity
+            android:name=".pages.sekolah.store.DetailDescriptionProduct"
+            android:exported="false" />
+        <activity
+            android:name=".pages.entrepreneurs.pembelian.review.AddReviewBuyerPage"
+            android:exported="false" />
+        <activity
+            android:name=".pages.entrepreneurs.review.ReviewPage"
+            android:exported="false" />
+        <activity
+            android:name=".pages.entrepreneurs.myMerchant.RiwayatOrder.HistoryOrderPage"
+            android:exported="false" />
+        <activity
+            android:name=".pages.entrepreneurs.myMerchant.IncomingOrder.IncomingOrderMainPage"
+            android:exported="false" />
+        <activity
+            android:name=".pages.entrepreneurs.EntrepreneursPage"
+            android:exported="false" />
+        <activity
+            android:name=".pages.entrepreneurs.OrderHistoryDeliveryPage"
+            android:exported="false" />
+        <activity
+            android:name=".pages.entrepreneurs.OrderDetailPage"
+            android:exported="false" />
+        <activity
+            android:name=".pages.entrepreneurs.myMerchant.income.IncomePage"
+            android:exported="false" />
+        <activity
+            android:name=".pages.sekolah.store.StoreSearchPage"
+            android:exported="false" />
+        <activity
+            android:name=".pages.entrepreneurs.myMerchant.addProduct.AddProductMarketingLocationPage"
+            android:exported="false" />
+        <activity
+            android:name=".pages.entrepreneurs.myMerchant.addProduct.AddProductMetodePengiriman"
+            android:exported="false" />
+        <activity
+            android:name=".pages.entrepreneurs.myMerchant.addProduct.AddProductCategoryListPage"
+            android:exported="false" />
+        <activity
+            android:name=".pages.entrepreneurs.myMerchant.addProduct.ProductDescriptionPage"
+            android:exported="false" />
+        <activity
+            android:name=".pages.entrepreneurs.myMerchant.addProduct.AddProductPage"
+            android:exported="false" />
+        <activity
+            android:name=".pages.entrepreneurs.myMerchant.mystore.Mystore"
+            android:exported="false" />
+        <activity
+            android:name=".pages.sekolah.store.DetailProduk"
+            android:exported="false" />
+        <activity
+            android:name=".pages.sekolah.store.StoreFilter"
+            android:exported="false" />
+        <activity
+            android:name=".pages.sekolah.store.CategoryPage"
+            android:exported="false" />
+        <activity
+            android:name=".pages.sekolah.store.SeeAllProduct"
+            android:exported="false" />
+        <activity
+            android:name=".pages.sekolah.store.CheckoutStorePage"
+            android:exported="false" />
+        <activity
+            android:name=".pages.sekolah.store.CheckoutStoreAddressPage"
+            android:exported="false" />
+        <!-- klasbisnis pages end -->
+
+        <!-- public pages start -->
+        <activity
+            android:name=".pages.onboard.OnBoardPage"
+            android:exported="false" />
+        <activity
+            android:name=".pages.login.Loginpage"
+            android:exported="true"
+            android:theme="@style/LoginTheme"
+            android:windowSoftInputMode="adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".pages.DeepLinkPage"
+            android:exported="true"
+            android:parentActivityName=".pages.home.HomePage">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="sekolah.onklas.id"
+                    android:pathPrefix="/verify-email"
+                    android:scheme="https" />
+                <data
+                    android:host="dev.sekolah.onklas.id"
+                    android:pathPrefix="/verify-email"
+                    android:scheme="https" />
+                <data
+                    android:host="dev.api.onklas.id"
+                    android:pathPrefix="/api/klaspay/reset-pin/token"
+                    android:scheme="https" />
+                <data
+                    android:host="api.onklas.id"
+                    android:pathPrefix="/api/klaspay/reset-pin/token"
+                    android:scheme="https" />
+            </intent-filter>
+        </activity>
+        <!-- public pages end -->
+
+        <!-- sosmed pages start -->
+        <activity
+            android:name=".pages.home.HomePage"
+            android:exported="false" />
+        <activity
+            android:name=".pages.comment.CommentPage"
+            android:exported="false"
+            android:parentActivityName=".pages.home.HomePage"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".pages.createpost.CreatePostPage"
+            android:exported="true"
+            android:label="Buat Post">
+            <intent-filter>
+                <action android:name="android.intent.action.SEND" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data android:mimeType="image/*" />
+                <data android:mimeType="text/plain" />
+                <data android:mimeType="video/*" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".pages.createpost.UploadEbookPage"
+            android:exported="true"
+            android:label="Upload E-book">
+            <intent-filter>
+                <action android:name="android.intent.action.SEND" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data android:mimeType="application/pdf" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".pages.createpost.CameraPage"
+            android:exported="false"
+            android:theme="@style/CameraTheme" />
+        <activity
+            android:name=".pages.listlike.ListLikePage"
+            android:exported="false" />
+        <activity
+            android:name=".pages.comment.ImageViewPage"
+            android:exported="false" />
+        <activity
+            android:name=".pages.jelajah.JelajahPage"
+            android:exported="false" />
+        <activity
+            android:name=".pages.jelajah.HashtagPostPage"
+            android:exported="false" />
+        <!-- sosmed pages end -->
+
+        <!-- about pages start -->
+        <activity
+            android:name=".pages.TermsPage"
+            android:exported="false" />
+        <activity
+            android:name=".pages.AboutPage"
+            android:exported="false" />
+        <!-- about pages end -->
+
+        <!-- account pages start -->
+        <activity
+            android:name=".pages.akun.ProfilePage"
+            android:exported="false" />
+        <activity
+            android:name=".pages.akun.ProfilePicturePage"
+            android:exported="false" />
+        <activity
+            android:name="com.yalantis.ucrop.UCropActivity"
+            android:exported="false"
+            android:theme="@style/AppThemeLightStatusBar" />
+        <activity
+            android:name=".pages.changepass.ChangePassPage"
+            android:exported="false"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".pages.resetpass.ResetPassPage"
+            android:exported="false"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".pages.akun.SettingAkunPage"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".pages.akun.SettingContactPage"
+            android:exported="false"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".pages.akun.DevicesPage"
+            android:exported="false" />
+        <!-- accound pages end -->
+
+        <!-- pembelajaran pages start -->
+        <activity
+            android:name=".pages.announcement.AnnouncementPage"
+            android:exported="false" />
+        <activity
+            android:name=".pages.announcement.AnnouncementDetailPage"
+            android:exported="false" />
+        <activity
+            android:name=".pages.theory.TheoryPage"
+            android:exported="false" />
+        <activity
+            android:name=".pages.theoryteacher.TheoryTeacherPage"
+            android:exported="false" />
+        <activity
+            android:name=".pages.theory.MateriPage"
+            android:exported="false" />
+        <activity
+            android:name=".pages.theory.MateriDetailPage"
+            android:exported="false" />
+        <activity
+            android:name=".pages.theoryteacher.UploadMateriPage"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".pages.theory.PdfPage"
+            android:exported="false" />
+        <activity
+            android:name=".pages.presensi.PresensiPage"
+            android:exported="false" />
+        <activity
+            android:name=".pages.presensi.PresensiMasukPage"
+            android:exported="false" />
+        <activity
+            android:name=".pages.magang.MagangPage"
+            android:exported="false" />
+        <activity
+            android:name=".pages.homework.HomeWorkPage"
+            android:exported="false" />
+        <activity
+            android:name=".pages.homework.HomeworkDetailPage"
+            android:exported="false" />
+        <activity
+            android:name=".pages.homework.teacher.HomeworkTeacherPage"
+            android:exported="false" />
+        <activity
+            android:name=".pages.homework.teacher.CreateHomeworkPage"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".pages.homework.teacher.HomeworkSubmittedPage"
+            android:exported="false" />
+        <activity
+            android:name=".pages.ujian.UjianPage"
+            android:exported="false" />
+        <activity
+            android:name=".pages.ujian.PrepareUjianPage"
+            android:exported="false" />
+        <activity
+            android:name=".pages.ujian.TakeUjianPage"
+            android:exported="false" />
+        <activity
+            android:name=".pages.ujian.UjianDetailPage"
+            android:exported="false" />
+        <activity
+            android:name=".pages.akm.AkmPage"
+            android:exported="false" />
+        <activity
+            android:name=".pages.akm.AkmDetailPage"
+            android:exported="false" />
+        <activity
+            android:name=".pages.akm.AkmTakeResumePage"
+            android:exported="false" />
+        <activity
+            android:name=".pages.akm.AkmInstructionPage"
+            android:exported="false" />
+        <activity
+            android:name=".pages.akm.AkmQuestionsPage"
+            android:exported="false" />
+        <activity
+            android:name=".pages.akm.AkmScoreDetailPage"
+            android:exported="false" />
+        <!-- pembelajaran pages end -->
+
+        <!-- perpus pages start -->
+        <activity
+            android:name=".pages.perpus.PerpusPage"
+            android:exported="false" />
+        <activity
+            android:name=".pages.perpus.BookSearchPage"
+            android:exported="false" />
+        <activity
+            android:name=".pages.perpus.BookDetailPage"
+            android:exported="false" />
+        <activity
+            android:name=".pages.perpus.BookHistoryPage"
+            android:exported="false" />
+        <!-- perpus pages end -->
+
+        <!-- payments pages start -->
+        <activity
+            android:name=".pages.pembayaran.CheckoutPage"
+            android:exported="false" />
+        <activity
+            android:name=".pages.pembayaran.PaymentDetailPage"
+            android:exported="false" />
+        <activity
+            android:name=".pages.pembayaran.PaymentTypePage"
+            android:exported="false" />
+        <activity
+            android:name=".pages.pembayaran.PaymentGuidePage"
+            android:exported="false" />
+        <activity
+            android:name=".pages.pembayaran.ConfirmPinPage"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".pages.pembayaran.SetPinKlaspayPage"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".pages.pembayaran.SuccessPayPage"
+            android:exported="false" />
+        <activity
+            android:name=".pages.pembayaran.spp.SppPaymentPage"
+            android:exported="false"
+            android:parentActivityName=".pages.home.HomePage" />
+        <activity
+            android:name=".pages.pembayaran.spp.SppHistoryPage"
+            android:exported="false" />
+        <activity
+            android:name=".pages.partisipasi.PartisipasiPage"
+            android:exported="false" />
+        <activity
+            android:name=".pages.partisipasi.PartisipasiDetailPage"
+            android:exported="false" />
+        <activity
+            android:name=".pages.partisipasi.PartisipasiHistoryPage"
+            android:exported="false" />
+        <activity
+            android:name=".pages.partisipasi.PartisipasiAmountPage"
+            android:exported="false"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".pages.partisipasi.PartisipasiCheckoutPage"
+            android:exported="false" />
+        <activity
+            android:name=".pages.partisipasi.PartisipasiSuccessPage"
+            android:exported="false" />
+        <activity
+            android:name=".pages.partisipasi.PartisipasiPaymentDetailPage"
+            android:exported="false" />
+        <activity
+            android:name=".pages.ppob.pulsa.KlaspayPulsaCheckoutPage"
+            android:exported="false" />
+        <activity
+            android:name=".pages.ppob.pulsa.KlaspayPulsaInvoicePage"
+            android:exported="false" />
+        <activity
+            android:name=".pages.ppob.air.KlaspayAirDetailPage"
+            android:exported="false" />
+        <activity
+            android:name=".pages.ppob.listrik.KlaspayListrikDetailPage"
+            android:exported="false" />
+        <activity
+            android:name=".pages.ppob.pulsa.PulsaPage"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".pages.ppob.listrik.ListrikPage"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".pages.ppob.air.AirPage"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".pages.ppob.internet.InternetPage"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".pages.ppob.game.GamePage"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".pages.ppob.bpjs.BpjsPage"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".pages.ppob.bayar.KlaspayBayarPage"
+            android:exported="false" />
+        <activity
+            android:name=".pages.klaspay.tagihan.KlaspayTagihanDetailPage"
+            android:exported="false" />
+        <activity
+            android:name=".pages.klaspay.tagihan.KlaspayTagihanPage"
+            android:exported="false" />
+        <activity
+            android:name=".pages.klaspay.riwayat.KlaspayRiwayatPage"
+            android:exported="false" />
+        <activity
+            android:name=".pages.klaspay.topup.KlaspayTopupPage"
+            android:exported="false" />
+        <activity
+            android:name=".pages.ppob.PpobCheckoutPage"
+            android:exported="false" />
+        <activity
+            android:name=".pages.ppob.PpobPaymentDetailPage"
+            android:exported="false" />
+        <activity
+            android:name=".pages.klaspay.promo.PromoPage"
+            android:exported="false" />
+        <activity
+            android:name=".pages.klaspay.promo.DetailPromoPage"
+            android:exported="false" />
+        <!-- payments pages end -->
+
+        <!-- klaspay pages start -->
+        <activity
+            android:name=".pages.klaspay.aktivasi.KlaspayAktivasiPage"
+            android:exported="false" />
+        <!-- klaspay pages end -->
+
+        <!-- chat pages start -->
+        <activity
+            android:name=".pages.chat.ChatListPage"
+            android:exported="false" />
+        <activity
+            android:name=".pages.chat.SelectContactChatPage"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".pages.chat.ChatPage"
+            android:exported="false" />
+        <!-- chat pages end -->
+
+        <activity
+            android:name=".pages.prokes.prokesstudent.formulir.FormulirPage"
+            android:exported="false" />
+        <activity
+            android:name=".pages.prokes.pusatinformasi.infocovid.InfoCovidPage"
+            android:exported="false" />
+        <activity
+            android:name=".pages.prokes.ProkesPage"
+            android:exported="false" />
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="${mapsApiKey}" />
+
+        <service
+            android:name=".services.NotifService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+        <service
+            android:name=".services.ExamStopService"
+            android:exported="false" />
+        <service
+            android:name=".services.DirectReplyChat"
+            android:exported="false" />
+
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_icon"
+            android:resource="@drawable/ic_logo_notif" />
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_color"
+            android:resource="@color/colorPrimary" />
+
+        <provider
+            android:name=".utils.OnKlasFileProvider"
+            android:authorities="${applicationId}"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+    </application>
+
+</manifest>

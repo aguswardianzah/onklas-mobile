@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="item"
+            type="id.onklas.app.pages.partisipasi.PartisipasiItem" />
+
+        <variable
+            name="stringUtil"
+            type="id.onklas.app.utils.StringUtil" />
+
+        <variable
+            name="dateFormat"
+            type="java.text.SimpleDateFormat" />
+
+        <variable
+            name="progress_size"
+            type="Integer" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:animateLayoutChanges="true"
+        android:background="@drawable/rounded_white"
+        android:padding="@dimen/_12sdp">
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:lineHeight="@dimen/_20sdp"
+            android:maxLines="2"
+            android:text="@{item.name}"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/_13ssp"
+            android:textStyle="bold"
+            tools:text="Nama Kegiatan" />
+
+        <View
+            android:id="@+id/divider_title"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_1sdp"
+            android:layout_below="@id/title"
+            android:layout_marginVertical="@dimen/_12sdp"
+            android:background="@color/ltgray" />
+
+        <TextView
+            android:id="@+id/total_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/divider_title"
+            android:layout_marginTop="@dimen/_2sdp"
+            android:text="Biaya partisipasi:"
+            android:textColor="@color/textBlack"
+            android:textSize="@dimen/_11ssp"
+            tools:ignore="HardcodedText" />
+
+        <TextView
+            android:id="@+id/total"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/divider_title"
+            android:layout_toEndOf="@id/total_label"
+            android:gravity="end|center_vertical"
+            android:text='@{"Rp " + stringUtil.formatCurrency2(item.final_amount)}'
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/_12ssp"
+            android:textStyle="bold"
+            tools:text="Rp 9.999.999" />
+
+        <View
+            android:id="@+id/divider_total"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_1sdp"
+            android:layout_below="@id/total"
+            android:layout_marginVertical="@dimen/_12sdp"
+            android:background="@color/ltgray" />
+
+        <TextView
+            android:id="@+id/progress_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/divider_total"
+            android:layout_marginTop="@dimen/_2sdp"
+            android:text="Total partisipasiku:"
+            android:textColor="@color/textBlack"
+            android:textSize="@dimen/_11ssp"
+            tools:ignore="HardcodedText" />
+
+        <TextView
+            android:id="@+id/current_amount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/divider_total"
+            android:layout_toEndOf="@id/progress_label"
+            android:gravity="end|center_vertical"
+            android:text='@{"Rp " + stringUtil.formatCurrency2(progress_size)}'
+            android:textColor="@{item.final_amount == progress_size ? @color/green : @color/red}"
+            android:textSize="@dimen/_12ssp"
+            android:textStyle="bold"
+            tools:text="Rp 9.999.999"
+            tools:textColor="@color/green" />
+
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/current_amount"
+            android:layout_marginVertical="@dimen/_12sdp"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:indeterminate="false"
+            android:max="@{item.final_amount}"
+            android:progress="@{item.current_amount}"
+            android:progressTint="@{item.final_amount == progress_size ? @color/green : @color/red}"
+            android:scaleY="1.15"
+            tools:max="100"
+            tools:progress="20"
+            tools:progressTint="@color/green" />
+
+        <TextView
+            android:id="@+id/date_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/progress_bar"
+            android:text="Batas akhir:"
+            android:textColor="@color/textBlack"
+            android:textSize="@dimen/_11ssp"
+            tools:ignore="HardcodedText" />
+
+        <TextView
+            android:id="@+id/date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/progress_bar"
+            android:layout_toEndOf="@id/date_label"
+            android:gravity="end"
+            android:text="@{dateFormat.format(item.deadline)}"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/_11ssp"
+            android:textStyle="bold"
+            tools:text="30 September 2021" />
+
+        <View
+            android:id="@+id/divider_date"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_1sdp"
+            android:layout_below="@id/date"
+            android:layout_marginVertical="@dimen/_8sdp"
+            android:background="@color/ltgray" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_history"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/divider_date"
+            android:minHeight="0dp"
+            android:paddingVertical="@dimen/_12sdp"
+            android:text="Riwayat Partisipasiku"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/_12ssp"
+            app:cornerRadius="@dimen/_24sdp"
+            app:strokeColor="@color/colorPrimary"
+            tools:ignore="HardcodedText" />
+    </RelativeLayout>
+</layout>

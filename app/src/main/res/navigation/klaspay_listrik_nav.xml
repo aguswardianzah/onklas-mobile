@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/klaspay_listrik_nav"
+    app:startDestination="@id/klaspayListrikToken">
+
+    <fragment
+        android:id="@+id/klaspayListrikToken"
+        android:name="id.onklas.app.pages.ppob.listrik.KlaspayListrikToken"
+        android:label="klaspay_listrik_token"
+        tools:layout="@layout/klaspay_listrik_token" />
+    <fragment
+        android:id="@+id/klaspayListrikTagihan"
+        android:name="id.onklas.app.pages.ppob.listrik.KlaspayListrikTagihan"
+        android:label="klaspay_listrik_tagihan"
+        tools:layout="@layout/klaspay_listrik_tagihan" />
+    <action
+        android:id="@+id/action_klaspayListrikToken_to_klaspayListrikTagihan"
+        app:destination="@id/klaspayListrikTagihan" />
+</navigation>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="image"
+            type="String" />
+    </data>
+
+    <id.onklas.app.utils.SquareRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="@dimen/_84sdp"
+        android:layout_height="@dimen/_84sdp"
+        android:background="@{image == null || image.empty ? @drawable/border_add_image_product : @drawable/border_white_radius6}"
+        android:gravity="center"
+        tools:background="@drawable/border_add_image_product">
+
+        <ImageView
+            imageFitUrl="@{image}"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="@{image == null || image.empty ? View.GONE : View.VISIBLE}" />
+
+        <ImageView
+            android:id="@+id/img_plus"
+            android:layout_width="@dimen/_16sdp"
+            android:layout_height="@dimen/_16sdp"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/ic_add"
+            android:visibility="@{image == null || image.empty ? View.VISIBLE : View.GONE}"
+            app:tint="@color/colorPrimary" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/img_plus"
+            android:layout_marginHorizontal="@dimen/_12sdp"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:gravity="center"
+            android:text="Tambah foto"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/_12ssp"
+            android:textStyle="bold"
+            android:visibility="@{image == null || image.empty ? View.VISIBLE : View.GONE}"
+            tools:ignore="HardcodedText" />
+    </id.onklas.app.utils.SquareRelativeLayout>
+</layout>

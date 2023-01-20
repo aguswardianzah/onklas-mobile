@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".pages.klaspay.tagihan.KlaspayTagihanMenunggu">
+
+    <data>
+
+        <variable
+            name="view"
+            type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="id.onklas.app.pages.klaspay.tagihan.KlaspayTagihanViewModel" />
+    </data>
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipe_refresh"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#E0E0E0"
+        android:paddingHorizontal="@dimen/_16sdp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/list_item"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="visible"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:listitem="@layout/klaspay_tagihan_menunggu_item" />
+
+            <ImageView
+                android:id="@+id/image_tagihan_empty"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/_8sdp"
+                android:src="@drawable/ic_tagihan_empty"
+                android:visibility="@{viewModel.isEmptyUnpaid ? view.VISIBLE : view.GONE}"
+                app:layout_constraintBottom_toTopOf="@+id/title_tagihan_empty"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:listitem="@layout/klaspay_tagihan_menunggu_item"
+                tools:visibility="gone" />
+
+            <TextView
+                android:id="@+id/title_tagihan_empty"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Belum Ada Tagihan yang Perlu Dibayar"
+                android:textColor="@color/textBlack"
+                android:textSize="@dimen/_13ssp"
+                android:textStyle="bold"
+                android:visibility="@{viewModel.isEmptyUnpaid ? view.VISIBLE : view.GONE}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="HardcodedText"
+                tools:visibility="gone" />
+
+            <TextView
+                android:id="@+id/subtitle_tagihan_empty"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:gravity="center"
+                android:text="Lakukan Top Up Saldo Klaspay sekarang dan mulai lakukan transaksi"
+                android:textColor="@color/textBlack"
+                android:textSize="@dimen/_10ssp"
+                android:textStyle="bold"
+                android:visibility="@{viewModel.isEmptyUnpaid ? view.VISIBLE : view.GONE}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/title_tagihan_empty"
+                app:layout_constraintWidth_percent="0.6"
+                tools:ignore="HardcodedText"
+                tools:visibility="gone" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+</layout>

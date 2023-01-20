@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="id.onklas.app.pages.sekolah.store.StoreVm" />
+    </data>
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/ltgray">
+
+            <View
+                android:id="@+id/search_bg"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginHorizontal="@dimen/_16sdp"
+                android:layout_marginTop="@dimen/_16sdp"
+                android:background="@drawable/rounded_white"
+                app:layout_constraintBottom_toBottomOf="@id/search_type"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/input_search"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="@dimen/_12sdp"
+                android:gravity="center_vertical"
+                android:hint="Cari produk atau nama penjual"
+                android:textSize="@dimen/_12ssp"
+                app:layout_constraintBottom_toBottomOf="@id/search_bg"
+                app:layout_constraintEnd_toStartOf="@id/search_divider"
+                app:layout_constraintStart_toStartOf="@id/search_bg"
+                app:layout_constraintTop_toTopOf="@id/search_bg"
+                app:layout_constraintWidth_percent="0.6"
+                tools:ignore="HardcodedText"
+                tools:text="Nama produk" />
+
+            <View
+                android:id="@+id/search_divider"
+                android:layout_width="@dimen/_1sdp"
+                android:layout_height="0dp"
+                android:background="@color/ltgray"
+                app:layout_constraintBottom_toBottomOf="@id/search_bg"
+                app:layout_constraintEnd_toStartOf="@id/search_type"
+                app:layout_constraintStart_toEndOf="@id/input_search"
+                app:layout_constraintTop_toTopOf="@id/search_bg" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/search_type"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:minWidth="0dp"
+                android:paddingHorizontal="0dp"
+                android:paddingVertical="@dimen/_8sdp"
+                android:text="@{viewModel.searchType}"
+                android:textAllCaps="false"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/_12ssp"
+                android:textStyle="bold"
+                app:icon="@drawable/ic_chevron_down"
+                app:iconGravity="textEnd"
+                app:iconPadding="@dimen/_8sdp"
+                app:iconSize="@dimen/_12sdp"
+                app:iconTint="@android:color/black"
+                app:layout_constraintEnd_toEndOf="@id/search_bg"
+                app:layout_constraintStart_toEndOf="@id/search_divider"
+                app:layout_constraintTop_toTopOf="@id/search_bg"
+                tools:text="Produk" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_store"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_16sdp"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintTop_toBottomOf="@id/search_bg" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+</layout>

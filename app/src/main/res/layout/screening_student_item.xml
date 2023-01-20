@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <import type="android.graphics.Color"/>
+        <import type="android.graphics.drawable.Drawable"/>
+
+        <variable
+            name="item"
+            type="id.onklas.app.pages.prokes.ListStudentItem" />
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_marginHorizontal="@dimen/_16sdp"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/ic_student"
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="@dimen/_40sdp"
+            imageCircleUrl="@{item.user_avatar_image}"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:srcCompat="@tools:sample/avatars" />
+
+        <TextView
+            android:id="@+id/txt_name"
+            style="@style/latoDefault"
+            android:layout_width="0dp"
+            android:layout_marginEnd="@dimen/_4sdp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:text="@{item.name}"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/_12sdp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/ic_student"
+            app:layout_constraintEnd_toStartOf="@+id/txt_status"
+            app:layout_constraintStart_toEndOf="@id/ic_student"
+            app:layout_constraintTop_toTopOf="@id/ic_student"
+            tools:text="Selya Indah Putri" />
+
+        <TextView
+            android:id="@+id/txt_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/latoDefault"
+            android:textStyle="bold"
+            android:textSize="@dimen/_12sdp"
+            android:text='@{item.already_screening?"Screening ":"Belum dicek"}'
+            tools:text="Screening"
+            tools:textColor="@color/green"
+            android:textColor="@{item.already_screening? @color/green:@color/tag_red}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/txt_name"
+            app:layout_constraintBottom_toBottomOf="@id/txt_name"
+            android:drawableEnd='@{item.already_screening? @drawable/ic_check_green:@drawable/rounded_radius2}'
+            android:drawablePadding="@dimen/_8sdp"
+            />
+
+
+        <View
+            android:id="@+id/br_student"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_1sdp"
+            android:background="@color/border1"
+            app:layout_constraintTop_toBottomOf="@id/ic_student"
+            android:layout_marginTop="@dimen/_8sdp"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

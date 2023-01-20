@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <item
+        android:id="@+id/menu_sekolah"
+        android:checked="true"
+        android:icon="@drawable/ic_sekolah"
+        android:title="Sekolah"
+        tools:ignore="HardcodedText" />
+
+    <!--    <item-->
+    <!--        android:id="@+id/menu_jelajah"-->
+    <!--        android:checked="false"-->
+    <!--        android:icon="@drawable/ic_explore"-->
+    <!--        android:title="Jelajah"-->
+    <!--        tools:ignore="HardcodedText" />-->
+
+    <item
+        android:id="@+id/menu_pembelajaran"
+        android:checked="false"
+        android:icon="@drawable/ic_pembelajaran"
+        android:title="Pembelajaran"
+        tools:ignore="HardcodedText" />
+
+    <item
+        android:id="@+id/menu_toko"
+        android:checked="false"
+        android:icon="@drawable/ic_store_homepage"
+        android:title="Toko"
+        android:visible="false"
+        tools:ignore="HardcodedText" />
+
+    <item
+        android:id="@+id/menu_pembayaran"
+        android:checked="false"
+        android:icon="@drawable/ic_pembayaran"
+        android:title="Pembayaran"
+        tools:ignore="HardcodedText" />
+
+    <item
+        android:id="@+id/menu_akun"
+        android:checked="false"
+        android:icon="@drawable/ic_user"
+        android:title="Akun"
+        tools:ignore="HardcodedText" />
+
+</menu>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/klaspay_pulsa_nav"
+    app:startDestination="@id/klaspayPulsaPrabayar">
+
+    <fragment
+        android:id="@+id/klaspayPulsaPascabayar"
+        android:name="id.onklas.app.pages.ppob.pulsa.PascabayarPage"
+        android:label="klaspay_pulsa_pascabayar"
+        tools:layout="@layout/pascabayar_page" />
+    <fragment
+        android:id="@+id/klaspayPulsaPrabayar"
+        android:name="id.onklas.app.pages.ppob.pulsa.PrabayarPage"
+        android:label="klaspay_pulsa_prabayar"
+        tools:layout="@layout/prabayar_page" />
+    <action
+        android:id="@+id/action_global_klaspayPulsaPascabayar"
+        app:destination="@id/klaspayPulsaPascabayar" />
+    <action
+        android:id="@+id/action_global_klaspayPulsaPrabayar"
+        app:destination="@id/klaspayPulsaPrabayar" />
+</navigation>

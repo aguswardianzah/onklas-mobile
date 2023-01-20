@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="item"
+            type="id.onklas.app.pages.pembayaran.GuideItem" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:animateLayoutChanges="true"
+        android:paddingVertical="@dimen/_4sdp"
+        android:paddingStart="@dimen/_24sdp"
+        android:paddingEnd="@dimen/_16sdp">
+
+        <TextView
+            android:id="@+id/text_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            android:paddingHorizontal="@dimen/_8sdp"
+            android:paddingVertical="@dimen/_2sdp"
+            android:text="@{item.order}"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_10ssp"
+            tools:ignore="HardcodedText"
+            tools:text="1" />
+
+        <TextView
+            android:id="@+id/text_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:layout_marginEnd="@dimen/_4sdp"
+            android:layout_toEndOf="@id/text_number"
+            android:paddingVertical="@dimen/_2sdp"
+            android:text="@{item.guide}"
+            android:textColor="@color/textBlack"
+            android:textSize="@dimen/_10ssp"
+            tools:ignore="HardcodedText"
+            tools:text="Masukkan kartu ATM dan PIN kamu" />
+    </RelativeLayout>
+</layout>

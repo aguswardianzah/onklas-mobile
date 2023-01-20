@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.text.Html" />
+
+        <import type="android.view.View" />
+
+        <variable
+            name="item"
+            type="id.onklas.app.pages.akm.QuestionAnswers" />
+
+        <variable
+            name="answered"
+            type="Boolean" />
+
+        <variable
+            name="answer"
+            type="id.onklas.app.pages.akm.AkmAnswerTable" />
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:animateLayoutChanges="true">
+
+            <ImageView
+                android:id="@+id/image"
+                imageFitUrlRounded="@{item.question.file_path}"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="@dimen/_8sdp"
+                android:visibility="@{item.question.file_path.empty ? View.GONE : View.VISIBLE}"
+                tools:src="@drawable/onklas_edu1"
+                tools:visibility="gone" />
+
+            <io.github.kexanie.library.MathView
+                android:id="@+id/question"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/image"
+                android:textColor="@color/textBlack"
+                android:textSize="@dimen/_13ssp"
+                android:visibility="@{item.question.question.empty ? View.GONE : View.VISIBLE}"
+                app:engine="MathJax"
+                tools:text="Soal label" />
+
+            <TextView
+                android:id="@+id/tv_true"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/question"
+                android:layout_marginHorizontal="@dimen/_36sdp"
+                android:layout_marginTop="@dimen/_12sdp"
+                android:background="@{answered ? (answer.selected ? @drawable/oval_primary : @drawable/oval_gray) : @drawable/oval_gray}"
+                android:gravity="center"
+                android:padding="@dimen/_8sdp"
+                android:text="Benar"
+                android:textColor="@{answered ? (answer.selected ? @android:color/white : @color/textBlack) : @color/textBlack}"
+                android:textSize="@dimen/_12ssp"
+                android:textStyle="bold"
+                tools:background="@drawable/oval_gray"
+                tools:ignore="HardcodedText"
+                tools:textColor="@color/textBlack" />
+
+            <TextView
+                android:id="@+id/tv_false"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_true"
+                android:layout_marginHorizontal="@dimen/_36sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:background="@{answered ? (answer.selected ? @drawable/oval_gray : @drawable/oval_primary) : @drawable/oval_gray}"
+                android:gravity="center"
+                android:padding="@dimen/_8sdp"
+                android:text="Salah"
+                android:textColor="@{answered ? (answer.selected ? @color/textBlack : @android:color/white) : @color/textBlack}"
+                android:textSize="@dimen/_12ssp"
+                android:textStyle="bold"
+                tools:background="@drawable/oval_gray"
+                tools:ignore="HardcodedText"
+                tools:textColor="@color/textBlack" />
+        </RelativeLayout>
+    </androidx.core.widget.NestedScrollView>
+</layout>

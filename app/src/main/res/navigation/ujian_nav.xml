@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ujian_nav"
+    app:startDestination="@id/listUjianPage">
+
+    <fragment
+        android:id="@+id/listUjianPage"
+        android:name="id.onklas.app.pages.ujian.ListUjianPage"
+        android:label="ListUjianPage"
+        tools:layout="@layout/list_ujian_page" />
+
+    <fragment
+        android:id="@+id/nilaiujianPage"
+        android:name="id.onklas.app.pages.ujian.NilaiujianPage"
+        android:label="NilaiujianPage"
+        tools:layout="@layout/nilai_ujian_page" />
+
+    <action
+        android:id="@+id/action_global_listUjianPage"
+        app:destination="@id/listUjianPage" />
+
+    <action
+        android:id="@+id/action_global_nilaiujianPage"
+        app:destination="@id/nilaiujianPage" />
+</navigation>

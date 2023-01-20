@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.text.Html" />
+
+        <import type="android.view.View" />
+
+        <variable
+            name="item"
+            type="id.onklas.app.pages.akm.QuestionAnswers" />
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scroll_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/image"
+                imageFitUrlRounded="@{item.question.file_path}"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="@dimen/_8sdp"
+                android:focusableInTouchMode="false"
+                android:visibility="@{item.question.file_path.empty ? View.GONE : View.VISIBLE}"
+                tools:src="@drawable/onklas_edu1"
+                tools:visibility="gone" />
+
+            <io.github.kexanie.library.MathView
+                android:id="@+id/question"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/image"
+                android:focusableInTouchMode="false"
+                android:textColor="@color/textBlack"
+                android:textSize="@dimen/_13ssp"
+                android:visibility="@{item.question.question.empty ? View.GONE : View.VISIBLE}"
+                app:engine="MathJax"
+                tools:text="@string/lipsum" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_first"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@id/question"
+                android:layout_marginTop="@dimen/_8sdp"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:itemCount="2"
+                tools:listitem="@layout/akm_answer_pair_1" />
+        </RelativeLayout>
+    </androidx.core.widget.NestedScrollView>
+</layout>

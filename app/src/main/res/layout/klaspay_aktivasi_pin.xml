@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".pages.klaspay.aktivasi.KlaspayAktivasiPin">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+        <ImageView
+            android:id="@+id/image_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_shield"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            />
+        <TextView
+            android:id="@+id/label_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_16sdp"
+            android:text="BUAT 6 DIGIT PIN KEAMANAN"
+            android:textAllCaps="true"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/_14ssp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/image_icon"
+            tools:ignore="HardcodedText" />
+        <TextView
+            android:id="@+id/label_description"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Akan diminta setiap Anda akan melakukan transaksi pembayaran"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="@dimen/_10ssp"
+            tools:ignore="HardcodedText"
+            android:gravity="center"
+            app:layout_constraintStart_toStartOf="@+id/label_title"
+            app:layout_constraintEnd_toEndOf="@+id/label_title"
+            app:layout_constraintTop_toBottomOf="@+id/label_title"
+            android:layout_marginTop="@dimen/_8sdp"
+            />
+
+        <com.poovam.pinedittextfield.LinePinField
+            android:id="@+id/pin_field"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="numberPassword"
+            android:textSize="@dimen/_13sdp"
+            app:highlightType="allFields"
+            android:textSelectHandle="@drawable/text_handle"
+            app:noOfFields="6"
+            app:distanceInBetween="@dimen/_16sdp"
+            app:fieldColor="@color/textBlack"
+            app:highlightColor="@color/gray"
+            app:lineThickness="@dimen/_1sdp"
+            app:isCustomBackground="true"
+            app:isCursorEnabled="true"
+            app:bottomTextPaddingDp="15dp"
+            android:background="@android:color/transparent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/label_description"
+            android:layout_marginTop="@dimen/_12sdp"
+            />
+        <TextView
+            android:id="@+id/label_error"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Pin yang Anda masukkan tidak sama"
+            android:textColor="@color/red"
+            android:textSize="@dimen/_10ssp"
+            tools:ignore="HardcodedText"
+            android:gravity="center"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/pin_field"
+            />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_confirm"
+            style="@style/Widget.MaterialComponents.Button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_16sdp"
+            android:layout_marginTop="@dimen/_16sdp"
+            android:layout_marginEnd="@dimen/_16sdp"
+            android:paddingTop="@dimen/_8sdp"
+            android:paddingBottom="@dimen/_8sdp"
+            android:text="KONFIRMASI"
+            android:textColor="@android:color/white"
+            app:backgroundTint="@color/form_button_color"
+            app:cornerRadius="@dimen/_24sdp"
+            tools:ignore="HardcodedText"
+            app:layout_constraintTop_toBottomOf="@id/label_error"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>

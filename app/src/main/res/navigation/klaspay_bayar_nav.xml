@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/klaspay_bayar_nav"
+    app:startDestination="@id/klaspayBayarPetunjuk">
+
+    <fragment
+        android:id="@+id/klaspayBayarPetunjuk"
+        android:name="id.onklas.app.pages.ppob.bayar.KlaspayBayarPetunjuk"
+        android:label="klaspay_bayar_petunjuk"
+        tools:layout="@layout/klaspay_bayar_petunjuk" >
+        <action
+            android:id="@+id/action_klaspayBayarPetunjuk_to_klaspayBayarDetail"
+            app:destination="@id/klaspayBayarDetail" />
+    </fragment>
+    <fragment
+        android:id="@+id/klaspayBayarDetail"
+        android:name="id.onklas.app.pages.ppob.bayar.KlaspayBayarDetail"
+        android:label="klaspay_bayar_detail"
+        tools:layout="@layout/klaspay_bayar_detail" />
+</navigation>

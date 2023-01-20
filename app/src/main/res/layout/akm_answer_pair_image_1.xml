@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.text.Html" />
+
+        <import type="android.view.View" />
+
+        <variable
+            name="choice"
+            type="id.onklas.app.pages.akm.AkmAnswerTable" />
+
+        <variable
+            name="choice_label"
+            type="String" />
+
+        <variable
+            name="answered"
+            type="Boolean" />
+
+        <variable
+            name="scored"
+            type="Boolean" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/border_instruction"
+        android:padding="@dimen/_8sdp">
+
+        <TextView
+            android:id="@+id/label"
+            android:layout_width="@dimen/_30sdp"
+            android:layout_height="@dimen/_30sdp"
+            android:layout_marginEnd="@dimen/_8sdp"
+            android:background="@drawable/rounded_gray"
+            android:gravity="center"
+            android:text="@{choice_label}"
+            android:textColor='@{scored ? (choice.is_true ? @color/green : (choice.selected ? @color/colorPrimary : @color/textBlack)) : (choice.selected ? @color/colorPrimary : @color/textBlack)}'
+            android:textSize="@dimen/_12ssp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="A"
+            tools:textColor="@color/textBlack" />
+
+        <View
+            android:id="@+id/divider_vertical"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_1sdp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginHorizontal="@dimen/_8sdp" />
+
+        <ImageView
+            android:id="@+id/image"
+            imageFitUrlRounded="@{choice.first_file_path}"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_56sdp"
+            android:layout_below="@id/label"
+            android:layout_marginTop="@dimen/_12sdp"
+            android:layout_toStartOf="@id/divider_vertical"
+            android:background="@drawable/border_instruction"
+            tools:src="@drawable/ic_logo_label" />
+
+        <ImageView
+            android:id="@+id/drag_area"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_56sdp"
+            imageFitUrlRounded="@{choice.second_file_path}"
+            android:layout_below="@id/label"
+            android:layout_marginTop="@dimen/_12sdp"
+            android:layout_toEndOf="@id/divider_vertical"
+            android:background="@drawable/border_pair_second" />
+    </RelativeLayout>
+</layout>

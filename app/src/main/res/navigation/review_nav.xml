@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:startDestination="@id/reviewProduct"
+    android:id="@+id/review_nav">
+
+    <fragment
+        android:id="@+id/reviewProduct"
+        android:name="id.onklas.app.pages.entrepreneurs.review.ReviewProductList"
+        android:label="reviewProduct"
+        />
+    <fragment
+        android:id="@+id/reviewService"
+        android:name="id.onklas.app.pages.entrepreneurs.review.ReviewServiceList"
+        android:label="reviewService" />
+
+    <action
+        android:id="@+id/action_global_entrepreneurs_review_product"
+        app:destination="@id/reviewProduct" />
+    <action
+        android:id="@+id/action_global_entrepreneurs_review_service"
+        app:destination="@id/reviewService" />
+
+
+</navigation>

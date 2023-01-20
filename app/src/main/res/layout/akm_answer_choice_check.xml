@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.text.Html" />
+
+        <import type="android.view.View" />
+
+        <variable
+            name="choice"
+            type="id.onklas.app.pages.akm.AkmAnswerTable" />
+
+        <variable
+            name="scored"
+            type="Boolean" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:animateLayoutChanges="true"
+        android:background="@drawable/oval_gray"
+        android:padding="@dimen/_8sdp">
+
+        <CheckBox
+            android:id="@+id/label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_8sdp"
+            android:checked="@{choice.selected}"
+            android:gravity="center"
+            android:textColor='@{scored ? (choice.is_true ? @color/green : (choice.selected ? @color/colorPrimary : @color/textBlack)) : (choice.selected ? @color/colorPrimary : @color/textBlack)}'
+            android:textSize="@dimen/_12ssp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/text_answer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:layout_toStartOf="@id/image"
+            android:layout_toEndOf="@id/label"
+            android:text="@{Html.fromHtml(choice.answer)}"
+            android:textColor='@{scored ? (choice.is_true ? @color/green : @color/textBlack) : @color/textBlack}'
+            android:textSize="@dimen/_12ssp"
+            android:visibility="@{choice.answer.empty ? View.GONE : View.VISIBLE}"
+            tools:text="Jawaban label"
+            tools:textColor="@color/textBlack"
+            tools:visibility="visible" />
+
+        <ImageView
+            android:id="@+id/image"
+            imageFitUrlRounded="@{choice.file_path}"
+            android:layout_width="@dimen/_100sdp"
+            android:layout_height="@dimen/_80sdp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:visibility="@{choice.file_path.empty ? View.GONE : View.VISIBLE}"
+            tools:src="@drawable/onklas_edu2" />
+    </RelativeLayout>
+</layout>

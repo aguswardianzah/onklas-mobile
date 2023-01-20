@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.drawerlayout.widget.DrawerLayout
+        android:id="@+id/drawer_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:id="@+id/content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:animateLayoutChanges="true"
+            android:fitsSystemWindows="true">
+
+            <fragment
+                android:id="@+id/form_container"
+                android:name="androidx.navigation.fragment.NavHostFragment"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_above="@id/menu_bot"
+                android:layout_marginBottom="0dp"
+                app:defaultNavHost="true"
+                app:navGraph="@navigation/main_nav" />
+
+            <com.google.android.material.bottomnavigation.BottomNavigationView
+                android:id="@+id/menu_bot"
+                android:layout_width="match_parent"
+                android:layout_height="?android:actionBarSize"
+                android:layout_alignParentBottom="true"
+                app:itemIconSize="@dimen/_24sdp"
+                app:itemIconTint="@color/main_bot_menu_color"
+                app:itemRippleColor="@color/colorPrimary"
+                app:itemTextColor="@color/main_bot_menu_color"
+                app:labelVisibilityMode="unlabeled"
+                app:menu="@menu/main_bot_menu" />
+        </RelativeLayout>
+
+        <!--        <FrameLayout-->
+        <!--            android:id="@+id/drawer"-->
+        <!--            android:layout_width="@dimen/_140sdp"-->
+        <!--            android:layout_height="match_parent"-->
+        <!--            android:layout_gravity="end"-->
+        <!--            android:background="@color/white"-->
+        <!--            android:elevation="0dp">-->
+
+        <include
+            android:id="@+id/drawer"
+            layout="@layout/home_menu_layout"
+            android:layout_width="@dimen/_140sdp"
+            android:layout_height="match_parent"
+            android:layout_gravity="end"
+            android:background="@color/white"
+            android:elevation="@dimen/_1sdp" />
+        <!--        </FrameLayout>-->
+    </androidx.drawerlayout.widget.DrawerLayout>
+</layout>

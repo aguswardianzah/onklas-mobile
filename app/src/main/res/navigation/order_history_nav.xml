@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:startDestination="@id/historyProduct"
+    android:id="@+id/order_history_nav">
+
+    <fragment
+        android:id="@+id/historyProduct"
+        android:name="id.onklas.app.pages.entrepreneurs.myMerchant.RiwayatOrder.HistoryProductPage"
+        android:label="historyProduct"
+        />
+    <fragment
+        android:id="@+id/historyService"
+        android:name="id.onklas.app.pages.entrepreneurs.myMerchant.RiwayatOrder.HistoryServicePage"
+        android:label="historyService" />
+
+    <action
+        android:id="@+id/action_global_entrepreneurs_history_product"
+        app:destination="@id/historyProduct" />
+    <action
+        android:id="@+id/action_global_entrepreneurs_history_service"
+        app:destination="@id/historyService" />
+
+</navigation>

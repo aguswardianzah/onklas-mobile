@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/klaspay_air_nav"
+    app:startDestination="@id/klaspayAirForm">
+
+    <fragment
+        android:id="@+id/klaspayAirForm"
+        android:name="id.onklas.app.pages.ppob.air.KlaspayAirForm"
+        android:label="klaspay_air_form"
+        tools:layout="@layout/klaspay_air_form">
+        <action
+            android:id="@+id/action_klaspayAirForm_to_klaspayAirWilayah"
+            app:destination="@id/klaspayAirWilayah" />
+    </fragment>
+    <fragment
+        android:id="@+id/klaspayAirWilayah"
+        android:name="id.onklas.app.pages.ppob.air.KlaspayAirWilayah"
+        android:label="klaspay_air_wilayah"
+        tools:layout="@layout/klaspay_air_wilayah" />
+</navigation>

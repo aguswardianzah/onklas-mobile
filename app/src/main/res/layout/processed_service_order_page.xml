@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".pages.entrepreneurs.myMerchant.IncomingOrder.procesedOrderPage.ProcessedServiceOrderPage">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_services"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        tools:listitem="@layout/incoming_order_service_item"
+        />
+
+    <include
+        android:id="@+id/kosong_lay"
+        layout="@layout/product_emp_layout" />
+
+</FrameLayout>

@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="id.onklas.app.pages.changepass.ChangePassViewmodel" />
+
+        <variable
+            name="viewmodel"
+            type="ChangePassViewmodel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+
+        <TextView
+            android:id="@+id/label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_16sdp"
+            android:background="@drawable/label_primary"
+            android:paddingStart="@dimen/_12sdp"
+            android:paddingTop="@dimen/_8sdp"
+            android:paddingEnd="@dimen/_12sdp"
+            android:paddingBottom="@dimen/_8sdp"
+            android:text="Untuk keamanan akunmu mohon jangan beritahukan Password Anda kepada siapapun selain pemilik akun"
+            android:textColor="@color/textBlack"
+            android:textSize="@dimen/_11ssp"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="HardcodedText" />
+
+        <View
+            android:id="@+id/form_bg"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginStart="@dimen/_24sdp"
+            android:layout_marginTop="@dimen/_16sdp"
+            android:layout_marginEnd="@dimen/_24sdp"
+            android:background="@drawable/border_login_form"
+            app:layout_constraintBottom_toBottomOf="@id/sp_form_bg"
+            app:layout_constraintTop_toBottomOf="@id/label" />
+
+        <TextView
+            android:id="@+id/label_old"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_12sdp"
+            android:layout_marginTop="@dimen/_16sdp"
+            android:layout_marginEnd="@dimen/_12sdp"
+            android:text="Password Lama"
+            android:textAllCaps="true"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/_13ssp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@id/form_bg"
+            app:layout_constraintStart_toStartOf="@id/form_bg"
+            app:layout_constraintTop_toTopOf="@id/form_bg"
+            tools:ignore="HardcodedText" />
+
+        <View
+            android:id="@+id/background_item"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="@dimen/_12sdp"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:layout_marginEnd="@dimen/_12sdp"
+            android:background="@drawable/border_form_login_gray"
+            app:layout_constraintBottom_toBottomOf="@id/sp_password"
+            app:layout_constraintEnd_toEndOf="@id/form_bg"
+            app:layout_constraintStart_toStartOf="@id/form_bg"
+            app:layout_constraintTop_toBottomOf="@id/label_old" />
+
+        <ImageView
+            android:id="@+id/image_icon"
+            android:layout_width="@dimen/_24sdp"
+            android:layout_height="@dimen/_24sdp"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:src="@drawable/ic_lock"
+            app:layout_constraintStart_toStartOf="@id/background_item"
+            app:layout_constraintTop_toTopOf="@id/background_item" />
+
+        <Space
+            android:id="@+id/sp_password"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_8sdp"
+            app:layout_constraintTop_toBottomOf="@id/image_icon" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/in_password_layout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:layout_marginEnd="@dimen/_8sdp"
+            android:padding="0dp"
+            app:boxStrokeColor="@android:color/white"
+            app:hintEnabled="false"
+            app:hintTextColor="@color/gray"
+            app:layout_constraintBottom_toBottomOf="@id/image_icon"
+            app:layout_constraintEnd_toEndOf="@id/background_item"
+            app:layout_constraintStart_toEndOf="@id/image_icon"
+            app:layout_constraintTop_toTopOf="@id/image_icon"
+            app:passwordToggleEnabled="true">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/text_soal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/transparent"
+                android:hint="Masukkan Password"
+                android:inputType="textPassword"
+                android:paddingStart="@dimen/_4sdp"
+                android:paddingTop="@dimen/_2sdp"
+                android:paddingEnd="@dimen/_4sdp"
+                android:paddingBottom="@dimen/_2sdp"
+                android:text="@={viewmodel.oldPass}"
+                android:textColor="@color/textBlack"
+                android:textSize="@dimen/_13ssp"
+                tools:ignore="HardcodedText" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/label_new"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_12sdp"
+            android:layout_marginTop="@dimen/_16sdp"
+            android:layout_marginEnd="@dimen/_12sdp"
+            android:text="Password Baru"
+            android:textAllCaps="true"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/_13ssp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@id/form_bg"
+            app:layout_constraintStart_toStartOf="@id/form_bg"
+            app:layout_constraintTop_toBottomOf="@id/sp_password"
+            tools:ignore="HardcodedText" />
+
+        <View
+            android:id="@+id/v_password_new"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="@dimen/_12sdp"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:layout_marginEnd="@dimen/_12sdp"
+            android:background="@drawable/border_form_login_gray"
+            app:layout_constraintBottom_toBottomOf="@id/sp_password_new"
+            app:layout_constraintEnd_toEndOf="@id/form_bg"
+            app:layout_constraintStart_toStartOf="@id/form_bg"
+            app:layout_constraintTop_toBottomOf="@id/label_new" />
+
+        <ImageView
+            android:id="@+id/ic_password_new"
+            android:layout_width="@dimen/_24sdp"
+            android:layout_height="@dimen/_24sdp"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:src="@drawable/ic_lock"
+            app:layout_constraintStart_toStartOf="@id/v_password_new"
+            app:layout_constraintTop_toTopOf="@id/v_password_new" />
+
+        <Space
+            android:id="@+id/sp_password_new"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_8sdp"
+            app:layout_constraintTop_toBottomOf="@id/ic_password_new" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/in_password_layout_new"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:layout_marginEnd="@dimen/_8sdp"
+            android:padding="0dp"
+            app:boxStrokeColor="@android:color/white"
+            app:hintEnabled="false"
+            app:hintTextColor="@color/gray"
+            app:layout_constraintBottom_toBottomOf="@id/ic_password_new"
+            app:layout_constraintEnd_toEndOf="@id/v_password_new"
+            app:layout_constraintStart_toEndOf="@id/ic_password_new"
+            app:layout_constraintTop_toTopOf="@id/ic_password_new"
+            app:passwordToggleEnabled="true">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/in_password_new"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/transparent"
+                android:hint="Masukkan Password"
+                android:inputType="textPassword"
+                android:paddingStart="@dimen/_4sdp"
+                android:paddingTop="@dimen/_2sdp"
+                android:paddingEnd="@dimen/_4sdp"
+                android:paddingBottom="@dimen/_2sdp"
+                android:text="@={viewmodel.newPass}"
+                android:textColor="@color/textBlack"
+                android:textSize="@dimen/_13ssp"
+                tools:ignore="HardcodedText" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/label_conf"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_12sdp"
+            android:layout_marginTop="@dimen/_16sdp"
+            android:layout_marginEnd="@dimen/_12sdp"
+            android:text="Konfirmasi Password Baru"
+            android:textAllCaps="true"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/_13ssp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@id/form_bg"
+            app:layout_constraintStart_toStartOf="@id/form_bg"
+            app:layout_constraintTop_toBottomOf="@id/v_password_new"
+            tools:ignore="HardcodedText" />
+
+        <View
+            android:id="@+id/v_password_conf"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="@dimen/_12sdp"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:layout_marginEnd="@dimen/_12sdp"
+            android:background="@drawable/border_form_login_gray"
+            app:layout_constraintBottom_toBottomOf="@id/sp_password_conf"
+            app:layout_constraintEnd_toEndOf="@id/form_bg"
+            app:layout_constraintStart_toStartOf="@id/form_bg"
+            app:layout_constraintTop_toBottomOf="@id/label_conf" />
+
+        <ImageView
+            android:id="@+id/ic_password_conf"
+            android:layout_width="@dimen/_24sdp"
+            android:layout_height="@dimen/_24sdp"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:src="@drawable/ic_lock"
+            app:layout_constraintStart_toStartOf="@id/v_password_conf"
+            app:layout_constraintTop_toTopOf="@id/v_password_conf" />
+
+        <Space
+            android:id="@+id/sp_password_conf"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_8sdp"
+            app:layout_constraintTop_toBottomOf="@id/ic_password_conf" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/in_password_layout_conf"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:layout_marginEnd="@dimen/_8sdp"
+            android:padding="0dp"
+            app:boxStrokeColor="@android:color/white"
+            app:hintEnabled="false"
+            app:hintTextColor="@color/gray"
+            app:layout_constraintBottom_toBottomOf="@id/ic_password_conf"
+            app:layout_constraintEnd_toEndOf="@id/v_password_conf"
+            app:layout_constraintStart_toEndOf="@id/ic_password_conf"
+            app:layout_constraintTop_toTopOf="@id/ic_password_conf"
+            app:passwordToggleEnabled="true">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/in_password_conf"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/transparent"
+                android:hint="Masukkan Password"
+                android:inputType="textPassword"
+                android:paddingStart="@dimen/_4sdp"
+                android:paddingTop="@dimen/_2sdp"
+                android:paddingEnd="@dimen/_4sdp"
+                android:paddingBottom="@dimen/_2sdp"
+                android:text="@={viewmodel.confirmPass}"
+                android:textColor="@color/textBlack"
+                android:textSize="@dimen/_13ssp"
+                tools:ignore="HardcodedText" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Space
+            android:id="@+id/sp_form_bg"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_16sdp"
+            app:layout_constraintTop_toBottomOf="@id/sp_password_conf" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_change_pass"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_36sdp"
+            android:layout_marginEnd="@dimen/_36sdp"
+            android:layout_marginBottom="@dimen/_16sdp"
+            android:enabled="@{viewmodel.allowChange}"
+            android:text="simpan perubahan"
+            android:textColor="@android:color/white"
+            app:backgroundTint="@color/form_button_color"
+            app:cornerRadius="@dimen/_20sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:ignore="HardcodedText" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

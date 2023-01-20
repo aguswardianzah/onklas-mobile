@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="StringUtil"
+            type="id.onklas.app.utils.StringUtil" />
+
+        <variable
+            name="item"
+            type="id.onklas.app.pages.entrepreneurs.TransaksiProductTable" />
+
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".pages.entrepreneurs.pembelian.review.AddReviewBuyerPage">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appBarLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                style="@style/AppToolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?android:actionBarSize"
+                app:contentInsetEnd="0dp"
+                app:contentInsetStart="0dp"
+                app:contentInsetStartWithNavigation="0dp" />
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/constraintLayout11"
+            app:layout_constraintTop_toBottomOf="@+id/appBarLayout">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+
+                    <TextView
+                        android:id="@+id/txt_jenis"
+                        style="@style/latoBlackBold"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_16sdp"
+                        android:layout_marginTop="@dimen/_16sdp"
+                        android:text="Produk"
+                        android:textSize="@dimen/_12sdp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <ImageView
+                        android:id="@+id/img_product"
+                        android:layout_width="@dimen/_52sdp"
+                        android:layout_height="@dimen/_52sdp"
+                        android:layout_marginTop="@dimen/_12sdp"
+                        tools:background="@drawable/fill_white_radius6"
+                        android:scaleType="centerCrop"
+                        imageUrl="@{item.goody_image}"
+                        app:layout_constraintStart_toStartOf="@+id/txt_jenis"
+                        app:layout_constraintTop_toBottomOf="@+id/txt_jenis"
+                        tools:srcCompat="@tools:sample/backgrounds/scenic" />
+
+                    <TextView
+                        android:id="@+id/textView114"
+                        style="@style/latoBlackBold"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_12sdp"
+                        android:layout_marginEnd="@dimen/_16sdp"
+                        android:ellipsize="end"
+                        android:maxLines="1"
+                        android:text='@{item.goody_name}'
+                        android:textSize="@dimen/_12sdp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toEndOf="@+id/img_product"
+                        app:layout_constraintTop_toTopOf="@+id/img_product"
+                        tools:text="Instal Ulang Windows 7" />
+
+                    <TextView
+                        android:id="@+id/textView116"
+                        style="@style/latoDefault"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        tools:text="Rp 100.000"
+                        android:text='@{"Rp "+StringUtil.formatCurrency2(item.goody_price)}'
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/_12sdp"
+                        app:layout_constraintStart_toStartOf="@+id/textView114"
+                        app:layout_constraintTop_toBottomOf="@+id/textView114" />
+
+                    <TextView
+                        android:id="@+id/textView104"
+                        style="@style/latoBlackBold"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_4sdp"
+                        android:background="@drawable/border_white_radius6"
+                        android:backgroundTint="#E9F4FF"
+                        android:padding="@dimen/_4sdp"
+                        android:text='@{item.goody_quantity+"x"}'
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="@dimen/_13sdp"
+                        app:layout_constraintBottom_toBottomOf="@+id/textView116"
+                        app:layout_constraintStart_toEndOf="@+id/textView116"
+                        app:layout_constraintTop_toTopOf="@+id/textView116"
+                        tools:text="2x" />
+
+                    <TextView
+                        android:id="@+id/textView118"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/_1sdp"
+                        android:layout_marginTop="@dimen/_16sdp"
+                        android:background="@color/bg_gray"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/img_product" />
+
+                    <TextView
+                        android:id="@+id/textView119"
+                        style="@style/latoBlackBold"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_16sdp"
+                        android:text="Beri Rating"
+                        android:textSize="@dimen/_12sdp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textView118" />
+
+                    <LinearLayout
+                        android:id="@+id/linearLayout2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/_40sdp"
+                        android:layout_marginTop="@dimen/_16sdp"
+                        android:orientation="horizontal"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textView119">
+
+                        <ImageView
+                            android:id="@+id/star1"
+                            android:layout_width="@dimen/_33sdp"
+                            android:layout_height="@dimen/_31sdp"
+                            android:layout_margin="@dimen/_7sdp"
+                            android:layout_weight="1"
+                            android:src="@drawable/ic_star_solid"
+                            app:tint="@color/gray" />
+
+                        <ImageView
+                            android:id="@+id/star2"
+                            android:layout_width="@dimen/_33sdp"
+                            android:layout_height="@dimen/_31sdp"
+                            android:layout_margin="@dimen/_7sdp"
+                            android:layout_weight="1"
+                            android:src="@drawable/ic_star_solid"
+                            app:tint="@color/gray" />
+
+                        <ImageView
+                            android:id="@+id/star3"
+                            android:layout_width="@dimen/_33sdp"
+                            android:layout_height="@dimen/_31sdp"
+                            android:layout_margin="@dimen/_7sdp"
+                            android:layout_weight="1"
+                            android:src="@drawable/ic_star_solid"
+                            app:tint="@color/gray" />
+
+                        <ImageView
+                            android:id="@+id/star4"
+                            android:layout_width="@dimen/_33sdp"
+                            android:layout_height="@dimen/_31sdp"
+                            android:layout_margin="@dimen/_7sdp"
+                            android:layout_weight="1"
+                            android:src="@drawable/ic_star_solid"
+                            app:tint="@color/gray" />
+
+                        <ImageView
+                            android:id="@+id/star5"
+                            android:layout_width="@dimen/_33sdp"
+                            android:layout_height="@dimen/_31sdp"
+                            android:layout_margin="@dimen/_7sdp"
+                            android:layout_weight="1"
+                            android:src="@drawable/ic_star_solid"
+                            app:tint="@color/gray" />
+                    </LinearLayout>
+
+
+                    <TextView
+                        android:id="@+id/textView120"
+                        android:layout_width="0dp"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="@dimen/_16sdp"
+                        android:background="@color/bg_gray"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
+
+                    <TextView
+                        android:id="@+id/textView112"
+                        style="@style/latoBlackBold"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_16sdp"
+                        android:layout_marginTop="@dimen/_12sdp"
+                        android:text="Berikan Review Terhadap Pembeli"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textView120" />
+
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/input_commnet_layout"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:boxBackgroundColor="@android:color/transparent"
+                        app:boxStrokeColor="@android:color/transparent"
+                        app:counterEnabled="true"
+                        app:counterMaxLength="500"
+                        android:layout_marginTop="@dimen/_16sdp"
+                        android:layout_marginHorizontal="@dimen/_16sdp"
+                        app:hintEnabled="false"
+                        app:layout_constraintTop_toBottomOf="@+id/textView112">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/input_comment"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Ketik review"
+                            android:maxLength="500"
+                            android:paddingStart="0dp"
+                            android:paddingTop="@dimen/_4sdp"
+                            android:paddingEnd="0dp"
+                            android:paddingBottom="@dimen/_4sdp"
+                            android:textColor="@color/textBlack"
+                            android:textSize="@dimen/_12ssp"
+                            tools:ignore="HardcodedText" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout11"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:layout_editor_absoluteX="0dp">
+
+
+            <TextView
+                android:id="@+id/action_send_review"
+                style="@style/latoBlackBold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_12sdp"
+                android:layout_marginBottom="@dimen/_32sdp"
+                android:background="@drawable/rounded_radius40"
+                android:backgroundTint="@color/colorPrimary"
+                android:paddingLeft="@dimen/_73sdp"
+                android:paddingTop="@dimen/_12sdp"
+                android:paddingRight="@dimen/_73sdp"
+                android:paddingBottom="@dimen/_12sdp"
+                android:text="Kirim Review"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_12sdp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

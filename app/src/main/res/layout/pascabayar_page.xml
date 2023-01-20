@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingHorizontal="@dimen/_32sdp"
+    android:paddingVertical="@dimen/_16sdp"
+    tools:context=".pages.ppob.pulsa.PascabayarPage">
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_check"
+        style="@style/Widget.MaterialComponents.Button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:enabled="false"
+        android:minHeight="0dp"
+        android:paddingVertical="@dimen/_12sdp"
+        android:text="Cek Tagihan"
+        android:textAllCaps="false"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/_12ssp"
+        android:textStyle="bold"
+        app:backgroundTint="@color/form_button_color"
+        app:cornerRadius="@dimen/_24sdp"
+        tools:ignore="HardcodedText" />
+
+</FrameLayout>

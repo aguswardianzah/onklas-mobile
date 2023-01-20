@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="horizontal"
+    android:background="@color/white"
+    android:paddingHorizontal="@dimen/_16sdp"
+    android:paddingVertical="@dimen/_12sdp"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/btn_menunggu_konfirmasi"
+        style="@style/latoBlackBold"
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/fill_white_radius6"
+        android:backgroundTint="#FFF0BB"
+        android:text="Menunggu konfirmasi penjual"
+        android:gravity="center"
+        android:textColor="@color/textBlack1"
+        android:paddingVertical="@dimen/_12sdp"
+        android:layout_marginStart="@dimen/_6sdp"
+        android:textSize="@dimen/_14ssp" />
+
+
+</LinearLayout>

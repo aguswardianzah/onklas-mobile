@@ -1,0 +1,449 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="id.onklas.app.pages.theoryteacher.UploadMateriBindConverter" />
+
+        <import type="id.onklas.app.pages.homework.teacher.CreateHomeworkBindConverter" />
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewmodel"
+            type="id.onklas.app.pages.homework.teacher.CreateHomeworkVm" />
+
+        <variable
+            name="editable"
+            type="Boolean" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="false">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                style="@style/AppToolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?android:actionBarSize"
+                android:transitionName="tugas"
+                app:contentInsetEnd="0dp"
+                app:contentInsetStart="0dp"
+                app:contentInsetStartWithNavigation="0dp"
+                app:navigationIcon="@drawable/ic_close"
+                app:title="Buat Tugas" />
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true"
+            app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="@dimen/_16sdp"
+                android:paddingBottom="@dimen/_16sdp">
+
+                <TextView
+                    android:id="@+id/grade_label"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_16sdp"
+                    android:layout_marginEnd="@dimen/_16sdp"
+                    android:text="Kelas"
+                    android:textColor="@color/textBlack"
+                    android:textSize="@dimen/_12ssp"
+                    android:textStyle="bold"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="HardcodedText" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/input_grade_layout"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_16sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:layout_marginEnd="@dimen/_16sdp"
+                    app:boxStrokeColor="@color/colorPrimary"
+                    app:hintEnabled="false"
+                    app:layout_constraintTop_toBottomOf="@id/grade_label">
+
+                    <AutoCompleteTextView
+                        android:id="@+id/input_kelas"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:editable="false"
+                        android:enabled="@{editable}"
+                        android:inputType="none"
+                        android:text="@={CreateHomeworkBindConverter.classId_to_name(viewmodel.classId)}" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView
+                    android:id="@+id/day_label"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_16sdp"
+                    android:layout_marginTop="@dimen/_12sdp"
+                    android:layout_marginEnd="@dimen/_16sdp"
+                    android:text="Hari Mata Pelajaran"
+                    android:textColor="@color/textBlack"
+                    android:textSize="@dimen/_12ssp"
+                    android:textStyle="bold"
+                    app:layout_constraintTop_toBottomOf="@id/input_grade_layout"
+                    tools:ignore="HardcodedText" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/input_day_layout"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_16sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:layout_marginEnd="@dimen/_16sdp"
+                    android:background="@color/ltgray"
+                    app:boxStrokeColor="@color/colorPrimary"
+                    app:hintEnabled="false"
+                    app:layout_constraintTop_toBottomOf="@id/day_label">
+
+                    <AutoCompleteTextView
+                        android:id="@+id/input_day"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:editable="false"
+                        android:enabled="false"
+                        android:inputType="none"
+                        android:text="@={viewmodel.classDay}" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView
+                    android:id="@+id/mapel_label"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_16sdp"
+                    android:layout_marginTop="@dimen/_12sdp"
+                    android:layout_marginEnd="@dimen/_16sdp"
+                    android:text="Mata Pelajaran"
+                    android:textColor="@color/textBlack"
+                    android:textSize="@dimen/_12ssp"
+                    android:textStyle="bold"
+                    app:layout_constraintTop_toBottomOf="@id/input_day_layout"
+                    tools:ignore="HardcodedText" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/input_mapel_layout"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_16sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:layout_marginEnd="@dimen/_16sdp"
+                    android:background="@color/ltgray"
+                    app:boxStrokeColor="@color/colorPrimary"
+                    app:hintEnabled="false"
+                    app:layout_constraintTop_toBottomOf="@id/mapel_label">
+
+                    <AutoCompleteTextView
+                        android:id="@+id/input_mapel"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:editable="false"
+                        android:enabled="false"
+                        android:inputType="none"
+                        android:text="@={UploadMateriBindConverter.scheduleId_to_name(viewmodel.scheduleId)}" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <View
+                    android:id="@+id/divider"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:layout_marginTop="@dimen/_16sdp"
+                    android:background="@color/ltgray"
+                    app:layout_constraintTop_toBottomOf="@id/input_mapel_layout" />
+
+                <TextView
+                    android:id="@+id/label_duedate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_16sdp"
+                    android:layout_marginTop="@dimen/_16sdp"
+                    android:layout_marginEnd="@dimen/_16sdp"
+                    android:text="Waktu berakhir"
+                    android:textColor="@color/textBlack"
+                    android:textSize="@dimen/_12ssp"
+                    android:textStyle="bold"
+                    app:layout_constraintTop_toBottomOf="@id/divider"
+                    tools:ignore="HardcodedText" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/input_duedate_layout"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_16sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:layout_marginEnd="@dimen/_16sdp"
+                    app:boxStrokeColor="@color/colorPrimary"
+                    app:hintEnabled="false"
+                    app:layout_constraintTop_toBottomOf="@id/label_duedate">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/input_duedate"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:editable="false"
+                        android:enabled="@{editable}"
+                        android:inputType="none"
+                        android:text="@{viewmodel.expired}" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <View
+                    android:id="@+id/divider1"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_4sdp"
+                    android:layout_marginTop="@dimen/_16sdp"
+                    android:background="@color/ltgray"
+                    app:layout_constraintTop_toBottomOf="@id/input_duedate_layout" />
+
+                <TextView
+                    android:id="@+id/title_label"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_16sdp"
+                    android:layout_marginTop="@dimen/_16sdp"
+                    android:layout_marginEnd="@dimen/_16sdp"
+                    android:text="TUGAS"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="@dimen/_12ssp"
+                    android:textStyle="bold"
+                    app:layout_constraintTop_toBottomOf="@id/divider1"
+                    tools:ignore="HardcodedText" />
+
+                <EditText
+                    android:id="@+id/input_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_16sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:layout_marginEnd="@dimen/_16sdp"
+                    android:background="@android:color/transparent"
+                    android:enabled="@{editable}"
+                    android:gravity="bottom"
+                    android:hint="Ketik Judul tugas"
+                    android:inputType="text|textMultiLine"
+                    android:maxLength="500"
+                    android:text="@={viewmodel.name}"
+                    android:textColor="@color/textBlack"
+                    android:textColorHint="@color/gray"
+                    app:layout_constraintTop_toBottomOf="@id/title_label"
+                    tools:ignore="HardcodedText" />
+
+                <View
+                    android:id="@+id/input_divider"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:layout_marginStart="@dimen/_16sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:layout_marginEnd="@dimen/_16sdp"
+                    android:background="@color/gray"
+                    app:layout_constraintTop_toBottomOf="@id/input_content" />
+
+                <TextView
+                    android:id="@+id/title_counter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_4sdp"
+                    android:layout_marginEnd="@dimen/_16sdp"
+                    android:text="0/500"
+                    android:textColor="@color/gray"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/input_divider"
+                    tools:ignore="HardcodedText" />
+
+                <EditText
+                    android:id="@+id/input_desc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_16sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:layout_marginEnd="@dimen/_16sdp"
+                    android:background="@android:color/transparent"
+                    android:enabled="@{editable}"
+                    android:gravity="bottom"
+                    android:hint="Ketik deskripsi tugas"
+                    android:inputType="text|textMultiLine"
+                    android:text="@={viewmodel.desc}"
+                    android:textColor="@color/textBlack"
+                    android:textColorHint="@color/gray"
+                    app:layout_constraintTop_toBottomOf="@id/title_counter"
+                    tools:ignore="HardcodedText" />
+
+                <View
+                    android:id="@+id/desc_divider"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:layout_marginStart="@dimen/_16sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:layout_marginEnd="@dimen/_16sdp"
+                    android:background="@color/gray"
+                    app:layout_constraintTop_toBottomOf="@id/input_desc" />
+
+                <CheckBox
+                    android:id="@+id/check_file"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_16sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:layout_marginEnd="@dimen/_16sdp"
+                    android:buttonTint="@color/colorPrimary"
+                    android:checked="@={viewmodel.uploadFile}"
+                    android:enabled="@{editable}"
+                    android:text="Upload Soal"
+                    android:textColor="@color/textBlack"
+                    android:textSize="@dimen/_12ssp"
+                    android:textStyle="bold"
+                    app:layout_constraintTop_toBottomOf="@id/desc_divider"
+                    tools:ignore="HardcodedText" />
+
+                <TextView
+                    android:id="@+id/file_info"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_16sdp"
+                    android:layout_marginTop="@dimen/_6sdp"
+                    android:layout_marginEnd="@dimen/_16sdp"
+                    android:text="File dalam format pdf"
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/_11ssp"
+                    android:visibility="@{viewmodel.uploadFile ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintTop_toBottomOf="@id/check_file"
+                    tools:ignore="HardcodedText" />
+
+                <include
+                    android:id="@+id/materi_upload_layout"
+                    layout="@layout/materi_upload_item"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_16sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:layout_marginEnd="@dimen/_16sdp"
+                    android:visibility="@{viewmodel.uploadFile ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintTop_toBottomOf="@id/file_info" />
+
+                <TextView
+                    android:id="@+id/link_label"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_16sdp"
+                    android:layout_marginTop="@dimen/_12sdp"
+                    android:text="Url Link"
+                    android:textColor="@color/textBlack"
+                    android:textSize="@dimen/_12ssp"
+                    android:textStyle="bold"
+                    app:layout_constraintTop_toBottomOf="@id/materi_upload_layout"
+                    tools:ignore="HardcodedText" />
+
+                <EditText
+                    android:id="@+id/input_link"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_16sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:background="@android:color/transparent"
+                    android:enabled="@{editable}"
+                    android:gravity="bottom"
+                    android:hint="Ketik url"
+                    android:inputType="text"
+                    android:maxLength="5000"
+                    android:text="@={viewmodel.uploadLink}"
+                    android:textColor="@color/textBlack"
+                    android:textColorHint="@color/gray"
+                    app:layout_constraintTop_toBottomOf="@id/link_label"
+                    tools:ignore="HardcodedText" />
+
+                <View
+                    android:id="@+id/link_divider"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:layout_marginHorizontal="@dimen/_16sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:background="@color/gray"
+                    app:layout_constraintTop_toBottomOf="@id/input_link" />
+
+                <id.onklas.app.utils.LinkPreview
+                    android:id="@+id/link_preview"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_16sdp"
+                    android:layout_marginTop="@dimen/_12sdp"
+                    app:layout_constraintTop_toBottomOf="@id/link_divider" />
+
+                <CheckBox
+                    android:id="@+id/check_student_download"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_16sdp"
+                    android:layout_marginTop="@dimen/_12sdp"
+                    android:layout_marginEnd="@dimen/_16sdp"
+                    android:buttonTint="@color/colorPrimary"
+                    android:checked="@={viewmodel.needDownload}"
+                    android:enabled="@{editable}"
+                    android:text="Siswa wajib membaca materi"
+                    android:textColor="@color/textBlack"
+                    android:textSize="@dimen/_12ssp"
+                    android:textStyle="bold"
+                    android:visibility="gone"
+                    app:layout_constraintTop_toBottomOf="@id/link_preview"
+                    tools:ignore="HardcodedText"
+                    tools:visibility="visible" />
+
+                <CheckBox
+                    android:id="@+id/check_student_upload"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_16sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:layout_marginEnd="@dimen/_16sdp"
+                    android:buttonTint="@color/colorPrimary"
+                    android:checked="@={viewmodel.needUpload}"
+                    android:enabled="@{editable}"
+                    android:text="Siswa wajib mengumpulkan jawaban"
+                    android:textColor="@color/textBlack"
+                    android:textSize="@dimen/_12ssp"
+                    android:textStyle="bold"
+                    app:layout_constraintTop_toBottomOf="@id/check_student_download"
+                    tools:ignore="HardcodedText" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_post"
+                    style="@style/Widget.MaterialComponents.Button.TextButton"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_24sdp"
+                    android:minHeight="0dp"
+                    android:paddingVertical="@dimen/_8sdp"
+                    android:text="Posting Tugas"
+                    android:textColor="@android:color/white"
+                    android:textStyle="bold"
+                    android:visibility="@{editable ? View.VISIBLE : View.GONE}"
+                    app:backgroundTint="@color/form_button_color"
+                    app:cornerRadius="@dimen/_20sdp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/check_student_upload"
+                    app:layout_constraintWidth_percent="0.7"
+                    tools:ignore="HardcodedText" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.core.widget.NestedScrollView>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

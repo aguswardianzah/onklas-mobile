@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <import type="android.view.View"/>
+        <variable
+            name="name"
+            type="String" />
+
+        <variable
+            name="avatarUrl"
+            type="String" />
+
+        <variable
+            name="isShow"
+            type="Boolean" />
+
+        <variable
+            name="nis"
+            type="String" />
+
+        <variable
+            name="jurusan"
+            type="String" />
+
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".pages.prokes.prokesteacher.ScreeningFormPage">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appBarLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                style="@style/AppToolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?android:actionBarSize"
+                app:contentInsetEnd="0dp"
+                app:contentInsetStart="0dp"
+                app:navigationIcon="@drawable/ic_x"
+                app:contentInsetStartWithNavigation="0dp" />
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <TextView
+            android:id="@+id/lbl_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/label_blue"
+            android:padding="@dimen/_16sdp"
+            android:gravity="center"
+            android:text="Untuk kepentingan bersama, mohon pastikan dan isikan formulir dengan valid kondisi Anda sebenarnya."
+            android:textSize="@dimen/_11ssp"
+            android:textColor="@color/Black2"
+            app:layout_constraintTop_toBottomOf="@id/appBarLayout"
+            />
+
+        <ImageView
+            android:id="@+id/avatar"
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="@dimen/_40sdp"
+            imageCircleUrl="@{avatarUrl}"
+            tools:srcCompat="@tools:sample/avatars"
+            app:layout_constraintTop_toBottomOf="@id/lbl_info"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="@dimen/_12sdp"
+            android:layout_marginStart="@dimen/_16sdp"
+            />
+
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            tools:text="Selya indah puspita"
+            android:textSize="@dimen/_14ssp"
+            android:textColor="@android:color/black"
+            style="@style/latoBlackBold"
+            android:textStyle="bold"
+            android:text="@{name}"
+            app:layout_constraintEnd_toStartOf="@id/btn_show"
+            app:layout_constraintTop_toTopOf="@id/avatar"
+            app:layout_constraintStart_toEndOf="@id/avatar"
+            app:layout_constraintBottom_toBottomOf="@id/avatar"
+            android:layout_marginStart="@dimen/_10sdp"
+            />
+
+
+
+        <ImageView
+            android:id="@+id/btn_show"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_carret_right"
+            tools:rotation="90"
+            android:rotation="@{isShow? 90:270}"
+            android:padding="@dimen/_10sdp"
+            android:scaleX="1.6"
+            android:scaleY="1.6"
+
+            android:layout_marginEnd="@dimen/_8sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/avatar"
+            app:layout_constraintBottom_toBottomOf="@id/avatar"
+            />
+
+        <View
+            android:id="@+id/br_avatar"
+            android:layout_width="match_parent"
+            android:layout_height="1sp"
+            android:background="@color/border1"
+            app:layout_constraintTop_toBottomOf="@id/avatar"
+            android:layout_marginTop="@dimen/_12sdp"
+            />
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/lay_detail"
+            android:visibility="@{isShow? View.VISIBLE:View.GONE}"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="@dimen/_10sdp"
+            android:layout_marginHorizontal="@dimen/_16sdp"
+            app:layout_constraintTop_toBottomOf="@id/br_avatar"
+            >
+
+            <TextView
+                android:id="@+id/lbl_nis_pelajar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nis:"
+                style="@style/latoDefault"
+                android:textSize="@dimen/_12sdp"
+                android:textColor="@android:color/black"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="@dimen/_12sdp"
+                />
+
+            <TextView
+                android:id="@+id/txt_nis"
+                style="@style/latoDefault"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/_12sdp"
+                android:text="@{nis}"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@id/lbl_nis_pelajar"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/lbl_nis_pelajar"
+                tools:text="32" />
+
+            <View
+                android:id="@+id/br_nis"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_1sdp"
+                android:background="@color/border1"
+                app:layout_constraintTop_toBottomOf="@id/lbl_nis_pelajar"
+                android:layout_marginTop="@dimen/_12sdp"
+                />
+
+
+
+            <TextView
+                android:id="@+id/lbl_jurusan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Kelas/Jurusan:"
+                style="@style/latoDefault"
+                android:textSize="@dimen/_12sdp"
+                android:textColor="@android:color/black"
+                app:layout_constraintTop_toBottomOf="@id/br_nis"
+                android:layout_marginTop="@dimen/_12sdp"
+                app:layout_constraintStart_toStartOf="parent"
+                />
+
+
+            <TextView
+                android:id="@+id/txt_jurusan"
+                style="@style/latoDefault"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/_12sdp"
+                android:textStyle="bold"
+                android:text="@{jurusan}"
+                app:layout_constraintBottom_toBottomOf="@id/lbl_jurusan"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/lbl_jurusan"
+                tools:text="tataboga" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <fragment
+            android:id="@+id/page_container"
+            android:name="androidx.navigation.fragment.NavHostFragment"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginTop="@dimen/_8sdp"
+            app:defaultNavHost="true"
+            app:navGraph="@navigation/prokes_screening_nav"
+            app:layout_constraintTop_toBottomOf="@id/lay_detail"
+            />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</layout>

@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="id.onklas.app.pages.createpost.CreatePostViewmodel" />
+
+        <variable
+            name="viewmodel"
+            type="CreatePostViewmodel" />
+
+        <variable
+            name="cover_image"
+            type="String" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                style="@style/AppToolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?android:actionBarSize"
+                app:contentInsetEnd="0dp"
+                app:contentInsetStart="0dp"
+                app:contentInsetStartWithNavigation="0dp"
+                app:title="Upload E-Book" />
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:fillViewport="true"
+            app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/_16sdp">
+
+                <TextView
+                    android:id="@+id/title_label"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Judul e-book"
+                    android:textColor="@color/textBlack"
+                    android:textSize="@dimen/_12ssp"
+                    android:textStyle="bold"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="HardcodedText" />
+
+                <EditText
+                    android:id="@+id/input_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:background="@android:color/transparent"
+                    android:gravity="bottom"
+                    android:hint="Ketik Judul disini"
+                    android:inputType="text|textMultiLine"
+                    android:maxLength="500"
+                    android:text="@={viewmodel.feedContent}"
+                    android:textColor="@color/textBlack"
+                    android:textColorHint="@color/gray"
+                    app:layout_constraintTop_toBottomOf="@id/title_label" />
+
+                <View
+                    android:id="@+id/input_divider"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:background="@color/gray"
+                    app:layout_constraintTop_toBottomOf="@id/input_content" />
+
+                <TextView
+                    android:id="@+id/title_counter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_4sdp"
+                    android:text="0/500"
+                    android:textColor="@color/gray"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/input_divider"
+                    tools:ignore="HardcodedText" />
+
+                <TextView
+                    android:id="@+id/author_label"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_12sdp"
+                    android:text="Nama Pengarang"
+                    android:textColor="@color/textBlack"
+                    android:textSize="@dimen/_12ssp"
+                    android:textStyle="bold"
+                    app:layout_constraintTop_toBottomOf="@id/title_counter"
+                    tools:ignore="HardcodedText" />
+
+                <EditText
+                    android:id="@+id/input_author"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:background="@android:color/transparent"
+                    android:gravity="bottom"
+                    android:hint="Ketik nama disini"
+                    android:inputType="text|textMultiLine"
+                    android:maxLength="50"
+                    android:text="@={viewmodel.feedAuthor}"
+                    android:textColor="@color/textBlack"
+                    android:textColorHint="@color/gray"
+                    app:layout_constraintTop_toBottomOf="@id/author_label"
+                    tools:ignore="HardcodedText" />
+
+                <View
+                    android:id="@+id/author_divider"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:background="@color/gray"
+                    app:layout_constraintTop_toBottomOf="@id/input_author" />
+
+                <TextView
+                    android:id="@+id/author_counter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_4sdp"
+                    android:text="0/50"
+                    android:textColor="@color/gray"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/author_divider"
+                    tools:ignore="HardcodedText" />
+
+                <TextView
+                    android:id="@+id/cover_label"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_12sdp"
+                    android:text="Cover"
+                    android:textColor="@color/textBlack"
+                    android:textSize="@dimen/_12ssp"
+                    android:textStyle="bold"
+                    app:layout_constraintTop_toBottomOf="@id/author_counter"
+                    tools:ignore="HardcodedText" />
+
+                <View
+                    android:id="@+id/cover_bg"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:background="@drawable/border_cover_ebook"
+                    app:layout_constraintBottom_toBottomOf="@id/cover_space"
+                    app:layout_constraintTop_toBottomOf="@id/cover_label" />
+
+                <ImageView
+                    android:id="@+id/img_cover"
+                    imageUrl="@{cover_image}"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/_72sdp"
+                    android:layout_marginTop="@dimen/_4sdp"
+                    android:contentDescription="@null"
+                    android:src="@drawable/img_book_cover"
+                    app:layout_constraintEnd_toStartOf="@id/btn_cover"
+                    app:layout_constraintStart_toStartOf="@id/cover_bg"
+                    app:layout_constraintTop_toTopOf="@id/cover_bg" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_cover"
+                    style="@style/Widget.MaterialComponents.Button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="start|center_vertical"
+                    android:padding="@dimen/_4sdp"
+                    android:text="Upload gambar"
+                    android:textAllCaps="false"
+                    android:textColor="@color/textBlack"
+                    app:backgroundTint="@color/colorAccent"
+                    app:cornerRadius="@dimen/_16sdp"
+                    app:icon="@drawable/ic_galery"
+                    app:iconPadding="@dimen/_8sdp"
+                    app:iconSize="@dimen/_24sdp"
+                    app:iconTint="@null"
+                    app:layout_constraintBottom_toBottomOf="@id/cover_bg"
+                    app:layout_constraintEnd_toEndOf="@id/cover_bg"
+                    app:layout_constraintStart_toStartOf="@id/cover_bg"
+                    app:layout_constraintTop_toTopOf="@id/cover_bg"
+                    tools:ignore="HardcodedText" />
+
+                <Space
+                    android:id="@+id/cover_space"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_4sdp"
+                    app:layout_constraintTop_toBottomOf="@id/img_cover" />
+
+                <TextView
+                    android:id="@+id/file_label"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_12sdp"
+                    android:text="Upload file"
+                    android:textColor="@color/textBlack"
+                    android:textSize="@dimen/_12ssp"
+                    android:textStyle="bold"
+                    app:layout_constraintTop_toBottomOf="@id/cover_space"
+                    tools:ignore="HardcodedText" />
+
+                <TextView
+                    android:id="@+id/file_info"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_6sdp"
+                    android:text="File dalam format pdf"
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/_11ssp"
+                    app:layout_constraintTop_toBottomOf="@id/file_label"
+                    tools:ignore="HardcodedText" />
+
+                <View
+                    android:id="@+id/file_bg"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:background="@drawable/border_cover_ebook"
+                    app:layout_constraintBottom_toBottomOf="@id/space_file"
+                    app:layout_constraintTop_toBottomOf="@id/file_info" />
+
+                <ImageView
+                    android:id="@+id/ic_pdf"
+                    android:layout_width="@dimen/_20sdp"
+                    android:layout_height="@dimen/_20sdp"
+                    android:layout_margin="@dimen/_16sdp"
+                    android:src="@drawable/ic_pdf"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="@id/file_bg"
+                    app:layout_constraintStart_toStartOf="@id/file_bg"
+                    app:layout_constraintTop_toTopOf="@id/file_bg" />
+
+                <TextView
+                    android:id="@+id/upload_file_info"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_16sdp"
+                    android:layout_marginTop="@dimen/_16sdp"
+                    android:layout_marginEnd="@dimen/_16sdp"
+                    android:layout_marginBottom="@dimen/_8sdp"
+                    android:gravity="center"
+                    android:textColor="@color/textBlack"
+                    android:textSize="@dimen/_11ssp"
+                    app:layout_constraintBottom_toTopOf="@id/btn_file"
+                    app:layout_constraintEnd_toEndOf="@id/file_bg"
+                    app:layout_constraintStart_toEndOf="@id/ic_pdf"
+                    app:layout_constraintTop_toTopOf="@id/file_bg" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_file"
+                    style="@style/Widget.MaterialComponents.Button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/_16sdp"
+                    android:gravity="start|center_vertical"
+                    android:paddingStart="@dimen/_4sdp"
+                    android:paddingEnd="@dimen/_8sdp"
+                    android:text="Lampirkan File"
+                    android:textAllCaps="false"
+                    android:textColor="@color/textBlack"
+                    app:backgroundTint="@color/colorAccent"
+                    app:cornerRadius="@dimen/_16sdp"
+                    app:icon="@drawable/ic_file_upload"
+                    app:iconPadding="@dimen/_8sdp"
+                    app:iconSize="@dimen/_24sdp"
+                    app:iconTint="@null"
+                    app:layout_constraintBottom_toBottomOf="@id/upload_file_info"
+                    app:layout_constraintEnd_toEndOf="@id/file_bg"
+                    app:layout_constraintStart_toStartOf="@id/file_bg"
+                    app:layout_constraintTop_toBottomOf="@id/upload_file_info"
+                    tools:ignore="HardcodedText" />
+
+                <Space
+                    android:id="@+id/space_file"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_16sdp"
+                    app:layout_constraintTop_toBottomOf="@id/btn_file" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_post"
+                    style="@style/Widget.MaterialComponents.Button.TextButton"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_24sdp"
+                    android:enabled="@{viewmodel.allowUpload}"
+                    android:minHeight="0dp"
+                    android:paddingVertical="@dimen/_8sdp"
+                    android:text="Posting sekarang"
+                    android:textColor="@android:color/white"
+                    android:textStyle="bold"
+                    app:backgroundTint="@color/form_button_color"
+                    app:cornerRadius="@dimen/_20sdp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/space_file"
+                    app:layout_constraintWidth_percent="0.7"
+                    tools:ignore="HardcodedText" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.core.widget.NestedScrollView>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/klaspay_riwayat_nav"
+    app:startDestination="@id/klaspayRiwayatList">
+
+    <fragment
+        android:id="@+id/klaspayRiwayatList"
+        android:name="id.onklas.app.pages.klaspay.riwayat.KlaspayRiwayatList"
+        android:label="klaspay_riwayat_list"
+        tools:layout="@layout/klaspay_riwayat_list" >
+        <action
+            android:id="@+id/action_klaspayRiwayatList_to_klaspayRiwayatDetail"
+            app:destination="@id/klaspayRiwayatDetail" />
+    </fragment>
+    <fragment
+        android:id="@+id/klaspayRiwayatDetail"
+        android:name="id.onklas.app.pages.klaspay.riwayat.KlaspayRiwayatDetail"
+        android:label="klaspay_riwayat_detail"
+        tools:layout="@layout/klaspay_riwayat_detail" />
+</navigation>

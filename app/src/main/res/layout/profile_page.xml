@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="userData"
+            type="id.onklas.app.pages.login.UserResponse" />
+    </data>
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipe_refresh"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/ltgray">
+
+            <com.google.android.material.appbar.AppBarLayout
+                android:id="@+id/appbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+<!--                <com.google.android.material.appbar.CollapsingToolbarLayout-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content">-->
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <androidx.appcompat.widget.Toolbar
+                            android:id="@+id/toolbar"
+                            style="@style/AppToolbar"
+                            android:layout_width="match_parent"
+                            android:layout_height="?android:actionBarSize"
+                            app:contentInsetEnd="0dp"
+                            app:contentInsetStart="0dp"
+                            app:contentInsetStartWithNavigation="0dp"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:title="Profil" />
+
+                        <ImageView
+                            android:id="@+id/img"
+                            imageCircleUrl="@{userData.data.user_avatar_image}"
+                            android:layout_width="@dimen/_54sdp"
+                            android:layout_height="@dimen/_54sdp"
+                            android:layout_marginStart="@dimen/_16sdp"
+                            android:transitionName="profile"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/toolbar"
+                            tools:src="@android:drawable/ic_menu_report_image" />
+
+                        <View
+                            android:id="@+id/img_divider"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_1sdp"
+                            android:layout_marginStart="@dimen/_16sdp"
+                            android:layout_marginTop="@dimen/_8sdp"
+                            android:layout_marginEnd="@dimen/_16sdp"
+                            android:background="@color/ltgray"
+                            app:layout_constraintTop_toBottomOf="@id/img" />
+
+                        <TextView
+                            android:id="@+id/username"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_12sdp"
+                            android:layout_marginEnd="@dimen/_16sdp"
+                            android:ellipsize="end"
+                            android:lines="1"
+                            android:text='@{"@" + userData.data.user_username}'
+                            android:textColor="@color/textBlack"
+                            android:textSize="@dimen/_13ssp"
+                            android:textStyle="bold"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@id/img"
+                            app:layout_constraintTop_toTopOf="@id/img"
+                            tools:text="Username goes here" />
+
+                        <TextView
+                            android:id="@+id/name"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:ellipsize="end"
+                            android:lines="1"
+                            android:text="@{userData.data.name}"
+                            android:textColor="@color/textBlack"
+                            android:textSize="@dimen/_12ssp"
+                            app:layout_constraintEnd_toEndOf="@id/username"
+                            app:layout_constraintStart_toStartOf="@id/username"
+                            app:layout_constraintTop_toBottomOf="@id/username"
+                            tools:text="name goes here" />
+
+                        <TextView
+                            android:id="@+id/tag"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_4sdp"
+                            android:adjustViewBounds="true"
+                            android:background="@drawable/tag_primary"
+                            android:paddingStart="@dimen/_8sdp"
+                            android:paddingTop="@dimen/_2sdp"
+                            android:paddingEnd="@dimen/_8sdp"
+                            android:paddingBottom="@dimen/_2sdp"
+                            android:text='@{userData.rule_label}'
+                            android:textColor="@android:color/white"
+                            android:textSize="@dimen/_11ssp"
+                            android:textStyle="bold"
+                            app:layout_constraintStart_toStartOf="@id/name"
+                            app:layout_constraintTop_toBottomOf="@id/name"
+                            tools:text="Student" />
+
+                        <TextView
+                            android:id="@+id/kelas"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_marginStart="@dimen/_4sdp"
+                            android:gravity="start|center_vertical"
+                            android:text="@{userData.data.student.student_class.class_room.name}"
+                            android:visibility='@{userData.rule.is_student ? View.VISIBLE : View.GONE}'
+                            app:layout_constraintBottom_toBottomOf="@id/tag"
+                            app:layout_constraintEnd_toEndOf="@id/name"
+                            app:layout_constraintStart_toEndOf="@id/tag"
+                            app:layout_constraintTop_toTopOf="@id/tag"
+                            tools:text="Kelas XXI" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+<!--                </com.google.android.material.appbar.CollapsingToolbarLayout>-->
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageButton
+                        android:id="@+id/btn_post"
+                        style="@style/Widget.AppCompat.ImageButton"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/_36sdp"
+                        android:layout_marginStart="@dimen/_16sdp"
+                        android:padding="@dimen/_8sdp"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/ic_create_post"
+                        app:backgroundTint="@android:color/white"
+                        app:layout_constraintEnd_toStartOf="@id/btn_media"
+                        app:layout_constraintHorizontal_chainStyle="packed"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintWidth_percent="0.3" />
+
+                    <ImageButton
+                        android:id="@+id/btn_media"
+                        style="@style/Widget.AppCompat.ImageButton"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/_36sdp"
+                        android:padding="@dimen/_8sdp"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/ic_galery_inactive"
+                        app:backgroundTint="@android:color/white"
+                        app:layout_constraintEnd_toStartOf="@id/btn_ebook"
+                        app:layout_constraintStart_toEndOf="@id/btn_post"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintWidth_percent="0.3" />
+
+                    <ImageButton
+                        android:id="@+id/btn_ebook"
+                        style="@style/Widget.AppCompat.ImageButton"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/_36sdp"
+                        android:layout_marginEnd="@dimen/_16sdp"
+                        android:padding="@dimen/_8sdp"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/ic_ebook_inactive"
+                        app:backgroundTint="@android:color/white"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/btn_media"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintWidth_percent="0.3" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </com.google.android.material.appbar.AppBarLayout>
+
+            <fragment
+                android:id="@+id/nav_controller"
+                android:name="androidx.navigation.fragment.NavHostFragment"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fillViewport="true"
+                app:defaultNavHost="true"
+                app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
+                app:navGraph="@navigation/profile_nav" />
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+</layout>

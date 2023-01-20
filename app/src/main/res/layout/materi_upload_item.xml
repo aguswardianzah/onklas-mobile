@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <View
+            android:id="@+id/file_bg"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:background="@drawable/border_cover_ebook"
+            app:layout_constraintBottom_toBottomOf="@id/space_file"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/ic_pdf"
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:layout_margin="@dimen/_16sdp"
+            android:src="@drawable/ic_pdf"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@id/file_bg"
+            app:layout_constraintStart_toStartOf="@id/file_bg"
+            app:layout_constraintTop_toTopOf="@id/file_bg" />
+
+        <TextView
+            android:id="@+id/upload_file_info"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_16sdp"
+            android:layout_marginTop="@dimen/_16sdp"
+            android:layout_marginEnd="@dimen/_16sdp"
+            android:layout_marginBottom="@dimen/_8sdp"
+            android:gravity="center"
+            android:textColor="@color/textBlack"
+            android:textSize="@dimen/_11ssp"
+            app:layout_constraintBottom_toTopOf="@id/btn_file"
+            app:layout_constraintEnd_toEndOf="@id/file_bg"
+            app:layout_constraintStart_toEndOf="@id/ic_pdf"
+            app:layout_constraintTop_toTopOf="@id/file_bg" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_file"
+            style="@style/Widget.MaterialComponents.Button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/_16sdp"
+            android:gravity="start|center_vertical"
+            android:paddingStart="@dimen/_4sdp"
+            android:paddingEnd="@dimen/_8sdp"
+            android:text="Lampirkan File"
+            android:textAllCaps="false"
+            android:textColor="@color/textBlack"
+            app:backgroundTint="@color/colorAccent"
+            app:cornerRadius="@dimen/_16sdp"
+            app:icon="@drawable/ic_file_upload"
+            app:iconPadding="@dimen/_8sdp"
+            app:iconSize="@dimen/_24sdp"
+            app:iconTint="@null"
+            app:layout_constraintBottom_toBottomOf="@id/upload_file_info"
+            app:layout_constraintEnd_toEndOf="@id/file_bg"
+            app:layout_constraintStart_toStartOf="@id/file_bg"
+            app:layout_constraintTop_toBottomOf="@id/upload_file_info"
+            tools:ignore="HardcodedText" />
+
+        <Space
+            android:id="@+id/space_file"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_16sdp"
+            app:layout_constraintTop_toBottomOf="@id/btn_file" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

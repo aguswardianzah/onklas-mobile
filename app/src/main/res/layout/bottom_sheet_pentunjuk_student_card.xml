@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            style="@style/AppToolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?android:actionBarSize"
+            app:contentInsetLeft="0dp"
+            app:contentInsetStart="0dp"
+            app:contentInsetStartWithNavigation="0dp"
+            app:navigationIcon="@drawable/ic_close"
+            app:title="Petunjuk Pengisian" />
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <TextView
+        android:id="@+id/txt_petunjuk"
+        style="@style/latoDefault"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_16sdp"
+        android:layout_marginTop="@dimen/_12sdp"
+        android:layout_marginEnd="@dimen/_16sdp"
+        android:lineSpacingExtra="@dimen/_5sdp"
+        android:text="Bagi para murid SMA Negeri Onklas,  ikuti petunjuk pengisian dan upload foto sesuai petunjuk:
+
+1.Kelas X dan XI ( dengan background warna biru ),    2.Kelas XII  menggunakan format foto dengan background berwarna merah.
+
+Segera lengkapi kartu pelajar sebelum tenggat waktu pada hari sabtu 24 maret 2021, pastikan data sesuai agar tidak terjadi kesalahan disaat mencetak kartu pelajar, untuk keterangan selengkapnya bisa menghubungi wali kelas yang bersangkutan."
+        android:textColor="#000000"
+        android:textSize="@dimen/_13sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appBarLayout2" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

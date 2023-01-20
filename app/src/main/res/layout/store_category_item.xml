@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<id.onklas.app.utils.SquareRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_layout"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/icon"
+        android:layout_width="@dimen/_42sdp"
+        android:layout_height="@dimen/_42sdp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:adjustViewBounds="true"
+        android:background="@drawable/rounded_radius2"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <TextView
+        android:id="@+id/label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/icon"
+        android:layout_marginStart="@dimen/_4sdp"
+        android:layout_marginTop="@dimen/_6sdp"
+        android:layout_marginEnd="@dimen/_4sdp"
+        android:gravity="top|center_horizontal"
+        android:maxWidth="@dimen/_80sdp"
+        android:maxLines="2"
+        android:textAppearance="@style/latoBlackBold"
+        android:textColor="#828282"
+        android:textSize="@dimen/_11ssp"
+        tools:text="perawatan dan kecantikan " />
+</id.onklas.app.utils.SquareRelativeLayout>

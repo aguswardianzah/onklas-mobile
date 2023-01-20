@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/game_nav"
+    app:startDestination="@id/selectGamePage">
+
+    <fragment
+        android:id="@+id/selectGamePage"
+        android:name="id.onklas.app.pages.ppob.game.SelectGamePage"
+        android:label="SelectGamePage"
+        tools:layout="@layout/select_game_page">
+        <action
+            android:id="@+id/action_selectGamePage_to_selectVoucherPage"
+            app:destination="@id/selectVoucherPage" />
+    </fragment>
+    <fragment
+        android:id="@+id/selectVoucherPage"
+        android:name="id.onklas.app.pages.ppob.game.SelectVoucherPage"
+        android:label="SelectVoucherPage"
+        tools:layout="@layout/select_voucher_page" />
+</navigation>

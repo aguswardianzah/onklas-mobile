@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="name"
+            type="java.lang.String" />
+    </data>
+
+    <id.onklas.app.utils.SquareRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/border_menu_item"
+        android:paddingBottom="@dimen/_4sdp">
+
+        <ImageView
+            android:id="@+id/icon"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_24sdp"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:layout_marginEnd="@dimen/_24sdp"
+            android:adjustViewBounds="true"
+            tools:src="@android:drawable/ic_menu_report_image" />
+
+        <TextView
+            android:id="@+id/label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/icon"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:layout_marginEnd="@dimen/_8sdp"
+            android:gravity="top|center_horizontal"
+            android:lines="2"
+            android:text="@{name}"
+            android:textColor="@color/textBlack"
+            android:textSize="@dimen/_12ssp"
+            android:textStyle="bold"
+            tools:text="Menu Label" />
+
+        <TextView
+            android:id="@+id/soon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_8sdp"
+            android:background="@drawable/circle_red"
+            android:paddingStart="@dimen/_3sdp"
+            android:paddingTop="@dimen/_2sdp"
+            android:paddingEnd="@dimen/_3sdp"
+            android:paddingBottom="@dimen/_2sdp"
+            android:text="SOON"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/_10ssp"
+            tools:ignore="HardcodedText" />
+    </id.onklas.app.utils.SquareRelativeLayout>
+</layout>

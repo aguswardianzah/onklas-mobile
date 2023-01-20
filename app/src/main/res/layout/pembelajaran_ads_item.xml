@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="url"
+            type="Object" />
+    </data>
+
+    <id.onklas.app.utils.SquareRelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/image"
+            imageFitUrl="@{url}"
+            android:layout_width="@dimen/_160sdp"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:background="@drawable/rounded_white"
+            android:scaleType="centerCrop"
+            tools:src="@android:drawable/ic_menu_report_image" />
+    </id.onklas.app.utils.SquareRelativeLayout>
+</layout>

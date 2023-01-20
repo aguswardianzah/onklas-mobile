@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="item"
+            type="id.onklas.app.pages.klaspay.topup.TypeTopupItem" />
+
+        <variable
+            name="showChild"
+            type="Boolean" />
+    </data>
+
+    <RelativeLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:animateLayoutChanges="true"
+        android:paddingVertical="@dimen/_8sdp">
+
+        <ImageView
+            android:id="@+id/image"
+            imageUrl="@{item.img}"
+            android:layout_width="@dimen/_32sdp"
+            android:layout_height="@dimen/_32sdp"
+            android:layout_marginStart="@dimen/_16sdp"
+            android:layout_marginEnd="@dimen/_8sdp"
+            tools:src="@android:drawable/ic_menu_report_image" />
+
+        <ImageView
+            android:id="@+id/img_switch"
+            android:layout_width="@dimen/_32sdp"
+            android:layout_height="@dimen/_32sdp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="@dimen/_16sdp"
+            android:rotation="@{showChild ? 180 : 0}"
+            android:src="@drawable/ic_carret_down" />
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toStartOf="@id/img_switch"
+            android:layout_toEndOf="@id/image"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:text="@{item.name}"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/_13ssp"
+            android:textStyle="bold"
+            tools:text="Jenis Pembayaran Topup" />
+
+        <TextView
+            android:id="@+id/tv_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_name"
+            android:layout_marginTop="@dimen/_4sdp"
+            android:layout_toStartOf="@id/img_switch"
+            android:layout_toEndOf="@id/image"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:text="@{item.info}"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/_11ssp"
+            tools:text="@string/lipsum" />
+
+        <View
+            android:id="@+id/divider"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_1sdp"
+            android:layout_below="@id/tv_info"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:background="@color/ltgray" />
+    </RelativeLayout>
+</layout>

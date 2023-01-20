@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <item
+        android:id="@+id/menu_chat"
+        android:enabled="true"
+        android:title="Chat"
+        app:actionLayout="@layout/menu_chat_store"
+        app:showAsAction="always"
+        tools:ignore="HardcodedText" />
+    <item
+        android:id="@+id/menu_cart"
+        android:enabled="true"
+        android:title="Chat"
+        app:actionLayout="@layout/menu_cart_store"
+        app:showAsAction="always"
+        tools:ignore="HardcodedText" />
+
+</menu>

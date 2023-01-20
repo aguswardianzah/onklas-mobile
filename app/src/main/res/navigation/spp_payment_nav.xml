@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/spp_payment_nav"
+    app:startDestination="@id/sppTagihanPage">
+
+    <fragment
+        android:id="@+id/sppTagihanPage"
+        android:name="id.onklas.app.pages.pembayaran.spp.SppTagihanPage"
+        android:label="SppTagihanPage"
+        tools:layout="@layout/spp_tagihan_page" />
+    <fragment
+        android:id="@+id/sppPaidPage"
+        android:name="id.onklas.app.pages.pembayaran.spp.SppPaidPage"
+        android:label="SppPaidPage"
+        tools:layout="@layout/spp_paid_page" />
+    <action
+        android:id="@+id/action_global_sppTagihanPage"
+        app:destination="@id/sppTagihanPage" />
+    <action
+        android:id="@+id/action_global_sppPaidPage"
+        app:destination="@id/sppPaidPage" />
+</navigation>

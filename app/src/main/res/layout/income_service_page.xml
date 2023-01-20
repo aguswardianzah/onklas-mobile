@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewmodel"
+            type="id.onklas.app.pages.entrepreneurs.EntrepreneursVM" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:padding="@dimen/_24sdp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <include
+            android:id="@+id/layout_no_connection"
+            layout="@layout/product_emp_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/_24sdp"
+            android:visibility="visible"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:layout_editor_absoluteX="31dp" />
+
+        <TextView
+            android:id="@+id/btn_upload_product"
+            style="@style/latoBlackBold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_24sdp"
+            android:background="@drawable/rounded_radius40"
+            android:backgroundTint="@color/colorPrimary"
+            android:paddingLeft="@dimen/_73sdp"
+            android:paddingTop="@dimen/_12sdp"
+            android:paddingRight="@dimen/_73sdp"
+            android:paddingBottom="@dimen/_12sdp"
+            android:text="Upload Product"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_12sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/layout_no_connection" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
+
+

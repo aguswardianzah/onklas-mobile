@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.text.Html" />
+
+        <import type="android.view.View" />
+
+        <variable
+            name="choice"
+            type="id.onklas.app.pages.akm.AkmAnswerTable" />
+
+        <variable
+            name="choice_label"
+            type="String" />
+
+        <variable
+            name="choice_label_2"
+            type="String" />
+
+        <variable
+            name="answered"
+            type="Boolean" />
+
+        <variable
+            name="scored"
+            type="Boolean" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/border_instruction"
+        android:padding="@dimen/_8sdp">
+
+        <TextView
+            android:id="@+id/label"
+            android:layout_width="@dimen/_30sdp"
+            android:layout_height="@dimen/_30sdp"
+            android:layout_marginEnd="@dimen/_8sdp"
+            android:background="@drawable/rounded_gray"
+            android:gravity="center"
+            android:text="@{choice_label}"
+            android:textColor='@{scored ? (choice.is_true ? @color/green : (choice.selected ? @color/colorPrimary : @color/textBlack)) : (choice.selected ? @color/colorPrimary : @color/textBlack)}'
+            android:textSize="@dimen/_12ssp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="A"
+            tools:textColor="@color/textBlack" />
+
+        <TextView
+            android:id="@+id/answer_label"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:gravity="center_vertical"
+            android:minHeight="@dimen/_30sdp"
+            android:text="@{Html.fromHtml(choice.first_statement)}"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/_12ssp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/label"
+            app:layout_constraintTop_toTopOf="@id/label"
+            tools:text="@string/lipsum" />
+
+        <View
+            android:id="@+id/answer_land"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@drawable/border_pair_layout"
+            app:layout_constraintBottom_toBottomOf="@id/drag_area"
+            app:layout_constraintTop_toTopOf="@id/drag_area" />
+
+        <RelativeLayout
+            android:id="@+id/drag_area"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_12sdp"
+            android:background="@drawable/border_pair_second"
+            android:padding="@dimen/_8sdp"
+            android:tag="drag_area"
+            android:visibility="visible"
+            app:layout_constraintTop_toBottomOf="@id/answer_label">
+
+            <TextView
+                android:id="@+id/label_2"
+                android:layout_width="@dimen/_24sdp"
+                android:layout_height="@dimen/_24sdp"
+                android:layout_marginEnd="@dimen/_8sdp"
+                android:background="@drawable/oval_primary"
+                android:gravity="center"
+                android:text="@{choice_label_2}"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/_12ssp"
+                android:textStyle="bold"
+                android:visibility="gone"
+                tools:text="1" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:gravity="center"
+                android:layout_toEndOf="@id/label_2"
+                android:text="@{Html.fromHtml(choice.second_statement)}"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/_12ssp"
+                tools:text="Statement 2" />
+        </RelativeLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

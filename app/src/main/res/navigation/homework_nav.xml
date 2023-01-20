@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/homework_nav"
+    app:startDestination="@id/homeworkBelumPage">
+
+    <fragment
+        android:id="@+id/homeworkBelumPage"
+        android:name="id.onklas.app.pages.homework.HomeworkBelumPage"
+        android:label="HomeworkBelumPage"
+        tools:layout="@layout/homework_belum_page" />
+    <fragment
+        android:id="@+id/homeworkSudahPage"
+        android:name="id.onklas.app.pages.homework.HomeworkSudahPage"
+        android:label="HomeworkSudahPage"
+        tools:layout="@layout/homework_sudah_page" />
+    <fragment
+        android:id="@+id/homeworkNilaiPage"
+        android:name="id.onklas.app.pages.homework.HomeworkNilaiPage"
+        android:label="HomeworkNilaiPage"
+        tools:layout="@layout/homework_nilai_page" />
+    <action
+        android:id="@+id/action_global_homeworkBelumPage"
+        app:destination="@id/homeworkBelumPage" />
+    <action
+        android:id="@+id/action_global_homeworkSudahPage"
+        app:destination="@id/homeworkSudahPage" />
+    <action
+        android:id="@+id/action_global_homeworkNilaiPage"
+        app:destination="@id/homeworkNilaiPage" />
+</navigation>

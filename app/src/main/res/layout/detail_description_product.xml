@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="merchantId"
+            type="Integer" />
+
+        <variable
+            name="perfMerchantId"
+            type="Integer" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".pages.sekolah.store.DetailDescriptionProduct">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appBarLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                style="@style/AppToolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?android:actionBarSize"
+                app:contentInsetEnd="0dp"
+                app:contentInsetStart="0dp"
+                app:contentInsetStartWithNavigation="0dp"
+                app:title="Deskripsi Produk" />
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:padding="@dimen/_16sdp"
+            app:layout_constraintBottom_toTopOf="@+id/constraintLayout3"
+            app:layout_constraintTop_toBottomOf="@+id/appBarLayout">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:paddingBottom="@dimen/_50sdp">
+
+                <TextView
+                    android:id="@+id/txt_desc"
+                    style="@style/latoDefault"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:lineSpacingExtra="5dp"
+                    android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ut egestas enim, at mollis nulla. Curabitur dignissim luctus purus quis tempor. In malesuada volutpat accumsan. Morbi suscipit arcu ut ipsum malesuada vestibulum ut sed lorem. Aenean pulvinar urna erat, sed accumsan ipsum egestas ut. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Maecenas nisi lacus, iaculis eu nisi ut, fringilla ullamcorper nunc. Suspendisse velit tellus, finibus eget lorem nec, imperdiet lacinia ante.
+
+Aliquam arcu dolor, volutpat eu pretium volutpat, accumsan nec erat. Suspendisse vulputate massa eu elit commodo sodales. Etiam ac rutrum purus, sed aliquet lectus. Pellentesque lorem nibh, ornare a velit at, iaculis dignissim nisi. Curabitur dignissim cursus risus. Nullam sed odio ultrices, aliquet nisi ut, pretium enim. Donec sed velit non lectus laoreet varius volutpat ac nulla. Ut vitae mauris ac nibh pulvinar eleifend ac in massa. In at viverra lacus. Sed blandit bibendum euismod.
+
+Nam a dui risus. Proin nisi nulla, pharetra vel elit sit amet, tristique mollis nisi. Pellentesque lobortis ex ornare, commodo arcu sit amet, imperdiet ipsum. Vivamus sollicitudin massa nec augue mattis hendrerit. In ultricies elit odio, vitae faucibus eros pharetra id. Donec ultrices nulla ex, pellentesque vestibulum nulla porttitor eu. Curabitur et justo sed tellus dapibus elementum non id purus. Donec feugiat risus sit amet felis posuere, eget feugiat lectus volutpat. Sed in mauris libero. Nullam ultricies neque sit amet nunc aliquet, a gravida est interdum. Nam auctor ullamcorper diam, id pharetra magna congue et. Nulla tempus erat sit amet quam interdum vestibulum. Fusce scelerisque sit amet lectus vitae maximus. Proin efficitur commodo hendrerit."
+                    android:textSize="@dimen/_12sdp"
+                    tools:layout_editor_absoluteX="-16dp"
+                    tools:layout_editor_absoluteY="142dp" />
+
+
+            </LinearLayout>
+
+
+        </androidx.core.widget.NestedScrollView>
+
+        <LinearLayout
+            android:id="@+id/constraintLayout3"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_44sdp"
+            android:background="@color/white"
+            android:orientation="horizontal"
+            android:visibility='@{(merchantId == perfMerchantId) ? View.GONE : View.VISIBLE}'
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="2">
+
+                <ImageView
+                    android:id="@+id/action_chat"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_24sdp"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:adjustViewBounds="true"
+                    android:padding="@dimen/_3sdp"
+                    app:srcCompat="@drawable/ic_chat" />
+
+                <TextView
+                    android:id="@+id/textView24"
+                    android:layout_width="2dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginVertical="@dimen/_12sdp"
+                    android:background="@color/gray"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <ImageView
+                    android:id="@+id/action_add_cart"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_24sdp"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:adjustViewBounds="true"
+                    android:padding="@dimen/_3sdp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/ic_cart" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/action_buy_now"
+                style="@style/latoBlackBold"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/colorPrimary"
+                android:gravity="center"
+                android:text="Beli Sekarang"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_12sdp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="HardcodedText" />
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

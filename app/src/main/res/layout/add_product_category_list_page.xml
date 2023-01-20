@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="showChild"
+            type="Boolean" />
+
+        <variable
+            name="parentName"
+            type="String" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".pages.entrepreneurs.myMerchant.addProduct.AddProductCategoryListPage">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appBarLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                style="@style/AppToolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?android:actionBarSize"
+                app:contentInsetEnd="0dp"
+                app:contentInsetStart="0dp"
+                app:contentInsetStartWithNavigation="0dp"
+                app:title="Kategori" />
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true"
+            app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/main_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:animateLayoutChanges="true"
+                app:layout_constraintTop_toBottomOf="@+id/appBarLayout">
+
+                <ImageView
+                    android:id="@+id/action_back"
+                    android:layout_width="@dimen/_16sdp"
+                    android:layout_height="@dimen/_16sdp"
+                    android:layout_marginStart="@dimen/_16sdp"
+                    android:layout_marginTop="@dimen/_12sdp"
+                    android:rotation="90"
+                    android:src="@drawable/ic_chevron_down"
+                    android:visibility="@{showChild ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:tint="@color/colorPrimary" />
+
+                <TextView
+                    android:id="@+id/selected_parent"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginEnd="@dimen/_16sdp"
+                    android:text="@{parentName}"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/_12ssp"
+                    android:textStyle="bold"
+                    android:visibility="@{showChild ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toBottomOf="@id/action_back"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/action_back"
+                    app:layout_constraintTop_toTopOf="@id/action_back"
+                    tools:text="Selected parent category" />
+
+                <View
+                    android:id="@+id/divider"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:layout_marginTop="@dimen/_12sdp"
+                    android:background="@color/ltgray"
+                    android:visibility="@{showChild ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintTop_toBottomOf="@id/action_back" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_parent"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/divider" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <!--            <androidx.constraintlayout.widget.ConstraintLayout-->
+            <!--                android:id="@+id/child_layout"-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:visibility="gone"-->
+            <!--                tools:visibility="visible">-->
+
+            <!--                <TextView-->
+            <!--                    android:id="@+id/txt_category_parent"-->
+            <!--                    style="@style/latoBlackBold"-->
+            <!--                    android:layout_width="wrap_content"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:layout_marginStart="@dimen/_16sdp"-->
+            <!--                    android:text="Makanan &amp; Minuman"-->
+            <!--                    android:textColor="@color/textBlack"-->
+            <!--                    android:textSize="@dimen/_14sdp"-->
+            <!--                    app:layout_constraintBottom_toBottomOf="@+id/btn_action"-->
+            <!--                    app:layout_constraintStart_toEndOf="@+id/btn_action"-->
+            <!--                    app:layout_constraintTop_toTopOf="@+id/btn_action" />-->
+
+            <!--                <TextView-->
+            <!--                    android:id="@+id/textView64"-->
+            <!--                    android:layout_width="0dp"-->
+            <!--                    android:layout_height="1dp"-->
+            <!--                    android:layout_marginTop="@dimen/_14sdp"-->
+            <!--                    android:background="@color/gray"-->
+            <!--                    app:layout_constraintEnd_toEndOf="parent"-->
+            <!--                    app:layout_constraintStart_toStartOf="parent"-->
+            <!--                    app:layout_constraintTop_toBottomOf="@+id/txt_category_parent" />-->
+
+            <!--                <ImageView-->
+            <!--                    android:id="@+id/btn_action"-->
+            <!--                    android:layout_width="wrap_content"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:layout_marginStart="@dimen/_16sdp"-->
+            <!--                    android:layout_marginTop="@dimen/_14sdp"-->
+            <!--                    android:background="@drawable/mdtp_ic_chevron_left_black_24dp"-->
+            <!--                    android:backgroundTint="@color/colorPrimary"-->
+            <!--                    android:scaleX="1.5"-->
+            <!--                    android:scaleY="1.5"-->
+            <!--                    app:layout_constraintStart_toStartOf="parent"-->
+            <!--                    app:layout_constraintTop_toTopOf="parent" />-->
+
+            <!--                <androidx.recyclerview.widget.RecyclerView-->
+            <!--                    android:id="@+id/rv_child"-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    app:layout_constraintBottom_toBottomOf="parent"-->
+            <!--                    app:layout_constraintEnd_toEndOf="parent"-->
+            <!--                    app:layout_constraintTop_toBottomOf="@+id/textView64" />-->
+            <!--            </androidx.constraintlayout.widget.ConstraintLayout>-->
+        </androidx.core.widget.NestedScrollView>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

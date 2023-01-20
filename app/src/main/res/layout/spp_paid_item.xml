@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="item"
+            type="id.onklas.app.pages.pembayaran.spp.SppTable" />
+
+        <variable
+            name="stringUtil"
+            type="id.onklas.app.utils.StringUtil" />
+
+        <variable
+            name="student"
+            type="id.onklas.app.pages.login.StudentItem" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rounded_white"
+        android:padding="@dimen/_12sdp">
+
+        <TextView
+            android:id="@+id/tag"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:background="@drawable/tag_green"
+            android:paddingStart="@dimen/_8sdp"
+            android:paddingTop="@dimen/_4sdp"
+            android:paddingEnd="@dimen/_8sdp"
+            android:paddingBottom="@dimen/_4sdp"
+            android:text="Lunas"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/_10ssp"
+            android:textStyle="bold"
+            tools:ignore="HardcodedText" />
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toStartOf="@id/tag"
+            android:gravity="top"
+            android:lines="2"
+            android:text="@{item.name}"
+            android:textColor="@color/textBlack"
+            android:textSize="@dimen/_14ssp"
+            android:textStyle="bold"
+            tools:text="Desember 2020" />
+
+        <View
+            android:visibility="gone"
+            android:id="@+id/divider_name"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_1sdp"
+            android:layout_below="@id/name"
+            android:layout_marginTop="@dimen/_4sdp"
+            android:layout_marginBottom="@dimen/_8sdp"
+            android:background="@color/gray" />
+
+        <TextView
+            android:visibility="gone"
+            android:id="@+id/name_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/divider_name"
+            android:layout_marginEnd="@dimen/_8sdp"
+            android:layout_toStartOf="@id/student_name"
+            android:text="Siswa"
+            android:textColor="@color/textBlack"
+            android:textSize="@dimen/_11ssp"
+            tools:ignore="HardcodedText" />
+
+        <TextView
+            android:visibility="gone"
+            android:id="@+id/student_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/divider_name"
+            android:layout_alignParentEnd="true"
+            android:text="@{student.name}"
+            android:textColor="@color/textBlack"
+            android:textSize="@dimen/_11ssp"
+            android:textStyle="bold"
+            tools:ignore="HardcodedText"
+            tools:text="Nama Siswa" />
+
+        <View
+            android:visibility="gone"
+            android:id="@+id/divider_kelas"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_1sdp"
+            android:layout_below="@id/student_name"
+            android:layout_marginTop="@dimen/_4sdp"
+            android:layout_marginBottom="@dimen/_8sdp"
+            android:background="@color/gray" />
+
+        <TextView
+            android:visibility="gone"
+            android:id="@+id/kelas_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/divider_kelas"
+            android:layout_marginEnd="@dimen/_8sdp"
+            android:layout_toStartOf="@id/kelas"
+            android:text="Kelas"
+            android:textColor="@color/textBlack"
+            android:textSize="@dimen/_11ssp"
+            tools:ignore="HardcodedText" />
+
+        <TextView
+            android:visibility="gone"
+            android:id="@+id/kelas"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/divider_kelas"
+            android:layout_alignParentEnd="true"
+            android:text="@{student.student_class.class_room.name}"
+            android:textColor="@color/textBlack"
+            android:textSize="@dimen/_11ssp"
+            android:textStyle="bold"
+            tools:ignore="HardcodedText"
+            tools:text="X - 1" />
+
+        <View
+            android:id="@+id/divider"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_1sdp"
+            android:layout_below="@id/kelas"
+            android:layout_marginTop="@dimen/_4sdp"
+            android:layout_marginBottom="@dimen/_8sdp"
+            android:background="@color/gray" />
+
+        <TextView
+            android:id="@+id/total_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/divider"
+            android:layout_marginEnd="@dimen/_8sdp"
+            android:layout_toStartOf="@id/total"
+            android:text="Total"
+            android:textColor="@color/textBlack"
+            android:textSize="@dimen/_11ssp"
+            tools:ignore="HardcodedText" />
+
+        <TextView
+            android:id="@+id/total"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/divider"
+            android:layout_alignParentEnd="true"
+            android:text='@{"Rp" + stringUtil.formatCurrency(item.total_fee)}'
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/_11ssp"
+            android:textStyle="bold"
+            tools:ignore="HardcodedText"
+            tools:text="Rp 9.999.999" />
+
+        <View
+            android:id="@+id/divider2"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_1sdp"
+            android:layout_below="@id/total"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:layout_marginBottom="@dimen/_8sdp"
+            android:background="@color/gray" />
+
+        <TextView
+            android:id="@+id/info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/divider2"
+            android:layout_alignParentEnd="true"
+            android:gravity="end"
+            android:text='@{"Terbayar: " + item.paid_at}'
+            android:textColor="@color/gray"
+            android:textSize="@dimen/_11ssp"
+            tools:ignore="HardcodedText"
+            tools:text="Terbayar: 10 Januari 2021, 07:57" />
+    </RelativeLayout>
+</layout>

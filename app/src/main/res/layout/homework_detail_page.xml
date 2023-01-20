@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="item"
+            type="id.onklas.app.pages.homework.HomeworkItemTable" />
+
+        <variable
+            name="allowUpload"
+            type="java.lang.Boolean" />
+
+        <variable
+            name="isStudent"
+            type="java.lang.Boolean" />
+
+        <variable
+            name="isFinished"
+            type="java.lang.Boolean" />
+
+        <variable
+            name="info"
+            type="String" />
+
+        <variable
+            name="infoColor"
+            type="Integer" />
+
+        <variable
+            name="viewmodel"
+            type="id.onklas.app.pages.homework.HomeWorkViewModel" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                style="@style/AppToolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?android:actionBarSize"
+                android:transitionName="tugas"
+                app:contentInsetEnd="0dp"
+                app:contentInsetStart="0dp"
+                app:contentInsetStartWithNavigation="0dp"
+                app:title='@{item.homework.title.empty ? "Detail Tugas" : item.homework.title}' />
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true"
+            app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/_16sdp">
+
+                <TextView
+                    android:id="@+id/desc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@{item.homework.description}"
+                    android:textColor="@color/textBlack"
+                    android:textSize="@dimen/_12ssp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="@string/lipsum" />
+
+                <TextView
+                    android:id="@+id/label_soal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_12sdp"
+                    android:text='@{"Soal" + (item.homework.downloded > 0 ? " (Wajib dibaca)" : "")}'
+                    android:textColor="@color/textBlack"
+                    android:textSize="@dimen/_13ssp"
+                    android:textStyle="bold"
+                    android:visibility="@{item.homework.file_path.empty ? View.GONE : View.VISIBLE}"
+                    app:layout_constraintTop_toBottomOf="@id/desc"
+                    tools:text="Soal"
+                    tools:visibility="visible" />
+
+                <include
+                    android:id="@+id/materi_detail_layout"
+                    layout="@layout/materi_detail_item"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:visibility="@{item.homework.file_path.empty ? View.GONE : View.VISIBLE}"
+                    app:layout_constraintTop_toBottomOf="@id/label_soal"
+                    tools:visibility="visible" />
+
+                <id.onklas.app.utils.LinkPreview
+                    android:id="@+id/new_link_preview"
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="@dimen/_16sdp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/materi_detail_layout" />
+
+                <TextView
+                    android:id="@+id/label_answer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_12sdp"
+                    android:text="Jawaban terkumpul"
+                    android:textColor="@color/textBlack"
+                    android:textSize="@dimen/_13ssp"
+                    android:textStyle="bold"
+                    android:visibility="@{item.homework.file_student_path.empty ? View.GONE : View.VISIBLE}"
+                    app:layout_constraintTop_toBottomOf="@id/new_link_preview"
+                    tools:ignore="HardcodedText"
+                    tools:visibility="visible" />
+
+                <include
+                    android:id="@+id/answer_layout"
+                    layout="@layout/materi_detail_item"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:visibility="@{item.homework.file_student_path.empty ? View.GONE : View.VISIBLE}"
+                    app:layout_constraintTop_toBottomOf="@id/label_answer"
+                    tools:visibility="visible" />
+
+                <TextView
+                    android:id="@+id/label_upload"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_12sdp"
+                    android:text="Upload Tugas"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="@dimen/_13ssp"
+                    android:textStyle="bold"
+                    android:visibility="@{allowUpload ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintTop_toBottomOf="@id/answer_layout"
+                    tools:ignore="HardcodedText"
+                    tools:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/info_upload"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_4sdp"
+                    android:text="File dalam format pdf"
+                    android:visibility="@{allowUpload ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintTop_toBottomOf="@id/label_upload"
+                    tools:ignore="HardcodedText"
+                    tools:visibility="gone" />
+
+                <include
+                    android:id="@+id/materi_upload_layout"
+                    layout="@layout/materi_upload_item"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:visibility="@{allowUpload ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintTop_toBottomOf="@id/info_upload"
+                    tools:visibility="visible" />
+
+                <TextView
+                    android:id="@+id/link_label"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_12sdp"
+                    android:text="Url Link"
+                    android:textColor="@color/textBlack"
+                    android:textSize="@dimen/_12ssp"
+                    android:textStyle="bold"
+                    app:layout_constraintTop_toBottomOf="@id/materi_upload_layout"
+                    tools:ignore="HardcodedText" />
+
+                <EditText
+                    android:id="@+id/input_link"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:background="@android:color/transparent"
+                    android:gravity="bottom"
+                    android:hint="Ketik url"
+                    android:inputType="text"
+                    android:maxLength="5000"
+                    android:text="@={viewmodel.uploadLink}"
+                    android:textColor="@color/textBlack"
+                    android:textColorHint="@color/gray"
+                    app:layout_constraintTop_toBottomOf="@id/link_label"
+                    tools:ignore="HardcodedText" />
+
+                <View
+                    android:id="@+id/link_divider"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:background="@color/gray"
+                    app:layout_constraintTop_toBottomOf="@id/input_link" />
+
+                <ProgressBar
+                    android:id="@+id/loading_link"
+                    android:layout_width="@dimen/_16sdp"
+                    android:layout_height="@dimen/_16sdp"
+                    android:layout_marginTop="@dimen/_16sdp"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toStartOf="@id/loading_link_label"
+                    app:layout_constraintHorizontal_chainStyle="packed"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/link_divider" />
+
+                <TextView
+                    android:id="@+id/loading_link_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_6sdp"
+                    android:text="memproses url"
+                    android:textColor="@color/textBlack"
+                    android:textSize="@dimen/_11ssp"
+                    android:textStyle="italic"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="@id/loading_link"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/loading_link"
+                    app:layout_constraintTop_toTopOf="@id/loading_link"
+                    tools:ignore="HardcodedText" />
+
+                <id.onklas.app.utils.LinkPreview
+                    android:id="@+id/upload_link_preview"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_12sdp"
+                    app:layout_constraintTop_toBottomOf="@id/link_divider" />
+
+                <TextView
+                    android:id="@+id/info_label"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:gravity="center"
+                    android:text="@{info}"
+                    android:textColor="@{infoColor}"
+                    android:textSize="@dimen/_12ssp"
+                    app:layout_constraintTop_toBottomOf="@id/upload_link_preview"
+                    tools:text="@string/lipsum" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_upload"
+                    style="@style/Widget.MaterialComponents.Button.TextButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_36sdp"
+                    android:layout_marginTop="@dimen/_24sdp"
+                    android:layout_marginEnd="@dimen/_36sdp"
+                    android:text="Tugas Selesai"
+                    android:textColor="@android:color/white"
+                    android:visibility="@{isStudent &amp;&amp; !isFinished ? View.VISIBLE : View.GONE}"
+                    app:backgroundTint="@color/form_button_color"
+                    app:cornerRadius="@dimen/_20sdp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/info_label"
+                    tools:ignore="HardcodedText" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.core.widget.NestedScrollView>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

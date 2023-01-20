@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="item"
+            type="id.onklas.app.pages.magang.MagangReportEntity" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:animateLayoutChanges="true"
+        android:background="@drawable/rounded_white"
+        android:padding="@dimen/_12sdp">
+
+        <TextView
+            android:id="@+id/mapel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{item.company_name}"
+            android:textColor="@color/textBlack"
+            android:textSize="@dimen/_12ssp"
+            android:textStyle="bold"
+            tools:text="Mapel Name" />
+
+        <View
+            android:id="@+id/divider"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_1sdp"
+            android:layout_below="@id/mapel"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:layout_marginBottom="@dimen/_8sdp"
+            android:background="@color/ltgray" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/divider"
+            android:layout_toStartOf="@id/time_plot"
+            android:ellipsize="end"
+            android:lines="1"
+            android:text="Masuk"
+            android:textColor="@color/textBlack"
+            android:textSize="@dimen/_12ssp"
+            tools:ignore="HardcodedText" />
+
+        <TextView
+            android:id="@+id/time_plot"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/divider"
+            android:layout_alignParentEnd="true"
+            android:ellipsize="end"
+            android:lines="1"
+            android:text='@{item.check_in_at}'
+            android:textColor="@color/textBlack"
+            android:textSize="@dimen/_12ssp"
+            android:textStyle="bold"
+            tools:text="07:00 - 08:00" />
+
+        <View
+            android:id="@+id/divider_checkout"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_1sdp"
+            android:layout_below="@id/time_plot"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:layout_marginBottom="@dimen/_8sdp"
+            android:background="@color/ltgray" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/divider_checkout"
+            android:layout_toStartOf="@id/time_plot"
+            android:ellipsize="end"
+            android:lines="1"
+            android:text="Keluar"
+            android:textColor="@color/textBlack"
+            android:textSize="@dimen/_12ssp"
+            tools:ignore="HardcodedText" />
+
+        <TextView
+            android:id="@+id/check_out"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/divider_checkout"
+            android:layout_alignParentEnd="true"
+            android:ellipsize="end"
+            android:lines="1"
+            android:text='@{item.check_out_at}'
+            android:textColor="@color/textBlack"
+            android:textSize="@dimen/_12ssp"
+            android:textStyle="bold"
+            tools:text="07:00 - 08:00" />
+
+        <View
+            android:id="@+id/divider_report"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_1sdp"
+            android:layout_below="@id/check_out"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:layout_marginBottom="@dimen/_8sdp"
+            android:background="@color/ltgray" />
+
+        <TextView
+            android:id="@+id/report_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/divider_report"
+            android:ellipsize="end"
+            android:lines="1"
+            android:text="Laporan"
+            android:textColor="@color/textBlack"
+            android:textSize="@dimen/_12ssp"
+            tools:ignore="HardcodedText" />
+
+        <id.onklas.app.utils.ViewMainSlave
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/divider_report"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:layout_toEndOf="@id/report_label"
+            app:viewPartMain="@id/report"
+            app:viewPartSlave="@id/view_more">
+
+            <TextView
+                android:id="@+id/report"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="3"
+                android:text='@{item.daily_report}'
+                android:textAlignment="textEnd"
+                android:textColor="@color/textBlack"
+                android:textSize="@dimen/_12ssp"
+                android:textStyle="bold"
+                tools:text="@string/lipsum" />
+
+            <TextView
+                android:id="@+id/view_more"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:lines="1"
+                android:text="Lihat Selengkapnya"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/_12ssp"
+                android:textStyle="bold"
+                android:visibility="@{item.daily_report.length() &gt; 121 ? View.VISIBLE : View.INVISIBLE}"
+                tools:ignore="HardcodedText" />
+        </id.onklas.app.utils.ViewMainSlave>
+
+
+    </RelativeLayout>
+</layout>

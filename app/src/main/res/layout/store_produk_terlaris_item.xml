@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <import type="android.view.View"/>
+
+        <variable
+            name="item"
+            type="id.onklas.app.pages.sekolah.store.HomeProductItem" />
+
+        <variable
+            name="StringUtils"
+            type="id.onklas.app.utils.StringUtil" />
+
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/store_item2"
+        android:layout_margin="@dimen/_6sdp"
+        android:background="@drawable/border_gray_radius6"
+        android:layout_width="wrap_content"
+        android:paddingBottom="@dimen/_10sdp"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/product_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:scaleType="centerCrop"
+            imageUrl="@{item.image}"
+            android:background="@drawable/border_white_radius6"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:srcCompat="@tools:sample/avatars" />
+
+        <TextView
+            android:id="@+id/product_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:layout_marginEnd="@dimen/_8sdp"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:textSize="@dimen/_12sdp"
+            android:text="@{item.name}"
+            tools:text="Paket Bersih Kasur Bebas Tungau"
+            android:textAppearance="@style/latoDefault"
+            android:textColor="@color/textBlack1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/product_img" />
+
+        <TextView
+            android:id="@+id/lbl_harga"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@{StringUtils.formatCurrency2(item.price)}"
+            tools:text="Rp 280.000"
+            android:textSize="@dimen/_12sdp"
+            android:textAppearance="@style/latoDefault"
+            android:textColor="@color/blueDark1"
+            app:layout_constraintStart_toStartOf="@+id/product_name"
+            app:layout_constraintTop_toBottomOf="@+id/product_name" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

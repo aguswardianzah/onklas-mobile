@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewmodel"
+            type="id.onklas.app.pages.pembayaran.spp.SppViewModel" />
+    </data>
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipe_refresh"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#EBEDF0">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:animateLayoutChanges="true">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_spp"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:background="#EBEDF0"
+                android:paddingStart="@dimen/_16sdp"
+                android:paddingEnd="@dimen/_16sdp"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintBottom_toTopOf="@id/dialog"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:listitem="@layout/spp_tagihan_item" />
+
+            <ImageView
+                android:id="@+id/image_tagihan_empty"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/_84sdp"
+                android:adjustViewBounds="true"
+                android:src="@drawable/ic_tagihan_empty"
+                android:visibility="@{viewmodel.listTagihanEmpty ? View.VISIBLE : View.GONE}"
+                app:layout_constraintBottom_toTopOf="@+id/title_tagihan_empty"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_chainStyle="packed"
+                tools:visibility="visible" />
+
+            <TextView
+                android:id="@+id/title_tagihan_empty"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_16sdp"
+                android:text="Belum Ada Tagihan SPP"
+                android:textColor="@color/textBlack"
+                android:textSize="@dimen/_13ssp"
+                android:textStyle="bold"
+                android:visibility="@{viewmodel.listTagihanEmpty ? View.VISIBLE : View.GONE}"
+                app:layout_constraintBottom_toTopOf="@id/subtitle_tagihan_empty"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/image_tagihan_empty"
+                tools:ignore="HardcodedText"
+                tools:visibility="visible" />
+
+            <TextView
+                android:id="@+id/subtitle_tagihan_empty"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:gravity="center"
+                android:text="Segera lakukan pembayaran SPP sesuai tenggat waktu yang diberikan agar tidak terjadi tunggakan"
+                android:textColor="@color/textBlack"
+                android:textSize="@dimen/_11ssp"
+                android:visibility="@{viewmodel.listTagihanEmpty ? View.VISIBLE : View.GONE}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/title_tagihan_empty"
+                app:layout_constraintWidth_percent="0.7"
+                tools:ignore="HardcodedText"
+                tools:visibility="visible" />
+
+            <include
+                android:id="@+id/dialog"
+                layout="@layout/spp_tagihan_dialog"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+</layout>

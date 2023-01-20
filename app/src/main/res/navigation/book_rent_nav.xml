@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/book_rent_nav"
+    app:startDestination="@id/listRentPage">
+
+    <fragment
+        android:id="@+id/listRentPage"
+        android:name="id.onklas.app.pages.perpus.ListRentPage"
+        android:label="ListRentPage"
+        tools:layout="@layout/list_rent_page" />
+    <fragment
+        android:id="@+id/listArchivedPage"
+        android:name="id.onklas.app.pages.perpus.ListArchivedPage"
+        android:label="ListArchivedPage"
+        tools:layout="@layout/list_rent_page" />
+    <action
+        android:id="@+id/action_global_listRentPage"
+        app:destination="@id/listRentPage" />
+    <action
+        android:id="@+id/action_global_listArchivedPage"
+        app:destination="@id/listArchivedPage" />
+</navigation>

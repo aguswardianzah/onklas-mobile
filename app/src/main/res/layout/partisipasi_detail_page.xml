@@ -1,0 +1,397 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewmodel"
+            type="id.onklas.app.pages.partisipasi.PartisipasiViewModel" />
+
+        <variable
+            name="item"
+            type="id.onklas.app.pages.partisipasi.PartisipasiItem" />
+
+        <variable
+            name="stringUtil"
+            type="id.onklas.app.utils.StringUtil" />
+
+        <variable
+            name="progress_size"
+            type="Integer" />
+
+        <variable
+            name="show_payment"
+            type="Boolean" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                style="@style/AppToolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?android:actionBarSize"
+                android:transitionName="spp"
+                app:contentInsetEnd="0dp"
+                app:contentInsetStart="0dp"
+                app:contentInsetStartWithNavigation="0dp"
+                app:title="Partisipasiku" />
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:animateLayoutChanges="true"
+                android:paddingBottom="@dimen/_16sdp">
+
+                <TextView
+                    android:id="@+id/name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_16sdp"
+                    android:text="@{item.name}"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/_13ssp"
+                    android:textStyle="bold"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="Nama Kegiatan" />
+
+                <View
+                    android:id="@+id/divider_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:layout_marginHorizontal="@dimen/_16sdp"
+                    android:layout_marginTop="@dimen/_12sdp"
+                    android:background="@color/ltgray"
+                    app:layout_constraintTop_toBottomOf="@id/name" />
+
+                <TextView
+                    android:id="@+id/total_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_16sdp"
+                    android:text="Biaya partisipasi:"
+                    android:textColor="@color/textBlack"
+                    android:textSize="@dimen/_11ssp"
+                    app:layout_constraintBottom_toBottomOf="@id/total"
+                    app:layout_constraintEnd_toStartOf="@id/total"
+                    app:layout_constraintHorizontal_chainStyle="spread_inside"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/total"
+                    tools:ignore="HardcodedText" />
+
+                <TextView
+                    android:id="@+id/total"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_12sdp"
+                    android:layout_marginEnd="@dimen/_16sdp"
+                    android:text='@{"Rp " + stringUtil.formatCurrency2(item.final_amount)}'
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/_12ssp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/total_label"
+                    app:layout_constraintTop_toBottomOf="@id/divider_name"
+                    tools:text="Rp 9.999.999" />
+
+                <View
+                    android:id="@+id/divider_total"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:layout_marginHorizontal="@dimen/_16sdp"
+                    android:layout_marginTop="@dimen/_12sdp"
+                    android:background="@color/ltgray"
+                    app:layout_constraintTop_toBottomOf="@id/total" />
+
+                <TextView
+                    android:id="@+id/progress_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_16sdp"
+                    android:text="Total partisipasiku:"
+                    android:textColor="@color/textBlack"
+                    android:textSize="@dimen/_11ssp"
+                    app:layout_constraintBottom_toBottomOf="@id/current_amount"
+                    app:layout_constraintHorizontal_chainStyle="spread_inside"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/current_amount"
+                    tools:ignore="HardcodedText" />
+
+                <TextView
+                    android:id="@+id/current_amount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_12sdp"
+                    android:layout_marginEnd="@dimen/_16sdp"
+                    android:text='@{"Rp " + stringUtil.formatCurrency2(item.current_amount)}'
+                    android:textColor="@{item.final_amount == progress_size ? @color/green : @color/colorPrimary}"
+                    android:textSize="@dimen/_12ssp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/divider_total"
+                    tools:text="Rp 9.999.999"
+                    tools:textColor="@color/green" />
+
+                <ProgressBar
+                    android:id="@+id/progress_bar"
+                    style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_16sdp"
+                    android:layout_marginVertical="@dimen/_12sdp"
+                    android:layout_marginTop="@dimen/_12sdp"
+                    android:indeterminate="false"
+                    android:max="@{item.final_amount}"
+                    android:progress="@{item.current_amount}"
+                    android:progressTint="@{item.final_amount == progress_size ? @color/green : @color/colorPrimary}"
+                    android:scaleY="1.15"
+                    app:layout_constraintTop_toBottomOf="@id/current_amount"
+                    tools:max="100"
+                    tools:progress="20"
+                    tools:progressTint="@color/colorPrimary" />
+
+                <TextView
+                    android:id="@+id/date_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_16sdp"
+                    android:text="Batas akhir:"
+                    android:textColor="@color/textBlack"
+                    android:textSize="@dimen/_11ssp"
+                    app:layout_constraintBottom_toBottomOf="@id/date"
+                    app:layout_constraintEnd_toStartOf="@id/date"
+                    app:layout_constraintHorizontal_chainStyle="spread_inside"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/date"
+                    tools:ignore="HardcodedText" />
+
+                <TextView
+                    android:id="@+id/date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_12sdp"
+                    android:layout_marginEnd="@dimen/_16sdp"
+                    android:layout_toEndOf="@id/date_label"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/_11ssp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/date_label"
+                    app:layout_constraintTop_toBottomOf="@id/progress_bar"
+                    tools:text="30 September 2021" />
+
+                <View
+                    android:id="@+id/divider_item"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_6sdp"
+                    android:layout_marginTop="@dimen/_16sdp"
+                    android:background="@color/ltgray"
+                    app:layout_constraintTop_toBottomOf="@id/date" />
+
+                <TextView
+                    android:id="@+id/payment_label"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_8sdp"
+                    android:padding="@dimen/_8sdp"
+                    android:text="Detail pembayaran"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/_12ssp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toStartOf="@id/switch_payment"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/divider_item"
+                    tools:ignore="HardcodedText" />
+
+                <ImageView
+                    android:id="@+id/switch_payment"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginEnd="@dimen/_16sdp"
+                    android:rotation="@{show_payment ? 180 : 0}"
+                    android:src="@drawable/ic_carret_down"
+                    app:layout_constraintBottom_toBottomOf="@id/payment_label"
+                    app:layout_constraintDimensionRatio="1:1"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/payment_label" />
+
+                <View
+                    android:id="@+id/divider_label_payment"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:layout_marginHorizontal="@dimen/_16sdp"
+                    android:layout_marginTop="@dimen/_4sdp"
+                    android:background="@color/ltgray"
+                    app:layout_constraintTop_toBottomOf="@id/payment_label" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_payment"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_16sdp"
+                    android:layout_marginTop="@dimen/_12sdp"
+                    android:nestedScrollingEnabled="false"
+                    android:visibility="@{show_payment ? View.VISIBLE : View.GONE}"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintTop_toBottomOf="@id/divider_label_payment"
+                    tools:itemCount="2"
+                    tools:listitem="@layout/partisipasi_payment_detail_item" />
+
+                <View
+                    android:id="@+id/divider_payment"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_6sdp"
+                    android:layout_marginTop="@dimen/_16sdp"
+                    android:background="@color/ltgray"
+                    android:visibility="@{item.final_amount == progress_size ? View.GONE : View.VISIBLE}"
+                    app:layout_constraintTop_toBottomOf="@id/rv_payment" />
+
+                <View
+                    android:id="@+id/border_klaspay"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginHorizontal="@dimen/_16sdp"
+                    android:layout_marginTop="@dimen/_16sdp"
+                    android:background="@drawable/border_input"
+                    android:visibility="@{item.final_amount == progress_size ? View.GONE : View.VISIBLE}"
+                    app:layout_constraintBottom_toBottomOf="@+id/space_klaspay"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/divider_payment" />
+
+                <ImageView
+                    android:id="@+id/image_klaspay"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/_16sdp"
+                    android:layout_marginStart="@dimen/_32sdp"
+                    android:layout_marginTop="@dimen/_12sdp"
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/ic_logo_klaspay"
+                    android:visibility="@{item.final_amount == progress_size ? View.GONE : View.VISIBLE}"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/border_klaspay"
+                    app:tint="@color/colorPrimary" />
+
+                <Space
+                    android:id="@+id/space_klaspay"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/_12sdp"
+                    android:visibility="@{item.final_amount == progress_size ? View.GONE : View.VISIBLE}"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/image_klaspay" />
+
+                <TextView
+                    android:id="@+id/label_klaspay"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/_4sdp"
+                    android:text="Rp"
+                    android:textColor="@color/textBlack"
+                    android:textSize="@dimen/_10ssp"
+                    android:visibility="@{item.final_amount == progress_size ? View.GONE : View.VISIBLE}"
+                    app:layout_constraintBottom_toBottomOf="@+id/image_klaspay"
+                    app:layout_constraintEnd_toStartOf="@+id/text_klaspay"
+                    app:layout_constraintTop_toTopOf="@+id/image_klaspay"
+                    tools:ignore="HardcodedText"
+                    tools:text="Rp" />
+
+                <TextView
+                    android:id="@+id/text_klaspay"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/_32sdp"
+                    android:text="@{viewmodel.stringUtil.formatCurrency2(viewmodel.balance)}"
+                    android:textColor="@color/textBlack"
+                    android:textSize="@dimen/_13ssp"
+                    android:textStyle="bold"
+                    android:visibility="@{item.final_amount == progress_size ? View.GONE : View.VISIBLE}"
+                    app:layout_constraintBottom_toBottomOf="@+id/image_klaspay"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/image_klaspay"
+                    tools:ignore="HardcodedText"
+                    tools:text="99999" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_partisipasi"
+                    style="@style/Widget.MaterialComponents.Button"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_16sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:minHeight="0dp"
+                    android:paddingVertical="@dimen/_8sdp"
+                    android:text="Berpartisipasi"
+                    android:textSize="@dimen/_12ssp"
+                    android:visibility="@{item.final_amount == progress_size ? View.GONE : View.VISIBLE}"
+                    app:backgroundTint="@color/colorPrimary"
+                    app:cornerRadius="@dimen/_24sdp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/border_klaspay"
+                    app:layout_constraintWidth_percent="0.7"
+                    tools:ignore="HardcodedText" />
+
+                <View
+                    android:id="@+id/divider_klaspay"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_6sdp"
+                    android:layout_marginTop="@dimen/_16sdp"
+                    android:background="@color/ltgray"
+                    android:visibility="@{item.final_amount == progress_size ? View.GONE : View.VISIBLE}"
+                    app:layout_constraintTop_toBottomOf="@id/btn_partisipasi" />
+
+                <TextView
+                    android:id="@+id/label_va"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_16sdp"
+                    android:layout_marginTop="@dimen/_16sdp"
+                    android:gravity="center"
+                    android:text="Atau bayar dengan VA/Minimarket"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/_12ssp"
+                    android:textStyle="bold"
+                    android:visibility="@{item.final_amount == progress_size ? View.GONE : View.VISIBLE}"
+                    app:layout_constraintTop_toBottomOf="@id/divider_klaspay"
+                    tools:ignore="HardcodedText" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_va"
+                    style="@style/Widget.MaterialComponents.Button"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_16sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:minHeight="0dp"
+                    android:paddingVertical="@dimen/_8sdp"
+                    android:text="Pilih Metode Pembayaran"
+                    android:textSize="@dimen/_12ssp"
+                    android:visibility="@{item.final_amount == progress_size ? View.GONE : View.VISIBLE}"
+                    app:backgroundTint="@color/colorPrimary"
+                    app:cornerRadius="@dimen/_24sdp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/label_va"
+                    app:layout_constraintWidth_percent="0.7"
+                    tools:ignore="HardcodedText" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.core.widget.NestedScrollView>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

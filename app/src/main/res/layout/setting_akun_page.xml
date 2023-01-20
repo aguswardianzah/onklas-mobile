@@ -1,0 +1,538 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="view"
+            type="android.view.View" />
+
+        <variable
+            name="viewmodel"
+            type="id.onklas.app.pages.akun.SettingAkunViewmodel" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                style="@style/AppToolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:contentInsetEnd="0dp"
+                app:contentInsetStart="0dp"
+                app:contentInsetStartWithNavigation="0dp"
+                app:title="Pengaturan Profil" />
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true"
+            app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/_16sdp">
+
+                <View
+                    android:id="@+id/form_username"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:background="@drawable/border_login_form"
+                    app:layout_constraintBottom_toBottomOf="@id/sp_form_username"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/label_username"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_12sdp"
+                    android:layout_marginTop="@dimen/_16sdp"
+                    android:layout_marginEnd="@dimen/_12sdp"
+                    android:text="Username (Social Media)"
+                    android:textAllCaps="true"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="@dimen/_13ssp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="@id/form_username"
+                    app:layout_constraintStart_toStartOf="@id/form_username"
+                    app:layout_constraintTop_toTopOf="@id/form_username"
+                    tools:ignore="HardcodedText" />
+
+                <View
+                    android:id="@+id/v_username"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="@dimen/_12sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:layout_marginEnd="@dimen/_12sdp"
+                    android:background="@drawable/border_form_login_gray"
+                    app:layout_constraintBottom_toBottomOf="@id/sp_username"
+                    app:layout_constraintEnd_toEndOf="@id/form_username"
+                    app:layout_constraintStart_toStartOf="@id/form_username"
+                    app:layout_constraintTop_toBottomOf="@id/label_username" />
+
+                <ImageView
+                    android:id="@+id/ic_username"
+                    android:layout_width="@dimen/_24sdp"
+                    android:layout_height="@dimen/_24sdp"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:src="@drawable/ic_username"
+                    app:layout_constraintStart_toStartOf="@id/v_username"
+                    app:layout_constraintTop_toTopOf="@id/v_username" />
+
+                <Space
+                    android:id="@+id/sp_username"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_8sdp"
+                    app:layout_constraintTop_toBottomOf="@id/ic_username" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/in_username_layout"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginEnd="@dimen/_8sdp"
+                    android:padding="0dp"
+                    app:boxStrokeColor="@android:color/white"
+                    app:hintEnabled="false"
+                    app:hintTextColor="@color/gray"
+                    app:layout_constraintBottom_toBottomOf="@id/ic_username"
+                    app:layout_constraintEnd_toEndOf="@id/v_username"
+                    app:layout_constraintStart_toEndOf="@id/ic_username"
+                    app:layout_constraintTop_toTopOf="@id/ic_username">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/in_username"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@android:color/transparent"
+                        android:hint="Ketikkan Username"
+                        android:inputType="text"
+                        android:paddingStart="@dimen/_4sdp"
+                        android:paddingTop="@dimen/_2sdp"
+                        android:paddingEnd="@dimen/_4sdp"
+                        android:paddingBottom="@dimen/_2sdp"
+                        android:text="@={viewmodel.username}"
+                        android:textColor="@color/textBlack"
+                        android:textSize="@dimen/_13ssp"
+                        tools:ignore="HardcodedText" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView
+                    android:id="@+id/label_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_12sdp"
+                    android:layout_marginTop="@dimen/_16sdp"
+                    android:layout_marginEnd="@dimen/_12sdp"
+                    android:text="NAMA"
+                    android:textAllCaps="true"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="@dimen/_13ssp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="@id/form_username"
+                    app:layout_constraintTop_toBottomOf="@id/sp_username"
+                    tools:ignore="HardcodedText" />
+
+                <TextView
+                    android:id="@+id/name_alert"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:adjustViewBounds="true"
+                    android:background="@drawable/oval_red"
+                    android:paddingHorizontal="@dimen/_4sdp"
+                    android:paddingVertical="@dimen/_2sdp"
+                    android:src="@drawable/ic_check_primary"
+                    android:text="Harus diisi"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_9ssp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="@id/label_name"
+                    app:layout_constraintStart_toEndOf="@id/label_name"
+                    app:layout_constraintTop_toTopOf="@id/label_name"
+                    tools:ignore="HardcodedText" />
+
+                <View
+                    android:id="@+id/v_name"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="@dimen/_12sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:layout_marginEnd="@dimen/_12sdp"
+                    android:background="@drawable/border_form_login_gray"
+                    app:layout_constraintBottom_toBottomOf="@id/sp_name"
+                    app:layout_constraintEnd_toEndOf="@id/form_username"
+                    app:layout_constraintStart_toStartOf="@id/form_username"
+                    app:layout_constraintTop_toBottomOf="@id/label_name" />
+
+                <ImageView
+                    android:id="@+id/ic_name"
+                    android:layout_width="@dimen/_24sdp"
+                    android:layout_height="@dimen/_24sdp"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:src="@drawable/ic_username"
+                    app:layout_constraintStart_toStartOf="@id/v_name"
+                    app:layout_constraintTop_toTopOf="@id/v_name" />
+
+                <Space
+                    android:id="@+id/sp_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_8sdp"
+                    app:layout_constraintTop_toBottomOf="@id/ic_name" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/in_name_layout"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginEnd="@dimen/_8sdp"
+                    android:padding="0dp"
+                    app:boxStrokeColor="@android:color/white"
+                    app:hintEnabled="false"
+                    app:hintTextColor="@color/gray"
+                    app:layout_constraintBottom_toBottomOf="@id/ic_name"
+                    app:layout_constraintEnd_toEndOf="@id/v_name"
+                    app:layout_constraintStart_toEndOf="@id/ic_name"
+                    app:layout_constraintTop_toTopOf="@id/ic_name">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/in_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@android:color/transparent"
+                        android:hint="Ketik Nama lengkap"
+                        android:inputType="text"
+                        android:paddingStart="@dimen/_4sdp"
+                        android:paddingTop="@dimen/_2sdp"
+                        android:paddingEnd="@dimen/_4sdp"
+                        android:paddingBottom="@dimen/_2sdp"
+                        android:text="@={viewmodel.name}"
+                        android:textColor="@color/textBlack"
+                        android:textSize="@dimen/_13ssp"
+                        tools:ignore="HardcodedText" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <Space
+                    android:id="@+id/sp_form_username"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_16sdp"
+                    app:layout_constraintTop_toBottomOf="@id/sp_name" />
+
+
+                <View
+                    android:id="@+id/form_email"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="@dimen/_16sdp"
+                    android:background="@drawable/border_login_form"
+                    app:layout_constraintBottom_toBottomOf="@+id/sp_form_email"
+                    app:layout_constraintTop_toBottomOf="@+id/sp_form_username" />
+
+                <TextView
+                    android:id="@+id/label_email"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_12sdp"
+                    android:layout_marginTop="@dimen/_16sdp"
+                    android:layout_marginEnd="@dimen/_12sdp"
+                    android:text="Email Saya"
+                    android:textAllCaps="true"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="@dimen/_13ssp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="@id/form_email"
+                    app:layout_constraintTop_toTopOf="@id/form_email"
+                    tools:ignore="HardcodedText" />
+
+                <TextView
+                    android:id="@+id/email_alert"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:adjustViewBounds="true"
+                    android:background="@drawable/oval_red"
+                    android:paddingHorizontal="@dimen/_4sdp"
+                    android:paddingVertical="@dimen/_2sdp"
+                    android:src="@drawable/ic_check_primary"
+                    android:text="Harus diisi"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_9ssp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="@id/label_email"
+                    app:layout_constraintStart_toEndOf="@id/label_email"
+                    app:layout_constraintTop_toTopOf="@id/label_email"
+                    tools:ignore="HardcodedText" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_edit_email"
+                    style="@style/Widget.MaterialComponents.Button.TextButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/_12sdp"
+                    android:gravity="end"
+                    android:minWidth="0dp"
+                    android:minHeight="0dp"
+                    android:paddingVertical="0dp"
+                    android:text='@{viewmodel.editEmail ? "batal" : "edit"}'
+                    android:textAllCaps="false"
+                    android:textColor="@{viewmodel.editEmail ? @color/red : @color/colorPrimary}"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="@id/form_email"
+                    app:layout_constraintTop_toTopOf="@id/label_email"
+                    tools:ignore="HardcodedText"
+                    tools:text="edit"
+                    tools:textColor="@color/colorPrimary" />
+
+                <View
+                    android:id="@+id/v_email"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="@dimen/_12sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:layout_marginEnd="@dimen/_12sdp"
+                    android:background="@{viewmodel.editEmail ? @drawable/border_form_login_gray : @drawable/fill_form_login_gray}"
+                    app:layout_constraintBottom_toBottomOf="@id/sp_email"
+                    app:layout_constraintEnd_toEndOf="@id/form_email"
+                    app:layout_constraintStart_toStartOf="@id/form_email"
+                    app:layout_constraintTop_toBottomOf="@id/label_email" />
+
+                <ImageView
+                    android:id="@+id/ic_email"
+                    android:layout_width="@dimen/_24sdp"
+                    android:layout_height="@dimen/_24sdp"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:src="@drawable/ic_email"
+                    app:layout_constraintStart_toStartOf="@id/v_email"
+                    app:layout_constraintTop_toTopOf="@id/v_email" />
+
+                <Space
+                    android:id="@+id/sp_email"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_8sdp"
+                    app:layout_constraintTop_toBottomOf="@id/ic_email" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/in_email_layout"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginEnd="@dimen/_8sdp"
+                    android:padding="0dp"
+                    app:boxStrokeColor="@android:color/white"
+                    app:hintEnabled="false"
+                    app:hintTextColor="@color/gray"
+                    app:layout_constraintBottom_toBottomOf="@id/ic_email"
+                    app:layout_constraintEnd_toEndOf="@id/v_email"
+                    app:layout_constraintStart_toEndOf="@id/ic_email"
+                    app:layout_constraintTop_toTopOf="@id/ic_email">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/in_email"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@android:color/transparent"
+                        android:enabled="@{viewmodel.editEmail}"
+                        android:hint="Masukkan Email"
+                        android:inputType="textEmailAddress"
+                        android:paddingStart="@dimen/_4sdp"
+                        android:paddingTop="@dimen/_2sdp"
+                        android:paddingEnd="@dimen/_4sdp"
+                        android:paddingBottom="@dimen/_2sdp"
+                        android:text="@={viewmodel.email}"
+                        android:textColor="@color/textBlack"
+                        android:textSize="@dimen/_13ssp"
+                        tools:ignore="HardcodedText" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_verify"
+                    style="@style/Widget.MaterialComponents.Button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:maxLines="1"
+                    android:paddingHorizontal="@dimen/_12sdp"
+                    android:paddingVertical="@dimen/_10sdp"
+                    android:paddingTop="@dimen/_8sdp"
+                    android:paddingBottom="@dimen/_8sdp"
+                    android:text="Kirim verifikasi"
+                    android:textAllCaps="false"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="@dimen/_13ssp"
+                    android:visibility="@{viewmodel.isEmailVerified || viewmodel.isVerifying ? view.GONE : view.VISIBLE}"
+                    app:backgroundTint="@color/white"
+                    app:cornerRadius="@dimen/_16sdp"
+                    app:layout_constraintEnd_toEndOf="@id/form_email"
+                    app:layout_constraintStart_toStartOf="@id/form_email"
+                    app:layout_constraintTop_toBottomOf="@id/sp_email"
+                    app:strokeColor="@color/colorPrimary"
+                    app:strokeWidth="@dimen/_1sdp"
+                    tools:ignore="HardcodedText"
+                    tools:visibility="visible" />
+
+                <TextView
+                    android:id="@+id/label_verifying"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:drawablePadding="@dimen/_4sdp"
+                    android:maxLines="1"
+                    android:paddingTop="@dimen/_8sdp"
+                    android:paddingBottom="@dimen/_8sdp"
+                    android:text="Menunggu verifikasi"
+                    android:textColor="@color/red"
+                    android:textSize="@dimen/_13ssp"
+                    android:visibility="@{viewmodel.isVerifying ? view.VISIBLE : view.GONE}"
+                    app:layout_constraintEnd_toEndOf="@id/form_email"
+                    app:layout_constraintStart_toStartOf="@id/form_email"
+                    app:layout_constraintTop_toBottomOf="@id/btn_verify"
+                    tools:ignore="HardcodedText"
+                    tools:visibility="visible" />
+
+                <TextView
+                    android:id="@+id/label_verified"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:drawablePadding="@dimen/_4sdp"
+                    android:maxLines="1"
+                    android:paddingTop="@dimen/_8sdp"
+                    android:paddingBottom="@dimen/_8sdp"
+                    android:text="Terverifikasi"
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/_13ssp"
+                    android:visibility="@{viewmodel.isEmailVerified ? view.VISIBLE : view.GONE}"
+                    app:drawableStartCompat="@drawable/ic_check_green"
+                    app:layout_constraintEnd_toEndOf="@id/form_email"
+                    app:layout_constraintStart_toStartOf="@id/form_email"
+                    app:layout_constraintTop_toBottomOf="@id/label_verifying"
+                    tools:ignore="HardcodedText"
+                    tools:text="Terverifikasi"
+                    tools:visibility="visible" />
+
+
+                <Space
+                    android:id="@+id/sp_form_email"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_16sdp"
+                    app:layout_constraintTop_toBottomOf="@id/label_verified" />
+
+                <View
+                    android:id="@+id/form_phone"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="@dimen/_16sdp"
+                    android:background="@drawable/border_login_form"
+                    app:layout_constraintBottom_toBottomOf="@id/sp_form_phone"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/sp_form_email" />
+
+
+                <TextView
+                    android:id="@+id/label_phone"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_12sdp"
+                    android:layout_marginTop="@dimen/_16sdp"
+                    android:layout_marginEnd="@dimen/_12sdp"
+                    android:text="NO TELEPON"
+                    android:textAllCaps="true"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="@dimen/_13ssp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="@id/form_phone"
+                    app:layout_constraintStart_toStartOf="@id/form_phone"
+                    app:layout_constraintTop_toTopOf="@id/form_phone"
+                    tools:ignore="HardcodedText" />
+
+                <View
+                    android:id="@+id/v_phone"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="@dimen/_12sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:layout_marginEnd="@dimen/_12sdp"
+                    android:background="@drawable/border_form_login_gray"
+                    app:layout_constraintBottom_toBottomOf="@id/sp_phone"
+                    app:layout_constraintEnd_toEndOf="@id/form_phone"
+                    app:layout_constraintStart_toStartOf="@id/form_phone"
+                    app:layout_constraintTop_toBottomOf="@id/label_phone" />
+
+                <ImageView
+                    android:id="@+id/ic_phone"
+                    android:layout_width="@dimen/_24sdp"
+                    android:layout_height="@dimen/_24sdp"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:src="@drawable/ic_phone"
+                    app:layout_constraintStart_toStartOf="@id/v_phone"
+                    app:layout_constraintTop_toTopOf="@id/v_phone" />
+
+                <Space
+                    android:id="@+id/sp_phone"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_8sdp"
+                    app:layout_constraintTop_toBottomOf="@id/ic_phone" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/in_phone_layout"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginEnd="@dimen/_8sdp"
+                    android:padding="0dp"
+                    app:boxStrokeColor="@android:color/white"
+                    app:hintEnabled="false"
+                    app:hintTextColor="@color/gray"
+                    app:layout_constraintBottom_toBottomOf="@id/ic_phone"
+                    app:layout_constraintEnd_toEndOf="@id/v_phone"
+                    app:layout_constraintStart_toEndOf="@id/ic_phone"
+                    app:layout_constraintTop_toTopOf="@id/ic_phone">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/in_phone"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@android:color/transparent"
+                        android:hint="Masukkan Nomor Telepon"
+                        android:inputType="phone"
+                        android:paddingStart="@dimen/_4sdp"
+                        android:paddingTop="@dimen/_2sdp"
+                        android:paddingEnd="@dimen/_4sdp"
+                        android:paddingBottom="@dimen/_2sdp"
+                        android:text="@={viewmodel.phone}"
+                        android:textColor="@color/textBlack"
+                        android:textSize="@dimen/_13ssp"
+                        tools:ignore="HardcodedText" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <Space
+                    android:id="@+id/sp_form_phone"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_16sdp"
+                    app:layout_constraintTop_toBottomOf="@id/sp_phone" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.core.widget.NestedScrollView>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

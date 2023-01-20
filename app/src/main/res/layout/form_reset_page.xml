@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewmodel"
+            type="id.onklas.app.pages.resetpass.ResetPassViewmodel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:ignore="HardcodedText">
+
+        <TextView
+            android:id="@+id/info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/label_primary"
+            android:padding="@dimen/_8sdp"
+            android:text="Kami akan mengirimkan link pemulihan ke email terdaftar"
+            android:textColor="@color/textBlack"
+            android:textSize="@dimen/_12ssp"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:id="@+id/form_bg"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/_24sdp"
+            android:background="@drawable/border_login_form"
+            app:layout_constraintBottom_toBottomOf="@id/sp_form"
+            app:layout_constraintTop_toBottomOf="@id/info" />
+
+        <TextView
+            android:id="@+id/form_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_14sdp"
+            android:gravity="center"
+            android:text="email pemulihan"
+            android:textAllCaps="true"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/_16ssp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@id/form_bg"
+            app:layout_constraintStart_toStartOf="@id/form_bg"
+            app:layout_constraintTop_toTopOf="@id/form_bg" />
+
+        <View
+            android:id="@+id/v_email"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="@dimen/_16sdp"
+            android:layout_marginTop="@dimen/_16sdp"
+            android:layout_marginEnd="@dimen/_16sdp"
+            android:background="@drawable/border_form_login_gray"
+            app:layout_constraintBottom_toBottomOf="@id/sp_email"
+            app:layout_constraintEnd_toEndOf="@id/form_bg"
+            app:layout_constraintStart_toStartOf="@id/form_bg"
+            app:layout_constraintTop_toBottomOf="@id/form_title" />
+
+        <ImageView
+            android:id="@+id/ic_email"
+            android:layout_width="@dimen/_24sdp"
+            android:layout_height="@dimen/_24sdp"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:src="@drawable/ic_email"
+            app:layout_constraintStart_toStartOf="@id/v_email"
+            app:layout_constraintTop_toTopOf="@id/v_email" />
+
+        <View
+            android:id="@+id/sp_email"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_8sdp"
+            app:layout_constraintTop_toBottomOf="@id/ic_email" />
+
+        <EditText
+            android:id="@+id/in_email"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:layout_marginEnd="@dimen/_8sdp"
+            android:background="@android:color/transparent"
+            android:hint="Ketikkan email"
+            android:inputType="textEmailAddress"
+            android:text="@={viewmodel.email}"
+            android:textColor="@color/textBlack"
+            android:textColorHint="@color/gray"
+            android:textSize="@dimen/_13ssp"
+            app:layout_constraintBottom_toBottomOf="@id/ic_email"
+            app:layout_constraintEnd_toEndOf="@id/v_email"
+            app:layout_constraintStart_toEndOf="@id/ic_email"
+            app:layout_constraintTop_toTopOf="@id/ic_email"
+            tools:ignore="HardcodedText" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_login"
+            style="@style/Widget.MaterialComponents.Button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_16sdp"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:layout_marginEnd="@dimen/_16sdp"
+            android:enabled="false"
+            android:paddingTop="@dimen/_8sdp"
+            android:paddingBottom="@dimen/_8sdp"
+            android:text="kirim sekarang"
+            android:textColor="@android:color/white"
+            app:backgroundTint="@color/form_button_color"
+            app:cornerRadius="@dimen/_24sdp"
+            app:layout_constraintEnd_toEndOf="@id/form_bg"
+            app:layout_constraintStart_toStartOf="@id/form_bg"
+            app:layout_constraintTop_toBottomOf="@id/v_email"
+            tools:ignore="HardcodedText" />
+
+        <Space
+            android:id="@+id/sp_form"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_8sdp"
+            app:layout_constraintTop_toBottomOf="@id/btn_login" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

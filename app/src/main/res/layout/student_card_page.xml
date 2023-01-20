@@ -1,0 +1,983 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="vm"
+            type="id.onklas.app.pages.studentcard.StudentCardVM" />
+
+        <variable
+            name="isEdit"
+            type="Boolean" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                style="@style/AppToolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:contentInsetEnd="0dp"
+                app:contentInsetStart="0dp"
+                app:contentInsetStartWithNavigation="0dp"
+                app:title="Kartu pelajar" />
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/nested_scroll"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true"
+            app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:animateLayoutChanges="true"
+                android:padding="@dimen/_16sdp">
+
+                <View
+                    android:id="@+id/form_petunjuk_pengisian"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:background="@drawable/border_login_form"
+                    android:visibility="@{isEdit ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toBottomOf="@id/space_petunjuk"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/lbl_petunjuk"
+                    style="@style/rubikDefault"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_12sdp"
+                    android:layout_marginTop="@dimen/_12sdp"
+                    android:text="Petunjuk pengisian"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/_12ssp"
+                    android:visibility="@{isEdit ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintEnd_toStartOf="@+id/lbl_baca"
+                    app:layout_constraintStart_toStartOf="@+id/form_petunjuk_pengisian"
+                    app:layout_constraintTop_toTopOf="@+id/form_petunjuk_pengisian"
+                    tools:ignore="HardcodedText" />
+
+                <TextView
+                    android:id="@+id/lbl_baca"
+                    style="@style/rubikDefault"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/_12sdp"
+                    android:text="Baca"
+                    android:textAlignment="textEnd"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="@dimen/_12ssp"
+                    android:visibility="@{isEdit ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintEnd_toEndOf="@id/form_petunjuk_pengisian"
+                    app:layout_constraintTop_toTopOf="@id/lbl_petunjuk"
+                    tools:ignore="HardcodedText" />
+
+                <Space
+                    android:id="@+id/space_petunjuk"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_12sdp"
+                    app:layout_constraintTop_toBottomOf="@id/lbl_petunjuk" />
+
+                <ImageView
+                    android:id="@+id/form_card"
+                    imageUrl="@{vm.theme.file}"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:scaleType="fitXY"
+                    app:layout_constraintBottom_toBottomOf="@id/space_card"
+                    app:layout_constraintTop_toBottomOf="@id/form_petunjuk_pengisian"
+                    tools:src="@drawable/img_bg_student_card" />
+
+                <!--                <ImageView-->
+                <!--                    android:id="@+id/bg_card"-->
+                <!--                    imageUrl="@{vm.theme.file}"-->
+                <!--                    android:layout_width="match_parent"-->
+                <!--                    android:layout_height="0dp"-->
+                <!--                    android:adjustViewBounds="true"-->
+                <!--                    app:layout_constraintDimensionRatio="1.6:1"-->
+                <!--                    app:layout_constraintEnd_toEndOf="@+id/form_card"-->
+                <!--                    app:layout_constraintHorizontal_bias="1.0"-->
+                <!--                    app:layout_constraintStart_toStartOf="@+id/form_card"-->
+                <!--                    app:layout_constraintTop_toTopOf="@id/form_card"-->
+                <!--                    tools:src="@drawable/img_bg_student_card" />-->
+
+                <Space
+                    android:id="@+id/space_card"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_4sdp"
+                    app:layout_constraintTop_toBottomOf="@id/img_ttd" />
+
+                <ImageView
+                    android:id="@+id/img_school"
+                    imageFitUrl="@{vm.school.image}"
+                    android:layout_width="@dimen/_38sdp"
+                    android:layout_height="@dimen/_38sdp"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    app:layout_constraintStart_toStartOf="@+id/form_card"
+                    app:layout_constraintTop_toTopOf="@+id/form_card"
+                    app:srcCompat="@drawable/ic_logo_sma" />
+
+                <TextView
+                    android:id="@+id/txt_school"
+                    style="@style/rubikBlackBold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_6sdp"
+                    android:text="@{vm.school.name}"
+                    android:textColor="@{vm.theme.titleColor}"
+                    android:textSize="@dimen/_12ssp"
+                    app:layout_constraintStart_toEndOf="@+id/img_school"
+                    app:layout_constraintTop_toTopOf="@+id/img_school"
+                    tools:text="Nama Sekolahan"
+                    tools:textColor="@color/blue1" />
+
+                <TextView
+                    android:id="@+id/tzt_address_school"
+                    style="@style/rubikDefault"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_2sdp"
+                    android:layout_marginEnd="@dimen/_8sdp"
+                    android:ellipsize="end"
+                    android:lines="2"
+                    android:text="@{vm.schoolAddress}"
+                    android:textColor="@{vm.theme.textColor}"
+                    android:textSize="@dimen/_9ssp"
+                    app:layout_constraintEnd_toEndOf="@+id/form_card"
+                    app:layout_constraintStart_toStartOf="@+id/txt_school"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_school"
+                    tools:text="Jln. Pembangunan Terus Menerus 90, Long Sangat, Kutai Selatan, 14045"
+                    tools:textColor="@android:color/black" />
+
+                <ImageView
+                    android:id="@+id/img_student"
+                    imageFitUrl="@{vm.student.user.user_avatar_image}"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="@dimen/_12sdp"
+                    android:adjustViewBounds="true"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/bg"
+                    app:layout_constraintDimensionRatio="3:4"
+                    app:layout_constraintStart_toStartOf="@+id/img_school"
+                    app:layout_constraintTop_toBottomOf="@+id/img_school"
+                    app:layout_constraintWidth_percent="0.2" />
+
+                <ImageView
+                    android:id="@+id/img_ttd"
+                    imageFitUrl="@{vm.template.sign_file}"
+                    android:layout_width="@dimen/_55sdp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/_8sdp"
+                    android:adjustViewBounds="true"
+                    app:layout_constraintEnd_toEndOf="@+id/form_card"
+                    app:layout_constraintTop_toBottomOf="@+id/divider_address"
+                    app:tint="@{vm.theme.textColor}"
+                    tools:srcCompat="@drawable/ic_ttd"
+                    tools:tint="@android:color/black" />
+
+                <TextView
+                    android:id="@+id/txt_nama_pelajar"
+                    style="@style/rubikBlackBold"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginEnd="@dimen/_8sdp"
+                    android:text="@{vm.student.name}"
+                    android:textColor="@{vm.theme.textColor}"
+                    android:textSize="@dimen/_10ssp"
+                    app:layout_constraintEnd_toEndOf="@id/form_card"
+                    app:layout_constraintStart_toEndOf="@+id/img_student"
+                    app:layout_constraintTop_toTopOf="@+id/img_student"
+                    tools:text="Nama Pelajar "
+                    tools:textColor="@android:color/black" />
+
+                <TextView
+                    android:id="@+id/textView41"
+                    style="@style/rubikDefault"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_6sdp"
+                    android:text="NIS"
+                    android:textColor="@{vm.theme.textColor}"
+                    android:textSize="@dimen/_9ssp"
+                    app:layout_constraintStart_toStartOf="@+id/txt_nama_pelajar"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_nama_pelajar"
+                    tools:ignore="HardcodedText"
+                    tools:textColor="@color/Black2" />
+
+                <TextView
+                    android:id="@+id/textView50"
+                    style="@style/rubikDefault"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_6sdp"
+                    android:text="TTL"
+                    android:textColor="@{vm.theme.textColor}"
+                    android:textSize="@dimen/_9ssp"
+                    app:layout_constraintStart_toStartOf="@+id/textView41"
+                    app:layout_constraintTop_toBottomOf="@+id/textView41"
+                    tools:ignore="HardcodedText"
+                    tools:textColor="@color/Black2" />
+
+                <TextView
+                    android:id="@+id/textView52"
+                    style="@style/rubikDefault"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_6sdp"
+                    android:text="Jenis Kelamin"
+                    android:textColor="@{vm.theme.textColor}"
+                    android:textSize="@dimen/_9ssp"
+                    app:layout_constraintStart_toStartOf="@+id/textView50"
+                    app:layout_constraintTop_toBottomOf="@+id/textView50"
+                    tools:ignore="HardcodedText"
+                    tools:textColor="@color/Black2" />
+
+                <TextView
+                    android:id="@+id/textView96"
+                    style="@style/rubikDefault"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_6sdp"
+                    android:text="Alamat"
+                    android:textColor="@{vm.theme.textColor}"
+                    android:textSize="@dimen/_9ssp"
+                    app:layout_constraintStart_toStartOf="@+id/textView52"
+                    app:layout_constraintTop_toBottomOf="@+id/textView52"
+                    tools:ignore="HardcodedText"
+                    tools:textColor="@color/Black2" />
+
+                <TextView
+                    android:id="@+id/divider_nis"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_1sdp"
+                    android:text=":"
+                    android:textColor="@{vm.theme.textColor}"
+                    android:textSize="@dimen/_9ssp"
+                    app:layout_constraintStart_toEndOf="@id/textView52"
+                    app:layout_constraintTop_toTopOf="@id/txt_nis"
+                    tools:ignore="HardcodedText"
+                    tools:textColor="@color/Black2" />
+
+                <TextView
+                    android:id="@+id/divider_ttl"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=":"
+                    android:textColor="@{vm.theme.textColor}"
+                    android:textSize="@dimen/_9ssp"
+                    app:layout_constraintStart_toStartOf="@id/divider_nis"
+                    app:layout_constraintTop_toTopOf="@id/txt_ttl"
+                    tools:ignore="HardcodedText"
+                    tools:textColor="@color/Black2" />
+
+                <TextView
+                    android:id="@+id/divider_gender"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=":"
+                    android:textColor="@{vm.theme.textColor}"
+                    android:textSize="@dimen/_9ssp"
+                    app:layout_constraintStart_toStartOf="@id/divider_nis"
+                    app:layout_constraintTop_toTopOf="@id/txt_gender"
+                    tools:ignore="HardcodedText"
+                    tools:textColor="@color/Black2" />
+
+                <TextView
+                    android:id="@+id/divider_address"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=":"
+                    android:textColor="@{vm.theme.textColor}"
+                    android:textSize="@dimen/_9ssp"
+                    app:layout_constraintStart_toStartOf="@id/divider_nis"
+                    app:layout_constraintTop_toTopOf="@id/txt_alamat"
+                    tools:ignore="HardcodedText"
+                    tools:textColor="@color/Black2" />
+
+                <TextView
+                    android:id="@+id/txt_nis"
+                    style="@style/rubikBlackBold"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_4sdp"
+                    android:layout_marginEnd="@dimen/_8sdp"
+                    android:text='@{vm.student.nis.empty ? vm.student.nisn : vm.student.nis}'
+                    android:textColor="@{vm.theme.textColor}"
+                    android:textSize="@dimen/_9ssp"
+                    app:layout_constraintEnd_toEndOf="@id/form_card"
+                    app:layout_constraintStart_toEndOf="@+id/divider_nis"
+                    app:layout_constraintTop_toTopOf="@+id/textView41"
+                    tools:text="100100100"
+                    tools:textColor="@color/Black2" />
+
+                <TextView
+                    android:id="@+id/txt_ttl"
+                    style="@style/rubikBlackBold"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text='@{vm.student.place_of_birth + ", " + vm.student.date_of_birth}'
+                    android:textColor="@{vm.theme.textColor}"
+                    android:textSize="@dimen/_9ssp"
+                    app:layout_constraintEnd_toEndOf="@id/txt_nis"
+                    app:layout_constraintStart_toStartOf="@+id/txt_nis"
+                    app:layout_constraintTop_toTopOf="@+id/textView50"
+                    tools:text="city,DD MM YYY"
+                    tools:textColor="@color/Black2" />
+
+                <TextView
+                    android:id="@+id/txt_gender"
+                    style="@style/rubikBlackBold"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text='@{vm.student.gender}'
+                    android:textColor="@{vm.theme.textColor}"
+                    android:textSize="@dimen/_9ssp"
+                    app:layout_constraintEnd_toEndOf="@+id/txt_nis"
+                    app:layout_constraintStart_toStartOf="@+id/txt_nis"
+                    app:layout_constraintTop_toTopOf="@+id/textView52"
+                    tools:text="LAKI-LAKI/ PEREMPUAN"
+                    tools:textColor="@color/Black2" />
+
+                <TextView
+                    android:id="@+id/txt_alamat"
+                    style="@style/rubikBlackBold"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:lines="2"
+                    android:text='@{vm.student.user.address}'
+                    android:textColor="@{vm.theme.textColor}"
+                    android:textSize="@dimen/_9ssp"
+                    app:layout_constraintEnd_toEndOf="@+id/txt_nis"
+                    app:layout_constraintStart_toStartOf="@+id/txt_nis"
+                    app:layout_constraintTop_toTopOf="@+id/textView96"
+                    tools:text="Jln Pendidikan nomor 99,14022"
+                    tools:textColor="@color/Black2" />
+
+                <TextView
+                    android:id="@+id/textView147"
+                    style="@style/latoBlackBold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_24sdp"
+                    android:text="Foto Pelajar"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="@dimen/_14ssp"
+                    android:visibility="@{isEdit ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/space_card"
+                    tools:ignore="HardcodedText" />
+
+                <ImageView
+                    android:id="@+id/img_student_add"
+                    imageFitUrl="@{vm.editImage}"
+                    android:layout_width="@dimen/_120sdp"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="@dimen/_16sdp"
+                    android:adjustViewBounds="true"
+                    android:background="@drawable/border_add_img_student_card"
+                    android:scaleType="fitXY"
+                    android:visibility="@{isEdit ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintDimensionRatio="3:4"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView147" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/action_add_img"
+                    style="@style/Widget.MaterialComponents.Button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_12sdp"
+                    android:drawableStart="@drawable/ic_upload_foto"
+                    android:gravity="center"
+                    android:minWidth="0dp"
+                    android:minHeight="0dp"
+                    android:paddingHorizontal="@dimen/_16sdp"
+                    android:paddingVertical="@dimen/_4sdp"
+                    android:text="upload foto"
+                    android:textAllCaps="false"
+                    android:textColor="#000000"
+                    android:textSize="@dimen/_10sdp"
+                    android:visibility="@{isEdit ? View.VISIBLE : View.GONE}"
+                    app:backgroundTint="@color/colorAccent"
+                    app:cornerRadius="@dimen/_24sdp"
+                    app:icon="@drawable/ic_upload_foto"
+                    app:iconPadding="@dimen/_8sdp"
+                    app:iconSize="@dimen/_24sdp"
+                    app:iconTint="@null"
+                    app:layout_constraintEnd_toEndOf="@+id/img_student_add"
+                    app:layout_constraintStart_toStartOf="@+id/img_student_add"
+                    app:layout_constraintTop_toBottomOf="@+id/img_student_add"
+                    tools:ignore="HardcodedText" />
+
+                <View
+                    android:id="@+id/form_data"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="@dimen/_16sdp"
+                    android:background="@drawable/border_login_form"
+                    android:visibility="@{isEdit ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toBottomOf="@id/sp_bottom"
+                    app:layout_constraintTop_toBottomOf="@+id/action_add_img"
+                    app:layout_constraintVertical_bias="1.0"
+                    tools:layout_editor_absoluteX="22dp" />
+
+                <TextView
+                    android:id="@+id/label_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_12sdp"
+                    android:layout_marginTop="@dimen/_16sdp"
+                    android:layout_marginEnd="@dimen/_12sdp"
+                    android:text="NAMA PELAJAR"
+                    android:textAllCaps="true"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="@dimen/_13ssp"
+                    android:textStyle="bold"
+                    android:visibility="@{isEdit ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintStart_toStartOf="@id/form_data"
+                    app:layout_constraintTop_toTopOf="@id/form_data"
+                    tools:ignore="HardcodedText" />
+
+                <TextView
+                    android:id="@+id/name_alert"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:adjustViewBounds="true"
+                    android:background="@drawable/oval_red"
+                    android:paddingHorizontal="@dimen/_4sdp"
+                    android:paddingVertical="@dimen/_2sdp"
+                    android:src="@drawable/ic_check_primary"
+                    android:text="Harus diisi"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_9ssp"
+                    android:textStyle="bold"
+                    android:visibility="@{isEdit ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toBottomOf="@id/label_name"
+                    app:layout_constraintStart_toEndOf="@id/label_name"
+                    app:layout_constraintTop_toTopOf="@id/label_name"
+                    tools:ignore="HardcodedText" />
+
+                <View
+                    android:id="@+id/v_name"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="@dimen/_12sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:layout_marginEnd="@dimen/_12sdp"
+                    android:background="@drawable/border_form_login_gray"
+                    android:visibility="@{isEdit ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toBottomOf="@id/sp_name"
+                    app:layout_constraintEnd_toEndOf="@id/form_data"
+                    app:layout_constraintStart_toStartOf="@id/form_data"
+                    app:layout_constraintTop_toBottomOf="@id/label_name" />
+
+                <ImageView
+                    android:id="@+id/ic_name"
+                    android:layout_width="@dimen/_24sdp"
+                    android:layout_height="@dimen/_24sdp"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:src="@drawable/ic_username"
+                    android:visibility="@{isEdit ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintStart_toStartOf="@id/v_name"
+                    app:layout_constraintTop_toTopOf="@id/v_name" />
+
+                <Space
+                    android:id="@+id/sp_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_8sdp"
+                    android:visibility="@{isEdit ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintTop_toBottomOf="@id/ic_name" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/in_name_layout"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginEnd="@dimen/_8sdp"
+                    android:padding="0dp"
+                    android:visibility="@{isEdit ? View.VISIBLE : View.GONE}"
+                    app:boxStrokeColor="@android:color/white"
+                    app:hintEnabled="false"
+                    app:hintTextColor="@color/gray"
+                    app:layout_constraintBottom_toBottomOf="@id/ic_name"
+                    app:layout_constraintEnd_toEndOf="@id/v_name"
+                    app:layout_constraintStart_toEndOf="@id/ic_name"
+                    app:layout_constraintTop_toTopOf="@id/ic_name">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/in_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@android:color/transparent"
+                        android:hint="Ketik Nama lengkap..."
+                        android:inputType="text"
+                        android:paddingStart="@dimen/_4sdp"
+                        android:paddingTop="@dimen/_2sdp"
+                        android:paddingEnd="@dimen/_4sdp"
+                        android:paddingBottom="@dimen/_2sdp"
+                        android:text="@={vm.editName}"
+                        android:textColor="@color/textBlack"
+                        android:textSize="@dimen/_13ssp"
+                        tools:ignore="HardcodedText" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <Space
+                    android:id="@+id/sp_form_nama"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_16sdp"
+                    android:visibility="@{isEdit ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintTop_toBottomOf="@id/sp_name" />
+
+                <TextView
+                    android:id="@+id/label_nis"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_12sdp"
+                    android:layout_marginTop="@dimen/_16sdp"
+                    android:layout_marginEnd="@dimen/_12sdp"
+                    android:text="NIS"
+                    android:textAllCaps="true"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="@dimen/_13ssp"
+                    android:textStyle="bold"
+                    android:visibility="@{isEdit ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintEnd_toEndOf="@id/sp_form_nama"
+                    app:layout_constraintStart_toStartOf="@id/sp_form_nama"
+                    app:layout_constraintTop_toTopOf="@id/sp_form_nama"
+                    tools:ignore="HardcodedText" />
+
+                <View
+                    android:id="@+id/v_nis"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="@dimen/_12sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:layout_marginEnd="@dimen/_12sdp"
+                    android:background="@drawable/border_form_login_gray"
+                    android:visibility="@{isEdit ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toBottomOf="@id/sp_nis"
+                    app:layout_constraintEnd_toEndOf="@id/form_data"
+                    app:layout_constraintStart_toStartOf="@id/form_data"
+                    app:layout_constraintTop_toBottomOf="@id/label_nis" />
+
+                <ImageView
+                    android:id="@+id/ic_nis"
+                    android:layout_width="@dimen/_24sdp"
+                    android:layout_height="@dimen/_24sdp"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:src="@drawable/ic_nis"
+                    android:visibility="@{isEdit ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintStart_toStartOf="@id/v_nis"
+                    app:layout_constraintTop_toTopOf="@id/v_nis" />
+
+                <Space
+                    android:id="@+id/sp_nis"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_8sdp"
+                    android:visibility="@{isEdit ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintTop_toBottomOf="@id/ic_nis" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/in_nis_layout"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginEnd="@dimen/_8sdp"
+                    android:padding="0dp"
+                    android:visibility="@{isEdit ? View.VISIBLE : View.GONE}"
+                    app:boxStrokeColor="@android:color/white"
+                    app:hintEnabled="false"
+                    app:hintTextColor="@color/gray"
+                    app:layout_constraintBottom_toBottomOf="@id/ic_nis"
+                    app:layout_constraintEnd_toEndOf="@id/v_nis"
+                    app:layout_constraintStart_toEndOf="@id/ic_nis"
+                    app:layout_constraintTop_toTopOf="@id/ic_nis">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/in_nis"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@android:color/transparent"
+                        android:enabled="false"
+                        android:hint="Ketik NIS..."
+                        android:inputType="numberDecimal"
+                        android:paddingStart="@dimen/_4sdp"
+                        android:paddingTop="@dimen/_2sdp"
+                        android:paddingEnd="@dimen/_4sdp"
+                        android:paddingBottom="@dimen/_2sdp"
+                        android:text="@={vm.editNis}"
+                        android:textColor="@color/textBlack"
+                        android:textSize="@dimen/_13ssp"
+                        tools:ignore="HardcodedText" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <Space
+                    android:id="@+id/sp_form_city"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_16sdp"
+                    android:visibility="@{isEdit ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintTop_toBottomOf="@id/sp_nis" />
+
+                <TextView
+                    android:id="@+id/label_city"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_12sdp"
+                    android:layout_marginTop="@dimen/_16sdp"
+                    android:layout_marginEnd="@dimen/_12sdp"
+                    android:text="Kota Kelahiran"
+                    android:textAllCaps="true"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="@dimen/_13ssp"
+                    android:textStyle="bold"
+                    android:visibility="@{isEdit ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintEnd_toEndOf="@id/sp_form_city"
+                    app:layout_constraintStart_toStartOf="@id/sp_form_city"
+                    app:layout_constraintTop_toTopOf="@id/sp_form_city"
+                    tools:ignore="HardcodedText" />
+
+                <View
+                    android:id="@+id/v_city"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="@dimen/_12sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:layout_marginEnd="@dimen/_12sdp"
+                    android:background="@drawable/border_form_login_gray"
+                    android:visibility="@{isEdit ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toBottomOf="@id/sp_city"
+                    app:layout_constraintEnd_toEndOf="@id/sp_form_city"
+                    app:layout_constraintStart_toStartOf="@id/sp_form_city"
+                    app:layout_constraintTop_toBottomOf="@id/label_city" />
+
+                <ImageView
+                    android:id="@+id/ic_city"
+                    android:layout_width="@dimen/_24sdp"
+                    android:layout_height="@dimen/_24sdp"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:src="@drawable/ic_kota_kelahiran"
+                    android:visibility="@{isEdit ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintStart_toStartOf="@id/v_city"
+                    app:layout_constraintTop_toTopOf="@id/v_city" />
+
+                <Space
+                    android:id="@+id/sp_city"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_8sdp"
+                    android:visibility="@{isEdit ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintTop_toBottomOf="@id/ic_city" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/in_city_layout"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginEnd="@dimen/_8sdp"
+                    android:padding="0dp"
+                    android:visibility="@{isEdit ? View.VISIBLE : View.GONE}"
+                    app:boxStrokeColor="@android:color/white"
+                    app:hintEnabled="false"
+                    app:hintTextColor="@color/gray"
+                    app:layout_constraintBottom_toBottomOf="@id/ic_city"
+                    app:layout_constraintEnd_toEndOf="@id/v_city"
+                    app:layout_constraintStart_toEndOf="@id/ic_city"
+                    app:layout_constraintTop_toTopOf="@id/ic_city">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/in_city"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@android:color/transparent"
+                        android:hint="Ketik kota kelahiran..."
+                        android:inputType="text"
+                        android:paddingStart="@dimen/_4sdp"
+                        android:paddingTop="@dimen/_2sdp"
+                        android:paddingEnd="@dimen/_4sdp"
+                        android:paddingBottom="@dimen/_2sdp"
+                        android:text="@={vm.editCity}"
+                        android:textColor="@color/textBlack"
+                        android:textSize="@dimen/_13ssp"
+                        tools:ignore="HardcodedText" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <Space
+                    android:id="@+id/sp_form_date"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_16sdp"
+                    android:visibility="@{isEdit ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintTop_toBottomOf="@id/sp_city" />
+
+                <TextView
+                    android:id="@+id/label_date"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_12sdp"
+                    android:layout_marginTop="@dimen/_16sdp"
+                    android:layout_marginEnd="@dimen/_12sdp"
+                    android:text="Tanggal kelahiran"
+                    android:textAllCaps="true"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="@dimen/_13ssp"
+                    android:textStyle="bold"
+                    android:visibility="@{isEdit ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintEnd_toEndOf="@id/sp_form_date"
+                    app:layout_constraintStart_toStartOf="@id/sp_form_date"
+                    app:layout_constraintTop_toTopOf="@id/sp_form_date"
+                    tools:ignore="HardcodedText" />
+
+                <View
+                    android:id="@+id/v_date"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="@dimen/_12sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:layout_marginEnd="@dimen/_12sdp"
+                    android:background="@drawable/border_form_login_gray"
+                    android:visibility="@{isEdit ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toBottomOf="@id/sp_date"
+                    app:layout_constraintEnd_toEndOf="@id/sp_form_date"
+                    app:layout_constraintStart_toStartOf="@id/sp_form_date"
+                    app:layout_constraintTop_toBottomOf="@id/label_date" />
+
+                <ImageView
+                    android:id="@+id/ic_date"
+                    android:layout_width="@dimen/_24sdp"
+                    android:layout_height="@dimen/_24sdp"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:src="@drawable/ic_tanggal_lahir"
+                    android:visibility="@{isEdit ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintStart_toStartOf="@id/v_date"
+                    app:layout_constraintTop_toTopOf="@id/v_date" />
+
+                <Space
+                    android:id="@+id/sp_date"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_8sdp"
+                    android:visibility="@{isEdit ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintTop_toBottomOf="@id/ic_date" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/in_date_layout"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginEnd="@dimen/_8sdp"
+                    android:padding="0dp"
+                    android:visibility="@{isEdit ? View.VISIBLE : View.GONE}"
+                    app:boxStrokeColor="@android:color/white"
+                    app:hintEnabled="false"
+                    app:hintTextColor="@color/gray"
+                    app:layout_constraintBottom_toBottomOf="@id/ic_date"
+                    app:layout_constraintEnd_toEndOf="@id/v_date"
+                    app:layout_constraintStart_toEndOf="@id/ic_date"
+                    app:layout_constraintTop_toTopOf="@id/ic_date">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/in_date"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@android:color/transparent"
+                        android:hint="DD-MM-YYYY"
+                        android:inputType="text"
+                        android:paddingStart="@dimen/_4sdp"
+                        android:paddingTop="@dimen/_2sdp"
+                        android:paddingEnd="@dimen/_4sdp"
+                        android:paddingBottom="@dimen/_2sdp"
+                        android:text="@={vm.editDate}"
+                        android:textColor="@color/textBlack"
+                        android:textSize="@dimen/_13ssp"
+                        tools:ignore="HardcodedText" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <Space
+                    android:id="@+id/sp_form_gender"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_16sdp"
+                    android:visibility="@{isEdit ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintTop_toBottomOf="@id/sp_date" />
+
+                <TextView
+                    android:id="@+id/label_gender"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_12sdp"
+                    android:layout_marginTop="@dimen/_16sdp"
+                    android:layout_marginEnd="@dimen/_12sdp"
+                    android:text="jenis Kelamin"
+                    android:textAllCaps="true"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="@dimen/_13ssp"
+                    android:textStyle="bold"
+                    android:visibility="@{isEdit ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintEnd_toEndOf="@id/sp_form_gender"
+                    app:layout_constraintStart_toStartOf="@id/sp_form_gender"
+                    app:layout_constraintTop_toTopOf="@id/sp_form_gender"
+                    tools:ignore="HardcodedText" />
+
+                <RadioGroup
+                    android:id="@+id/radiogroup_gender"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_12sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:layout_marginEnd="@dimen/_12sdp"
+                    android:orientation="horizontal"
+                    android:visibility="@{isEdit ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintTop_toBottomOf="@id/label_gender">
+
+                    <RadioButton
+                        android:id="@+id/radio_lk"
+                        style="@style/latoDefault"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:checked='@{vm.editGender.equalsIgnoreCase("laki-laki")}'
+                        android:text="Laki-Laki"
+                        android:textColor="@color/textBlack1"
+                        android:textSize="@dimen/_14sdp"
+                        tools:ignore="HardcodedText" />
+
+                    <RadioButton
+                        android:id="@+id/radio_pr"
+                        style="@style/latoDefault"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:checked='@{vm.editGender.equalsIgnoreCase("perempuan")}'
+                        android:text="Perempuan"
+                        android:textColor="@color/textBlack1"
+                        android:textSize="@dimen/_14sdp"
+                        tools:ignore="HardcodedText" />
+                </RadioGroup>
+
+                <Space
+                    android:id="@+id/sp_gender"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_8sdp"
+                    android:visibility="@{isEdit ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintTop_toBottomOf="@id/radiogroup_gender" />
+
+                <Space
+                    android:id="@+id/sp_form_address"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_16sdp"
+                    android:visibility="@{isEdit ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintTop_toBottomOf="@id/sp_gender" />
+
+                <TextView
+                    android:id="@+id/label_address"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_12sdp"
+                    android:layout_marginTop="@dimen/_16sdp"
+                    android:layout_marginEnd="@dimen/_12sdp"
+                    android:text="Alamat"
+                    android:textAllCaps="true"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="@dimen/_13ssp"
+                    android:textStyle="bold"
+                    android:visibility="@{isEdit ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintEnd_toEndOf="@id/sp_form_address"
+                    app:layout_constraintStart_toStartOf="@id/sp_form_address"
+                    app:layout_constraintTop_toTopOf="@id/sp_form_address"
+                    tools:ignore="HardcodedText" />
+
+                <View
+                    android:id="@+id/v_address"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="@dimen/_12sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:layout_marginEnd="@dimen/_12sdp"
+                    android:background="@drawable/border_form_login_gray"
+                    android:visibility="@{isEdit ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toBottomOf="@id/sp_address"
+                    app:layout_constraintEnd_toEndOf="@id/sp_form_address"
+                    app:layout_constraintStart_toStartOf="@id/sp_form_address"
+                    app:layout_constraintTop_toBottomOf="@id/label_address" />
+
+                <Space
+                    android:id="@+id/sp_address"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_8sdp"
+                    android:visibility="@{isEdit ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintTop_toBottomOf="@id/in_address_layout" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/in_address_layout"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_8sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:visibility="@{isEdit ? View.VISIBLE : View.GONE}"
+                    app:boxBackgroundColor="@android:color/transparent"
+                    app:boxStrokeColor="@android:color/transparent"
+                    app:boxStrokeWidth="0dp"
+                    app:counterEnabled="true"
+                    app:counterMaxLength="200"
+                    app:hintEnabled="false"
+                    app:layout_constraintBottom_toBottomOf="@id/v_address"
+                    app:layout_constraintEnd_toEndOf="@id/v_address"
+                    app:layout_constraintStart_toStartOf="@id/v_address"
+                    app:layout_constraintTop_toTopOf="@id/v_address">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/in_address"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Ketik domisili / tempat tinggal..."
+                        android:maxLength="200"
+                        android:paddingStart="0dp"
+                        android:paddingTop="@dimen/_4sdp"
+                        android:paddingEnd="0dp"
+                        android:paddingBottom="@dimen/_4sdp"
+                        android:text="@={vm.editAddress}"
+                        android:textColor="@color/textBlack"
+                        android:textSize="@dimen/_12ssp"
+                        tools:ignore="HardcodedText" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <Space
+                    android:id="@+id/sp_bottom"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_8sdp"
+                    android:layout_marginTop="@dimen/_12sdp"
+                    android:visibility="@{isEdit ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintTop_toBottomOf="@id/sp_address" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.core.widget.NestedScrollView>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

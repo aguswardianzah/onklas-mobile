@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/store_page_nav"
+    app:startDestination="@id/productPage">
+
+    <fragment
+        android:id="@+id/productPage"
+        android:name="id.onklas.app.pages.sekolah.store.StoreProductPage"
+        android:label="ProductPage"
+        tools:layout="@layout/store_product_page" />
+
+    <fragment
+        android:id="@+id/servicePage"
+        android:name="id.onklas.app.pages.sekolah.store.StoreServicePage"
+        android:label="ServicePage"
+        tools:layout="@layout/store_service_page" />
+
+    <fragment
+        android:id="@+id/searchResultPage"
+        android:name="id.onklas.app.pages.sekolah.store.StoreSearchResult"
+        android:label="StoreSearchResult"
+        tools:layout="@layout/store_search_result" />
+
+    <action
+        android:id="@+id/action_global_storeProductPage"
+        app:destination="@id/productPage" />
+
+    <action
+        android:id="@+id/action_global_storeServicePage"
+        app:destination="@id/servicePage" />
+
+    <action
+        android:id="@+id/action_global_storeSearchResult"
+        app:destination="@id/searchResultPage" />
+</navigation>

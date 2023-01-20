@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/post_item_bg">
+
+    <include
+        android:id="@+id/post_header"
+        layout="@layout/post_part_header" />
+
+    <TextView
+        android:id="@+id/content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/post_header"
+        android:layout_margin="@dimen/_8sdp"
+        android:maxLines="4"
+        android:textColor="@color/textBlack"
+        android:textSize="@dimen/_13ssp"
+        tools:text="Syukur puji Tuhan, hari ini kami dari SMA Katolik Stella Maris Surabaya berhasil menjuarai olimpiade Matematika di Singapura!" />
+
+    <include
+        android:id="@+id/post_footer"
+        layout="@layout/post_part_footer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/content" />
+</RelativeLayout>

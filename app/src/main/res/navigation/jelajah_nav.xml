@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/jelajah_nav"
+    app:startDestination="@id/jelajahPopularPage">
+
+    <fragment
+        android:id="@+id/jelajahPopularPage"
+        android:name="id.onklas.app.pages.jelajah.JelajahPopularPage"
+        android:label="JelajahPopularPage" />
+    <action android:id="@+id/action_global_jelajahPopularPage" app:destination="@id/jelajahPopularPage" />
+    <fragment
+        android:id="@+id/jelajahUserPage"
+        android:name="id.onklas.app.pages.jelajah.JelajahUserPage"
+        android:label="JelajahUserPage" />
+    <action android:id="@+id/action_global_jelajahUserPage" app:destination="@id/jelajahUserPage" />
+    <fragment
+        android:id="@+id/jelajahHashtagPage"
+        android:name="id.onklas.app.pages.jelajah.JelajahHashtagPage"
+        android:label="JelajahHashtagPage" /><action android:id="@+id/action_global_jelajahHashtagPage" app:destination="@id/jelajahHashtagPage"/>
+</navigation>

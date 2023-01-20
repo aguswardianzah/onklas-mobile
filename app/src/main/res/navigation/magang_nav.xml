@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/magang_nav"
+    app:startDestination="@id/magangSchedulePage">
+
+    <fragment
+        android:id="@+id/magangSchedulePage"
+        android:name="id.onklas.app.pages.magang.MagangSchedulePage"
+        android:label="MagangSchedulePage"
+        tools:layout="@layout/magang_schedule_page" />
+    <action
+        android:id="@+id/action_global_magangSchedulePage"
+        app:destination="@id/magangSchedulePage" />
+
+    <fragment
+        android:id="@+id/magangReportPage"
+        android:name="id.onklas.app.pages.magang.MagangReportPage"
+        android:label="MagangReportPage"
+        tools:layout="@layout/magang_report_page" />
+    <action
+        android:id="@+id/action_global_magangReportPage"
+        app:destination="@id/magangReportPage" />
+</navigation>

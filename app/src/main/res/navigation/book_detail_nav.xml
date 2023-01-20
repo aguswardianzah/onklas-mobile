@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/book_detail_nav"
+    app:startDestination="@id/bookDescPage">
+
+    <fragment
+        android:id="@+id/bookDescPage"
+        android:name="id.onklas.app.pages.perpus.BookDescPage"
+        android:label="BookDescPage"
+        tools:layout="@layout/book_desc_page" />
+    <fragment
+        android:id="@+id/bookInfoPage"
+        android:name="id.onklas.app.pages.perpus.BookInfoPage"
+        android:label="BookInfoPage"
+        tools:layout="@layout/book_info_page" />
+    <action
+        android:id="@+id/action_global_bookDescPage"
+        app:destination="@id/bookDescPage" />
+    <action
+        android:id="@+id/action_global_bookInfoPage"
+        app:destination="@id/bookInfoPage" />
+</navigation>

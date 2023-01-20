@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/income_nav"
+    app:startDestination="@id/incomeProduct">
+
+
+    <fragment
+        android:id="@+id/incomeProduct"
+        android:name="id.onklas.app.pages.entrepreneurs.myMerchant.income.IncomeProductPage"
+        android:label="incomeProduct"
+        />
+    <fragment
+        android:id="@+id/incomeService"
+        android:name="id.onklas.app.pages.entrepreneurs.myMerchant.income.IncomeServicePage"
+        android:label="incomeService" />
+
+    <action
+        android:id="@+id/action_global_income_product"
+        app:destination="@id/incomeProduct" />
+    <action
+        android:id="@+id/action_global_income_service"
+        app:destination="@id/incomeService" />
+
+</navigation>

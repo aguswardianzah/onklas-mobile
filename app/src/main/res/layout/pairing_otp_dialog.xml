@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/border_login_form"
+        android:padding="@dimen/_16sdp">
+
+        <TextView
+            android:id="@+id/otp_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hubungkan dengan Orang Tua"
+            android:textAllCaps="true"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/_13ssp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="HardcodedText" />
+
+        <TextView
+            android:id="@+id/otp_subtitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Masukkan 5 digit kode unik yang kami kirim melalui aplikasi Orang Tua"
+            style="@style/latoDefault"
+            android:textSize="@dimen/_11ssp"
+            app:layout_constraintTop_toBottomOf="@id/otp_title"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:layout_marginHorizontal="@dimen/_16sdp"
+            android:textColor="@color/Black3"
+            android:textAlignment="center"
+            />
+
+        <com.poovam.pinedittextfield.LinePinField
+            android:id="@+id/pin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:layout_marginTop="@dimen/_12sdp"
+            android:background="@android:color/transparent"
+            android:inputType="text"
+            app:cornerRadius="@dimen/_14sdp"
+            android:textSelectHandle="@drawable/text_handle"
+            android:textSize="@dimen/_14sdp"
+            app:bottomTextPaddingDp="15dp"
+            app:distanceInBetween="@dimen/_16sdp"
+            app:highlightColor="@color/gray"
+            app:highlightType="allFields"
+            app:isCursorEnabled="true"
+            app:isCustomBackground="true"
+            app:layout_constraintTop_toBottomOf="@+id/otp_subtitle"
+            app:lineThickness="@dimen/_1sdp"
+            app:noOfFields="6" />
+
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_close"
+            style="@style/Widget.MaterialComponents.Button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_16sdp"
+            android:paddingTop="@dimen/_8sdp"
+            android:paddingBottom="@dimen/_8sdp"
+            android:text="Tutup"
+            android:textColor="@android:color/white"
+            app:backgroundTint="@color/form_button_color"
+            app:cornerRadius="@dimen/_24sdp"
+            app:layout_constraintTop_toBottomOf="@id/pin"
+            tools:ignore="HardcodedText" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

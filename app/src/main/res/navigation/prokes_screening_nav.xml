@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/prokes_screening_nav"
+    app:startDestination="@id/Screeningform1"
+    >
+    <fragment
+        android:id="@+id/Screeningform1"
+        android:name="id.onklas.app.pages.prokes.prokesteacher.ScreeningForm1"
+        tools:layout="@layout/screening_form1"
+        />
+    <action
+        android:id="@+id/action_global_screening_1"
+        app:destination="@id/Screeningform1" />
+
+    <fragment
+        android:id="@+id/Screeningform2"
+        android:name="id.onklas.app.pages.prokes.prokesteacher.ScreeningForm2"
+        tools:layout="@layout/screening_form2"
+        />
+
+    <action
+        android:id="@+id/action_global_screening_2"
+        app:destination="@id/Screeningform2" />
+
+
+
+</navigation>

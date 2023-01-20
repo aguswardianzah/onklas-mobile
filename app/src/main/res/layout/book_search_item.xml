@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="item"
+            type="id.onklas.app.pages.perpus.BookTable" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        android:paddingStart="@dimen/_16sdp"
+        android:paddingTop="@dimen/_8sdp"
+        android:paddingEnd="@dimen/_16sdp">
+
+        <ImageView
+            android:id="@+id/image"
+            android:layout_width="@dimen/_64sdp"
+            android:layout_height="@dimen/_100sdp"
+            android:layout_marginEnd="@dimen/_8sdp"
+            android:background="@drawable/border_reply"
+            android:scaleType="fitXY" />
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:layout_toEndOf="@id/image"
+            android:text="@{item.title}"
+            android:textColor="@color/textBlack"
+            android:textSize="@dimen/_12ssp"
+            android:textStyle="bold"
+            tools:text="Book Title goes here" />
+
+        <TextView
+            android:id="@+id/author"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/title"
+            android:layout_marginTop="@dimen/_4sdp"
+            android:layout_toEndOf="@id/image"
+            android:ellipsize="end"
+            android:lines="1"
+            android:text="@{item.author}"
+            android:textColor="@color/textBlack"
+            android:textSize="@dimen/_12ssp"
+            tools:text="Author goes here" />
+
+        <View
+            android:id="@+id/divider"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_1sdp"
+            android:layout_below="@id/image"
+            android:layout_marginTop="@dimen/_4sdp"
+            android:layout_marginBottom="@dimen/_4sdp"
+            android:layout_toEndOf="@id/image"
+            android:background="@color/gray" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/divider"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:layout_marginEnd="@dimen/_8sdp"
+            android:layout_toStartOf="@id/action"
+            android:layout_toEndOf="@id/image"
+            android:ellipsize="end"
+            android:lines="1"
+            android:text='@{item.subject + (item.subject.empty ? "" : ", ") + item.category}'
+            android:textColor="@color/textBlack"
+            android:textSize="@dimen/_12ssp"
+            tools:text="Author goes here" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/action"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/divider"
+            android:layout_alignParentEnd="true"
+            android:minHeight="0dp"
+            android:padding="@dimen/_4sdp"
+            android:text="Selengkapnya"
+            android:textAllCaps="false"
+            android:textColor="@color/colorPrimary"
+            tools:ignore="HardcodedText" />
+    </RelativeLayout>
+</layout>

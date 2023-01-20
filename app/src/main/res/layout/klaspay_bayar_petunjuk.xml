@@ -1,0 +1,366 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".pages.ppob.bayar.KlaspayBayarPetunjuk">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="id.onklas.app.pages.ppob.bayar.KlaspayBayarViewModel" />
+
+        <variable
+            name="totalAmount"
+            type="String" />
+
+        <variable
+            name="data"
+            type="id.onklas.app.pages.ppob.bayar.KlaspayBayarData" />
+
+        <variable
+            name="petunjuk"
+            type="String" />
+
+        <variable
+            name="showGuidance"
+            type="Boolean" />
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/label_top"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_16sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:text="Batas waktu pembayaran:"
+                android:textColor="@color/textBlack"
+                android:textSize="@dimen/_11ssp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="HardcodedText" />
+
+            <View
+                android:id="@+id/divider_date_top"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_1sdp"
+                android:background="#FFA0A0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/border_date" />
+
+            <View
+                android:id="@+id/border_date"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:background="#FFF0BB"
+                app:layout_constraintBottom_toBottomOf="@+id/divider_date_bottom"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/label_top" />
+
+            <TextView
+                android:id="@+id/text_date"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_40sdp"
+                android:gravity="end"
+                android:text="@{viewModel.dateFormat(data.expired_date)}"
+                android:textColor="@color/textBlack"
+                android:textSize="@dimen/_13ssp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/border_date"
+                app:layout_constraintEnd_toStartOf="@+id/text_time"
+                app:layout_constraintStart_toStartOf="@+id/border_date"
+                app:layout_constraintTop_toTopOf="@+id/border_date"
+                tools:text="Sabtu, 12 Des 2020," />
+
+            <TextView
+                android:id="@+id/text_time"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_4sdp"
+                android:text="@{viewModel.timeFormat(data.expired_date)}"
+                android:textColor="@color/red"
+                android:textSize="@dimen/_13ssp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/border_date"
+                app:layout_constraintEnd_toEndOf="@+id/border_date"
+                app:layout_constraintStart_toEndOf="@+id/text_date"
+                app:layout_constraintTop_toTopOf="@+id/border_date"
+                tools:text="20:11:43" />
+
+            <View
+                android:id="@+id/divider_date_bottom"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_1sdp"
+                android:background="#FFA0A0"
+                app:layout_constraintBottom_toBottomOf="@+id/border_date"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <View
+                android:id="@+id/divider_date"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_4sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:background="@color/ltgray"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/border_date" />
+
+            <TextView
+                android:id="@+id/text_product"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_16sdp"
+                android:text="@{data.payment_method}"
+                android:textColor="@color/textBlack"
+                android:textSize="@dimen/_13ssp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/image_product"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/image_product"
+                tools:text="BRI VIRTUAL ACCOUNT" />
+
+            <ImageView
+                android:id="@+id/image_product"
+                android:layout_width="@dimen/_40sdp"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:layout_marginEnd="@dimen/_16sdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/divider_date"
+                tools:src="@drawable/img_bri" />
+
+            <View
+                android:id="@+id/divider_product"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_1sdp"
+                android:layout_marginStart="@dimen/_16sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:layout_marginEnd="@dimen/_16sdp"
+                android:background="@color/ltgray"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/image_product" />
+
+            <TextView
+                android:id="@+id/label_number"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_16sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:text="@{viewModel.labelPayment}"
+                android:textColor="@color/textBlack"
+                android:textSize="@dimen/_11ssp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/divider_product"
+                tools:ignore="HardcodedText"
+                tools:text="Nomor Virtual Account:" />
+
+            <TextView
+                android:id="@+id/text_number"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_16sdp"
+                android:layout_marginTop="@dimen/_4sdp"
+                android:text="@{data.payment_code}"
+                android:textColor="@color/textBlack"
+                android:textSize="@dimen/_13ssp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/label_number"
+                tools:text="081777882918277777" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/button_number_copy"
+                style="@style/Widget.MaterialComponents.Button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_16sdp"
+                android:shadowColor="@android:color/transparent"
+                android:text="SALIN"
+                android:textColor="@color/colorPrimary"
+                app:backgroundTint="@color/white"
+                app:cornerRadius="@dimen/_8sdp"
+                app:layout_constraintBottom_toTopOf="@id/divider_number"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/divider_product"
+                app:strokeColor="@color/colorPrimary"
+                app:strokeWidth="@dimen/_2sdp"
+                tools:ignore="HardcodedText" />
+
+            <View
+                android:id="@+id/divider_number"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_1sdp"
+                android:layout_marginStart="@dimen/_16sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:layout_marginEnd="@dimen/_16sdp"
+                android:background="@color/ltgray"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/text_number" />
+
+            <TextView
+                android:id="@+id/label_total"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_16sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:text="Total Pembayaran:"
+                android:textColor="@color/textBlack"
+                android:textSize="@dimen/_11ssp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/divider_number"
+                tools:ignore="HardcodedText" />
+
+            <TextView
+                android:id="@+id/text_total"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_16sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:text="@{viewModel.numberUtil.formatCurrency(data.total_amount)}"
+                android:textColor="@color/textBlack"
+                android:textSize="@dimen/_13ssp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/label_total"
+                tools:text="Rp 33.000" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/button_total_copy"
+                style="@style/Widget.MaterialComponents.Button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_16sdp"
+                android:shadowColor="@android:color/transparent"
+                android:text="SALIN"
+                android:textColor="@color/colorPrimary"
+                app:backgroundTint="@color/white"
+                app:cornerRadius="@dimen/_8sdp"
+                app:layout_constraintBottom_toTopOf="@id/divider_total"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/divider_number"
+                app:strokeColor="@color/colorPrimary"
+                app:strokeWidth="@dimen/_2sdp"
+                tools:ignore="HardcodedText" />
+
+            <View
+                android:id="@+id/divider_total"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_1sdp"
+                android:layout_marginStart="@dimen/_16sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:layout_marginEnd="@dimen/_16sdp"
+                android:background="@color/ltgray"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/text_total" />
+
+            <TextView
+                android:id="@+id/text_detail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_16sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:text="Detail Pembayaran"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/_11ssp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/divider_total" />
+
+            <View
+                android:id="@+id/divider_detail"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_4sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:background="@color/ltgray"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/text_detail" />
+
+            <TextView
+                android:id="@+id/label_petunjuk"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/_16sdp"
+                android:text="Petunjuk Pembayaran"
+                android:textColor="@color/textBlack"
+                android:textSize="@dimen/_13ssp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/divider_detail"
+                tools:ignore="HardcodedText" />
+
+            <ImageView
+                android:id="@+id/img_switch"
+                android:layout_width="@dimen/_32sdp"
+                android:layout_height="@dimen/_32sdp"
+                android:layout_marginEnd="@dimen/_16sdp"
+                android:src="@drawable/ic_carret_down"
+                app:layout_constraintBottom_toBottomOf="@+id/label_petunjuk"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/label_petunjuk" />
+
+            <View
+                android:id="@+id/divider_pentunjuk"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_1sdp"
+                android:layout_marginStart="@dimen/_16sdp"
+                android:layout_marginEnd="@dimen/_16sdp"
+                android:background="@color/ltgray"
+                android:visibility="gone"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/label_petunjuk" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/list_petunjuk"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:nestedScrollingEnabled="false"
+                android:paddingTop="@dimen/_8sdp"
+                android:paddingBottom="@dimen/_8sdp"
+                android:visibility="gone"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/divider_pentunjuk"
+                tools:listitem="@layout/klaspay_topup_finish_item"
+                tools:visibility="visible" />
+
+            <View
+                android:id="@+id/divider_list"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_4sdp"
+                android:background="@color/ltgray"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/list_petunjuk" />
+
+            <TextView
+                android:id="@+id/text_petunjuk"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_16sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:layout_marginEnd="@dimen/_16sdp"
+                android:layout_marginBottom="@dimen/_16sdp"
+                android:text="@{petunjuk}"
+                android:textColor="@color/textBlack"
+                android:textSize="@dimen/_10ssp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/divider_list"
+                tools:ignore="HardcodedText" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</layout>

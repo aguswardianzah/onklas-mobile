@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="id.onklas.app.pages.chat.ChatType" />
+
+        <import type="id.onklas.app.pages.chat.ChatStatus" />
+
+        <import type="android.view.View" />
+
+        <variable
+            name="stringUtil"
+            type="id.onklas.app.utils.StringUtil" />
+
+        <variable
+            name="conversation"
+            type="id.onklas.app.pages.chat.ConversationItem" />
+
+        <variable
+            name="chat"
+            type="id.onklas.app.pages.chat.ChatItem" />
+
+        <variable
+            name="unread"
+            type="Integer" />
+
+        <variable
+            name="status"
+            type="Integer" />
+
+        <variable
+            name="myId"
+            type="String" />
+
+        <variable
+            name="message"
+            type="String" />
+
+        <variable
+            name="date"
+            type="java.util.Date" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        android:paddingHorizontal="@dimen/_8sdp"
+        android:paddingVertical="@dimen/_6sdp">
+
+        <ImageView
+            android:id="@+id/image"
+            imageCircleUrl="@{conversation.img_profile}"
+            android:layout_width="@dimen/_36sdp"
+            android:layout_height="@dimen/_36sdp"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="@dimen/_6sdp"
+            android:src="@mipmap/ic_launcher_circle" />
+
+        <TextView
+            android:id="@+id/date_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:text="@{stringUtil.conversationDateFormat(date)}"
+            android:textColor="@{unread > 0 ? @android:color/black : @color/textBlack}"
+            android:textSize="@dimen/_10ssp"
+            tools:text="1 Apr 2021"
+            tools:textColor="@color/textBlack" />
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@{chat == null || chat.type != ChatType.CHAT_TYPE_MESSAGE ? @dimen/_4sdp : 0f}"
+            android:layout_toStartOf="@id/date_label"
+            android:layout_toEndOf="@id/image"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:text="@{conversation.name}"
+            android:textColor="@{unread > 0 ? @android:color/black : @color/textBlack}"
+            android:textSize="@dimen/_13ssp"
+            android:textStyle="bold"
+            tools:text="Nama user"
+            tools:textColor="@color/textBlack" />
+
+        <ImageView
+            android:id="@+id/ic_status"
+            android:layout_width="@dimen/_10sdp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/name"
+            android:layout_marginTop="@dimen/_6sdp"
+            android:layout_marginEnd="@dimen/_4sdp"
+            android:layout_toEndOf="@id/image"
+            android:adjustViewBounds="true"
+            android:paddingTop="@dimen/_2sdp"
+            android:scaleType="fitStart"
+            android:src="@{status == ChatStatus.CHAT_STATUS_NEW ? @drawable/ic_chat_pending : (status == ChatStatus.CHAT_STATUS_SENT ? @drawable/ic_chat_tick : @drawable/ic_chat_double_tick)}"
+            android:visibility="@{chat != null &amp;&amp; chat.from.equals(myId) ? View.VISIBLE : View.GONE}"
+            app:tint="@{status == ChatStatus.CHAT_STATUS_READ ? @color/colorPrimary : @android:color/black}"
+            tools:src="@drawable/ic_chat_pending" />
+
+        <TextView
+            android:id="@+id/tv_message"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/name"
+            android:layout_marginTop="@dimen/_4sdp"
+            android:layout_toStartOf="@id/num_unread"
+            android:layout_toEndOf="@id/ic_status"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:text="@{message}"
+            android:textColor="@{unread > 0 ? @android:color/black : @color/textBlack}"
+            android:textSize="@dimen/_12ssp"
+            android:visibility="@{chat == null || chat.type != ChatType.CHAT_TYPE_MESSAGE ? View.GONE : View.VISIBLE}"
+            app:textStyle='@{unread > 0 ? "bold" : ""}'
+            tools:text="@string/lipsum"
+            tools:textColor="@color/textBlack" />
+
+        <TextView
+            android:id="@+id/num_unread"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/name"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="@dimen/_4sdp"
+            android:background="@drawable/oval_primary"
+            android:paddingHorizontal="@dimen/_4sdp"
+            android:paddingVertical="@dimen/_2sdp"
+            android:text='@{unread > 99 ? "99+" : "" + unread}'
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/_10ssp"
+            android:textStyle="bold"
+            android:visibility="@{unread > 0 ? View.VISIBLE : View.GONE}"
+            tools:text="99+" />
+    </RelativeLayout>
+</layout>

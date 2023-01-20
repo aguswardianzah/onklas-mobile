@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewmodel"
+            type="id.onklas.app.pages.ppob.pulsa.PulsaViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/main_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:animateLayoutChanges="true"
+        android:visibility="@{viewmodel.listProduct.empty ? View.GONE : View.VISIBLE}">
+
+        <!--        <androidx.recyclerview.widget.RecyclerView-->
+        <!--            android:id="@+id/rv_type"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:nestedScrollingEnabled="false"-->
+        <!--            android:orientation="vertical"-->
+        <!--            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"-->
+        <!--            app:layout_constraintEnd_toEndOf="parent"-->
+        <!--            app:layout_constraintStart_toStartOf="parent"-->
+        <!--            app:layout_constraintTop_toTopOf="parent"-->
+        <!--            app:spanCount="3"-->
+        <!--            tools:itemCount="3"-->
+        <!--            tools:listitem="@layout/pulsa_type_item" />-->
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_pulsa"
+            style="@style/Widget.MaterialComponents.Button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:maxLines="1"
+            android:minHeight="0dp"
+            android:paddingVertical="@dimen/_6sdp"
+            android:text="Pulsa"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_11ssp"
+            android:textStyle="bold"
+            app:backgroundTint="@color/colorPrimary"
+            app:cornerRadius="@dimen/_16sdp"
+            app:layout_constraintEnd_toStartOf="@+id/button_data"
+            app:layout_constraintHorizontal_chainStyle="spread_inside"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_percent="0.3"
+            tools:ignore="HardcodedText" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_data"
+            style="@style/Widget.MaterialComponents.Button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:maxLines="1"
+            android:minHeight="0dp"
+            android:paddingVertical="@dimen/_6sdp"
+            android:text="Data"
+            android:textAllCaps="false"
+            android:textColor="@color/gray"
+            android:textSize="@dimen/_11ssp"
+            android:textStyle="bold"
+            app:backgroundTint="@color/white"
+            app:cornerRadius="@dimen/_16sdp"
+            app:layout_constraintEnd_toStartOf="@+id/button_pulsa"
+            app:layout_constraintStart_toEndOf="@+id/button_paket"
+            app:layout_constraintTop_toTopOf="@id/button_pulsa"
+            app:layout_constraintWidth_percent="0.3"
+            app:strokeColor="@color/gray"
+            tools:ignore="HardcodedText" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_paket"
+            style="@style/Widget.MaterialComponents.Button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:maxLines="1"
+            android:minHeight="0dp"
+            android:paddingVertical="@dimen/_6sdp"
+            android:text="Paket"
+            android:textAllCaps="false"
+            android:textColor="@color/gray"
+            android:textSize="@dimen/_11ssp"
+            android:textStyle="bold"
+            app:backgroundTint="@color/white"
+            app:cornerRadius="@dimen/_16sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/button_data"
+            app:layout_constraintTop_toTopOf="@id/button_pulsa"
+            app:layout_constraintWidth_percent="0.3"
+            app:strokeColor="@color/gray"
+            tools:ignore="HardcodedText" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_pulsa"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@color/ltgray"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/button_pulsa"
+            app:spanCount="2"
+            tools:listitem="@layout/pulsa_regular_item" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

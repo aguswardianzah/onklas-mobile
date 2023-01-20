@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <import type="id.onklas.app.pages.sekolah.store.ProductPublishStatus" />
+
+        <variable
+            name="stringUtil"
+            type="id.onklas.app.utils.StringUtil" />
+
+        <variable
+            name="item"
+            type="id.onklas.app.pages.sekolah.store.ProductTable" />
+    </data>
+
+
+    <RelativeLayout
+        android:id="@+id/main_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/product_img"
+            imageCenterCropUrl="@{item.image}"
+            android:layout_width="@dimen/_65sdp"
+            android:layout_height="@dimen/_48sdp"
+            android:layout_marginEnd="@dimen/_8sdp"
+            android:adjustViewBounds="true"
+            android:background="@drawable/border_white_radius6"
+            tools:srcCompat="@tools:sample/backgrounds/scenic" />
+
+        <TextView
+            android:id="@+id/txt_status"
+            android:layout_width="@dimen/_65sdp"
+            android:layout_height="@dimen/_48sdp"
+            android:gravity="center"
+            android:text='@{item.publish_status.equals(ProductPublishStatus.ACCEPTED) ? "Ditayangkan" : item.publish_status.equals(ProductPublishStatus.REJECTED) ? "Ditolak" : item.publish_status.equals(ProductPublishStatus.CHECKED) ? "Menunggu Verifikasi" : "Nonaktif"}'
+            android:textAllCaps="true"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/_10sdp"
+            android:background="#90000000"
+            android:visibility="@{item.publish_status.equals(ProductPublishStatus.REJECTED) ? View.VISIBLE : View.GONE}"
+            tools:text="DITOLAK" />
+
+        <TextView
+            android:id="@+id/txt_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_8sdp"
+            android:layout_marginBottom="@dimen/_8sdp"
+            android:layout_toStartOf="@id/txt_edit"
+            android:layout_toEndOf="@id/product_img"
+            android:ellipsize="end"
+            android:lines="2"
+            android:text="@{item.name}"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/_12sdp"
+            android:textStyle="bold"
+            tools:text="Jaket Pria Formal / Jas Semi Formal Pria Casual - Crem Muda" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/txt_edit"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:minWidth="0dp"
+            android:minHeight="0dp"
+            android:paddingHorizontal="0dp"
+            android:paddingVertical="0dp"
+            android:textAllCaps="false"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/_12sdp"
+            android:textStyle="bold"
+            app:icon="@drawable/ic_more_vertical"
+            app:iconGravity="end"
+            app:iconSize="@dimen/_16sdp"
+            app:iconTint="@android:color/black"
+            tools:ignore="HardcodedText" />
+
+        <TextView
+            android:id="@+id/divider_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txt_name"
+            android:layout_marginHorizontal="@dimen/_4sdp"
+            android:layout_toEndOf="@id/txt_status"
+            android:text="|"
+            android:textColor="@color/gray"
+            android:textSize="@dimen/_10sdp"
+            android:visibility="gone"
+            tools:ignore="HardcodedText" />
+
+        <TextView
+            android:id="@+id/txt_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txt_name"
+            android:layout_toEndOf="@id/product_img"
+            android:text='@{"Rp " + stringUtil.formatCurrency2(item.price)}'
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/_10sdp"
+            tools:text="Rp 9.999" />
+
+        <TextView
+            android:id="@+id/divider_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txt_name"
+            android:layout_marginHorizontal="@dimen/_4sdp"
+            android:layout_toEndOf="@id/txt_price"
+            android:text="|"
+            android:textColor="@color/gray"
+            android:textSize="@dimen/_10sdp"
+            tools:ignore="HardcodedText" />
+
+        <TextView
+            android:id="@+id/txt_stock"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txt_name"
+            android:layout_toEndOf="@id/divider_price"
+            android:text='@{"Stok " + item.stock}'
+            android:textColor="@{item.stock == 0 ? @color/red : @color/textBlack}"
+            android:textSize="@dimen/_10sdp"
+            tools:text="Stok: 100" />
+
+        <ImageView
+            android:id="@+id/ic_danger"
+            android:layout_width="@dimen/_12sdp"
+            android:layout_height="@dimen/_12sdp"
+            android:layout_below="@id/txt_name"
+            android:layout_marginStart="@dimen/_6sdp"
+            android:layout_toEndOf="@id/txt_stock"
+            android:visibility="@{item.stock == 0 ? View.VISIBLE : View.GONE}"
+            app:srcCompat="@drawable/ic_danger" />
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/switch_publish"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/_8sdp"
+            android:layout_below="@id/txt_edit"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="@dimen/_4sdp"
+            android:checked="@{item.published}"
+            android:minWidth="0dp"
+            android:padding="0dp"
+            android:textOff=""
+            android:textOn=""
+            app:switchMinWidth="@dimen/_12sdp"
+            app:switchPadding="0dp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_1sdp"
+            android:layout_below="@id/txt_stock"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:background="@color/ltgray" />
+    </RelativeLayout>
+</layout>

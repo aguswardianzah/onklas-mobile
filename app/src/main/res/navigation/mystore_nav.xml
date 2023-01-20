@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/mystore_nav"
+    app:startDestination="@id/mystoreProduct">
+
+    <fragment
+        android:id="@+id/mystoreProduct"
+        android:name="id.onklas.app.pages.entrepreneurs.myMerchant.mystore.ProductPage"
+        android:label="mystoreProduct"
+        />
+    <fragment
+        android:id="@+id/mystoreServices"
+        android:name="id.onklas.app.pages.entrepreneurs.myMerchant.mystore.ServicesPage"
+        android:label="mystoreServices" />
+
+    <action
+        android:id="@+id/action_global_entrepreneurs_mystore_product"
+        app:destination="@id/mystoreProduct" />
+    <action
+        android:id="@+id/action_global_entrepreneurs_mystore_services"
+        app:destination="@id/mystoreServices" />
+</navigation>

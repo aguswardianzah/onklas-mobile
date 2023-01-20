@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".pages.prokes.prokesteacher.ScreeningForm2">
+
+
+    <TextView
+        android:id="@+id/lbl_title"
+        style="@style/latoDefault"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_16sdp"
+        android:layout_marginTop="@dimen/_14ssp"
+        android:text="II. SCREENING"
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/_12ssp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:id="@+id/lbl_suhu"
+        style="@style/latoDefault"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_16sdp"
+        android:layout_marginTop="@dimen/_36sdp"
+        android:text="Suhu tubuh pelajar"
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/_11ssp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/lbl_title" />
+
+
+    <EditText
+        android:id="@+id/txt_suhu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/_4sdp"
+        android:background="@drawable/border_gray_radius6"
+        android:elevation="@dimen/_6ssp"
+        android:hint="00,0"
+        android:maxLength="4"
+        android:inputType="numberDecimal"
+        android:paddingHorizontal="@dimen/_16sdp"
+        android:paddingVertical="@dimen/_8sdp"
+        android:textSize="@dimen/_14ssp"
+        app:layout_constraintBottom_toBottomOf="@id/lbl_suhu"
+        app:layout_constraintEnd_toStartOf="@id/ic_suhu"
+        app:layout_constraintTop_toTopOf="@id/lbl_suhu" />
+
+    <TextView
+        android:id="@+id/ic_suhu"
+        style="@style/latoBlackBold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/_16sdp"
+        android:text="°C"
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/_14sdp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/lbl_suhu"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/lbl_suhu" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_back"
+        style="@style/TextAppearance.AppCompat.Widget.Button"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_16sdp"
+        android:layout_marginEnd="@dimen/_8sdp"
+        android:background="@drawable/border_gray_radius_40"
+        android:gravity="center"
+        android:padding="@dimen/_12sdp"
+        android:text="Kembali"
+        android:textColor="@color/textBlack"
+        android:theme="@style/mdtp_ActionButton"
+        app:cornerRadius="@dimen/_40sdp"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_confirm"
+        app:layout_constraintEnd_toStartOf="@+id/btn_confirm"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/btn_confirm"
+        app:strokeColor="@color/Black2" />
+
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@id/btn_confirm"
+        style="@style/TextAppearance.AppCompat.Widget.Button"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_8sdp"
+        android:layout_marginTop="@dimen/_36sdp"
+        android:layout_marginEnd="@dimen/_16sdp"
+        android:layout_marginBottom="@dimen/_16sdp"
+        android:gravity="center"
+        android:enabled="false"
+        android:padding="@dimen/_12sdp"
+        android:text="Berikutnya"
+        android:textColor="@color/white"
+        android:theme="@style/mdtp_ActionButton"
+        app:backgroundTint="@color/form_button_color"
+        app:cornerRadius="@dimen/_40sdp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/btn_back"
+        app:layout_constraintTop_toBottomOf="@+id/txt_suhu"
+        app:layout_constraintVertical_bias="1.0" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

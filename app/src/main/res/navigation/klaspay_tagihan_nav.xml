@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/klaspay_tagihan_nav"
+    app:startDestination="@id/klaspayTagihanMenunggu">
+
+    <fragment
+        android:id="@+id/klaspayTagihanMenunggu"
+        android:name="id.onklas.app.pages.klaspay.tagihan.KlaspayTagihanMenunggu"
+        android:label="klaspay_tagihan_menunggu"
+        tools:layout="@layout/klaspay_tagihan_menunggu" />
+
+    <fragment
+        android:id="@+id/klaspayTagihanDibayar"
+        android:name="id.onklas.app.pages.klaspay.tagihan.KlaspayTagihanDibayar"
+        android:label="klaspay_tagihan_dibayar"
+        tools:layout="@layout/klaspay_tagihan_dibayar" />
+
+    <action
+        android:id="@+id/action_global_klaspayTagihanMenunggu"
+        app:destination="@id/klaspayTagihanMenunggu" />
+    <action
+        android:id="@+id/action_global_klaspayTagihanDibayar"
+        app:destination="@id/klaspayTagihanDibayar" />
+</navigation>

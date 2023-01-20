@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@android:color/white</item>
+        <item name="colorPrimaryDark">@android:color/transparent</item>
+        <item name="colorAccent">@color/red</item>
+
+        <item name="fontFamily">@font/lato</item>
+        <item name="android:fontFamily">@font/lato</item>
+        <item name="android:textAppearance">@style/AppFont</item>
+        <item name="android:textViewStyle">@style/AppFont</item>
+        <item name="android:editTextStyle">@style/AppFont.EditText</item>
+        <item name="editTextStyle">@style/AppFont.EditText</item>
+        <item name="materialButtonStyle">@style/AppFont.Button</item>
+        <item name="buttonStyle">@style/AppFont.Button</item>
+        <item name="android:itemTextAppearance">@style/AppMenuFont</item>
+        <item name="actionMenuTextAppearance">@style/AppToolbarMenuItem</item>
+
+        <item name="colorControlActivated">@color/colorPrimary</item>
+        <item name="android:colorControlActivated">@color/colorPrimary</item>
+
+        <item name="android:actionMenuTextColor">@color/colorPrimary</item>
+        <item name="actionMenuTextColor">@color/colorPrimary</item>
+
+        <item name="actionBarStyle">@style/AppToolbar</item>
+        <item name="android:actionBarStyle">@style/AppToolbar</item>
+
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:windowLightStatusBar" tools:targetApi="m">false</item>
+    </style>
+
+    <style name="LoginTheme" parent="AppTheme">
+        <item name="android:windowBackground">@drawable/splash_drawable</item>
+    </style>
+
+    <style name="AppThemeLightStatusBar" parent="AppTheme">
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:windowLightStatusBar" tools:targetApi="m">true</item>
+    </style>
+
+    <style name="CameraTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar" />
+
+    <style name="AppMenuFont" parent="@android:style/TextAppearance.Widget.IconMenu.Item">
+        <item name="android:textAllCaps">false</item>
+        <item name="android:letterSpacing">0.01</item>
+        <item name="android:textColor">@color/form_button_color</item>
+        <item name="fontFamily">@font/lato</item>
+        <item name="android:fontFamily">@font/lato</item>
+        <item name="textAllCaps">false</item>
+    </style>
+
+    <style name="AppToolbarMenuItem" parent="ThemeOverlay.MaterialComponents.Toolbar.Primary">
+        <item name="android:textSize">@dimen/_14ssp</item>
+        <item name="fontFamily">@font/lato</item>
+        <item name="textAllCaps">false</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:letterSpacing">0.01</item>
+        <item name="android:textColor">@color/form_button_color</item>
+    </style>
+
+    <style name="AppFont" parent="Widget.AppCompat.TextView">
+        <!--        <item name="android:background">@android:color/transparent</item>-->
+        <item name="fontFamily">@font/lato</item>
+        <item name="android:fontFamily">@font/lato</item>
+    </style>
+
+    <style name="FontAwsomeStyle" parent="Widget.AppCompat.TextView">
+        <item name="fontFamily">@font/fontawesome</item>
+        <item name="android:fontFamily">@font/fontawesome</item>
+    </style>
+
+    <style name="AppFont.EditText" parent="Widget.AppCompat.EditText">
+        <item name="android:background">@android:color/transparent</item>
+        <item name="fontFamily">@font/lato</item>
+        <item name="android:fontFamily">@font/lato</item>
+        <item name="android:textCursorDrawable">@null</item>
+        <item name="colorControlActivated">@color/colorPrimary</item>
+    </style>
+
+    <style name="AppFont.Button" parent="TextAppearance.MaterialComponents.Button">
+        <item name="fontFamily">@font/lato</item>
+        <item name="android:fontFamily">@font/lato</item>
+        <item name="android:letterSpacing">0.01</item>
+        <item name="minHeight">0dp</item>
+        <item name="android:minHeight">0dp</item>
+        <item name="android:paddingTop">@dimen/_8sdp</item>
+        <item name="android:paddingBottom">@dimen/_8sdp</item>
+        <item name="android:textSize">@dimen/_12ssp</item>
+    </style>
+
+    <style name="AppToolbar" parent="Widget.AppCompat.ActionBar.Solid">
+
+        <item name="colorControlNormal">@android:color/black</item>
+        <item name="android:colorControlNormal">@android:color/black</item>
+        <item name="android:textColorPrimary">@android:color/black</item>
+        <item name="android:textColorSecondary">@color/textBlack</item>
+        <item name="titleTextColor">@android:color/black</item>
+        <item name="titleTextAppearance">@style/AppToolbar.Title</item>
+    </style>
+
+    <style name="AppToolbarLight" parent="Widget.AppCompat.ActionBar.Solid">
+        <item name="colorControlNormal">@android:color/white</item>
+        <item name="android:colorControlNormal">@android:color/white</item>
+        <item name="android:textColorPrimary">@android:color/white</item>
+        <item name="android:textColorSecondary">@android:color/white</item>
+        <item name="titleTextColor">@android:color/white</item>
+        <item name="titleTextAppearance">@style/AppToolbar.Title</item>
+    </style>
+
+    <style name="AppToolbar.Title" parent="TextAppearance.AppCompat.Widget.ActionBar.Title">
+        <item name="fontFamily">@font/lato</item>
+        <item name="android:fontFamily">@font/lato</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+
+    <style name="DialogTheme" parent="ThemeOverlay.MaterialComponents.Dialog.Alert">
+        <item name="buttonBarPositiveButtonStyle">@style/PositiveButtonStyle</item>
+        <item name="buttonBarNegativeButtonStyle">@style/NegativeButtonStyle</item>
+        <item name="buttonBarNeutralButtonStyle">@style/NegativeButtonStyle</item>
+    </style>
+
+    <style name="PositiveButtonStyle" parent="Widget.MaterialComponents.Button.TextButton.Dialog">
+        <item name="android:textColor">@color/colorPrimary</item>
+    </style>
+
+    <style name="NegativeButtonStyle" parent="Widget.MaterialComponents.Button.TextButton.Dialog">
+        <item name="android:textColor">@color/gray</item>
+    </style>
+
+    <style name="AppCalendar" parent="ThemeOverlay.MaterialComponents.MaterialCalendar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="android:textColor">@color/textBlack</item>
+        <item name="background">@android:color/transparent</item>
+        <item name="android:background">@android:color/transparent</item>
+    </style>
+
+    <style name="AppTimePicker" parent="Widget.MaterialComponents.TimePicker.Display">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorOnPrimary">@color/colorPrimaryDark</item>
+        <item name="colorOnSurface">@color/colorPrimary</item>
+        <item name="android:textColor">@color/textBlack</item>
+        <item name="background">@android:color/transparent</item>
+        <item name="android:background">@android:color/transparent</item>
+    </style>
+
+    <style name="fab_labels_style">
+        <item name="android:background">@drawable/fab_label_bg</item>
+        <item name="background">@drawable/fab_label_bg</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="PickerTabLayout" parent="Widget.Design.TabLayout">
+        <item name="tabTextColor">@color/textBlack</item>
+        <item name="tabBackground">@android:color/white</item>
+        <item name="tabGravity">fill</item>
+        <item name="tabMaxWidth">0dp</item>
+    </style>
+
+    <style name="Theme.ToolbarTheme" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
+        <item name="android:textColorPrimary">@color/textBlack</item>
+        <item name="android:editTextColor">@color/textBlack</item>
+        <item name="android:textColorHint">@color/textBlack</item>
+    </style>
+
+    <style name="Theme.PopupTheme" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
+        <item name="colorPrimary">@color/textBlack</item>
+        <item name="contentInsetStartWithNavigation">0dp</item>
+    </style>
+
+    <style name="PickerTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@android:color/white</item>
+        <item name="colorPrimaryDark">@color/textBlack</item>
+        <item name="colorAccent">@color/textBlack</item>
+
+        <item name="android:textViewStyle">@style/AppFont</item>
+        <item name="editTextStyle">@style/AppFont.EditText</item>
+        <item name="android:editTextStyle">@style/AppFont.EditText</item>
+
+        <item name="android:colorBackground">@android:color/background_light</item>
+        <item name="android:windowBackground">@android:color/white</item>
+
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:windowLightStatusBar" tools:targetApi="m">true</item>
+    </style>
+
+
+    <style name="latoBlackBold" parent="@style/TextAppearance.AppCompat.Medium">
+        <item name="android:fontFamily">@font/lato</item>
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="latoGray" parent="@style/TextAppearance.AppCompat.Medium">
+        <item name="android:fontFamily">@font/lato</item>
+        <item name="android:textColor">@color/gray</item>
+    </style>
+
+    <style name="latoDefault" parent="@style/TextAppearance.AppCompat.Medium">
+        <item name="android:fontFamily">@font/lato</item>
+    </style>
+
+
+    <style name="rubikDefault" parent="@style/TextAppearance.AppCompat.Medium">
+        <item name="android:fontFamily">@font/rubik</item>
+    </style>
+
+    <style name="rubikBlackBold" parent="@style/TextAppearance.AppCompat.Medium">
+        <item name="android:fontFamily">@font/rubik</item>
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+
+    <style name="RatingBar" parent="Theme.AppCompat">
+        <item name="colorControlNormal">@color/Black3</item>
+        <item name="colorControlActivated">@color/gold</item>
+    </style>
+
+
+    <style name="AppTabLayout" parent="Widget.Design.TabLayout">
+        <item name="tabIndicatorColor">@color/colorPrimary</item>
+        <item name="tabIndicatorHeight">@dimen/_1sdp</item>
+        <item name="tabBackground">?attr/selectableItemBackground</item>
+        <item name="tabTextAppearance">@style/AppTabTextAppearance</item>
+        <item name="tabSelectedTextColor">@color/colorPrimary</item>
+    </style>
+
+    <!-- for text -->
+    <style name="AppTabTextAppearance" parent="TextAppearance.Design.Tab">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/textBlack2 </item>
+        <item name="textAllCaps">false</item>
+    </style>
+    <style name="SCBSwitch" parent="Theme.AppCompat.Light">
+        <!-- active thumb & track color (30% transparency) -->
+        <item name="colorControlActivated">#0DE01B</item>
+
+        <!-- inactive thumb color -->
+        <item name="colorSwitchThumbNormal">#FF3D3D
+        </item>
+
+        <!-- inactive track color (30% transparency) -->
+        <item name="android:colorForeground">#FF3D3D
+        </item>
+    </style>
+
+</resources>

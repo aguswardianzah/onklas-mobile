@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/reset_pass_nav"
+    app:startDestination="@id/formResetPage">
+
+    <fragment
+        android:id="@+id/formResetPage"
+        android:name="id.onklas.app.pages.resetpass.FormResetPage"
+        android:label="FormResetPage"
+        tools:layout="@layout/form_reset_page">
+        <action
+            android:id="@+id/action_formResetPage_to_successResetPage"
+            app:destination="@id/successResetPage">
+            <argument
+                android:name="emailArg"
+                app:argType="string" />
+        </action>
+    </fragment>
+    <fragment
+        android:id="@+id/successResetPage"
+        android:name="id.onklas.app.pages.resetpass.SuccessResetPage"
+        android:label="SuccessResetPage"
+        tools:layout="@layout/success_reset_page">
+        <argument
+            android:name="emailArg"
+            android:defaultValue=""
+            app:argType="string" />
+    </fragment>
+</navigation>

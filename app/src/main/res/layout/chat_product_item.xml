@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="id.onklas.app.pages.chat.ChatStatus" />
+
+        <variable
+            name="timeFormat"
+            type="java.text.SimpleDateFormat" />
+
+        <variable
+            name="isFirst"
+            type="Boolean" />
+
+        <variable
+            name="status"
+            type="Integer" />
+
+        <variable
+            name="stringUtil"
+            type="id.onklas.app.utils.StringUtil" />
+
+        <variable
+            name="item"
+            type="id.onklas.app.pages.chat.ChatItem" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@{isFirst ? @dimen/_8sdp : @dimen/_1sdp}">
+
+        <View
+            android:id="@+id/bg_chat"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@{isFirst ? @drawable/outgoing_chat_first : @drawable/outgoing_chat}"
+            app:layout_constraintBottom_toBottomOf="@id/sp_message"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/product_img"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:background="@drawable/outgoing_chat_first" />
+
+        <ImageView
+            android:id="@+id/product_img"
+            imageUrl="@{item.product_image}"
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="@dimen/_32sdp"
+            android:layout_marginEnd="@dimen/_8sdp"
+            android:paddingStart="@dimen/_8sdp"
+            android:paddingEnd="0dp"
+            app:layout_constraintEnd_toStartOf="@id/product_name"
+            app:layout_constraintTop_toTopOf="@id/product_name"
+            tools:src="@tools:sample/avatars" />
+
+        <TextView
+            android:id="@+id/product_name"
+            android:layout_width="@dimen/_140sdp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_6sdp"
+            android:layout_marginEnd="@dimen/_12sdp"
+            android:layout_toEndOf="@id/product_img"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:text="@{item.product_name}"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/_12ssp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/bg_chat"
+            tools:text="@string/lipsum" />
+
+        <TextView
+            android:id="@+id/product_price"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_4sdp"
+            android:text='@{"Rp " + stringUtil.formatCurrency2(item.product_price)}'
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/_11ssp"
+            app:layout_constraintEnd_toEndOf="@id/product_name"
+            app:layout_constraintStart_toStartOf="@id/product_name"
+            app:layout_constraintTop_toBottomOf="@id/product_name"
+            tools:text="Rp 9.999.999" />
+
+        <ImageView
+            android:id="@+id/check"
+            android:layout_width="@dimen/_10sdp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_2sdp"
+            android:adjustViewBounds="true"
+            android:paddingBottom="@dimen/_4sdp"
+            android:scaleType="fitStart"
+            android:src="@{status == ChatStatus.CHAT_STATUS_NEW ? @drawable/ic_chat_pending : (status == ChatStatus.CHAT_STATUS_SENT ? @drawable/ic_chat_tick : @drawable/ic_chat_double_tick)}"
+            app:layout_constraintEnd_toStartOf="@id/time"
+            app:layout_constraintTop_toBottomOf="@id/product_price"
+            app:tint="@{status == ChatStatus.CHAT_STATUS_READ ? @color/colorPrimary : @android:color/black}"
+            tools:src="@drawable/ic_chat_double_tick"
+            tools:tint="@color/colorPrimary" />
+
+        <TextView
+            android:id="@+id/time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_14sdp"
+            android:paddingBottom="@dimen/_4sdp"
+            android:text="@{timeFormat.format(item.date)}"
+            android:textColor="@color/textBlack"
+            android:textSize="@dimen/_9ssp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/product_price"
+            tools:text="00:00" />
+
+        <Space
+            android:id="@+id/sp_message"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_6sdp"
+            app:layout_constraintTop_toBottomOf="@id/time" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

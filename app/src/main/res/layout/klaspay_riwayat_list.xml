@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".pages.klaspay.riwayat.KlaspayRiwayatList">
+
+    <data>
+
+        <variable
+            name="view"
+            type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="id.onklas.app.pages.klaspay.riwayat.KlaspayRiwayatViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_all"
+            style="@style/Widget.MaterialComponents.Button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:paddingTop="@dimen/_8sdp"
+            android:paddingBottom="@dimen/_8sdp"
+            android:shadowColor="@android:color/transparent"
+            android:text="Semua"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:visibility="gone"
+            app:backgroundTint="@color/colorPrimary"
+            app:cornerRadius="@dimen/_8sdp"
+            app:layout_constraintEnd_toStartOf="@+id/button_in"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_percent="0.3"
+            tools:ignore="HardcodedText" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_in"
+            style="@style/Widget.MaterialComponents.Button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:paddingTop="@dimen/_8sdp"
+            android:paddingBottom="@dimen/_8sdp"
+            android:text="Saldo Masuk"
+            android:textAllCaps="false"
+            android:textColor="@color/gray"
+            android:visibility="gone"
+            app:backgroundTint="@color/white"
+            app:cornerRadius="@dimen/_8sdp"
+            app:layout_constraintEnd_toStartOf="@+id/button_out"
+            app:layout_constraintStart_toEndOf="@+id/button_all"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_percent="0.3"
+            tools:ignore="HardcodedText" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_out"
+            style="@style/Widget.MaterialComponents.Button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:paddingTop="@dimen/_8sdp"
+            android:paddingBottom="@dimen/_8sdp"
+            android:text="Saldo Keluar"
+            android:textAllCaps="false"
+            android:textColor="@color/gray"
+            android:visibility="gone"
+            app:backgroundTint="@color/white"
+            app:cornerRadius="@dimen/_8sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/button_in"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_percent="0.3"
+            tools:ignore="HardcodedText" />
+
+        <View
+            android:id="@+id/border_in"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_32sdp"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:background="#E4FFF5"
+            android:visibility="gone"
+            app:layout_constraintEnd_toStartOf="@+id/border_out"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/button_all" />
+
+        <View
+            android:id="@+id/border_out"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_32sdp"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:background="#FFEBF2"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/border_in"
+            app:layout_constraintTop_toBottomOf="@+id/button_all" />
+
+        <TextView
+            android:id="@+id/text_in"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/green"
+            android:textSize="@dimen/_10ssp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@+id/border_in"
+            app:layout_constraintEnd_toEndOf="@+id/border_in"
+            app:layout_constraintStart_toStartOf="@+id/border_in"
+            app:layout_constraintTop_toTopOf="@+id/border_in"
+            tools:text="Saldo Masuk : Rp 120.000" />
+
+        <TextView
+            android:id="@+id/text_out"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/red"
+            android:textSize="@dimen/_10ssp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@+id/border_out"
+            app:layout_constraintEnd_toEndOf="@+id/border_out"
+            app:layout_constraintStart_toStartOf="@+id/border_out"
+            app:layout_constraintTop_toTopOf="@+id/border_out"
+            tools:text="Saldo Keluar : Rp 200.000.000" />
+
+        <View
+            android:id="@+id/bg_date"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_48sdp"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:background="#E0E0E0"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/border_in" />
+
+        <View
+            android:id="@+id/border_date"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_32sdp"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:layout_marginEnd="@dimen/_8sdp"
+            android:background="@drawable/border_input"
+            android:backgroundTint="@color/white"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@+id/bg_date"
+            app:layout_constraintEnd_toEndOf="@+id/bg_date"
+            app:layout_constraintStart_toStartOf="@+id/bg_date"
+            app:layout_constraintTop_toTopOf="@+id/bg_date" />
+
+        <TextView
+            android:id="@+id/text_date"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_16sdp"
+            android:layout_marginEnd="@dimen/_16sdp"
+            android:gravity="center_vertical"
+            android:textColor="@color/textBlack"
+            android:textSize="@dimen/_10ssp"
+            android:visibility="gone"
+            app:drawableEndCompat="@drawable/ic_calendar_icon"
+            app:layout_constraintBottom_toBottomOf="@+id/border_date"
+            app:layout_constraintEnd_toEndOf="@+id/border_date"
+            app:layout_constraintStart_toStartOf="@+id/border_date"
+            app:layout_constraintTop_toTopOf="@+id/border_date"
+            tools:text="Tampilkan : 12 Januari sampai 14 Januari 2021" />
+
+        <!--        TODO delete if GONE on top is VISIBLE -->
+        <View
+            android:id="@+id/divider_top"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_4sdp"
+            android:background="@color/ltgray"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+        <!--        app:layout_constraintTop_toBottomOf="@+id/bg_date"-->
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/swipe_refresh"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/divider_top">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/list_item"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:listitem="@layout/klaspay_riwayat_item" />
+
+                <ImageView
+                    android:id="@+id/image_riwayat_empty"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/_8sdp"
+                    android:src="@drawable/ic_riwayat_empty"
+                    android:visibility="@{viewModel.listEmpty? view.VISIBLE : view.GONE}"
+                    app:layout_constraintBottom_toTopOf="@+id/title_riwayat_empty"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    tools:listitem="@layout/klaspay_tagihan_menunggu_item"
+                    tools:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/title_riwayat_empty"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Belum Ada Riwayat Pembayaran"
+                    android:textColor="@color/textBlack"
+                    android:textSize="@dimen/_13ssp"
+                    android:textStyle="bold"
+                    android:visibility="@{viewModel.listEmpty? view.VISIBLE : view.GONE}"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="HardcodedText"
+                    tools:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/subtitle_riwayat_empty"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:gravity="center"
+                    android:text="Lakukan transaksi PPOB, Transfer ke sesama klaspay atau Top Up Saldo Klaspay"
+                    android:textColor="@color/textBlack"
+                    android:textSize="@dimen/_10ssp"
+                    android:textStyle="bold"
+                    android:visibility="@{viewModel.listEmpty? view.VISIBLE : view.GONE}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/title_riwayat_empty"
+                    app:layout_constraintWidth_percent="0.6"
+                    tools:ignore="HardcodedText"
+                    tools:visibility="gone" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

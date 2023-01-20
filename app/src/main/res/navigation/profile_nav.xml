@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/profile_nav"
+    app:startDestination="@id/profilePostPage">
+
+    <fragment
+        android:id="@+id/profilePostPage"
+        android:name="id.onklas.app.pages.akun.ProfilePostPage"
+        android:label="ProfilePostPage" />
+    <fragment
+        android:id="@+id/profileMediaPage"
+        android:name="id.onklas.app.pages.akun.ProfileMediaPage"
+        android:label="ProfileMediaPage" />
+    <fragment
+        android:id="@+id/profileEbookPage"
+        android:name="id.onklas.app.pages.akun.ProfileEbookPage"
+        android:label="ProfileEbookPage" />
+    <fragment
+        android:id="@+id/pairing"
+        android:name="id.onklas.app.pages.akun.PairingPage"
+        android:label="ProfileEbookPage" />
+    <action
+        android:id="@+id/action_global_profilePostPage"
+        app:destination="@id/profilePostPage" />
+    <action
+        android:id="@+id/action_global_profileMediaPage"
+        app:destination="@id/profileMediaPage" />
+    <action
+        android:id="@+id/action_global_profileEbookPage"
+        app:destination="@id/profileEbookPage" />
+    <action
+        android:id="@+id/action_global_pairing"
+        app:destination="@id/pairing" />
+</navigation>

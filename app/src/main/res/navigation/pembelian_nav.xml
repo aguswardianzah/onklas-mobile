@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/pembelian_nav"
+    app:startDestination="@id/processedProduct">
+
+
+
+    <fragment
+        android:id="@+id/processedProduct"
+        android:name="id.onklas.app.pages.entrepreneurs.pembelian.purchase.process.PembelianProductProcess"
+        tools:layout="@layout/pembelian_product_process"
+        />
+    <fragment
+        android:id="@+id/processedService"
+        android:name="id.onklas.app.pages.entrepreneurs.pembelian.purchase.process.PembelianServiceProcess"
+        tools:layout="@layout/pembelian_service_process"
+        />
+
+
+    <fragment
+        android:id="@+id/doneProduct"
+        android:name="id.onklas.app.pages.entrepreneurs.pembelian.purchase.done.PembelianProductDone"
+        tools:layout="@layout/pembelian_product_done"
+        />
+    <fragment
+        android:id="@+id/doneService"
+        android:name="id.onklas.app.pages.entrepreneurs.pembelian.purchase.done.PembelianServiceDone"
+        tools:layout="@layout/pembelian_service_done"
+        />
+
+
+    <action
+        android:id="@+id/action_global_pembelian_processedProduct"
+        app:destination="@id/processedProduct" />
+    <action
+        android:id="@+id/action_global_pembelian_processedService"
+        app:destination="@id/processedService" />
+
+    <action
+        android:id="@+id/action_global_pembelian_doneProduct"
+        app:destination="@id/doneProduct" />
+    <action
+        android:id="@+id/action_global_pembelian_doneService"
+        app:destination="@id/doneService" />
+</navigation>

@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="stringUtil"
+            type="id.onklas.app.utils.StringUtil" />
+
+        <variable
+            name="item"
+            type="id.onklas.app.pages.sekolah.store.CartPaging" />
+
+        <variable
+            name="selected"
+            type="Boolean" />
+
+        <variable
+            name="quantity"
+            type="Integer" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/_8sdp"
+        android:background="@android:color/white">
+
+        <CheckBox
+            android:id="@+id/check"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_16sdp"
+            android:checked="@{selected}"
+            android:minWidth="0dp"
+            android:text="@null" />
+
+        <ImageView
+            android:id="@+id/img_product"
+            imageFitUrl="@{item.product.image}"
+            android:layout_width="@dimen/_64sdp"
+            android:layout_height="@dimen/_48sdp"
+            android:layout_marginStart="@dimen/_16sdp"
+            android:layout_marginEnd="@dimen/_8sdp"
+            android:layout_toEndOf="@id/check"
+            android:background="@drawable/border_white_radius6"
+            tools:srcCompat="@tools:sample/backgrounds/scenic" />
+
+        <TextView
+            android:id="@+id/item_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_16sdp"
+            android:layout_toEndOf="@id/img_product"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:text="@{item.product.name}"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/_12ssp"
+            android:textStyle="bold"
+            tools:text="asdasd" />
+
+        <TextView
+            android:id="@+id/item_price"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/item_name"
+            android:layout_marginTop="@dimen/_6sdp"
+            android:layout_marginEnd="@dimen/_16sdp"
+            android:layout_marginBottom="@dimen/_8sdp"
+            android:layout_toEndOf="@id/img_product"
+            android:ellipsize="end"
+            android:lines="1"
+            android:text='@{"Rp " + stringUtil.formatCurrency2(item.product.price)}'
+            android:textColor="@color/textBlack"
+            android:textSize="@dimen/_11ssp"
+            tools:text="Rp 0" />
+
+        <ImageView
+            android:id="@+id/action_plus"
+            android:layout_width="@dimen/_24sdp"
+            android:layout_height="@dimen/_24sdp"
+            android:layout_below="@id/img_product"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="@dimen/_16sdp"
+            app:srcCompat="@drawable/ic_plus" />
+
+        <EditText
+            android:id="@+id/txt_qty"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/_24sdp"
+            android:layout_below="@id/img_product"
+            android:layout_toStartOf="@id/action_plus"
+            android:gravity="center"
+            android:maxLength="4"
+            android:minEms="3"
+            android:text='@{quantity + ""}'
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/_12ssp"
+            tools:text="999" />
+
+        <ImageView
+            android:id="@+id/action_min"
+            android:layout_width="@dimen/_24sdp"
+            android:layout_height="@dimen/_24sdp"
+            android:layout_below="@id/img_product"
+            android:layout_toStartOf="@id/txt_qty"
+            app:srcCompat="@drawable/ic_minus" />
+
+        <TextView
+            android:id="@+id/text_stock"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/_24sdp"
+            android:layout_below="@id/img_product"
+            android:layout_marginEnd="@dimen/_8sdp"
+            android:layout_toStartOf="@id/action_min"
+            android:gravity="center"
+            android:text='@{"Stok sisa: " + item.product.stock}'
+            android:textColor="@color/red"
+            android:textSize="@dimen/_11ssp"
+            android:visibility="@{item.product.stock > 10 ? View.GONE : View.VISIBLE}"
+            tools:text="Stok sisa: 10" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_1sdp"
+            android:layout_below="@id/action_min"
+            android:layout_marginHorizontal="@dimen/_16sdp"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:background="@color/ltgray" />
+    </RelativeLayout>
+</layout>

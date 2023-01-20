@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/presensi_nav"
+    app:startDestination="@id/presensiKelasPage">
+
+    <fragment
+        android:id="@+id/presensiKelasPage"
+        android:name="id.onklas.app.pages.presensi.PresensiKelasPage"
+        android:label="PresensiKelasPage"
+        tools:layout="@layout/presensi_kelas_page" />
+    <fragment
+        android:id="@+id/presensiAbsenPage"
+        android:name="id.onklas.app.pages.presensi.PresensiAbsenPage"
+        android:label="PresensiAbsenPage"
+        tools:layout="@layout/presensi_absen_page" />
+    <fragment
+        android:id="@+id/presensiRekapPage"
+        android:name="id.onklas.app.pages.presensi.PresensiRekapPage"
+        android:label="PresensiRekapPage"
+        tools:layout="@layout/presensi_rekap_page" />
+    <action
+        android:id="@+id/action_global_presensiKelasPage"
+        app:destination="@id/presensiKelasPage" />
+    <action
+        android:id="@+id/action_global_presensiAbsenPage"
+        app:destination="@id/presensiAbsenPage" />
+    <action
+        android:id="@+id/action_global_presensiRekapPage"
+        app:destination="@id/presensiRekapPage" />
+</navigation>

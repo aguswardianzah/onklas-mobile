@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/sellerprofile_nav"
+    app:startDestination="@id/productPage"
+    >
+
+    <fragment
+        android:id="@+id/productPage"
+        android:name="id.onklas.app.pages.sekolah.store.SellerProductPage"
+        android:label="ProductPage"
+        tools:layout="@layout/seller_product_page" />
+
+    <fragment
+        android:id="@+id/penjualanPage"
+        android:name="id.onklas.app.pages.sekolah.store.SellerPenjualanPage"
+        android:label="PenjualanPage"
+        tools:layout="@layout/seller_penjualan_page" />
+
+
+    <action
+        android:id="@+id/action_global_sellerProduct"
+        app:destination="@id/productPage" />
+
+    <action
+        android:id="@+id/action_global_sellerPenjualan"
+        app:destination="@id/penjualanPage" />
+
+</navigation>

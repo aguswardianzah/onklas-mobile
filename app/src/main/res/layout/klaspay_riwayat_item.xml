@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingHorizontal="@dimen/_16sdp"
+    android:paddingTop="@dimen/_8sdp"
+    android:paddingBottom="@dimen/_12sdp">
+
+    <ImageView
+        android:id="@+id/icon"
+        android:layout_width="@dimen/_32sdp"
+        android:layout_height="@dimen/_32sdp"
+        android:layout_marginEnd="@dimen/_8sdp"
+        android:src="@drawable/ic_dana_partisipasi" />
+
+    <TextView
+        android:id="@+id/text_id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_6sdp"
+        android:layout_toStartOf="@id/text_status"
+        android:layout_toEndOf="@id/icon"
+        android:textColor="@color/textBlack"
+        android:textSize="@dimen/_12ssp"
+        android:textStyle="bold"
+        tools:text="ID: SM1DPP-3114" />
+
+    <TextView
+        android:id="@+id/text_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="@dimen/_8sdp"
+        android:textColor="@color/colorPrimary"
+        android:textSize="@dimen/_12ssp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Saldo keluar" />
+
+    <TextView
+        android:id="@+id/text_type"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/text_id"
+        android:layout_marginStart="@dimen/_6sdp"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:layout_toStartOf="@id/text_status"
+        android:layout_toEndOf="@id/icon"
+        android:textColor="@color/textBlack"
+        android:textSize="@dimen/_10ssp"
+        android:textStyle="bold"
+        tools:text="Dana Partisipasi" />
+
+    <View
+        android:id="@+id/divider_icon"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_1sdp"
+        android:layout_below="@id/text_type"
+        android:layout_marginTop="@dimen/_12sdp"
+        android:layout_marginBottom="@dimen/_12sdp"
+        android:background="@color/ltgray" />
+
+    <TextView
+        android:id="@+id/text_date"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/divider_icon"
+        android:layout_toStartOf="@id/label_nominal"
+        android:textColor="@color/gray"
+        android:textSize="@dimen/_10ssp"
+        tools:text="5 Februari 2021, 07:57" />
+
+    <TextView
+        android:id="@+id/label_nominal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/divider_icon"
+        android:layout_marginStart="@dimen/_4sdp"
+        android:layout_toStartOf="@id/text_price"
+        android:text="Rp"
+        android:textColor="@color/textBlack"
+        android:textSize="@dimen/_11ssp"
+        tools:ignore="HardcodedText" />
+
+    <TextView
+        android:id="@+id/text_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/divider_icon"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="@dimen/_4sdp"
+        android:textColor="@color/textBlack"
+        android:textSize="@dimen/_13ssp"
+        android:textStyle="bold"
+        tools:text="305.000" />
+</RelativeLayout>

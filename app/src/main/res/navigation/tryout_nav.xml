@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/tryout_nav"
+    app:startDestination="@id/tryOutSchedulePage">
+
+    <fragment
+        android:id="@+id/tryOutSchedulePage"
+        android:name="id.onklas.app.pages.tryout.TryOutSchedulePage"
+        android:label="try_out_schedule_page"
+        tools:layout="@layout/try_out_schedule_page" />
+    <fragment
+        android:id="@+id/tryOutScorePage"
+        android:name="id.onklas.app.pages.tryout.TryOutScorePage"
+        android:label="try_out_score_page"
+        tools:layout="@layout/try_out_score_page" />
+
+    <action
+        android:id="@+id/action_global_tryoutschedulepage"
+        app:destination="@id/tryOutSchedulePage" />
+    <action
+        android:id="@+id/action_global_tryoutscorepage"
+        app:destination="@id/tryOutScorePage" />
+</navigation>

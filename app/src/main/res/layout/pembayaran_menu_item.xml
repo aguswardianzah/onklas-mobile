@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="resIcon"
+            type="Integer" />
+
+        <variable
+            name="name"
+            type="String" />
+
+        <variable
+            name="iconSoon"
+            type="Boolean" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="@dimen/_4sdp"
+        android:paddingStart="@dimen/_4sdp"
+        android:paddingEnd="@dimen/_4sdp"
+        app:cardCornerRadius="@dimen/_8sdp"
+        app:contentPaddingBottom="@dimen/_8sdp"
+        app:contentPaddingTop="@dimen/_8sdp"
+        app:rippleColor="@color/colorAccent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/icon"
+                imageUrl="@{resIcon}"
+                android:layout_width="@dimen/_42sdp"
+                android:layout_height="@dimen/_42sdp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginStart="@dimen/_24sdp"
+                android:layout_marginEnd="@dimen/_24sdp"
+                android:adjustViewBounds="true"
+                tools:src="@android:drawable/ic_menu_report_image" />
+
+            <TextView
+                android:id="@+id/soon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_marginBottom="@dimen/_2sdp"
+                android:background="@drawable/circle_red"
+                android:paddingStart="@dimen/_3sdp"
+                android:paddingTop="@dimen/_2sdp"
+                android:paddingEnd="@dimen/_3sdp"
+                android:paddingBottom="@dimen/_2sdp"
+                android:text="SOON"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/_10ssp"
+                android:visibility="@{iconSoon ? View.VISIBLE : View.GONE}"
+                tools:ignore="HardcodedText" />
+
+            <TextView
+                android:id="@+id/label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/icon"
+                android:layout_marginTop="@dimen/_4sdp"
+                android:gravity="top|center_horizontal"
+                android:lines="1"
+                android:text="@{name}"
+                android:textColor="@color/textBlack"
+                android:textSize="@dimen/_10ssp"
+                tools:text="Dana Partisipasi" />
+        </RelativeLayout>
+    </com.google.android.material.card.MaterialCardView>
+</layout>

@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="item"
+            type="id.onklas.app.pages.sekolah.store.GoodieDetailItem" />
+        <variable
+            name="stringUtil"
+            type="id.onklas.app.utils.StringUtil" />
+        <variable
+            name="viewholder"
+            type="id.onklas.app.pages.sekolah.store.StoreVm" />
+
+
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+        <TextView
+            android:id="@+id/txt_judul"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:text="Tambah ke Keranjang"
+            android:textAppearance="@style/latoBlackBold"
+            android:textSize="@dimen/_16sdp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/action_exit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/ic_x"
+            android:padding="@dimen/_8sdp"
+            android:textSize="@dimen/_15sdp"
+            app:layout_constraintBottom_toBottomOf="@+id/txt_judul"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/txt_judul" />
+
+        <TextView
+            android:id="@+id/textView9"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="16dp"
+            android:background="@color/gray"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txt_judul" />
+
+        <ImageView
+            android:id="@+id/img_product"
+            android:layout_width="@dimen/_114sdp"
+            android:layout_height="@dimen/_85sdp"
+            android:layout_marginStart="@dimen/_16sdp"
+            android:layout_marginTop="@dimen/_16sdp"
+            android:background="@drawable/fill_white_radius6"
+            imageUrl="@{item.image[0].image}"
+            android:scaleType="centerCrop"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView9"
+            tools:srcCompat="@tools:sample/backgrounds/scenic" />
+
+        <TextView
+            android:id="@+id/textView27"
+            style="@style/latoBlackBold"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_12sdp"
+            android:layout_marginEnd="@dimen/_16sdp"
+            android:text="@{item.name}"
+            android:maxLines="2"
+            android:ellipsize="end"
+            tools:text="Topi Mini Santa Claus Kerajinan Tangan Handmade "
+            android:textSize="@dimen/_12sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/img_product"
+            app:layout_constraintTop_toTopOf="@+id/img_product" />
+
+        <TextView
+            android:id="@+id/textView127"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="Rp 50.000"
+            android:text='@{"Rp" + stringUtil.formatCurrency2(item.price)}'
+            android:layout_marginTop="@dimen/_13sdp"
+            android:textSize="@dimen/_12sdp"
+            android:textColor="@color/textBlack"
+            style="@style/latoDefault"
+            app:layout_constraintStart_toStartOf="@+id/textView27"
+            app:layout_constraintTop_toBottomOf="@+id/textView27" />
+
+        <TextView
+            android:id="@+id/textView128"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="Stok 12.099"
+            android:text='@{"stok "+item.stock}'
+            android:layout_marginEnd="@dimen/_16sdp"
+            style="@style/latoDefault"
+            android:textSize="@dimen/_12sdp"
+            android:textColor="@color/gray"
+            app:layout_constraintBottom_toBottomOf="@+id/textView127"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/textView127" />
+
+        <TextView
+            android:id="@+id/textView129"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_1sdp"
+            android:layout_marginHorizontal="@dimen/_16sdp"
+            android:background="@color/bg_gray"
+            android:layout_marginTop="@dimen/_16sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/img_product" />
+
+        <TextView
+            android:id="@+id/textView130"
+            style="@style/latoDefault"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Jumlah Pembelian"
+            android:layout_marginStart="@dimen/_16sdp"
+            android:layout_marginTop="@dimen/_21sdp"
+            android:textColor="@color/textBlack"
+            android:textSize="@dimen/_12sdp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView129"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_16sdp"
+            app:layout_constraintBottom_toBottomOf="@+id/textView130"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/textView130">
+
+
+            <ImageView
+                android:id="@+id/action_min"
+                android:layout_width="@dimen/_32sdp"
+                android:layout_height="@dimen/_32sdp"
+                app:srcCompat="@drawable/ic_minus"
+                tools:layout_editor_absoluteX="128dp"
+                tools:layout_editor_absoluteY="275dp" />
+
+            <TextView
+                android:id="@+id/txt_qty"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:textSize="@dimen/_16sdp"
+                style="@style/latoBlackBold"
+                android:text="1"
+                android:minEms="3"
+                tools:layout_editor_absoluteX="191dp"
+                tools:layout_editor_absoluteY="290dp" />
+
+            <ImageView
+                android:id="@+id/action_plus"
+                android:layout_width="@dimen/_32sdp"
+                android:layout_height="@dimen/_32sdp"
+                app:srcCompat="@drawable/ic_plus"
+                tools:layout_editor_absoluteX="293dp"
+                tools:layout_editor_absoluteY="275dp" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/textView132"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_1sdp"
+            android:background="@color/bg_gray"
+            android:layout_marginHorizontal="@dimen/_16sdp"
+            android:layout_marginTop="@dimen/_21sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView130" />
+
+        <TextView
+            android:id="@+id/action_add_cart"
+            style="@style/latoDefault"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_56sdp"
+            android:layout_marginVertical="@dimen/_16sdp"
+            android:background="@drawable/fill_blue_radius40"
+            android:gravity="center"
+            android:paddingVertical="@dimen/_12sdp"
+            android:text="Masukkan Keranjang"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_12sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView132" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

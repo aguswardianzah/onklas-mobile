@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="item"
+            type="id.onklas.app.pages.pembayaran.spp.SppProcess" />
+
+        <variable
+            name="allowPay"
+            type="Boolean" />
+
+        <variable
+            name="stringUtil"
+            type="id.onklas.app.utils.StringUtil" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rounded_white"
+        android:padding="@dimen/_12sdp">
+
+        <ImageView
+            android:id="@+id/icon"
+            android:layout_width="@dimen/_32sdp"
+            android:layout_height="@dimen/_32sdp"
+            android:layout_marginEnd="@dimen/_8sdp"
+            android:src="@drawable/ic_spp_payment" />
+
+        <TextView
+            android:id="@+id/detail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:text="Lihat detail"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/_12ssp"
+            android:textStyle="bold"
+            tools:ignore="HardcodedText" />
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toStartOf="@id/detail"
+            android:layout_toEndOf="@id/icon"
+            android:text="@{item.reffId}"
+            android:textColor="@color/textBlack"
+            android:textSize="@dimen/_12ssp"
+            android:textStyle="bold"
+            tools:text="Judul Pembayaran SPP" />
+
+        <TextView
+            android:id="@+id/subtitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/title"
+            android:layout_marginTop="@dimen/_4sdp"
+            android:layout_toStartOf="@id/detail"
+            android:layout_toEndOf="@id/icon"
+            android:text="@{item.paidAt.empty ? item.expiredAt : item.paidAt}"
+            android:textColor="@color/gray"
+            android:textSize="@dimen/_11ssp"
+            tools:text="Judul Pembayaran SPP" />
+
+        <View
+            android:id="@+id/divider"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_1sdp"
+            android:layout_below="@id/subtitle"
+            android:layout_marginTop="@dimen/_12sdp"
+            android:layout_marginBottom="@dimen/_12sdp"
+            android:background="@color/ltgray" />
+
+        <TextView
+            android:id="@+id/status_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/divider"
+            android:layout_toStartOf="@id/status"
+            android:text="Pembayaran SPP:"
+            android:textColor="@color/textBlack"
+            android:textSize="@dimen/_11ssp"
+            tools:ignore="HardcodedText" />
+
+        <TextView
+            android:id="@+id/status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/divider"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:text='@{item.isPaid ? "Berhasil" : (item.isExpired ? "Tiket berakhir" : "Proses")}'
+            android:textColor="@color/textBlack"
+            android:textSize="@dimen/_11ssp"
+            android:textStyle="bold"
+            tools:text="Proses" />
+
+        <View
+            android:id="@+id/divider1"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_1sdp"
+            android:layout_below="@id/status_label"
+            android:layout_marginTop="@dimen/_12sdp"
+            android:layout_marginBottom="@dimen/_12sdp"
+            android:background="@color/ltgray" />
+
+        <TextView
+            android:id="@+id/total_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/divider1"
+            android:layout_toStartOf="@id/total"
+            android:text="Total Tagihan:"
+            android:textColor="@color/textBlack"
+            android:textSize="@dimen/_11ssp"
+            tools:ignore="HardcodedText" />
+
+        <TextView
+            android:id="@+id/total"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/divider1"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:text='@{"Rp" + stringUtil.formatCurrency(item.total)}'
+            android:textColor="@color/textBlack"
+            android:textSize="@dimen/_11ssp"
+            android:textStyle="bold"
+            tools:text="Rp 9.999.999" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_post"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/total"
+            android:layout_marginStart="@dimen/_36sdp"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:layout_marginEnd="@dimen/_36sdp"
+            android:text="Bayar Kembali"
+            android:textColor="@android:color/white"
+            android:visibility="@{allowPay ? View.GONE : View.VISIBLE}"
+            app:backgroundTint="@color/form_button_color"
+            app:cornerRadius="@dimen/_20sdp"
+            tools:ignore="HardcodedText" />
+    </RelativeLayout>
+</layout>
